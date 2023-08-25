@@ -4,8 +4,8 @@
       <div class="self-center">
         <nuxt-img
             :src="imagePath"
-            provider="ipx"
-            width="50px"
+            class="image"
+            :alt="name"
         />
       </div>
       <h2 class="text-[50px]">{{name}}</h2>

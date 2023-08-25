@@ -2,10 +2,10 @@
   <div class="bg-white rounded-md drop-shadow-md hover:drop-shadow-lg transition-all flex flex-row items-center px-3 py-0 place-content-between">
     <div class="flex flex-row">
       <div class="self-center">
-        <nuxt-img
+        <img
             :src="imagePath"
-            provider="ipx"
-            width="50px"
+            class="image"
+            :alt="name"
         />
       </div>
       <h2 class="text-[50px]">{{name}}</h2>
