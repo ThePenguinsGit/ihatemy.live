@@ -5,7 +5,7 @@
         <nuxt-img
             :src="imagePath"
             provider="ipx"
-            sizes="sm:50px"
+            width="50px"
         />
       </div>
       <h2 class="text-[50px]">{{name}}</h2>
