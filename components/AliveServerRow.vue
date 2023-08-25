@@ -25,7 +25,12 @@ const props = defineProps<{
   hostname: string,
   imagePath: string,
 }>();
-const { data: serverStats } = await useFetch<McStatsResultInterface>(`/api/mcStats?host=${props.hostname}`);
+// const { data: serverStats } = await useFetch<McStatsResultInterface>(`/api/mcStats?host=${props.hostname}`);
+const serverStats = {
+  online: false,
+  playerOnline: null,
+  playersMax: null,
+}
 </script>
 
 <script lang="ts">
