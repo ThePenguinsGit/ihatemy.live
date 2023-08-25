@@ -11,4 +11,9 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/image',
   ],
+  image: {
+    cloudflare: {
+      baseURL: 'https://ihatemy-live.pages.dev'
+    }
+  }
 })

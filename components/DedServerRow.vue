@@ -4,7 +4,7 @@
       <div class="self-center">
         <nuxt-img
             :src="imagePath"
-            provider="ipx"
+            provider="cloudflare"
             sizes="sm:50px"
         />
       </div>
