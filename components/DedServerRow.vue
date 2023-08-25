@@ -4,6 +4,7 @@
       <div class="self-center">
         <nuxt-img
             :src="imagePath"
+            provider="ipx"
             sizes="sm:50px"
         />
       </div>
