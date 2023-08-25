@@ -2,7 +2,7 @@
   <div class="bg-white rounded-md drop-shadow-md flex flex-row items-center px-3 py-0 place-content-between">
     <div class="flex flex-row">
       <div class="self-center">
-        <nuxt-img
+        <img
             :src="imagePath"
             class="image"
             :alt="name"
