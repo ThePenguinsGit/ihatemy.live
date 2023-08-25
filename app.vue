@@ -29,10 +29,10 @@ $bg-height: 141px;
 
 /* Main styles */
 #background {
-  -webkit-animation: bg-scrolling 2s infinite;
-  -moz-animation:    bg-scrolling 2s infinite;
-  -o-animation:      bg-scrolling 2s infinite;
-  animation:         bg-scrolling 2s infinite;
+  -webkit-animation: bg-scrolling 5s infinite;
+  -moz-animation:    bg-scrolling 5s infinite;
+  -o-animation:      bg-scrolling 5s infinite;
+  animation:         bg-scrolling 5s infinite;
   -webkit-animation-timing-function: linear;
   -moz-animation-timing-function:    linear;
   -o-animation-timing-function:      linear;
