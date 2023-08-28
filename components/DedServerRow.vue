@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white rounded-md drop-shadow-md flex flex-row items-center px-3 py-0 place-content-between">
-    <div class="flex flex-row">
+  <div class="bg-white rounded-md drop-shadow-md flex flex-col md:flex-row items-center px-3 py-0 place-content-between">
+    <div class="flex flex-row place-content-between w-full md:w-auto">
       <div class="self-center">
         <img
             :src="imagePath"
@@ -8,9 +8,9 @@
             :alt="name"
         />
       </div>
-      <h2 class="text-[50px]">{{name}}</h2>
+      <h2 class="text-3xl lg:text-3xl xl:text-[50px]">{{name}}</h2>
     </div>
-    <div class="flex flex-row gap-2">
+    <div class="flex flex-row gap-2 py-2 place-content-between w-full md:w-auto">
       <div class="self-center">
         <Badge class="bg-sky-400 text-white" :title="reasonOfDeath">ded</Badge>
       </div>
