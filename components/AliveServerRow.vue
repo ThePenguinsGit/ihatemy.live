@@ -27,6 +27,8 @@ const props = defineProps<{
   imagePath: string,
 }>();
 const { data: serverStats } = await useFetch<McStatsResultInterface>(`https://api.ihatemy.live/?hostname=${props.hostname}`);
+
+setInterval(() => refreshNuxtData(), 3000);
 </script>
 
 <script lang="ts">
