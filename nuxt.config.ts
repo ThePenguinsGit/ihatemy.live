@@ -12,7 +12,17 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/devtools',
   ],
-
+  app: {
+    head: {
+      title: 'ihatemy.live',
+      meta: [
+        { name: 'description', content: 'the BEST minecraft Network there is' },
+      ],
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+      ]
+    }
+  },
   image: {
     ipx: {}
   }
