@@ -15,7 +15,7 @@
         <Badge v-if="serverStats.online" class="bg-indigo-400 text-white">alive</Badge>
         <Badge v-else class="bg-red-600 text-white">(currently) ded</Badge>
       </div>
-      <h2 v-if="serverStats.online" class="text-2xl">{{ serverStats?.playerOnline }} / {{ serverStats.playersMax }} Players</h2>
+      <h2 v-if="serverStats.online" class="text-2xl">{{ serverStats?.playersOnline }} / {{ serverStats.playersMax }} Players</h2>
     </div>
   </div>
 </template>
@@ -26,12 +26,7 @@ const props = defineProps<{
   hostname: string,
   imagePath: string,
 }>();
-// const { data: serverStats } = await useFetch<McStatsResultInterface>(`/api/mcStats?host=${props.hostname}`);
-const serverStats = {
-  online: false,
-  playerOnline: null,
-  playersMax: null,
-}
+const { data: serverStats } = await useFetch<McStatsResultInterface>(`https://api.ihatemy.live/?hostname=${props.hostname}`);
 </script>
 
 <script lang="ts">
