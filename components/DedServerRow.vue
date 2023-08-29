@@ -14,18 +14,27 @@
       <div class="self-center">
         <Badge class="bg-sky-400 text-white cursor-default" :title="reasonOfDeath">ded</Badge>
       </div>
-      <a v-if="downloadPath" class="bg-blue-500 drop-shadow-sm px-3 py-1 rounded text-xl text-white hover:bg-blue-600 hover:drop-shadow-md transition-all" :href="downloadPath">Download Map as ZIP ({{sizeInGigaBytes}} GB)</a>
+      <a v-if="downloadPath" class="bg-blue-500 drop-shadow-sm px-3 py-1 rounded text-xl text-white hover:bg-blue-600 hover:drop-shadow-md transition-all" :href="downloadPath">Download Map as ZIP <span v-if="sizeInGigaBytes ?? 0 !== 0">({{sizeInGigaBytes}} GB)</span></a>
       <span v-else class="bg-blue-300 drop-shadow-sm px-3 py-1 rounded text-xl text-white cursor-progress">Download coming soon&trade;</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   name: string,
   downloadPath: null|string,
-  sizeInGigaBytes: null|number
   imagePath: string,
   reasonOfDeath: string,
 }>()
+
+let sizeInGigaBytes = null;
+
+if (props.downloadPath !== null) {
+  const response = await fetch(props.downloadPath, {
+    method: 'HEAD',
+    headers: {'X-HTTP-Method-Override': 'HEAD'},
+  });
+  sizeInGigaBytes = Math.round(((Number.parseInt(response.headers.get('content-length') ?? '') / 1e+9) + Number.EPSILON) * 100) / 100;
+}
 </script>
