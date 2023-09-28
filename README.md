@@ -1,20 +1,15 @@
-# Nuxt 3 Minimal Starter
+# The Penguin Network Landing Page
+The deployed version of this site can be found at [https://ihatemy.live](https://ihatemy.live])
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## What is this for
+It shows an overview of current and obsolete minecraft servers while also giving the ability to download their maps.
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
 ```
 
 ## Development Server
@@ -22,14 +17,7 @@ yarn install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
 ```
 
 ## Production
@@ -37,27 +25,11 @@ yarn dev
 Build the application for production:
 
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
 ```
 
 Locally preview production build:
 
 ```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
