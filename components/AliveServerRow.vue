@@ -12,7 +12,7 @@
     </div>
     <div class="flex flex-row gap-2">
       <div class="self-center">
-        <Badge v-if="serverStats.online" class="bg-indigo-400 text-white">alive</Badge>
+        <Badge v-if="serverStats.online" class="bg-indigo-400 text-white" title="barely">alive</Badge>
         <Badge v-else class="bg-red-600 text-white">(currently) ded</Badge>
       </div>
       <h2 v-if="serverStats.online" class="text-2xl">{{ serverStats.playersOnline }} / {{ serverStats.playersMax }} Players</h2>
