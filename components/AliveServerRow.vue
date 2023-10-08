@@ -26,7 +26,7 @@ const props = defineProps<{
   hostname: string,
   imagePath: string,
 }>();
-const { data: serverStats, refresh } = await useFetch<McStatsResultInterface>(`https://api.ihatemy.live/?hostname=${props.hostname}`);
+const { data: serverStats, refresh } = useFetch<McStatsResultInterface>(`https://api.ihatemy.live/?hostname=${props.hostname}`);
 
 setInterval(() => refresh(), 3000);
 </script>

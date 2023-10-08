@@ -28,13 +28,12 @@ const props = defineProps<{
   reasonOfDeath: string,
 }>()
 
-let sizeInGigaBytes = null;
+const sizeInGigaBytes = useState('sizeInGigaBytes' + props.name, () => 0)
 
 if (props.downloadPath !== null) {
-  const response = await fetch(props.downloadPath, {
+  fetch(props.downloadPath, {
     method: 'HEAD',
     headers: {'X-HTTP-Method-Override': 'HEAD'},
-  });
-  sizeInGigaBytes = Math.round(((Number.parseInt(response.headers.get('content-length') ?? '') / 1e+9) + Number.EPSILON) * 100) / 100;
+  }).then(response => sizeInGigaBytes.value = Math.round(((Number.parseInt(response.headers.get('content-length') ?? '') / 1e+9) + Number.EPSILON) * 100) / 100);
 }
 </script>
