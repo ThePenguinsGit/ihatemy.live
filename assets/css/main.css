@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+div:has(> .image) {
+    @apply w-14;
+}
+
 .image {
-    @apply max-h-[50px] max-w-[50px];
+    @apply max-h-[50px] max-w-[50px] block mx-auto;
 }
