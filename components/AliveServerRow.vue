@@ -15,7 +15,7 @@
         <Badge v-if="serverStats.online && serverStats.playersMax > 0" class="bg-indigo-400 text-white" title="barely">alive</Badge>
         <Badge v-else class="bg-red-600 text-white">(currently) ded</Badge>
       </div>
-      <h2 v-if="serverStats.online" class="text-2xl">{{ serverStats.playersOnline }} / {{ serverStats.playersMax }} Players</h2>
+      <h2 v-if="serverStats.online && serverStats.playersMax > 0" class="text-2xl">{{ serverStats.playersOnline }} / {{ serverStats.playersMax }} Players</h2>
     </div>
   </div>
 </template>
