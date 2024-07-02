@@ -8,7 +8,7 @@
     </div>
     <div class="flex flex-col gap-5 flex-grow">
       <AliveServerRow name="All The Mods 9" image-path="/img/atm9.png" hostname="atm9.ihatemy.live"/>
-      <DedServerRow name=" 🦀" reason-of-death="died of dead" image-path="/img/crab.png" download-path="https://map-storage.ihatemy.live/maps/crab.zip" hostname="crab.ihatemy.live" />
+      <DedServerRow name=" 🦀" reason-of-death="died of dead" image-path="/img/crab.png" download-path="https://map-storage.ihatemy.live/maps/crab.zip" />
       <DedServerRow name="MC Eternal 2" reason-of-death="shitted and cummed" image-path="/img/mce2.png" download-path="https://map-storage.ihatemy.live/maps/mce2.zip" />
       <DedServerRow name="MC Eternal" reason-of-death="died of robot uprising" image-path="/img/mce.png" download-path="https://map-storage.ihatemy.live/maps/mce.zip" />
       <DedServerRow name="SkyFactory 4" reason-of-death="died of boredom" image-path="/img/sf4.png" download-path="https://map-storage.ihatemy.live/maps/sf4.zip" />
