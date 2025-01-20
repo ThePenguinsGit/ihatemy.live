@@ -2,16 +2,19 @@
 export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+
   modules: [
     '@nuxt/image',
     '@nuxt/devtools',
   ],
+
   app: {
     head: {
       title: 'ihatemy.live',
@@ -23,7 +26,16 @@ export default defineNuxtConfig({
       ]
     }
   },
+
+  runtimeConfig: {
+    public: {
+      discordUrl: 'https://discord.gg/tM4urb5SPQ' 
+    }
+  },
+
   image: {
     ipx: {}
-  }
+  },
+
+  compatibilityDate: '2025-01-20'
 })
