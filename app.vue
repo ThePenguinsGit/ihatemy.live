@@ -1,8 +1,7 @@
 <template>
   <div id="background" class="w-full min-h-screen bg-[url('/img/background.png')] bg-repeat">
-    <div class="w-full bg-red-300 shadow-md py-4 px-2 flex flex-row fixed h-24 top-0 z-10">
-      <img src="/img/crab.png" class="max-h-[75px] max-w-[75px]" alt="crap"/>
-      <h1 class="text-[50px] ml-4 -mt-1">The Penguins</h1>
+    <div class="w-full bg-secondary shadow-md py-4 px-2 flex flex-row fixed h-24 top-0 z-10">
+      <img src="/img/logo.png" class="max-h-[75px]" alt="Penguins Network"/>
     </div>
     <div class="pt-24">
       <NuxtPage class="p-4" />
