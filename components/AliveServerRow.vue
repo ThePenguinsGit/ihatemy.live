@@ -15,11 +15,11 @@
     </div>
     <div class="flex flex-row gap-2">
       <div class="self-center">
-        <Badge v-if="serverStats.online && serverStats.playersMax > 0" class="bg-indigo-400 text-white" title="barely">alive</Badge>
+        <Badge v-if="serverStats.online && serverStats.playersMax > 0" class="bg-green-600 text-white" title="barely">alive</Badge>
         <Badge v-else class="bg-red-600 text-white">(currently) ded</Badge>
       </div>
       <div v-if="mapUrl !== undefined">
-        <a :href="mapUrl" class="bg-blue-500 drop-shadow-sm px-3 py-1 rounded text-xl text-white hover:bg-blue-600 hover:drop-shadow-md transition-all">Live Map</a>
+        <a :href="mapUrl" class="bg-secondary drop-shadow-sm px-3 py-1 rounded text-xl text-white hover:bg-secondaryLight hover:drop-shadow-md transition-all">Live Map</a>
       </div>
       <h2 v-if="serverStats.online && serverStats.playersMax > 0" class="text-2xl">{{ serverStats.playersOnline }} / {{ serverStats.playersMax }} Players</h2>
     </div>
