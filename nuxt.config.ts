@@ -23,7 +23,8 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-      ]
+      ],
+      script: [{ hid: "stripe", src: "https://storage.ko-fi.com/cdn/scripts/overlay-widget.js", defer: true }],
     }
   },
 

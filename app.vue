@@ -9,9 +9,17 @@
   </div>
 </template>
 <script setup lang="ts">
+onMounted(() => {
+window.kofiWidgetOverlay.draw('penguinnetwork', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support us',
+    'floating-chat.donateButton.background-color': '#2B303A',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+});
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 $bg-width: -264px;
 $bg-height: 141px;
 
@@ -39,4 +47,5 @@ $bg-height: 141px;
   -o-animation-timing-function:      linear;
   animation-timing-function:         linear;
 }
+
 </style>
