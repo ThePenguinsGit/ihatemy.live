@@ -14,7 +14,7 @@
       <div class="self-center">
         <Badge class="bg-black text-white cursor-default" :title="reasonOfDeath">ded</Badge>
       </div>
-      <a v-if="downloadPath" class="bg-secondary drop-shadow-sm px-3 py-1 rounded text-xl text-white hover:bg-secondaryLight hover:drop-shadow-md transition-all" :href="downloadPath">Download Map as ZIP <span v-if="sizeInGigaBytes ?? 0 !== 0">({{sizeInGigaBytes}} GB)</span></a>
+      <a v-if="downloadPath" class="bg-secondary drop-shadow-sm px-3 py-1 rounded text-xl text-white hover:bg-secondaryLight hover:drop-shadow-md transition-all" :href="downloadPath">Download Map <span v-if="sizeInGigaBytes ?? 0 !== 0">({{sizeInGigaBytes}} GB)</span></a>
       <span v-else class="bg-blue-300 drop-shadow-sm px-3 py-1 rounded text-xl text-white cursor-progress">Download coming soon&trade;</span>
     </div>
   </div>
