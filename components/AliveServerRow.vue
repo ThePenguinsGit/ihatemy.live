@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white rounded-md drop-shadow-md hover:drop-shadow-lg transition-all flex flex-row items-center px-3 py-0 place-content-between">
-    <div class="flex flex-row">
+  <div class="bg-white rounded-md drop-shadow-md hover:drop-shadow-lg transition-all flex flex-col lg:flex-row items-center px-3 py-0 place-content-between">
+    <div class="flex flex-row place-content-between w-full text-right md:text-left lg:w-auto">
       <div class="self-center">
         <img
             :src="imagePath"
@@ -9,11 +9,11 @@
         />
       </div>
       <div>
-        <h2 class="text-[50px]">{{name}}</h2>
+        <h2 class="text-[40px] md:text-[50px]">{{name}}</h2>
         <div role="doc-subtitle" class="relative -top-4 -mb-2 text-lg cursor-pointer hover:underline" title="Click to copy" @click="copyToClipboard">{{ hostname }}</div>
       </div>
     </div>
-    <div class="flex flex-row gap-2">
+    <div class="flex flex-row gap-2 place-content-between w-full lg:w-auto">
       <div class="self-center">
         <Badge v-if="serverStats.online && serverStats.playersMax > 0" class="bg-green-600 text-white" title="barely">alive</Badge>
         <Badge v-else class="bg-red-600 text-white">(currently) ded</Badge>
@@ -44,4 +44,7 @@ const copyToClipboard = (event: PointerEvent) => {
   if (target === null) return;
   navigator.clipboard.writeText(target.innerText)
 }
+</script>
+
+<script lang="ts">
 </script>
