@@ -7,7 +7,7 @@
       </a>
     </div>
     <div class="flex flex-col gap-5 flex-grow">
-      <AliveServerRow name="All The Mods 10???" image-path="/img/atm10.png" hostname="atm10.ihatemy.live" mapUrl='https://atm10.ihatemy.live' class="line-through"/>
+      <AliveServerRow name="All The Mods 10???" image-path="/img/atm10.png" hostname="atm10.ihatemy.live" mapUrl='https://atm10.ihatemy.live'/>
       <AliveServerRow name="All The Mods 9" image-path="/img/atm9.png" hostname="atm9.ihatemy.live" mapUrl='https://atm9.ihatemy.live'/>
       <DedServerRow name=" 🦀" reason-of-death="died of dead" image-path="/img/crab.png" download-path="https://map-storage.ihatemy.live/maps/crab.zip" />
       <DedServerRow name="MC Eternal 2" reason-of-death="shitted and cummed" image-path="/img/mce2.png" download-path="https://map-storage.ihatemy.live/maps/mce2.zip" />
