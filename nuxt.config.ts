@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/image',
     '@nuxt/devtools',
+    '@nuxt/content',
   ],
 
   app: {

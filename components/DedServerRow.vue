@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded-md drop-shadow-md flex flex-col md:flex-row items-center px-3 py-2 place-content-between">
+  <div class="card flex flex-col md:flex-row place-content-between">
     <div class="flex flex-row place-content-between w-full md:w-auto">
       <div class="self-center">
         <img
