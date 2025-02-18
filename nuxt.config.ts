@@ -15,7 +15,12 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/devtools',
     '@nuxt/content',
+    'dayjs-nuxt',
   ],
+
+  dayjs: {
+    plugins: ['utc', 'timezone', 'duration'],
+  },
 
   app: {
     head: {
@@ -36,7 +41,7 @@ export default defineNuxtConfig({
     }
   },
   routeRules: {
-    '/api/**': { proxy: 'https://penguin-bot.ihatemy.live/**' },
+    '/api/playtime': { proxy: 'https://penguin-bot.ihatemy.live/playtime' },
   },
 
   image: {

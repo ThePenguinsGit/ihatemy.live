@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "NUXT_HOST=127.0.0.1 nuxt dev",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -13,6 +13,7 @@
     "@nuxt/image": "^1.0.0-rc.1",
     "@types/node": "^18.17.3",
     "autoprefixer": "^10.4.15",
+    "dayjs-nuxt": "^2.1.11",
     "nuxt": "^3.11.2",
     "postcss": "^8.4.31",
     "sass": "^1.66.1",
