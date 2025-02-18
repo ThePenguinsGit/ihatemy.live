@@ -19,6 +19,10 @@
                     <td>{{ data.currentLevel }}</td>
                   </tr>
                   <tr>
+                    <th>Next Level in</th>
+                    <td>{{ formatTime(data.timeToNextLevel - data.playTimeSum) }}</td>
+                  </tr>
+                  <tr>
                     <th>Total Playtime</th>
                     <td>{{ formatTime(data.playTimeSum) }}</td>
                   </tr>
@@ -63,7 +67,7 @@ const { data, error } = await useFetch<PlayTimeResultInterface|null>('/api/playt
   query: {  name: username }
 })
 
-const formatTime = (time: number) => '~ ' + useDayjs().duration(time, 'seconds').humanize()
+const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').humanize()
 
 watch(error, () => {
   console.log(error.value?.statusMessage)
