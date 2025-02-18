@@ -39,5 +39,9 @@ export default defineNuxtConfig({
     ipx: {}
   },
 
+  nitro: {
+    preset: 'cloudflare_pages',
+  },
+
   compatibilityDate: '2025-01-20'
 })
