@@ -1,20 +1,33 @@
 ---
 title: 'Ranks'
 ---
-Level up bonuses!  
-(Commands dont have cooldown unless specified)  
+::row
+
+::card
+## Level up bonuses!
+_(Commands dont have cooldown unless specified)_
 <br>
-| LEVEL     | PERKS                                       | Homepoints | AFK Kick |
-|-----------|---------------------------------------------|------------|----------|
-| Level 5   | extinguish~ doesnt exist as extinguish self | 2          | 10 min   |
-| Level 10  | /craft, /nick                               | 3          | 15 min   |
-| Level 20  | /enderchest, nick with colors               | 4          | 20 min   |
-| Level 25  | /itemname                                   |            |          |
-| Level 30  | /feed - 10 min cooldown, chat colors        | 5          |          |
-| Level 35  | /anvil                                      |            |          |
-| Level 40  | /heal - 10 min cooldown, nick styles        |            |          |
-| Level 50  | /feed, chat styles                          |            | 60 min   |
-| Level 60  | /lore                                       |            |          |
-| Level 80  | /heal                                       |            |          |
-| Level 90  | /fly                                        |            |          |
-| Level 100 | /god (doesnt work in PVP)                   |            |          |  
+| LEVEL     | PERKS                                       | Homepoints |
+|-----------|---------------------------------------------|------------|
+| Level 5   | /nick                                       |            |
+| Level 10  |                                             | 2          |
+| Level 20  | /enderchest & nick colors                   |            |
+| Level 25  | /kit bread                                  | 3          |
+| Level   30|                                             |            |
+| Level   35|                                             | 4          |
+| Level   40| /heal - 10 min cooldown,                    |            |
+| Level   50| /feed, chat colours                         | 5          |
+| Level   60|                                             |            |
+| Level   80| /heal                                       |            |
+| Level   90|                                             |            |
+| Level  100|                                             |            |
+| Level  200|                                             |            |
+| Level  300| /fly                                        |            |
+| Level  400|                                             |            |
+| Level  500| /god (doesnt work in PVP)                   |            |
+| Level  600|                                             |            |
+| Level  700|                                             |            |
+| Level  800|                                             |            |
+| Level  900|                                             |            |
+| Level 1000|  Bragging rights                            |            |
+::

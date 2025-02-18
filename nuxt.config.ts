@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
+  experimental: { appManifest: false },
 
   postcss: {
     plugins: {
@@ -34,13 +35,12 @@ export default defineNuxtConfig({
       discordUrl: 'https://discord.gg/tM4urb5SPQ' 
     }
   },
+  routeRules: {
+    '/api/**': { proxy: 'https://penguin-bot.ihatemy.live/**' },
+  },
 
   image: {
     ipx: {}
-  },
-
-  nitro: {
-    preset: 'cloudflare_pages',
   },
 
   compatibilityDate: '2025-01-20'
