@@ -31,3 +31,6 @@ _(Commands dont have cooldown unless specified)_
 | Level  900|                                             |            |
 | Level 1000|  Bragging rights                            |            |
 ::
+
+::levelLookup
+::
