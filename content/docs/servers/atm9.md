@@ -1,14 +1,14 @@
 ---
-title: 'ATM10'
-pageTitle: 'All the Mods 10'
+title: 'ATM9'
+pageTitle: 'All the Mods 9'
 ---
 ::row
 
 ::card
 |     |                             |
 |-----|-----------------------------|
-| IP  |    atm10.ihatemy.live       |
-| Map | <a href="https://atm10.ihatemy.live" target="_blank">https://atm10.ihatemy.live</a> |
+| IP  |    atm9.ihatemy.live       |
+| Map | <a href="https://atm9.ihatemy.live" target="_blank">https://atm9.ihatemy.live</a> |
 ::
 
 ::card
@@ -25,23 +25,18 @@ You can access it by running `/warp farmworld`
 ::row
 ::card
 ## Worldborders
-Most(!) dimensions have a world border of 20k! (-10000, 10000 to 10000,-10000)  
+Most(!) dimensions have a world border of 10k! (-5000, 5000 to 5000,-5000)  
 There are exceptions:
-### 10k:
-- The End
-- The Other Side
-- The Bumblezone
-- The Twilight Forest
-- The Undergarden
-### 16k:
+### 20k:
 - The Farmworld
+### 25k:
+- The End
 ::
 ::card
 ## Dimension Resets
 The following Dimensions will reset every Monday at 00:00 CEST:
 - Twilight Forest
 - The Other Side
-- The Starlight
 - The Other
 - The Nether
 - The End
