@@ -1,11 +1,8 @@
 <template>
-  <div class="row flex flex-col md:flex-row gap-2">
-    <slot />
+  <div class="row grid grid-cols-1 md:grid-cols-2 gap-2">
+    <slot mdc-unwrap="p" />
   </div>
 </template>
 
 <style>
-.row > p {
-  @apply flex flex-col md:flex-row gap-2;
-}
 </style>

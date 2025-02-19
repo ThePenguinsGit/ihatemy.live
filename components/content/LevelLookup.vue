@@ -1,9 +1,10 @@
 <template>
   <div>
-    <Card class="w-96">
+    <Card class="w-full ">
       <div>
-        <input type="text" class="w-full px-2 my-1 bg-gray-300 rounded-sm placeholder:text-gray-700 placeholder:italic border-black border border-solid" :spellcheck="false" v-model="username" placeholder="Username">
-        <hr class="pb-2 mt-1">
+        <h2>Check your progress</h2>
+        <input type="text" autocomplete="off" class="w-full px-2 my-1 bg-gray-300 rounded-sm placeholder:text-gray-700 placeholder:italic border-black border border-solid" :spellcheck="false" v-model="username" placeholder="Username">
+        <hr class="pb-2 mt-1" v-if="username.length > 0">
         <div v-if="data" class="flex flex-col gap-2 items-center">
           <div class="flex flex-row gap-2 items-center place-content-around w-full">
             <img :src="`https://crafatar.com/avatars/${data.uuid}`" alt="Player Avatar" class="rounded-md w-24 h-24">
@@ -45,7 +46,7 @@
             </tbody>
           </table>
         </div>
-        <div v-if="error && error.statusCode === 404">
+        <div v-if="error && error.statusCode === 404 && username.length > 0">
           <div class="text-center">
             <p>I have never seen that user in my LIFE</p>
             <p>Try another username</p>
@@ -61,7 +62,7 @@
 <script lang="ts" setup>
 import type PlayTimeResultInterface from '~/interfaces/PlayTimeResultInterface';
 
-const username = ref<string>('dukcc');
+const username = ref<string>('');
 const { data, error } = await useFetch<PlayTimeResultInterface|null>('/api/playtime', {
   immediate: true,
   query: {  name: username }
