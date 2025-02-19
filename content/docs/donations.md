@@ -1,12 +1,16 @@
 ---
 title: 'Donations'
+position: 2
 ---
 ::card
 If you want to help us fund our current and future Minecraft Hosting endeavours, you can support us via <a href='https://ko-fi.com/penguinnetwork' target="_blank">ko-fi</a>.  
-As a reward you can get
-- early access to new Modpack Servers
-- exclusive Prefixes in chat
-- custom made merchandise
+It helps us to keep the servers running and to expand our Network.  
+As a reward you may get
+- Access to the Donator Discord Channel
+- Early access to new Modpack Servers
+- Exclusive Prefixes in chat
+- Custom made merchandise  
+depending on your tier
 ::
 
 ::card

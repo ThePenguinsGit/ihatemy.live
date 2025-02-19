@@ -3,6 +3,7 @@ import NavigationEntry from '~/components/NavigationEntry.vue';
 
 const { data: navigation } = await useAsyncData('navigation', () => {
   return queryCollectionNavigation('docs')
+      .order('position', 'ASC')
 })
 const route = useRoute()
 const { data: page } = await useAsyncData(route.path, () => {
@@ -11,13 +12,13 @@ const { data: page } = await useAsyncData(route.path, () => {
 </script>
 
 <template>
-  <div class="flex flex-row gap-4">
-    <nav class="card w-48 block h-fit">
+  <div class="flex flex-col md:flex-row gap-4">
+    <nav class="card w-full md:w-48 block h-fit">
       <ul v-if="navigation">
         <NavigationEntry v-for="item in navigation[0].children" :navigation-item="item" :level="0"/>
       </ul>
     </nav>
-    <div class="flex flex-col gap-2 max-w-96">
+    <div class="flex flex-col gap-2 max-w-full w-[70rem]">
       <template v-if="page">
         <Card class="text-4xl flex-none text-center">{{ page.pageTitle ?? page.title }}</Card>
         <ContentRenderer :value="page" class="content flex flex-col gap-2"/>
