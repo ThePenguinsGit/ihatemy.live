@@ -1,13 +1,12 @@
 ---
 title: 'Rules'
 position: 1
-pageTitle: 'Rules of Conduct'
+pageTitle: 'Server Rules! '
 ---
 
 
 ::card
 
-# Server Rules! 
 - Obviously follow Discord's global rules! They can be found here https://discordapp.com/terms
 - No NSFW Content!
 - Streaming to Twitch and other streaming websites is allowed on this server!
@@ -19,7 +18,7 @@ pageTitle: 'Rules of Conduct'
 - No bypassing AFK-Kick (FTB Chunkloading works if any teammate is online)
 - Try to work with ender chests a lot instead of item pipes -> they are a lot faster than any pipes anyways so..
 - Excessive factories breed bad habits and lower the TPS!
-(5 laser drills -> need more ore processing -> need more ME system space ... you know what I mean)
+(5 quarries -> need more ore processing -> need more ME system space ... you know what I mean)
 - Oh and most importantly, accept everyone, as long as no one gets hurt!
 -  Don't go claiming a huge area of the map without using it!
 - Don't actively *try * to make the map ugly (No empty, quarried out areas for example)
