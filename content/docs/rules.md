@@ -1,7 +1,7 @@
 ---
 title: 'Rules'
 position: 1
-pageTitle: 'Server Rules! '
+pageTitle: 'Server Rules'
 ---
 
 
@@ -18,7 +18,7 @@ pageTitle: 'Server Rules! '
 - No bypassing AFK-Kick (FTB Chunkloading works if any teammate is online)
 - Try to work with ender chests a lot instead of item pipes -> they are a lot faster than any pipes anyways so..
 - Excessive factories breed bad habits and lower the TPS!
-(5 quarries -> need more ore processing -> need more ME system space ... you know what I mean)
+(5 quarries -> need more ore processing -> need more ME system space)
 - Oh and most importantly, accept everyone, as long as no one gets hurt!
 -  Don't go claiming a huge area of the map without using it!
 - Don't actively *try * to make the map ugly (No empty, quarried out areas for example)
