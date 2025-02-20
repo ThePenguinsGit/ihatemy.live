@@ -1,8 +1,9 @@
 ---
 title: 'Rules'
 position: 1
+pageTitle: 'Rules of Conduct'
 ---
-::row
+
 
 ::card
 
