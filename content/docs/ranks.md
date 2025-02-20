@@ -21,7 +21,7 @@ _(Commands dont have cooldown unless specified)_
 | Level 60  |                                             |            |                    | 60          | 
 | Level 80  | /heal                                       |            |                    | 80          | 
 | Level 90  |                                             |            |                    | 90          | 
-| Level 100 |                                             | 20         | 20                 | 100         | 
+| Level 100 |                                             |            | 20                 | 100         | 
 | Level 150 |                                             |            | 25                 | 150         | 
 | Level 200 |                                             |            | 30                 |             | 
 | Level 250 |                                             |            | 35                 |             | 
