@@ -24,15 +24,14 @@ Here's some of the stuff you might get when you support us
 ![Kinfe Penguin Holo Sticker](/img/docs/knife-holo-sticker.jpg "Ooooooo shiny!")
 ::
 ::card
-| Benefits           |Contributor|Preserver|Sponsor|Founder|Benefactor|Sorcerer|Angel |
-|--------------------|:---------:|:-------:|:-----:|:-----:|:--------:|:------:|:----:|
-| Nickname colors    |✅         |✅      |✅     |✅     |✅        |✅      |✅    |
-| Chat colors        |           |✅      |✅     |✅     |✅        |✅      |✅    |
-| Chat formatting    |           |        |✅     |✅     |✅        |✅      |✅    |
-| Nickname formatting|           |        |✅     |✅     |✅        |✅      |✅    |
-| Chat gradients     |           |        |       |       |✅        |✅       |✅    |
-| Nickname gradients |           |        |       |       |          |✅       |✅    |
-| Corn               |   🌽      |  🌽   |  🌽   | 🌽 🌽🌽   | 🌽🌽🌽🌽🌽🌽       |🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽       |🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽🌽    |
+| Benefits           |Contributor|Server Preserver|Stellar Sponsor|Founder|Booty Benefactor|Server Sorcerer|Angel Investor |
+|--------------------|:---------:|:--------------:|:-------------:|:-----:|:--------------:|:-------------:|:-------------:|
+| Nickname colors    |✅         |✅             |✅             |✅     |✅             |✅             |✅             |
+| Chat colors        |           |✅             |✅             |✅     |✅             |✅             |✅             |
+| Chat formatting    |           |               |✅             |✅     |✅             |✅             |✅             |
+| Nickname formatting|           |               |✅             |✅     |✅             |✅             |✅             |
+| Chat gradients     |           |               |               |       |✅             |✅              |✅             |
+| Nickname gradients |           |               |               |       |               |✅              |✅             |
 ::
 ::card
 <p class="flex flex-wrap justify-center items-center gap-4">
