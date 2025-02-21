@@ -62,7 +62,11 @@
 <script lang="ts" setup>
 import type PlayTimeResultInterface from '~/interfaces/PlayTimeResultInterface';
 
-const username = ref<string>('');
+const route = useRoute();
+const reactiveQuery = computed(() => route.query.name);
+const username = ref<string>(useRoute().query.name as string ?? '');
+watch(reactiveQuery, () => username.value = reactiveQuery.value as string ?? '');
+
 const { data, error } = await useFetch<PlayTimeResultInterface|null>('/api/playtime', {
   immediate: true,
   query: {  name: username }
