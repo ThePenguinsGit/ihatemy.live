@@ -6,7 +6,7 @@
         <NuxtLink class="text-3xl block text-white leading-[2] hover:underline" to="/docs">Docs</NuxtLink>
       </div>
     </div>
-    <div class="pt-24 min-h-screen">
+    <div class="pt-24 pb-14 min-h-screen">
       <NuxtPage class="p-4" />
     </div>
   </div>
