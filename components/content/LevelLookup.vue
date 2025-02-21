@@ -8,7 +8,7 @@
         <div v-if="data" class="flex flex-col gap-2 items-center">
           <i>Refreshed {{$dayjs(data.time).local().format('DD.MM.YYYY HH:mm')}}</i>
           <div class="flex flex-row gap-2 items-center place-content-around w-full">
-            <img :src="`https://crafatar.com/avatars/${data.data.uuid}`" alt="Player Avatar" class="rounded-md w-24 h-24">
+            <img :src="`https://crafatar.com/avatars/${data.data.uuid}?overlay`" alt="Player Avatar" class="rounded-md w-24 h-24">
             <div>
               <table>
                 <tbody>
