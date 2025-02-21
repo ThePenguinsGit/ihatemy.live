@@ -28,6 +28,7 @@
 
 <script setup lang="ts">
 import type McStatsResultInterface from '~/interfaces/McStatsResultInterface';
+import appConfig from "~/app.config";
 
 
 const props = defineProps<{
@@ -37,9 +38,14 @@ const props = defineProps<{
   mapUrl?: undefined|string,
 }>();
 const { data: serverStats, refresh } = useFetch<McStatsResultInterface>(`https://api.ihatemy.live/?hostname=${props.hostname}`);
-onMounted(() => {
-  setInterval(() => refresh(), 3000);
+
+let interval: ReturnType<typeof setInterval>
+onNuxtReady(() => {
+  interval = setInterval(() => refresh(), 3000);
 });
+onBeforeUnmount(() => {
+  window.clearInterval(interval)
+})
 
 const copyToClipboard = (event: MouseEvent) => {
   const target = event.target as HTMLDivElement|null;
