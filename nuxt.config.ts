@@ -12,7 +12,6 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxt/image',
     '@nuxt/devtools',
     '@nuxt/content',
     'dayjs-nuxt',
@@ -43,10 +42,6 @@ export default defineNuxtConfig({
   routeRules: {
     '/api/playtime': { proxy: 'https://penguin-bot.ihatemy.live/playtime' },
     '/api/leaderboard': { proxy: 'https://penguin-bot.ihatemy.live/leaderboard' },
-  },
-
-  image: {
-    ipx: {}
   },
 
   compatibilityDate: '2025-01-20'
