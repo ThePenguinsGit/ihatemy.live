@@ -1,5 +1,6 @@
 <template>
   <Card v-if="data">
+   <h1>Top 10</h1>
     <div class="flex justify-between">
       <i>Of the last 30 days</i>
       <i>Refreshed {{$dayjs(data.time).local().format('DD.MM.YYYY HH:mm')}}</i>
