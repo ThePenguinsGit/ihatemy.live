@@ -1,8 +1,11 @@
 <template>
   <div class="card">
-    <slot mdc-unwrap="p" />
+    <slot />
   </div>
 </template>
 
-<style scoped>
+<style>
+.card > table {
+  @apply w-full;
+}
 </style>
