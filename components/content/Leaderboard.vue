@@ -1,5 +1,5 @@
 <template>
-  <Card v-if="data">
+  <Card v-if="data" class="items-start">
    <h1>Top 10</h1>
     <div class="flex justify-between">
       <i>Of the last 30 days</i>

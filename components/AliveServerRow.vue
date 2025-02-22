@@ -28,8 +28,6 @@
 
 <script setup lang="ts">
 import type McStatsResultInterface from '~/interfaces/McStatsResultInterface';
-import appConfig from "~/app.config";
-
 
 const props = defineProps<{
   name: string,
