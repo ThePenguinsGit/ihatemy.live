@@ -49,3 +49,12 @@ The following Dimensions will reset every Monday at 00:00 CEST:
 Please do keep in mind that loot chests in the world are per-player, per-chest so everyone has their own unique loot!  
 Also do keep in mind, that these World borders can always be expanded if we need more space!
 ::
+::card
+## Banned Items
+- Applied Energestics 2: Spatial Anchor
+- Mekanism: Dimensional Stabilizer, Anchor Upgrade
+- Pneumaticcraft: Chunkloader Upgrade
+- Industrial Foregoing: Infinity Nuke
+- Create: Schematicannon
+- Quarry Plus: Chunk Destroyer
+::
