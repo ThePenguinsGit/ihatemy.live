@@ -11,11 +11,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: [
-    '@nuxt/devtools',
-    '@nuxt/content',
-    'dayjs-nuxt',
-  ],
+  modules: ['@nuxt/devtools', '@nuxtjs/sitemap', '@nuxt/content', 'dayjs-nuxt'],
 
   vite: {
     server: {
