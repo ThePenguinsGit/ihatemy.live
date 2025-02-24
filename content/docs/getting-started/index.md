@@ -43,7 +43,7 @@ We'll take a look asap
 ::card
 ## Got a feature idea?
 We'd love to hear more ways to stand out and make our Community proud.  
-Please share your ideas with us on Discord in [suggestions](https://discord.com/channels/637719625274228743/1151595305872146652)
+Please share your ideas with us on Discord in [#suggestions](https://discord.com/channels/637719625274228743/1151595305872146652)
 ::
 
 ::
