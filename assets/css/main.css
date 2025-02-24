@@ -9,3 +9,7 @@ div:has(> .image) {
 .image {
     @apply max-h-[50px] max-w-[50px] block mx-auto;
 }
+
+.card {
+    @apply bg-white rounded-md drop-shadow-md items-center px-3 py-2;
+}

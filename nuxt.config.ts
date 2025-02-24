@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
+  experimental: { appManifest: false },
 
   postcss: {
     plugins: {
@@ -10,10 +11,17 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: [
-    '@nuxt/image',
-    '@nuxt/devtools',
-  ],
+  modules: ['@nuxt/devtools', '@nuxtjs/sitemap', '@nuxt/content', 'dayjs-nuxt'],
+
+  vite: {
+    server: {
+      allowedHosts: ['e0ba-109-91-157-17.ngrok-free.app']
+    }
+  },
+
+  dayjs: {
+    plugins: ['utc', 'timezone', 'duration'],
+  },
 
   app: {
     head: {
@@ -33,9 +41,9 @@ export default defineNuxtConfig({
       discordUrl: 'https://discord.gg/tM4urb5SPQ' 
     }
   },
-
-  image: {
-    ipx: {}
+  routeRules: {
+    '/api/playtime': { proxy: 'https://penguin-bot.ihatemy.live/playtime' },
+    '/api/leaderboard': { proxy: 'https://penguin-bot.ihatemy.live/leaderboard' },
   },
 
   compatibilityDate: '2025-01-20'
