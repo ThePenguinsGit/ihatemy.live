@@ -12,9 +12,8 @@ Here you can find everything you need to know about our Network
 
 ::card
 ## Linking
-You can link your Minecraft and Discord account by running `/link` in-game.  
-Afterwards follow the instructions in chat to complete the process.  
-Now you can also show off your rank in Discord!
+You can link your Minecraft and Discord account.  
+Check out the [Linking](/docs/getting-started/linking) page for more information!
 ::
 
 ::card

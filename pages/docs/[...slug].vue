@@ -13,7 +13,7 @@ const { data: page } = await useAsyncData(route.path, () => {
 
 <template>
   <div class="flex flex-col md:flex-row gap-4">
-    <nav class="card w-full md:w-48 block h-fit">
+    <nav class="card w-full md:w-56 block h-fit">
       <ul v-if="navigation">
         <NavigationEntry v-for="item in navigation[0].children" :navigation-item="item" :level="0"/>
       </ul>
@@ -71,5 +71,9 @@ code {
 
 ul {
   @apply list-disc list-inside;
+}
+
+ol {
+  @apply list-decimal list-inside;
 }
 </style>
