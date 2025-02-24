@@ -1,5 +1,5 @@
 <template>
-  <div id="background" class="w-full min-h-screen bg-[url('/img/background.png')] bg-repeat">
+  <div id="background" class="w-full min-h-screen">
     <div class="w-full bg-secondary shadow-md py-4 px-2 flex flex-row fixed h-24 top-0 z-10 place-content-between">
       <NuxtLink to="/"><img src="/img/logo.png" class="max-h-[70px]"  alt="Penguins Network"/></NuxtLink>
       <div class="mr-4">
@@ -40,7 +40,8 @@ $bg-height: 141px;
 }
 
 /* Main styles */
-#background {
+body {
+  background: url('/img/background.png') repeat fixed;
   -webkit-animation: bg-scrolling 5s infinite;
   -moz-animation:    bg-scrolling 5s infinite;
   -o-animation:      bg-scrolling 5s infinite;
