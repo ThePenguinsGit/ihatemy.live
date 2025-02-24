@@ -34,7 +34,7 @@ Here's some of the stuff you might get when you support us
 | Nickname gradients |           |               |                |               |✅              |✅             |✅     |
 ::
 ::card
-<p class="flex flex-wrap justify-center items-center gap-4">
+<p class="flex flex-wrap justify-center justify-between gap-4">
 <img style="width: 18%;" src="/img/docs/tiers/preserver.png">  
 <img style="width: 18%;" src="/img/docs/tiers/sponsor.png">  
 <img style="width: 18%;" src="/img/docs/tiers/booty.png">
