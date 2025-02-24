@@ -1,6 +1,6 @@
 ---
 title: 'Donations'
-position: 2
+position: 3
 ---
 ::card
 If you want to help us fund our current and future Minecraft Hosting endeavours, you can support us via <a href='https://ko-fi.com/penguinnetwork'  target="_blank">Ko-fi</a>.

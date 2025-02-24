@@ -1,6 +1,6 @@
 ---
 title: 'Ranks'
-position: 1
+position: 4
 ---
 ::card
 ## Level up bonuses!

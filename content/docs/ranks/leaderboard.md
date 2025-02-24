@@ -1,6 +1,6 @@
 ---
 title: 'Leaderboard'
-position: 1
+position: 4
 ---
 
 ::row

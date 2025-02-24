@@ -17,6 +17,12 @@ export default defineNuxtConfig({
     'dayjs-nuxt',
   ],
 
+  vite: {
+    server: {
+      allowedHosts: ['e0ba-109-91-157-17.ngrok-free.app']
+    }
+  },
+
   dayjs: {
     plugins: ['utc', 'timezone', 'duration'],
   },
