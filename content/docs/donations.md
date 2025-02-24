@@ -10,14 +10,14 @@ As a reward you may get
 - Access to the Donator Discord Channel
 - Early access to new Modpack Servers
 - Exclusive Prefixes in chat
-- Custom made merchandise  
+- Custom-made merchandise  
 depending on your tier!
-One-off donations are also always welcome! You can even join the **current** pre-release server with donations of 5€ or above!
+One-off donations are also always welcome! You can even join the **current** pre-release server with donations of 5€ or above!  
 Anyone who donates gets the "Contributor" role forever!
 ::
 ::card
 ## Merchandise
-Here's some of the stuff you might get when you support us
+Here's some of the stuff you might get when you support us (shipping's on us!):
 ::
 ::row
 ![Pirate Penguin Pin](/img/docs/pirate-pin.jpg "This little fella is coming for your booty")
@@ -37,8 +37,8 @@ Here's some of the stuff you might get when you support us
 <p class="flex flex-wrap justify-center justify-between gap-4">
 <img style="width: 18%;" src="/img/docs/tiers/preserver.png">  
 <img style="width: 18%;" src="/img/docs/tiers/sponsor.png">  
-<img style="width: 18%;" src="/img/docs/tiers/booty.png">
+<img style="width: 18%;" src="/img/docs/tiers/booty.png">  
 <img style="width: 18%;" src="/img/docs/tiers/sorcerer.png">  
-<img style="width: 18%;" src="/img/docs/tiers/angel.png">   
+<img style="width: 18%;" src="/img/docs/tiers/angel.png">  
 </p>
 ::
