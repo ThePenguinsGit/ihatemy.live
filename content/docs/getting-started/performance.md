@@ -10,7 +10,7 @@ position: 1
 
 To make sure our servers run well, every player needs to do their part too!  
 This page here will tell you how you can check if the server is lagging and what's causing it.  
-To see if the server is lagging, simply do `/spark tps`.  
+To see if the server is lagging, simply do `/spark tps`  
 Now usually a TPS of 20 means that the server is generally running well!  
 But if it's lower than that...  you can use Observable to see what's causing it!
 ::
@@ -22,7 +22,7 @@ But if it's lower than that...  you can use Observable to see what's causing it!
 Observable is used to see what's specifically lagging the server. To start using Observable you need to set a keybind!  
 ![Observable GUI](/img/docs/performance/observable-keybind.png "Fancy")
 As you can see, you just need to search for "Profiler" and it will show up! (Be sure to select a keybind that has no conflicts!)  
-After pressing that keybind you'll see this screen.
+After pressing that keybind you'll see this screen:
 
 <div style="text-align: center;">
 <img style="display: inline-block;" src="/img/docs/performance/observable-gui.png">
