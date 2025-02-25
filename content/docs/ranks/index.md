@@ -4,6 +4,7 @@ position: 4
 ---
 ::card
 ## Level up bonuses!
+Please not that these perks are subject to change, and we're always open to suggestions!  
 _(Commands don't have cooldown unless specified) (Teams can load up to **50 chunks** max and claim up to **300 chunks** max)_
 <br>
 | LEVEL     | PERKS                                       | Homepoints | Force-Loaded Chunks| Claim Chunks| 
