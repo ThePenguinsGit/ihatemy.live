@@ -4,17 +4,16 @@ position: 0
 ---
 
 ::card
-## Welcome to our Network
-Here you can find everything you need to know about our Network
+## Welcome to our Network!
+Here you can find everything you need to know about our Network and how to get started.
 ::
 
 ::row
 
 ::card
 ## Linking
-You can link your Minecraft and Discord account by running `/link` in-game.  
-Afterwards follow the instructions in chat to complete the process.  
-Now you can also show off your rank in Discord!
+You can link your Minecraft and Discord account.  
+Check out the [Linking](/docs/getting-started/linking) page for more information!
 ::
 
 ::card
@@ -24,9 +23,22 @@ If you play on different Servers during your stay, we will also keep track of th
 Check out the [Ranks](/docs/ranks) page to see what you can get!
 ::
 
+::card
+## Banned Items
+Check out the specific Modpack pages to see what items are banned on our Servers.
 ::
 
-::row
+::card
+## FAQ
+We have compiled some of the most asked questions in our [FAQ](/docs/faq) page.  
+Check it out, we might have already answered your question!
+::
+
+::card
+## You like our Servers and want to support us?
+Check out the [Donations](/docs/donations) page!  
+You can find out what we want to give you as a thank you and a little sneak peek.
+::
 
 ::card
 ## You have an idea for a new Modpack?
@@ -37,7 +49,7 @@ If you have an idea, feel free to contact us on Discord
 ::card
 ## You want to report a bug?
 If you find a bug, please report it on our Discord to `@Staff`  
-We'll take a look asap
+We'll take a look asap!
 ::
 
 ::card
