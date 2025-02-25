@@ -19,6 +19,7 @@
               optionSelected: 'text-white bg-secondary',
               optionSelectedPointed: 'text-white bg-secondary opacity-90',
               containerActive: 'ring ring-black ring-opacity-30',
+
             }"
         />
         <i>Refreshed {{$dayjs(data.time).local().format('DD.MM.YYYY HH:mm')}}</i>
@@ -47,6 +48,12 @@
 </template>
 
 <style src="@vueform/multiselect/themes/default.css"></style>
+
+<style>
+.multiselect-dropdown {
+  @apply overflow-y-auto;
+}
+</style>
 
 <script lang="ts" setup>
 import appConfig from "~/app.config";
