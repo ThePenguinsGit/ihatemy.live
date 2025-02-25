@@ -40,12 +40,18 @@ We only wipe maps if they are beyond repair
 (check [Performance](/docs/getting-started/performance) (yes this is a threat))
 ::
 ::card
-## Can I have a free rank?
-??
+## Why does it take so long to add Modpack XY?
+We want our servers to work properly, and provide you with a great experience!  
+Sadly not all Mod/Plugin Creators share that mindset :(  
+So to get everything up and running we have to do a lot of custom Mod/Plugin development work (and we don't like Gradle very much)
 ::
 ::card
 ## What happens when a sever gets shut down?
 We will announce it well in advance!  
 We also provide Downloads to our old maps, so you can continue playing on your own (if you want to, of course)!  
 Check out our overview on [ihatemy.live](/) for all past and present Servers including their maps!  
+::
+::card
+## Can I have a free rank?
+??
 ::
