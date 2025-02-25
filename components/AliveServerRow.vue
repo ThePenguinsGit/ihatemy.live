@@ -10,7 +10,7 @@
       </div>
       <div>
         <h2 class="text-[40px] md:text-[50px]">{{name}}</h2>
-        <div role="doc-subtitle" class="relative -mb-2 text-lg cursor-pointer hover:underline" title="Click to copy" @click="copyToClipboard">{{ hostname }}</div>
+        <div role="doc-subtitle" class="relative -mb-2 text-lg cursor-pointer hover:underline"><span title="Click to copy" @click="copyToClipboard">{{ hostname }}</span> (Version {{ version }})</div>
       </div>
     </div>
     <div class="flex flex-row gap-2 place-content-between w-full lg:w-auto">
@@ -34,6 +34,7 @@ const props = defineProps<{
   hostname: string,
   imagePath: string,
   mapUrl?: undefined|string,
+  version: string,
 }>();
 const { data: serverStats, refresh } = useFetch<McStatsResultInterface>(`https://api.ihatemy.live/?hostname=${props.hostname}`);
 
