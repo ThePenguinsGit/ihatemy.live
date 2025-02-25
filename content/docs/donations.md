@@ -32,6 +32,7 @@ Here's some of the stuff you might get when you support us (shipping's on us!):
 | Nickname formatting|           |               |✅              |✅             |✅             |✅             |✅      |
 | Chat gradients     |           |               |                |✅             |✅              |✅             |✅     |
 | Nickname gradients |           |               |                |               |✅              |✅             |✅     |
+<div class="md:hidden">*Our first donators will be remembered as the Founders of our Network</div>
 ::
 ::card
 <p class="flex flex-wrap justify-center justify-between gap-4">
