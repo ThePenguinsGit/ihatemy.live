@@ -35,6 +35,17 @@ If not, feel free to ask, and you'll get the help you need!
 ::
 ::card
 ## Are there any plans to wipe the overworld?
-Probably not. We only wipe maps if they are beyond repair (check [Performance](/docs/getting-started/performance) (yes this is a threat)), but we do post downloads to all of our maps (check [ihatemy.live](/))
+Probably not.  
+We only wipe maps if they are beyond repair  
+(check [Performance](/docs/getting-started/performance) (yes this is a threat))
 ::
+::card
+## Can I have a free rank?
+??
+::
+::card
+## What happens when a sever gets shut down?
+We will announce it well in advance!  
+We also provide Downloads to our old maps, so you can continue playing on your own (if you want to, of course)!  
+Check out our overview on [ihatemy.live](/) for all past and present Servers including their maps!  
 ::
