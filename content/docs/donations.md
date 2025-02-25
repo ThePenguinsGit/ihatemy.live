@@ -24,7 +24,7 @@ Here's some of the stuff you might get when you support us (shipping's on us!):
 ![Kinfe Penguin Holo Sticker](/img/docs/knife-holo-sticker.jpg "Ooooooo shiny!")
 ::
 ::card
-| Benefits           |Contributor|Server Preserver|Stellar Sponsor|Booty Benefactor|Server Sorcerer|Angel Investor | Founder |
+| Benefits           |Contributor|Server Preserver|Stellar Sponsor|Booty Benefactor|Server Sorcerer|Angel Investor | <span class="cursor-pointer" title="Our first donators will be remembered as the Founders of our Network">Founder*</span> |
 |--------------------|:---------:|:--------------:|:-------------:|:--------------:|:-------------:|:-------------:|:-------:|
 | Nickname colors    |✅         |✅             |✅              |✅             |✅             |✅             |✅      |
 | Chat colors        |           |✅             |✅              |✅             |✅             |✅             |✅      |
