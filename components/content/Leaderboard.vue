@@ -17,7 +17,7 @@
         <tr v-for="playTime in (data.data)" :key="playTime.uuid">
           <td class="w-14 py-2"><img :src="`https://crafatar.com/avatars/${playTime.uuid}?overlay`" alt="Player Avatar" class="rounded-md w-10"></td>
           <td><NuxtLink class="underline" :to="`?name=${playTime.name}`"><b>{{ playTime.name }}</b></NuxtLink></td>
-          <td>{{ formatTime(playTime.playtime) }}</td>
+          <td class="text-right">{{ formatTime(playTime.playtime) }}</td>
         </tr>
       </tbody>
     </table>
@@ -32,7 +32,7 @@ import appConfig from "~/app.config";
 import type LeaderboardResultRowInterface from "~/interfaces/LeaderboardResultRowInterface";
 import type PenguBotResponseInterface from "~/interfaces/PenguBotResponseInterface";
 
-const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').humanize()
+const formatTime = (time: number) => useDayjs().duration(time, 'seconds').as('hours').toFixed(2) + ' h'
 
 const { data, refresh } = await useFetch<PenguBotResponseInterface<LeaderboardResultRowInterface[]>|null>('/api/leaderboard')
 
