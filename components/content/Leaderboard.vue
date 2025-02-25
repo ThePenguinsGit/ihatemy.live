@@ -32,7 +32,7 @@ import appConfig from "~/app.config";
 import type LeaderboardResultRowInterface from "~/interfaces/LeaderboardResultRowInterface";
 import type PenguBotResponseInterface from "~/interfaces/PenguBotResponseInterface";
 
-const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').humanize()
+const formatTime = (time: number) => useDayjs().duration(time, 'seconds').as('hours').toFixed(2) + 'h'
 
 const { data, refresh } = await useFetch<PenguBotResponseInterface<LeaderboardResultRowInterface[]>|null>('/api/leaderboard')
 
