@@ -15,7 +15,6 @@ depending on your tier!
 One-time donations are also always welcome! You can even join the **current** pre-release server with donations of 5€ or above!  
 Anyone who donates gets the "Contributor" role forever!
 ::
-As a reward you will receive
 ::card
 ## Merchandise
 Here's some of the stuff you might get when you support us (shipping's on us!):
