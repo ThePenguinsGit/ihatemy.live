@@ -6,7 +6,7 @@ position: 2
 ::row
 ::card
 ## Which hosting service do you use?
-We host some modpacks of our on Hetzner, others we host our selves.
+We host some modpacks of our on Hetzner, others we host ourselves.
 ::
 ::card
 ## Can you add mod X to the server?
@@ -30,7 +30,7 @@ I don't know, can you?!?!?!
 ::
 ::card
 ## I am having issue X, please help!!
-Take a look at [#tech-support](https://discord.com/channels/637719625274228743/677466545135550475), maybe someone had the same problem recently aswell.  
+Take a look at [#tech-support](https://discord.com/channels/637719625274228743/677466545135550475), maybe someone had the same problem recently as well.
 If not, feel free to ask, and you'll get the help you need!
 ::
 ::card
@@ -46,7 +46,7 @@ Sadly not all Mod/Plugin Creators share that mindset :(
 So to get everything up and running we have to do a lot of custom Mod/Plugin development work (and we don't like Gradle very much)
 ::
 ::card
-## What happens when a sever gets shut down?
+## What happens when a server gets shut down?
 We will announce it well in advance!  
 We also provide Downloads to our old maps, so you can continue playing on your own (if you want to, of course)!  
 Check out our overview on [ihatemy.live](/) for all past and present Servers including their maps!  

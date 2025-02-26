@@ -3,18 +3,18 @@ title: 'Ranks'
 position: 4
 ---
 ::card
-## Level up bonuses!
-Please not that these perks are subject to change, and we're always open to suggestions!  
-_(Commands don't have cooldown unless specified) (Teams can load up to **50 chunks** max and claim up to **300 chunks** max)_
+## Level Up Bonuses!
+Please note that these perks are subject to change, and we're always open to suggestions!  
+_(Commands don't have cooldown unless specified) (Teams can force-load up to **50 chunks** max and claim up to **300 chunks** max)_
 <br>
-| LEVEL     | PERKS                                       | Homepoints | Force-Loaded Chunks| Claim Chunks| 
+| Level     | Perks                                       | Homepoints | Force-Loaded Chunks| Claim Chunks| 
 |-----------|---------------------------------------------|------------|--------------------|-------------|
 | Level 5   | /nickname                                   | 1          | 5                  | 25          | 
 | Level 10  |                                             | 2          | 5                  | 25          | 
 | Level 20  | /enderchest                                 | 2          | 5                  | 25          | 
 | Level 25  | /kit bread                                  | 3          | 10                 | 25          | 
-| Level 30  | chat colors                                 | 3          | 10                 | 30          | 
-| Level 35  | nickname colors                             | 4          | 10                 | 35          | 
+| Level 30  | Chat colors                                 | 3          | 10                 | 30          | 
+| Level 35  | Nickname colors                             | 4          | 10                 | 35          | 
 | Level 40  |                                             | 4          | 10                 | 40          | 
 | Level 50  |                                             | 5          | 15                 | 50          | 
 | Level 60  |                                             | 5          | 15                 | 60          | 

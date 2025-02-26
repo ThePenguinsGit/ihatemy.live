@@ -1,8 +1,8 @@
 # The Penguin Network Landing Page
-The deployed version of this site can be found at [https://ihatemy.live](https://ihatemy.live])
+The deployed version of this site can be found at [https://ihatemy.live](https://ihatemy.live)
 
 ## What is this for
-It shows an overview of current and obsolete minecraft servers while also giving the ability to download their maps.
+It shows an overview of current and past Minecraft servers while also giving the ability to download their maps.
 
 ## Setup
 

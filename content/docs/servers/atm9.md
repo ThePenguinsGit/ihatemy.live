@@ -15,13 +15,13 @@ position: 10
 
 ::card
 ## Chunkloaders
-You can force load chunks in your base (while any one of your party members is online) by going into the chunk claim menu and holding shift and left click (right click to delete)
+To force-load chunks in your base (while any party member is online), go to the chunk claim menu and shift-left-click (right-click to delete)
 ::
 ::
 
 ::card
 ## The Farmworld
-Since we don't reset the overworld we have a Farmworld which get's reset (and regenerated when the worldgen of the pack changes)  
+Since we don't reset the Overworld we have a Farmworld which gets reset (and regenerated when the worldgen of the pack changes)  
 You can access it by running `/warp farmworld`
 ::
 ::row
@@ -36,7 +36,7 @@ There are exceptions:
 ::
 ::card
 ## Dimension Resets
-The following Dimensions will reset every Monday at 00:00 CEST:
+The following dimensions will reset every Monday at 00:00 CEST:
 - Twilight Forest
 - The Other Side
 - The Other
@@ -48,11 +48,11 @@ The following Dimensions will reset every Monday at 00:00 CEST:
 ::card
 ## Notes
 Please do keep in mind that loot chests in the world are per-player, per-chest so everyone has their own unique loot!  
-Also do keep in mind, that these World borders can always be expanded if we need more space!
+Also do keep in mind, that these world borders can always be expanded if we need more space!
 ::
 ::card
 ## Banned Items
-- Applied Energestics 2: Spatial Anchor
+- Applied Energistics 2: Spatial Anchor
 - Mekanism: Dimensional Stabilizer, Anchor Upgrade
 - Pneumaticcraft: Chunkloader Upgrade
 - Industrial Foregoing: Infinity Nuke

@@ -11,16 +11,16 @@ pageTitle: 'Server Rules'
 - No NSFW Content!
 - Streaming to Twitch and other streaming websites is allowed on this server!
 - No racism or any of those other -isms allowed here!
-- If you have drama with someone, solve it in private.
+- Resolve personal conflicts in private.
 - No griefing permitted at all!
-- No self promotion or promotions of other servers
+- No self-promotion or promotions of other servers
 - Just don't @ the admins too much - and admins: don't overuse @ everyone 
 - No bypassing AFK-Kick (FTB Chunkloading works if any teammate is online)
-- Try to work with ender chests a lot instead of item pipes -> they are a lot faster than any pipes anyways so..
+- Try to work with ender chests a lot instead of item pipes, they are a lot faster than any pipes anyways so..
 - Excessive factories breed bad habits and lower the TPS!
 (5 quarries -> need more ore processing -> need more ME system space)
 - Oh and most importantly, accept everyone, as long as no one gets hurt!
--  Don't go claiming a huge area of the map without using it!
+- Avoid claiming large areas of the map without utilizing them!
 - Don't actively _try_ to make the map ugly (No empty, quarried out areas for example)
 ## In general these rules can be simplified to:
 - **Just don't be an asshole to people!**

@@ -24,7 +24,7 @@ Just run `/level`, enter the level you want to know about, and you're good to go
 
 ::card
 ## `/docs`
-You want to get the Link to the Docs? Or point a user in the right direction?  
+You want to get the link to our documentation? Or point a user in the right direction?  
 Just type `/docs` and you can even select the page you are interested in!  
 Manually searching for links is a thing of the past!
 ::

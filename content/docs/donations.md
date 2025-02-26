@@ -3,36 +3,37 @@ title: 'Donations'
 position: 3
 ---
 ::card
-If you want to help us fund our current and future Minecraft Hosting endeavours, you can support us via <a href='https://ko-fi.com/penguinnetwork'  target="_blank">Ko-fi</a>.
+If you want to help us fund our current and future Minecraft hosting endeavours, you can support us via <a href='https://ko-fi.com/penguinnetwork'  target="_blank">Ko-fi</a>.
 <img style="float: right;" src="/img/docs/prefixes.png">  
 It helps us to keep the servers running and to expand our Network.  
-As a reward you may get
-- Access to the Donator Discord Channel
-- Early access to new Modpack Servers
-- Exclusive Prefixes in chat
+As a reward you will recieve
+- Access to the donator Discord channel
+- Early access to new modpack servers
+- Exclusive prefixes in chat 
 - Custom-made merchandise  
 depending on your tier!
-One-off donations are also always welcome! You can even join the **current** pre-release server with donations of 5€ or above!  
+One-time donations are also always welcome! You can even join the **current** pre-release server with donations of 5€ or above!  
 Anyone who donates gets the "Contributor" role forever!
 ::
+As a reward you will receive
 ::card
 ## Merchandise
 Here's some of the stuff you might get when you support us (shipping's on us!):
-::
+:: 
 ::row
 ![Pirate Penguin Pin](/img/docs/pirate-pin.jpg "This little fella is coming for your booty")
-![Kinfe Penguin Holo Sticker](/img/docs/knife-holo-sticker.jpg "Ooooooo shiny!")
+![Knife Penguin Holo Sticker](/img/docs/knife-holo-sticker.jpg "Ooooooo shiny!")
 ::
 ::card
 | Benefits           |Contributor|Server Preserver|Stellar Sponsor|Booty Benefactor|Server Sorcerer|Angel Investor | <span class="cursor-pointer" title="Our first donators will be remembered as the Founders of our Network">Founder*</span> |
 |--------------------|:---------:|:--------------:|:-------------:|:--------------:|:-------------:|:-------------:|:-------:|
-| Nickname colors    |✅         |✅             |✅              |✅             |✅             |✅             |✅      |
-| Chat colors        |           |✅             |✅              |✅             |✅             |✅             |✅      |
-| Chat formatting    |           |               |✅              |✅             |✅             |✅             |✅      |
-| Nickname formatting|           |               |✅              |✅             |✅             |✅             |✅      |
-| Chat gradients     |           |               |                |✅             |✅              |✅             |✅     |
-| Nickname gradients |           |               |                |               |✅              |✅             |✅     |
-<div class="md:hidden">*Our first donators will be remembered as the Founders of our Network</div>
+| Nickname colors    |✅         |✅             |✅              |✅             |✅             |✅             |✅      | 
+| Chat colors        |           |✅             |✅              |✅             |✅             |✅             |✅      | 
+| Chat formatting    |           |               |✅              |✅             |✅             |✅             |✅      | 
+| Nickname formatting|           |               |✅              |✅             |✅             |✅             |✅      | 
+| Chat gradients     |           |               |                |✅             |✅              |✅             |✅     | 
+| Nickname gradients |           |               |                |               |✅              |✅             |✅     | 
+<div class="md:hidden">*Our first donators are remembered as the founders of our Network</div>
 ::
 ::card
 <p class="flex flex-wrap justify-center justify-between gap-4">
