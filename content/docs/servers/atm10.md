@@ -9,7 +9,7 @@ position: '11'
 |     |                             |
 |-----|-----------------------------|
 | IP  |    atm10.ihatemy.live       |
-| Version  |   `2.36`        |
+| Version  |   `2.37`        |
 | Map | <a href="https://atm10.ihatemy.live" target="_blank">https://atm10.ihatemy.live</a> |
 ::
 
