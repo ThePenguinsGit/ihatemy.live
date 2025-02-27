@@ -5,7 +5,7 @@ position: 3
 ::card
 If you want to help us fund our current and future Minecraft hosting endeavours, you can support us via <a href='https://ko-fi.com/penguinnetwork'  target="_blank">Ko-fi</a>.
 <img style="float: right;" src="/img/docs/prefixes.png">  
-It helps us to keep the servers running and to expand our Network.  
+It helps us to keep the servers running and to expand our network.  
 As a reward you will recieve
 - Access to the donator Discord channel
 - Early access to new modpack servers
