@@ -15,7 +15,7 @@ export default defineContentConfig({
     })),
     staffdocs: defineCollection(asSitemapCollection({
       type: 'page',
-      source: 'staffDocs/**/*.md',
+      source: 'staffdocs/**/*.md',
       schema: z.object({
         title: z.string(),
         position : z.number().optional(),
