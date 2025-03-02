@@ -66,7 +66,7 @@ Also note [Performance](/docs/getting-started/performance) for more information!
 ::card
 ## `/observable run 30`
 Even more curious about what's tanking the servers performance?  
-Type `/observable run 30` and you can check what's eating the most resources!  
+Type `/observable run 30` to run the profiler for 30 seconds, and you can check what's eating the most resources!  
 Also note [Performance](/docs/getting-started/performance) for more information!
 ::
 
