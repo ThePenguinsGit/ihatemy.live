@@ -1,16 +1,13 @@
 <script setup lang="ts">
 import NavigationEntry from '~/components/NavigationEntry.vue';
 const route = useRoute()
-if (route.path === '/docs') {
-  await navigateTo('/docs/getting-started')
-}
 
 const { data: navigation } = await useAsyncData('navigation', () => {
-  return queryCollectionNavigation('staffDocs')
+  return queryCollectionNavigation('staffdocs')
       .order('position', 'ASC')
 })
 const { data: page } = await useAsyncData(route.path, () => {
-  return queryCollection('staffDocs').path(route.path).first()
+  return queryCollection('staffdocs').path(route.path).first()
 })
 </script>
 
@@ -33,7 +30,7 @@ const { data: page } = await useAsyncData(route.path, () => {
           <Card>
             <h1>Page Not Found</h1>
             <p>Oops! The content you're looking for doesn't exist.</p>
-            <NuxtLink class="underline" to="/docs">Go back home</NuxtLink>
+            <NuxtLink class="underline" to="/staffdocs">Go back home</NuxtLink>
           </Card>
         </div>
       </template>
