@@ -16,7 +16,7 @@ const { data: page } = await useAsyncData(route.path, () => {
 
 <template>
   <div class="flex flex-col md:flex-row gap-4">
-    <nav class="card w-full md:w-56 block h-fit">
+    <nav class="card w-full md:w-56 block h-fit shrink-0">
       <h1 class="text-center">Docs</h1>
       <hr class="border-secondary mb-2"/>
       <ul v-if="navigation">
@@ -82,5 +82,8 @@ ul {
 
 ol {
   @apply list-decimal list-inside;
+}
+:not(h1, h2, h3) > a {
+  @apply underline hover:text-secondaryLight;
 }
 </style>

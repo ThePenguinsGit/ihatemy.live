@@ -1,13 +1,13 @@
 <template>
-  <div id="background" class="w-full min-h-screen">
-    <div class="w-full bg-secondary shadow-md py-4 px-2 flex flex-row fixed h-24 top-0 z-10 place-content-between">
+  <div id="background" class="w-full h-screen max-h-screen">
+    <div class="w-full bg-secondary shadow-md py-4 px-2 flex flex-row h-24 top-0 z-10 place-content-between">
       <NuxtLink to="/"><img src="/img/logo.png" class="max-h-[70px]"  alt="Penguins Network"/></NuxtLink>
       <div class="mr-4">
         <NuxtLink class="text-3xl block text-white leading-[2] hover:underline" to="/docs">Docs</NuxtLink>
       </div>
     </div>
-    <div class="pt-24 pb-14 min-h-screen">
-      <NuxtPage class="p-4" />
+    <div class="pb-14 wrapper">
+      <NuxtPage class="p-4 overflow-y-auto" />
     </div>
   </div>
 </template>
@@ -50,6 +50,11 @@ body {
   -moz-animation-timing-function:    linear;
   -o-animation-timing-function:      linear;
   animation-timing-function:         linear;
+}
+
+.wrapper {
+  @apply overflow-y-auto;
+  height: calc(100vh - 6.5rem);
 }
 
 </style>
