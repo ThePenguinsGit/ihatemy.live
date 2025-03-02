@@ -18,7 +18,7 @@ But if it's lower than that...  you can use Observable to see what's causing it!
 
 
 ::card
-## Observable
+## Observable (Level 10+)
 Observable is used to see what's specifically lagging the server. To start using Observable you need to set a keybind!  
 ![Observable GUI](/img/docs/performance/observable-keybind.png "Fancy")
 As you can see, you just need to search for "Profiler" and it will show up! (Be sure to select a keybind that has no conflicts!)  
