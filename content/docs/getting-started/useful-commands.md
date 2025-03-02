@@ -51,6 +51,12 @@ Also check out the [Linking](/docs/getting-started/linking) page for more inform
 ::
 
 ::card
+## `/playtime`
+Check out how long you've been playing on our servers  
+Run `/playtime` and get a detailed view of your playtime on each modpack server!
+::
+
+::card
 ## `/spark tps`
 Curious about the server's performance?  
 Just type `/spark tps` and you'll see the TPS of the server!  
