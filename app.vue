@@ -6,8 +6,8 @@
         <NuxtLink class="text-3xl block text-white leading-[2] hover:underline" to="/docs">Docs</NuxtLink>
       </div>
     </div>
-    <div class="pb-14 wrapper">
-      <NuxtPage class="p-4 overflow-y-auto" />
+    <div class="pb-16 md:pb-4 wrapper">
+      <NuxtPage class="px-4 pt-4" />
     </div>
   </div>
 </template>
@@ -54,7 +54,7 @@ body {
 
 .wrapper {
   @apply overflow-y-auto;
-  height: calc(100vh - 6.5rem);
+  height: calc(100vh - 6rem);
 }
 
 </style>
