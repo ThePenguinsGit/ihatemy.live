@@ -11,6 +11,15 @@ export default defineContentConfig({
         position : z.number().optional(),
         pageTitle: z.string().optional(),
       }),
-    }))
+    })),
+    staffDocs: defineCollection(asSitemapCollection({
+      type: 'page',
+      source: 'staffDocs/**/*.md',
+      schema: z.object({
+        title: z.string(),
+        position : z.number().optional(),
+        pageTitle: z.string().optional(),
+      }),
+    })),
   }
 })
