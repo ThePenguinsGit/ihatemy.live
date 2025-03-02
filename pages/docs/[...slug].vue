@@ -73,7 +73,7 @@ h3 {
 }
 
 code {
-  @apply bg-slate-200 px-1 rounded-md;
+  @apply bg-slate-200 px-1 rounded-sm;
 }
 
 ul {
