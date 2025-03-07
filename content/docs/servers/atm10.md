@@ -35,8 +35,6 @@ There are exceptions:
 - The Bumblezone
 - The Twilight Forest
 - The Undergarden
-### 16k:
-- The Farmworld
 ::
 ::card
 ## Dimension Resets
