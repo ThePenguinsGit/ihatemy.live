@@ -3,6 +3,11 @@ title: 'Ranks'
 position: 4
 ---
 ::card
+We have a **custom**, **network wide**, **time based level up system**! The second you join any of our servers for the first time it starts counting. Watching. Motionless. Soullless. The gears in this machine were only made for tracking **you**, yes specifically **you**. **Don't stare back**.
+
+If you wanna know more about your own stats, check the [Leaderboard](/docs/ranks/leaderboard), or our [Commands](/docs/getting-started/useful-commands) page!
+::
+::card
 ## Level Up Bonuses!
 Please note that these perks are subject to change, and we're always open to suggestions!  
 _(Commands don't have cooldown unless specified) (Teams can force-load up to **50 chunks** max and claim up to **300 chunks** max)_
