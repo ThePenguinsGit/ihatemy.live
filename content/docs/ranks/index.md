@@ -38,3 +38,9 @@ _(Commands don't have cooldown unless specified) (Teams can force-load up to **5
 | Level 900 |                                             | 5          | 50                 | 150         | 
 | Level 1000| Bragging rights                             | 5          | 50                 | 150         |
 ::
+::card
+## Chat Formatting
+Wanna apply colors in chat? Maybe even in your nickname? Wanna find out how to send menacing, bold messages? Click [here!](https://docs.advntr.dev/minimessage/format.html)
+
+Want even cooler chat formatting options? Check out our [donations](/docs/donations) page
+::
