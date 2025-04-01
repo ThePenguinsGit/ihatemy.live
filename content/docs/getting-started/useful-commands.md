@@ -75,5 +75,9 @@ Even more curious about what's tanking the servers performance?
 Type `/observable run 30` to run the profiler for 30 seconds, and you can check what's eating the most resources!  
 Also note [Performance](/docs/getting-started/performance) for more information!
 ::
-
+::card
+## `/partychat`
+You wanna talk more privately? Do /party create (partyname) to create a party and /party invite (playername) to invite people!  
+To talk in partychat run /partchat and to return to normal chat run /(servername) (e.g. /atm10, /atm9) 
+::
 ::
