@@ -1,5 +1,5 @@
 <template>
-  <div v-if="serverStats !== null" class="card flex flex-col lg:flex-row items-center px-3 py-0 place-content-between">
+  <div class="card flex flex-col lg:flex-row items-center px-3 py-0 place-content-between">
     <div class="flex flex-row place-content-between w-full text-right md:text-left lg:w-auto">
       <div class="self-center">
         <img
@@ -13,13 +13,10 @@
         <div role="doc-subtitle" class="relative -mb-2 text-lg cursor-pointer hover:underline"><span title="Click to copy" @click="copyToClipboard">{{ hostname }}</span> (Version {{ version }})</div>
       </div>
     </div>
-    <div class="flex flex-row gap-2 place-content-between w-full lg:w-auto">
+    <div class="flex flex-row gap-2 place-content-between w-full lg:w-auto" v-if="serverStats !== null">
       <div class="self-center">
         <Badge v-if="serverStats.online && serverStats.players.max !== null" class="bg-green-600 text-white" title="barely">alive</Badge>
         <Badge v-else class="bg-red-600 text-white">(currently) ded</Badge>
-      </div>
-      <div v-if="mapUrl !== undefined">
-        <a :href="mapUrl" class="bg-secondary drop-shadow-sm px-3 py-1 rounded text-xl text-white hover:bg-secondaryLight hover:drop-shadow-md transition-all">Live Map</a>
       </div>
       <h2 v-if="serverStats.online && serverStats.players.max !== null" class="text-2xl">{{ serverStats.players.online }} / {{ serverStats.players.max }} Players</h2>
     </div>
