@@ -9,8 +9,7 @@ position: 10
 |     |                             |
 |-----|-----------------------------|
 | IP  |    atm9.ihatemy.live       |
-| Version  |   `1.0.3`        |
-| Map | <a href="https://atm9.ihatemy.live" target="_blank">https://atm9.ihatemy.live</a> |
+| Version  |   `1.0.7`        |
 ::
 
 ::card

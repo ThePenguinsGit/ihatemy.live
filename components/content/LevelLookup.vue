@@ -14,7 +14,7 @@
                 <tbody>
                   <tr>
                     <th>Username</th>
-                    <td>{{ data.data.userName }}</td>
+                    <td>{{ displayName }}</td>
                   </tr>
                   <tr>
                     <th>Current Level</th>
@@ -73,6 +73,14 @@ watch(reactiveQuery, () => username.value = reactiveQuery.value as string ?? '')
 const { data, error, refresh } = await useFetch<PenguBotResponseInterface<PlayTimeResultInterface>|null>('/api/playtime', {
   immediate: true,
   query: {  name: username }
+})
+
+const displayName = computed(() => {
+  const internalData = data?.value?.data
+  if (internalData === undefined) return undefined
+  if (internalData.displayName === null || internalData.displayName === internalData.userName) return internalData.userName
+
+  return `${internalData.displayName} (${internalData.userName})`
 })
 
 const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').humanize()

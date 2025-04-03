@@ -17,6 +17,12 @@ Just run `/playtime` and enter a players name to see how long they've been playi
 ::
 
 ::card
+## `/leaderboard`
+Wanna see the players who spent the most time on our Network?  
+Just run `/leaderboard` and (optionally) select a server to get the Top 10 List!
+::
+
+::card
 ## `/level`
 Interested in how much time is needed for a specific level?  
 Just run `/level`, enter the level you want to know about, and you're good to go!
@@ -69,5 +75,9 @@ Even more curious about what's tanking the servers performance?
 Type `/observable run 30` to run the profiler for 30 seconds, and you can check what's eating the most resources!  
 Also note [Performance](/docs/getting-started/performance) for more information!
 ::
-
+::card
+## `/partychat`
+You wanna talk more privately? Do /party create (partyname) to create a party and /party invite (playername) to invite people!  
+To talk in partychat run /partchat and to return to normal chat run /(servername) (e.g. /atm10, /atm9) 
+::
 ::

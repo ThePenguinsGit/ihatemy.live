@@ -9,8 +9,7 @@ position: '11'
 |     |                             |
 |-----|-----------------------------|
 | IP  |    atm10.ihatemy.live       |
-| Version  |   `2.38`        |
-| Map | <a href="https://atm10.ihatemy.live" target="_blank">https://atm10.ihatemy.live</a> |
+| Version  |   `2.41`        |
 ::
 
 ::card
@@ -35,8 +34,6 @@ There are exceptions:
 - The Bumblezone
 - The Twilight Forest
 - The Undergarden
-### 16k:
-- The Farmworld
 ::
 ::card
 ## Dimension Resets
@@ -64,4 +61,6 @@ Also do keep in mind, that these world borders can always be expanded if we need
 - Industrial Foregoing: Infinity Nuke
 - Modular Machinery Reborn: Chunkloader
 - Steve's Carts: Chunk Loader Module
+- Create: Schematicannon
+- Modular Force Field Systems: (most of it) (crash) :(
 ::

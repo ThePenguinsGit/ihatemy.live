@@ -21,5 +21,9 @@ export default defineContentConfig({
         pageTitle: z.string().optional(),
       }),
     })),
+    legal: defineCollection(asSitemapCollection({
+      type: 'page',
+      source: 'legal/**/*.md',
+    }))
   }
 })

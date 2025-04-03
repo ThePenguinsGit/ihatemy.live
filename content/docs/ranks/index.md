@@ -3,6 +3,11 @@ title: 'Ranks'
 position: 4
 ---
 ::card
+We have a **custom**, **network wide**, **time based level up system**! The second you join any of our servers for the first time it starts counting. Watching. Motionless. Soullless. The gears in this machine were only made for tracking **you**, yes specifically **you**. **Don't stare back**.
+
+If you wanna know more about your own stats, check the [Leaderboard](/docs/ranks/leaderboard), or our [Commands](/docs/getting-started/useful-commands) page!
+::
+::card
 ## Level Up Bonuses!
 Please note that these perks are subject to change, and we're always open to suggestions!  
 _(Commands don't have cooldown unless specified) (Teams can force-load up to **50 chunks** max and claim up to **300 chunks** max)_
@@ -12,7 +17,7 @@ _(Commands don't have cooldown unless specified) (Teams can force-load up to **5
 | Level 5   | /nickname                                   | 1          | 5                  | 25          | 
 | Level 10  | /obversable run (see [Performance](/docs/getting-started/performance))                                            | 2          | 5                  | 25          | 
 | Level 20  | /enderchest                                 | 2          | 5                  | 25          | 
-| Level 25  | /kit bread                                  | 3          | 10                 | 25          | 
+| Level 25  |                                             | 3          | 10                 | 25          | 
 | Level 30  | Chat colors                                 | 3          | 10                 | 30          | 
 | Level 35  | Nickname colors                             | 4          | 10                 | 35          | 
 | Level 40  |                                             | 4          | 10                 | 40          | 
@@ -32,4 +37,10 @@ _(Commands don't have cooldown unless specified) (Teams can force-load up to **5
 | Level 800 |                                             | 5          | 50                 | 150         | 
 | Level 900 |                                             | 5          | 50                 | 150         | 
 | Level 1000| Bragging rights                             | 5          | 50                 | 150         |
+::
+::card
+## Chat Formatting
+Wanna apply colors in chat? Maybe even in your nickname? Wanna find out how to send menacing, bold messages? Click [here!](https://docs.advntr.dev/minimessage/format.html)
+
+Want even cooler chat formatting options? Check out our [donations](/docs/donations) page
 ::
