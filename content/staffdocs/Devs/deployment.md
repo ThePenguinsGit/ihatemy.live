@@ -1,7 +1,7 @@
 ---
 title: 'Deployment'
 pageTitle: 'Modpack Server Deployment'
-position: 4
+position: 10
 ---
 
 ::card
