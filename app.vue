@@ -6,8 +6,15 @@
         <NuxtLink class="text-3xl block text-white leading-[2] hover:underline" to="/docs">Docs</NuxtLink>
       </div>
     </div>
-    <div class="pb-16 md:pb-4 wrapper">
-      <NuxtPage class="px-4 pt-4" />
+    <div class="wrapper flex flex-col justify-between">
+      <NuxtPage class="px-4 pt-4 pb-16 md:pb-4 " />
+      <div class="w-full bg-secondary h-6 text-center text-white text-md">
+        <div class="mx-auto">
+          <NuxtLink to="/legal/imprint" class="no-underline">Imprint</NuxtLink>
+          -
+          <NuxtLink to="/legal/privacy" class="no-underline">Privacy Policy</NuxtLink>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -56,5 +63,6 @@ body {
   @apply overflow-y-auto;
   height: calc(100vh - 6rem);
 }
+
 
 </style>
