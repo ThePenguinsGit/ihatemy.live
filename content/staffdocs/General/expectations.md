@@ -9,7 +9,7 @@ Mods are expected to watch and moderate chat/players. They do not get /op or any
 ::
 ::card
 # Admin
-Admins are expected to deal with problems, player problems, server problems (on a small - medium scale) and in game problems.
+Admins are expected to deal with problems, player problems, server problems(like server config changes/helping with crashes) and in-game problems(like resetting quests/restoring lost items).
 They aren't expected to add features like quests, but if they want, they can! They get /op, related permissions and panel access to do some (light) server management.
 Admins can also update modpack servers and switch around mods if they are causing problems.
 ::
