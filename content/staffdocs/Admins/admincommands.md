@@ -1,6 +1,6 @@
 ---
 title: 'Commands'
-position: 8
+position: 7
 ---
 
 ::card
