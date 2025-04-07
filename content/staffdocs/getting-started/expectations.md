@@ -1,7 +1,7 @@
 ---
 title: 'Expectations'
 pagetitle: 'What does does each part of staff do?'
-position: -1
+position: 3
 ---
 ::card
 # Mod
