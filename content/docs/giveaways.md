@@ -12,6 +12,6 @@ position: 2
 - You may be required to /link your Discord account and Minecraft account. (For more information, visit our [linking](/docs/getting-started/linking) page)
 - The winners will be decided by a random draw.
 - Once/If you win, we will send you the prize via Discord.  
-  
+- If you win multiple giveaways simultaneously you get to pick a prize and we'll reroll the others.
 For more info about we process your data, check our [Privacy Policy](/legal/privacy) page
 ::
