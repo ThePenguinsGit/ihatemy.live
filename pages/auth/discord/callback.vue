@@ -3,7 +3,7 @@
     <Card>
       <h1>Success</h1>
       <p>You logged in as <code>{{useUserStore().name}}</code></p>
-      <p>Now you can close this tab and go back to the main page</p>
+      <p>You'll be redirected in <code>{{ countdown >= 0 ? countdown : 0}}</code> second<span v-if="countdown==1">s</span></p>
     </Card>
   </div>
   <div v-else>
@@ -29,4 +29,14 @@ const authToken = (await useFetch<string>(
 if (authToken) {
   useUserStore().setToken(authToken);
 }
+const countdown = ref<number>(5);
+const interval = setInterval(
+    () => {
+      countdown.value--;
+      if (countdown.value <= 0) {
+        clearInterval(interval);
+        navigateTo('/');
+      }
+    }
+)
 </script>
