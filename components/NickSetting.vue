@@ -18,7 +18,7 @@ import {useUserStore} from "~/stores/userStore";
 import type MiniMessageNickResponseInterface from "~/interfaces/MiniMessageNickResponseInterface";
 
 const props = defineProps<{
-  uuid: string
+  uuid: Ref<string>,
 }>();
 
 const { data: nickData } = await useFetch<MiniMessageNickResponseInterface>('/api/nick', {
