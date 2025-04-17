@@ -38,10 +38,6 @@ const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').
           <th class="w-36 text-left">Donator Status</th>
           <td><i v-if="donatorStatus === null" class="text-gray-400 underline">None</i><span v-else v-html="donatorStatus"></span> (<a title="Do it RIGHT NOW, or else 👁👄👁" href="https://ko-fi.com/penguinnetwork" target="_blank">Support us</a>) </td>
         </tr>
-<!--        <tr>-->
-<!--          <th class="w-36 text-left">Donator Status</th>-->
-<!--          <td><span class="adventure-component" style="color: #555555">❰<span class="adventure-component"><span class="adventure-component"><span class="adventure-component" style="color: #b76ed4">☆</span><span class="adventure-component" style="color: #db806a">☆</span><span class="adventure-component" style="color: #ff9100">A</span><span class="adventure-component" style="color: #ffbe1e">n</span><span class="adventure-component" style="color: #ffeb3b">g</span><span class="adventure-component" style="color: #ffbe1e">e</span><span class="adventure-component" style="color: #ff9100">l</span><span class="adventure-component" style="color: #db806a">☆</span><span class="adventure-component" style="color: #b76ed4">☆</span></span><span class="adventure-component"></span></span><span class="adventure-component" style="color: #555555">❱</span></span> (<a title="Do it RIGHT NOW, or else 👁👄👁" href="https://ko-fi.com/penguinnetwork" target="_blank">Support us</a>) </td>-->
-<!--        </tr>-->
         <tr>
           <th class="w-36 text-left">Current Level</th>
           <td>{{ data.data.currentLevel }}</td>
