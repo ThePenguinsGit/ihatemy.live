@@ -2,8 +2,13 @@
   <div id="background" class="w-full h-screen max-h-screen">
     <div class="w-full bg-secondary shadow-md py-4 px-2 flex flex-row h-24 top-0 z-10 place-content-between">
       <NuxtLink to="/"><img src="/img/logo.png" class="max-h-[70px]"  alt="Penguins Network"/></NuxtLink>
-      <div class="mr-4">
+      <div class="mr-4 flex flex-col md:flex-row gap-5">
+        <NuxtLink class="text-3xl block text-white leading-[2] hover:underline" to="/archive">Archive</NuxtLink>
         <NuxtLink class="text-3xl block text-white leading-[2] hover:underline" to="/docs">Docs</NuxtLink>
+        <div v-if="useUserStore().isLoggedIn" class="flex flex-row gap-2">
+          <span class="block leading-[2] text-3xl text-gray-600">{{useUserStore().name}}</span>
+          <img class="rounded-full border-black border max-h-[40px] mt-3" :src="`https://cdn.discordapp.com/avatars/${useUserStore().avatar}.png`">
+        </div>
       </div>
     </div>
     <div class="wrapper flex flex-col justify-between">
@@ -18,17 +23,6 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
-onMounted(() => {
-  window.kofiWidgetOverlay.draw('penguinnetwork', {
-      'type': 'floating-chat',
-      'floating-chat.donateButton.text': 'Support us',
-      'floating-chat.donateButton.background-color': '#2B303A',
-      'floating-chat.donateButton.text-color': '#fff'
-    });
-});
-</script>
-
 <style lang="scss">
 $bg-width: -264px;
 $bg-height: 141px;
