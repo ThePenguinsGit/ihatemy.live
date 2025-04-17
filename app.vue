@@ -5,6 +5,10 @@
       <div class="mr-4 flex flex-col md:flex-row gap-5">
         <NuxtLink class="text-3xl block text-white leading-[2] hover:underline" to="/archive">Archive</NuxtLink>
         <NuxtLink class="text-3xl block text-white leading-[2] hover:underline" to="/docs/getting-started">Docs</NuxtLink>
+        <div v-if="useUserStore().isLoggedIn" class="flex flex-row gap-2">
+          <span class="block leading-[2] text-3xl text-gray-600">{{useUserStore().name}}</span>
+          <img class="rounded-full border-black border max-h-[40px] mt-3" :src="`https://cdn.discordapp.com/avatars/${useUserStore().avatar}.png`">
+        </div>
       </div>
     </div>
     <div class="wrapper flex flex-col justify-between">

@@ -26,12 +26,25 @@ export default defineNuxtConfig({
     },
   },
 
+  modules: [
+      '@nuxt/devtools',
+      '@nuxtjs/sitemap',
+      '@nuxt/content',
+      'dayjs-nuxt',
+      '@nuxtjs/robots',
+      '@pinia/nuxt',
+      'pinia-plugin-persistedstate/nuxt',
+  ],
+
+  vite: {
+    server: {
+      allowedHosts: ['e0ba-109-91-157-17.ngrok-free.app']
+    }
+  },
   sitemap: {
     discoverImages: false,
     zeroRuntime: true
   },
-
-  modules: ['@nuxt/devtools', '@nuxtjs/sitemap', '@nuxtjs/robots', '@nuxt/content', 'dayjs-nuxt', 'nitro-cloudflare-dev'],
 
   dayjs: {
     plugins: ['utc', 'timezone', 'duration', 'relativeTime', 'localizedFormat'],
@@ -50,15 +63,23 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    discordClientId: '',
     public: {
       apiBaseUrl: 'https://penguin-bot.ihatemy.live',
-      discordUrl: 'https://discord.gg/tM4urb5SPQ' 
+      discordUrl: 'https://discord.gg/tM4urb5SPQ'
     }
   },
 
   routeRules: {
-    '/docs': { redirect: {to: '/docs/getting-started', statusCode: 308} },
-    '/discord': { redirect: 'https://discord.com/invite/tM4urb5SPQ' },
+      '/discord': { redirect: 'https://discord.com/invite/tM4urb5SPQ' },
+    '/auth/discord/callback': { ssr: false },
+    '/docs': { redirect: '/docs/getting-started' },
+    '/api/playtime': { proxy: 'https://penguin-bot.ihatemy.live/playtime' },
+    '/api/servers': { proxy: 'https://penguin-bot.ihatemy.live/servers' },
+    '/api/leaderboard': { proxy: 'https://penguin-bot.ihatemy.live/leaderboard' },
+    '/api/auth/discord': { proxy: 'https://penguin-bot.ihatemy.live/auth/discord' },
+    '/api/user/**': { proxy: 'https://penguin-bot.ihatemy.live/user/**' },
+    '/api/mini-message/preview': { proxy: 'https://penguin-bot.ihatemy.live/mini-message/preview' },
     '/api/docs': {prerender: true},
     '/api/all-servers': {redirect: 'https://penguin-bot.ihatemy.live/all-servers'}
   },

@@ -21,6 +21,7 @@ logs
 # Local env files
 .env
 .env.*
+!.env.dist
 !.env.example
 /.direnv/
 /build/config.gypi
