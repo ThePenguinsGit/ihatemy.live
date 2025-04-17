@@ -11,10 +11,12 @@
   "devDependencies": {
     "@nuxt/devtools": "^2.0.0-beta.3",
     "@nuxtjs/sitemap": "^7.2.6",
+    "@pinia/nuxt": "^0.11.0",
     "@types/node": "^18.17.3",
     "autoprefixer": "^10.4.15",
     "dayjs-nuxt": "^2.1.11",
     "nuxt": "^3.11.2",
+    "pinia": "^3.0.2",
     "postcss": "^8.4.31",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
@@ -24,6 +26,8 @@
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
     "@nuxt/content": "^3.1.1",
-    "@vueform/multiselect": "^2.6.11"
+    "@vueform/multiselect": "^2.6.11",
+    "jwt-decode": "^4.0.0",
+    "pinia-plugin-persistedstate": "^4.2.0"
   }
 }

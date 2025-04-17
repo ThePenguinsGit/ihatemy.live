@@ -15,6 +15,9 @@ module.exports = {
         'secondary': '#2B303A',
         'secondaryLight': '#454E5E'
       },
+      backgroundImage: {
+        'nick1': "url('/img/nick/background1.png')",
+      }
     },
   },
   plugins: [],
