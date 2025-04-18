@@ -48,7 +48,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import Login from "~/components/Login.vue";
 import {useUserStore} from "~/stores/userStore";
 import type PenguBotResponseInterface from "~/interfaces/PenguBotResponseInterface";
 import type PlayTimeResultInterface from "~/interfaces/PlayTimeResultInterface";

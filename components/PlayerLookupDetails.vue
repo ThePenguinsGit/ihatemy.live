@@ -24,8 +24,7 @@ const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').
     <div class="border-l self-stretch" />
     <div class="flex-grow">
       <div class="text-center">
-        <h1 v-if="useUserStore().isLoggedIn">Your Minecraft Account</h1>
-        <h1 v-else>(Not) Your Minecraft Account</h1>
+        <h1><span v-if="!useUserStore().isLoggedIn">(Not) </span>Your Minecraft Account</h1>
         <i>Refreshed {{$dayjs(data.time).local().format('DD.MM.YYYY HH:mm')}}</i>
       </div>
       <table class="w-full">
