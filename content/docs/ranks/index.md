@@ -15,7 +15,7 @@ _(Commands don't have cooldown unless specified) (Teams can force-load up to **5
 | Level     | Perks                                       | Homepoints | Force-Loaded Chunks| Claim Chunks| 
 |-----------|---------------------------------------------|------------|--------------------|-------------|
 | Level 5   | /nickname                                   | 1          | 5                  | 25          | 
-| Level 10  | /obversable run (see [Performance](/docs/getting-started/performance))                                            | 2          | 5                  | 25          | 
+| Level 10  | /observable run (see [Performance](/docs/getting-started/performance))                                            | 2          | 5                  | 25          | 
 | Level 20  | /enderchest                                 | 2          | 5                  | 25          | 
 | Level 25  |                                             | 3          | 10                 | 25          | 
 | Level 30  | Chat colors                                 | 3          | 10                 | 30          | 
