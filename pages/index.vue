@@ -9,7 +9,7 @@
         </a>
       </div>
       <div class="flex flex-col gap-5 flex-grow">
-        <AliveServerRow name="Prominence 2" version="3.1.10" image-path="/img/p2he.png" hostname="p2he.ihatemy.live" mapUrl='https://atm10.ihatemy.live'/>
+        <AliveServerRow name="Prominence 2" version="3.1.11" image-path="/img/p2he.png" hostname="p2he.ihatemy.live" mapUrl='https://atm10.ihatemy.live'/>
         <AliveServerRow name="All The Mods 10" version="2.47" image-path="/img/atm10.png" hostname="atm10.ihatemy.live" mapUrl='https://atm10.ihatemy.live'/>
         <AliveServerRow name="All The Mods 9" version="1.0.8" image-path="/img/atm9.png" hostname="atm9.ihatemy.live" mapUrl='https://atm9.ihatemy.live'/>
         <DedServerRow name=" 🦀" reason-of-death="died of dead" image-path="/img/crab.png" download-path="https://map-storage.ihatemy.live/maps/crab.zip" />

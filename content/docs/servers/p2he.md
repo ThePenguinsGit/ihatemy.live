@@ -9,7 +9,7 @@ position: '12'
 |     |                             |
 |-----|-----------------------------|
 | IP  |    p2he.ihatemy.live       |
-| Version  |   `3.1.10`        |
+| Version  |   `3.1.11`        |
 ::
 
 ::card
