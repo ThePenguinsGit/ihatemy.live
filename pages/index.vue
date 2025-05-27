@@ -31,7 +31,7 @@
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
           </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 h-[33rem]">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 h-132">
           <NickSetting :uuid="minecraftUuid" />
           <Card>
             <PlayerLookupDetails v-if="data" :data="data" :donator-status="data.renderedDonatorPrefix" />

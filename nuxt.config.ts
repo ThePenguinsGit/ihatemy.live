@@ -1,6 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from "@tailwindcss/vite";
+
 export default defineNuxtConfig({
-  css: ['~/assets/css/main.css'],
+  css: [
+    '@fortawesome/fontawesome-svg-core/styles.css',
+    '~/assets/css/main.css',
+  ],
   devtools: { enabled: true },
   experimental: {
     appManifest: false,
@@ -20,26 +25,34 @@ export default defineNuxtConfig({
 
   postcss: {
     plugins: {
+<<<<<<< HEAD
       'tailwindcss/nesting': {},
       tailwindcss: {},
+=======
+>>>>>>> ceb3494 (ADD better editor)
       autoprefixer: {},
     },
   },
 
   modules: [
-      '@nuxt/devtools',
+    '@nuxt/devtools',
       '@nuxtjs/sitemap',
       '@nuxt/content',
       'dayjs-nuxt',
       '@nuxtjs/robots',
       '@pinia/nuxt',
       'pinia-plugin-persistedstate/nuxt',
+    '@nuxt/fonts',
+    '@nuxt/ui'
   ],
 
   vite: {
     server: {
       allowedHosts: ['e0ba-109-91-157-17.ngrok-free.app']
-    }
+    },
+    plugins: [
+      tailwindcss(),
+    ],
   },
   sitemap: {
     discoverImages: false,

@@ -22,7 +22,7 @@ const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').
   <div v-if="data" class="flex flex-row gap-2 h-full">
     <div class="self-center"><img :src="`https://crafatar.com/renders/body/${data.data.uuid}?overlay`" alt="Player Avatar" class="px-5 py-2 w-48"></div>
     <div class="border-l self-stretch" />
-    <div class="flex-grow">
+    <div class="grow">
       <div class="text-center">
         <h1><span v-if="!useUserStore().isLoggedIn">(Not) </span>Your Minecraft Account</h1>
         <i>Refreshed {{$dayjs(data.time).local().format('DD.MM.YYYY HH:mm')}}</i>

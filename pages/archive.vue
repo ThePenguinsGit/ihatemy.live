@@ -1,5 +1,5 @@
 <template>
-  <div class="flex mx-auto flex-col gap-5 flex-grow max-w-7xl">
+  <div class="flex mx-auto flex-col gap-5 grow max-w-7xl">
     <DedServerRow name="All The Mods 9" reason-of-death="died by popular demand" image-path="/img/atm9.png" download-path="https://map-storage.ihatemy.live/maps/atm9.zip" :content-length-of-download="72505212944"/>
     <DedServerRow name=" 🦀" reason-of-death="died of dead" image-path="/img/crab.png" download-path="https://map-storage.ihatemy.live/maps/crab.zip" :content-length-of-download="6248410954" />
     <DedServerRow name="MC Eternal (2)" reason-of-death="shitted and cummed" image-path="/img/mce2.png" download-path="https://map-storage.ihatemy.live/maps/mce2.zip" :content-length-of-download="32743256695" />

@@ -67,6 +67,8 @@
 <style src="@vueform/multiselect/themes/default.css"></style>
 
 <style>
+@reference "~/assets/css/main.css";
+
 .multiselect-dropdown {
   @apply overflow-y-auto;
 }

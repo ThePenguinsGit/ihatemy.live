@@ -5,6 +5,8 @@
 </template>
 
 <style>
+@reference "~/assets/css/main.css";
+
 .card {
   @apply overflow-x-auto;
 }

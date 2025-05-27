@@ -11,6 +11,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        custom: ['Minecraft']
+      },
       colors: {
         'secondary': '#2B303A',
         'secondaryLight': '#454E5E',
