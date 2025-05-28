@@ -57,7 +57,6 @@ Also do keep in mind, that these world borders can always be expanded if we need
 - Applied Energistics 2: Spatial Anchor
 - Mekanism: Dimensional Stabilizer, Anchor Upgrade
 - Pneumaticcraft: Chunkloader Upgrade
-- Modern Industrialization: Nuke
 - Industrial Foregoing: Infinity Nuke
 - Modular Machinery Reborn: Chunkloader
 - Steve's Carts: Chunk Loader Module
