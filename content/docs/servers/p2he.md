@@ -60,5 +60,8 @@ Also do keep in mind, that these world borders can always be expanded if we need
 ::
 ::card
 ## Banned Items
-none, _yet_
+    Applied Energestics 2: Spatial Anchor
+    Tech Reborn: Chunk_loader
+    Tech Reborn: Nuke
+    Botania: Manastorm
 ::
