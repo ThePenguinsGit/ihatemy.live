@@ -7,13 +7,18 @@ If you want to help us fund our current and future Minecraft hosting endeavors, 
 <img style="float: right;" src="/img/docs/prefixes.png">  
 It helps us to keep the servers running and to expand our network.  
 As a reward you will receive
-- Access to the donator Discord channel
 - Early access to new modpack servers
 - Exclusive prefixes in chat 
 - Custom-made merchandise  
 depending on your tier!
 One-time donations are also always welcome! You can even join the **current** pre-release server with donations of 5€ or above!  
 Anyone who donates gets the "Contributor" role forever!
+::
+::card
+## Boosting
+You can also get some great benefits by Boosting our Discord Server! This also includes the free Boosts that come with any Discord Nitro subscription.  
+You'll be receiving all benefits from `Stellar Sponsor`. This also includes access to all pre-release servers while you're an active booster!  
+As with all other donation tiers, you will also keep the `Contributer` role forever afterward.  
 ::
 ::card
 ## Merchandise
@@ -24,18 +29,20 @@ Here's some of the stuff you might get when you support us (shipping's on us!):
 ![Knife Penguin Holo Sticker](/img/docs/knife-holo-sticker.jpg "Ooooooo shiny!")
 ::
 ::card
-| Benefits           |Contributor|Server Preserver|Stellar Sponsor|Booty Benefactor|Server Sorcerer|Angel Investor | <span class="cursor-pointer" title="Our first donators will be remembered as the Founders of our Network">Founder*</span> |
-|--------------------|:---------:|:--------------:|:-------------:|:--------------:|:-------------:|:-------------:|:-------:|
-| Nickname colors    |✅         |✅             |✅              |✅             |✅             |✅             |✅      | 
-| Chat colors        |           |✅             |✅              |✅             |✅             |✅             |✅      | 
-| Chat formatting    |           |               |✅              |✅             |✅             |✅             |✅      | 
-| Nickname formatting|           |               |✅              |✅             |✅             |✅             |✅      | 
-| Chat gradients     |           |               |                |✅             |✅              |✅             |✅     | 
-| Nickname gradients |           |               |                |               |✅              |✅             |✅     | 
+
+| Benefits            | Contributor | Server Preserver | Stellar Sponsor | Booty Benefactor | Server Sorcerer | Angel Investor | <span class="cursor-pointer" title="Our first donators will be remembered as the Founders of our Network">Founder*</span> |
+|---------------------|:-----------:|:----------------:|:---------------:|:----------------:|:---------------:|:--------------:|:-------------------------------------------------------------------------------------------------------------------------:|
+| Nickname colors     |      ✅      |        ✅         |        ✅        |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
+| Chat colors         |             |        ✅         |        ✅        |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
+| Chat formatting     |             |                  |        ✅        |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
+| Nickname formatting |             |                  |        ✅        |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
+| Chat gradients      |             |                  |                 |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
+| Nickname gradients  |             |                  |                 |                  |        ✅        |       ✅        |                                                             ✅                                                             |
+
 <div class="md:hidden">*Our first donators are remembered as the founders of our Network</div>
 ::
 ::card
-<p class="flex flex-wrap justify-center justify-between gap-4">
+<p class="flex flex-wrap justify-center justify-between gap-4 overflow-x-auto">
 <img style="width: 18%;" src="/img/docs/tiers/preserver.png">  
 <img style="width: 18%;" src="/img/docs/tiers/sponsor.png">  
 <img style="width: 18%;" src="/img/docs/tiers/booty.png">  
