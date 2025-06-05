@@ -1,7 +1,7 @@
 ---
 title: 'Giveaways'
 pageTitle: 'Giveaway Guidelines'
-position: 2
+position: 4
 ---
 ::card
 ## Here's some guidelines about our giveaways and conditions to join

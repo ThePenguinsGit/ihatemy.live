@@ -1,6 +1,7 @@
 ---
 title: 'FAQ'
 pageTitle: 'Frequently Asked Questions'
+description: "You've got questions, we've got answers! Check them out, maybe we got you covered already"
 position: 2
 ---
 ::row

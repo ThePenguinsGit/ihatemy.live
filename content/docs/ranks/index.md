@@ -1,6 +1,6 @@
 ---
 title: 'Ranks'
-position: 4
+position: 5
 ---
 ::card
 We have a **custom**, **network wide**, **time based level up system**! The second you join any of our servers for the first time it starts counting. Watching. Motionless. Soullless. The gears in this machine were only made for tracking **you**, yes specifically **you**. **Don't stare back**.

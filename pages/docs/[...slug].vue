@@ -12,6 +12,14 @@ const { data: navigation } = await useAsyncData('navigation', () => {
 const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection('docs').path(route.path).first()
 })
+
+useHead({
+  title: `${page.value?.title ?? '404'} - ihatemy.live`,
+  meta: [
+    { name: 'description', content: page.value?.description }
+  ],
+})
+
 </script>
 
 <template>
