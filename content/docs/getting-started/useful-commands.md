@@ -11,6 +11,12 @@ position: 0.2
 ::row
 
 ::card
+## `/warp farmworld`
+You're searching for a structure or a boss? Do it in the Farmworld!  
+We try to keep it up to date with the pack as it changes. It also resets weekly, so if something's already looted, you just have to wait a bit  
+::
+
+::card
 ## `/playtime`
 Curious how long a player has been with us?
 Just run `/playtime` and enter a players name to see how long they've been playing on which modpack servers!

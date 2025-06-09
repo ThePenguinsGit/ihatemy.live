@@ -18,7 +18,7 @@ Anyone who donates gets the "Contributor" role forever!
 ::card
 ## Boosting
 You can also get some great benefits by Boosting our Discord Server! This also includes the free Boosts that come with any Discord Nitro subscription.  
-You'll be receiving all benefits from `Stellar Sponsor`. This also includes access to all pre-release servers while you're an active booster!  
+You'll be receiving all benefits from `Stellar Sponsor` and a special `Booster` Prefix. This also includes access to all pre-release servers while you're an active booster!  
 As with all other donation tiers, you will also keep the `Contributer` role forever afterward.  
 ::
 ::card
@@ -31,14 +31,14 @@ Here's some of the stuff you might get when you support us (shipping's on us!):
 ::
 ::card
 
-| Benefits            | Contributor | Server Preserver | Stellar Sponsor | Booty Benefactor | Server Sorcerer | Angel Investor | <span class="cursor-pointer" title="Our first donators will be remembered as the Founders of our Network">Founder*</span> |
-|---------------------|:-----------:|:----------------:|:---------------:|:----------------:|:---------------:|:--------------:|:-------------------------------------------------------------------------------------------------------------------------:|
-| Nickname colors     |      ✅      |        ✅         |        ✅        |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
-| Chat colors         |             |        ✅         |        ✅        |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
-| Chat formatting     |             |                  |        ✅        |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
-| Nickname formatting |             |                  |        ✅        |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
-| Chat gradients      |             |                  |                 |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
-| Nickname gradients  |             |                  |                 |                  |        ✅        |       ✅        |                                                             ✅                                                             |
+| Benefits            | Contributor | Server Preserver | Discord Booster | Stellar Sponsor | Booty Benefactor | Server Sorcerer | Angel Investor | <span class="cursor-pointer" title="Our first donators will be remembered as the Founders of our Network">Founder*</span> |
+|---------------------|:-----------:|:----------------:|:---------------:|:---------------:|:----------------:|:---------------:|:--------------:|:-------------------------------------------------------------------------------------------------------------------------:|
+| Nickname colors     |      ✅      |        ✅         |        ✅        |        ✅        |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
+| Chat colors         |             |        ✅         |        ✅        |        ✅        |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
+| Chat formatting     |             |                  |        ✅        |        ✅        |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
+| Nickname formatting |             |                  |        ✅        |        ✅        |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
+| Chat gradients      |             |                  |                 |                 |        ✅         |        ✅        |       ✅        |                                                             ✅                                                             |
+| Nickname gradients  |             |                  |                 |                 |                  |        ✅        |       ✅        |                                                             ✅                                                             |
 
 <div class="md:hidden">*Our first donators are remembered as the founders of our Network</div>
 ::
