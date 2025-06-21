@@ -3,6 +3,12 @@ title: 'MCE2'
 pageTitle: 'MC Eternal 2'
 position: '13'
 ---
+::card
+## ⚠️ Important ⚠️ 
+Server is still in maintenance mode until the modpack author has fixed connection issues.  
+We are already pregenerating dimensions, so you can have the best possible experience as soon as the mentioned issues have been fixed.   
+::
+
 ::row
 
 ::card
