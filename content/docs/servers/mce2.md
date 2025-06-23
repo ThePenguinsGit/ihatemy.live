@@ -5,8 +5,8 @@ position: '13'
 ---
 ::card
 ## ⚠️ Important ⚠️ 
-Server is still in maintenance mode until the modpack author has fixed connection issues.  
-We are already pregenerating dimensions, so you can have the best possible experience as soon as the mentioned issues have been fixed.   
+We are still pregenerating dimensions, so you can have the best possible experience as soon as possible.  
+But beware on the overworld is safe for building, _for now_  
 ::
 
 ::row
@@ -15,7 +15,7 @@ We are already pregenerating dimensions, so you can have the best possible exper
 |     |                             |
 |-----|-----------------------------|
 | IP  |    mce2.ihatemy.live       |
-| Version  |   `1.0`        |
+| Version  |   `1.04.2`        |
 ::
 
 ::card
