@@ -15,7 +15,7 @@ But beware on the overworld is safe for building, _for now_
 |     |                             |
 |-----|-----------------------------|
 | IP  |    mce2.ihatemy.live       |
-| Version  |   `1.04.2`        |
+| Version  |   `1.04.3`        |
 ::
 
 ::card
