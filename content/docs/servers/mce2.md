@@ -3,12 +3,6 @@ title: 'MCE2'
 pageTitle: 'MC Eternal 2'
 position: '13'
 ---
-::card
-## ⚠️ Important ⚠️ 
-We are still pregenerating dimensions, so you can have the best possible experience as soon as possible.  
-But beware on the overworld is safe for building, _for now_  
-::
-
 ::row
 
 ::card
