@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import NavigationEntry from '~/components/NavigationEntry.vue';
+defineRouteRules({
+  robots: false,
+})
+
 const route = useRoute()
 
 const { data: page } = await useAsyncData(route.path, () => {

@@ -2,7 +2,10 @@
 export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
-  experimental: { appManifest: false },
+  experimental: {
+    appManifest: false,
+    inlineRouteRules: true,
+  },
 
   postcss: {
     plugins: {
@@ -11,7 +14,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxt/devtools', '@nuxtjs/sitemap', '@nuxt/content', 'dayjs-nuxt'],
+  modules: ['@nuxt/devtools', '@nuxtjs/sitemap', '@nuxt/content', 'dayjs-nuxt', '@nuxtjs/robots'],
 
   vite: {
     server: {

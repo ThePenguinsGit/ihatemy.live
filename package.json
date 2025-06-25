@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.0.0-beta.3",
+    "@nuxtjs/robots": "^5.2.11",
     "@nuxtjs/sitemap": "^7.2.6",
     "@types/node": "^18.17.3",
     "autoprefixer": "^10.4.15",
