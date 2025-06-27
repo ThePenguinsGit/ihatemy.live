@@ -9,7 +9,7 @@ position: '13'
 |     |                             |
 |-----|-----------------------------|
 | IP  |    mce2.ihatemy.live       |
-| Version  |   `1.04.3`        |
+| Version  |   `1.04.4`        |
 ::
 
 ::card
