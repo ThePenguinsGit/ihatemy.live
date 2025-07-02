@@ -42,7 +42,15 @@ There are exceptions:
 ::card
 ## Dimension Resets
 The following dimensions will reset every Monday at 00:00 CEST:  
-_tbd_  
+- Farmworld
+- The End
+- The Nether
+- The Great Below
+- Glacio
+- Mars
+- Mercury
+- Moon
+- Venus
 ::
 ::
 ::card
