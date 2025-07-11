@@ -62,4 +62,10 @@ Also do keep in mind, that these world borders can always be expanded if we need
 - Steve's Carts: Chunk Loader Module
 - Create: Schematicannon
 - Modular Force Field Systems: (most of it) (crash) :(
+- Justdirethings: Portalgun
+- Justdirethings: Portalgun_v2
+- Securitycraft: Briefcase
+- Railcraft: Personal World Spike
+- Railcraft: World Spike
+- Railcraft: World Spike Minecart
 ::
