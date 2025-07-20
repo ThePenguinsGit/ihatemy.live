@@ -27,6 +27,8 @@ position: 5
 | `/continue`                           | `/c`                                | Sends a message to the last player whispered.                                                      |
 | `/whisper <player>`                   | `/w`, `message`, `msg`, `m`, `tell` | Sends a private message to another player.                                                         |
 | `/togglemsg`                          | `/togglepm`                         | Hides/shows incoming private messages.                                                             |
+| `/leave  <servername>`                | None                                | Joins a server chat.                                                                               |
+| `/join <servername>`                  | None                                | Leaves a server chat.                                                                              |
 
 \
 `<player>` in `/ignore`, `/unignore`, `/mute`, `/unmute`, `/muteinfo` and `/updateusername` can be replaced with UUID if the `-u` or `--uuid` flag is used. Example: `/mute --uuid f84c6a79-44e4-4d98-8ca7-7d6dd8bb3c64`.
@@ -35,7 +37,7 @@ position: 5
 |--------------------------------------------|----------------------------------------------------------------------------------|
 | `/ban <player> <reason>`                   | Bans a player with or without reason                                             |
 | `/ban-ip <player> <reason>`                | IP-Bans a player with out without reason                                         |
-| `/unban <player> `                         | Unbans player                                                                    |
+| `/pardon <player> `                         | Unbans player                                                                    |
 | `/kick <type> <player/IP/server> <reason>` | Kicks a player with or without reason (Type refers to byIP, byName, or byServer) |
 | `/banlist <type>`                          | Shows a list of banned players or IPs                                            |
 | `/ban <player> <reason>`                   | Bans a player with or without reason                                             |
