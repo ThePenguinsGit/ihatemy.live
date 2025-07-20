@@ -13,7 +13,7 @@ As a reward you will receive
 - Custom-made merchandise  
 depending on your tier!
 One-time donations are also always welcome! You can even join the **current** pre-release server with donations of 5€ or above!  
-Anyone who donates gets the "Contributor" role forever!
+Anyone who donates any amount gets the "Contributor" role forever!
 ::
 ::card
 ## Boosting
