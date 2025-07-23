@@ -41,7 +41,7 @@ There are exceptions:
 ::
 ::card
 ## Dimension Resets
-The following dimensions will reset every Monday at 00:00 CEST:  
+The following dimensions will reset every Monday at 13:00 CEST:  
 - Farmworld
 - The End
 - The Nether

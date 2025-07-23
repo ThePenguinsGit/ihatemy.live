@@ -46,7 +46,7 @@ There are exceptions:
 ::
 ::card
 ## Dimension Resets
-The following dimensions will reset every Monday at 00:00 CEST:
+The following dimensions will reset every Monday at 13:00 CEST:
 (more might follow in the future, d̷̡̖̘̬̪͎̽̒̈́͌̎͜ṏ̶̲͑̇n̴̞͓̠͐̎͐'̸̟̘̙̃̿͊̓͐͜t̷̲̲̻̔̃̆̄̈̀̚ ̸͖̱̩̩͕̥̰̌̾̓̑̀f̶̭̦̼̹̼̎̅̕͝͠ẻ̷̼̞͑̐̀͊͌̉͝ę̸͔͔͎̝̓̾͑̅̀͋͜͝ͅl̸͙̩̳͎̣͈͓̿́͊͐̓͠ ̸̛͈̒̑̽͆͊̚t̶̮͑̀̐̔͐͝ͅo̶͕̓̓̇̈́͘o̶̫͚̩͈̗̗͛̓͌̃̈̚͜ ̷̧̨͓͖́̿̑͘s̵̟̠̗̓̽̆͋͜a̵̢͉̗̣͖̬̺̾́͂̈́̈̆f̴̢̪̬̥̉̐́͒̑̌̆͠e̶̱̣̺̪͐̓̆)
 - The Nether
 - The End
