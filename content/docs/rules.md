@@ -22,6 +22,7 @@ pageTitle: 'Server Rules'
 - Oh and most importantly, accept everyone, as long as no one gets hurt!
 - Avoid claiming large areas of the map without utilizing them!
 - Don't actively _try_ to make the map ugly (No empty, quarried out areas for example)
+- Don't claim structures essential to progress!
 ## In general these rules can be simplified to:
 - **Just don't be an asshole to people!**
 - **And don't be an asshole to the tps!**
