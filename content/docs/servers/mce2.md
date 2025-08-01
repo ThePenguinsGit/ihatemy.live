@@ -61,7 +61,7 @@ Also do keep in mind, that these world borders can always be expanded if we need
 ::card
 ## Banned Items
 - Applied Energistics 2: Spatial Anchor
-- Mekanism: Dimensional Stabilizer
+- Mekanism: Dimensional Stabilizer, Anchor Upgrade 
 - Pneumaticcraft: Chunkloader Upgrade
 - Alexscaves: Nuclear Bomb
 - Nuke Bay: Nuke Bay
