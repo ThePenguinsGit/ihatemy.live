@@ -11,7 +11,7 @@
       <div class="flex flex-col gap-5 flex-grow">
         <AliveServerRow name="MC Eternal 2" version="1.1.1.0" image-path="/img/mce2-2.png" hostname="mce2.ihatemy.live" mapUrl='https://atm10.ihatemy.live'/>
         <AliveServerRow name="Prominence 2" version="3.1.53hf" image-path="/img/p2he.png" hostname="p2he.ihatemy.live" mapUrl='https://atm10.ihatemy.live'/>
-        <AliveServerRow name="All The Mods 10" version="4.5" image-path="/img/atm10.png" hostname="atm10.ihatemy.live" mapUrl='https://atm10.ihatemy.live'/>
+        <AliveServerRow name="All The Mods 10" version="4.10" image-path="/img/atm10.png" hostname="atm10.ihatemy.live" mapUrl='https://atm10.ihatemy.live'/>
         <AliveServerRow name="All The Mods 9" version="1.0.8" image-path="/img/atm9.png" hostname="atm9.ihatemy.live" mapUrl='https://atm9.ihatemy.live'/>
         <DedServerRow name=" 🦀" reason-of-death="died of dead" image-path="/img/crab.png" download-path="https://map-storage.ihatemy.live/maps/crab.zip" />
         <DedServerRow name="MC Eternal (2)" reason-of-death="shitted and cummed" image-path="/img/mce2.png" download-path="https://map-storage.ihatemy.live/maps/mce2.zip" />
