@@ -28,12 +28,14 @@ You can access it by running `/warp farmworld`
 ## Worldborders
 Most(!) dimensions have a world border of 20k! (-10000, 10000 to 10000,-10000)  
 There are exceptions:
-### 10k:
+### 25k:
 - The End
+### 10k:
 - The Other Side
 - The Bumblezone
 - The Twilight Forest
 - The Undergarden
+- The Aether
 ::
 ::card
 ## Dimension Resets
