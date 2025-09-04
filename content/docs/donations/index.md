@@ -9,9 +9,9 @@ If you want to help us fund our current and future Minecraft hosting endeavors, 
 It helps us to keep the servers running and to expand our network.  
 As a reward you will receive
 - Early access to new modpack servers
-- Exclusive prefixes in chat 
-depending on your tier!
-One-time donations are also always welcome! You can even join the **current** pre-release server with donations of 5€ or above!  
+- Exclusive prefixes in chat depending on your tier!  
+One-time donations are also always welcome!  
+You can even join the **current** pre-release server with donations of 5€ or above! (Check out [Pre-Releases](/docs/donations/pre-release) for more details)  
 Anyone who donates any amount gets the "Contributor" role forever!
 ::
 ::card
