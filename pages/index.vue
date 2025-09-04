@@ -4,7 +4,7 @@
     <div class="flex flex-col xl:flex-row gap-4 pt-4">
       <iframe class="hidden xl:block" src="https://discordapp.com/widget?id=637719625274228743&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
       <div>
-        <a class="block xl:hidden w-fit" href="https://discord.gg/QerZux9gyM">
+        <a class="block xl:hidden w-fit" href="https://discord.gg/penguinnetwork">
           <img class="text-white" src="https://discord.com/api/guilds/637719625274228743/widget.png?style=banner2" alt="Join our Discord (p.s. this image can't be shown because it was blocked by your browser)"/>
         </a>
       </div>
@@ -23,3 +23,12 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+useHead({
+  title: `ihatemy.live`,
+  meta: [
+    { name: 'description', content: 'The Penguin Network - for all your modded Minecraft Server needs! See what current or past servers we had and find one that suits you needs!' },
+  ],
+})
+</script>
