@@ -70,4 +70,7 @@ Also do keep in mind, that these world borders can always be expanded if we need
 - Railcraft: Personal World Spike
 - Railcraft: World Spike
 - Railcraft: World Spike Minecart
+- Oritech: Nuke
+- Oritech: Low Yield Nuke
+- Advancedperipherals: Chunk Controller
 ::
