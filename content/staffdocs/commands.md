@@ -4,7 +4,9 @@ position: 5
 ---
 
 ::card
-## Chat Moderation Commands
+## Important foreword
+**These commands are divided between proxy and backend sides, find out more on our [proxy docs page](/staffdocs/proxy)**
+## Chat Moderation Commands (Proxy-side)
 | Command                               | Aliases                             | Description                                                                                        |
 |---------------------------------------|-------------------------------------|----------------------------------------------------------------------------------------------------|
 | `/clearchat`                          | `/cc`, `/chatclear`                 | Clears the chat for all players except those with `carbon.chearchat.exempt`.                       |
@@ -32,7 +34,7 @@ position: 5
 
 \
 `<player>` in `/ignore`, `/unignore`, `/mute`, `/unmute`, `/muteinfo` and `/updateusername` can be replaced with UUID if the `-u` or `--uuid` flag is used. Example: `/mute --uuid f84c6a79-44e4-4d98-8ca7-7d6dd8bb3c64`.
-## Server Moderation Commands
+## Server Moderation Commands (Backend-side)
 | Command                                    | Description                                                                      |
 |--------------------------------------------|----------------------------------------------------------------------------------|
 | `/ban <player> <reason>`                   | Bans a player with or without reason                                             |
