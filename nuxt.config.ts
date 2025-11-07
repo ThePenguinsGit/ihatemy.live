@@ -48,6 +48,7 @@ export default defineNuxtConfig({
     '/docs': { redirect: '/docs/getting-started' },
     '/api/playtime': { proxy: 'https://penguin-bot.ihatemy.live/playtime' },
     '/api/servers': { proxy: 'https://penguin-bot.ihatemy.live/servers' },
+    '/api/all-servers': { proxy: 'https://penguin-bot.ihatemy.live/all-servers' },
     '/api/leaderboard': { proxy: 'https://penguin-bot.ihatemy.live/leaderboard' },
   },
 
