@@ -15,7 +15,7 @@
     "@types/node": "^18.17.3",
     "autoprefixer": "^10.4.15",
     "dayjs-nuxt": "^2.1.11",
-    "nuxt": "^3.11.2",
+    "nuxt": "^3.19.0",
     "postcss": "^8.4.31",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
@@ -24,7 +24,7 @@
   "dependencies": {
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
-    "@nuxt/content": "^3.1.1",
+    "@nuxt/content": "^3.8.0",
     "@vueform/multiselect": "^2.6.11"
   }
 }
