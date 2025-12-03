@@ -9,7 +9,7 @@ position: '13'
 |     |                             |
 |-----|-----------------------------|
 | IP  |    sv.ihatemy.live       |
-| Version  |   `3.3.5`        |
+| Version  |   `3.4.2`        |
 ::
 
 ::card
