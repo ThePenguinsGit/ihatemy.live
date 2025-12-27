@@ -35,7 +35,7 @@
       </thead>
       <tbody>
         <tr v-for="playTime in (data.data)" :key="playTime.uuid">
-          <td class="w-14 py-2"><img :src="`https://crafatar.com/avatars/${playTime.uuid}?overlay`" alt="Player Avatar" class="rounded-md w-10"></td>
+          <td class="w-14 py-2"><img :src="`https://mc-heads.net/avatar/${playTime.uuid}`" alt="Player Avatar" class="rounded-md w-10"></td>
           <td><NuxtLink class="underline" :to="`?name=${playTime.displayName ?? playTime.name}`"><b>{{ (playTime.displayName ?? playTime.name) }}</b></NuxtLink></td>
           <td class="text-right">{{ formatTime(playTime.playtime) }}</td>
         </tr>
