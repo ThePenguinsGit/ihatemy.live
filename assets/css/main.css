@@ -10,23 +10,15 @@
   --background-image-nick1: url('/img/nick/background1.png');
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+.dark {
+    /*--ui-text-dimmed: var();*/
+    /*--ui-text-muted: var(--ui-color-neutral-400);*/
+    /*--ui-text-toned: var(--ui-color-neutral-300);*/
+    --ui-text: var(--color-black);
+    /*--ui-text-highlighted: var(--color-white);*/
+    /*--ui-text-inverted: var(--ui-color-neutral-900);*/
 }
+
 
 div:has(> .image) {
     @apply w-14;

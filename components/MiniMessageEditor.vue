@@ -1,60 +1,86 @@
 <template>
   <div class="flex flex-col gap-2">
     <div class="flex flex-wrap flex-row gap-2">
-      <UPopover>
-        <button class="button">Choose Color</button>
-
-        <template #content class="flex flex-col gap-2">
-          <UColorPicker v-model="color" class="p-2" />
-          <div class="flex flex-col"><input type="text" v-model="inputColor" maxlength="7" @change="() => color = inputColor" class="self-center block w-16"></div>
-        </template>
-      </UPopover>
-      <button @click="applyColor" class="button">
-        <font-awesome-icon :style="chip" :icon="['fas', 'droplet']" />
-      </button>
-      <button @click="applyBold" class="button">
-        <font-awesome-icon :icon="['fas', 'bold']" />
-      </button>
-      <button @click="applyItalic" class="button">
-        <font-awesome-icon :icon="['fas', 'italic']" />
-      </button>
-      <button @click="applyStrikeThrough" class="button">
-        <font-awesome-icon :icon="['fas', 'strikethrough']" />
-      </button>
-      <button @click="applyUnderline" class="button">
-        <font-awesome-icon :icon="['fas', 'underline']" />
-      </button>
-      <button @click="undo" class="button">
-        <font-awesome-icon :icon="['fas', 'undo']" />
-      </button>
-      <button @click="redo" class="button">
-        <font-awesome-icon :icon="['fas', 'redo']" />
-      </button>
+      <div v-if="editor">
+        <button
+            @click="editor.chain().focus().toggleBold().run()"
+            :disabled="!editor.can().chain().focus().toggleBold().run()"
+            :class="{ 'is-active': editor.isActive('bold') }"
+        >
+          bold
+        </button>
+        <input
+            type="color"
+            @input="event => editor.chain().focus().setColor(event.target.value).run()"
+            :value="editor.getAttributes('textStyle').color"
+            :class="{ 'is-active': editor.isActive('textStyle', { color }) }"
+        >
+          color
+        <button
+            @click="editor.chain().focus().toggleItalic().run()"
+            :disabled="!editor.can().chain().focus().toggleItalic().run()"
+            :class="{ 'is-active': editor.isActive('italic') }"
+        >
+          italic
+        </button>
+        <button
+            @click="editor.chain().focus().toggleStrike().run()"
+            :disabled="!editor.can().chain().focus().toggleStrike().run()"
+            :class="{ 'is-active': editor.isActive('strike') }"
+        >
+          strike
+        </button>
+        <button @click="editor.chain().focus().unsetAllMarks().run()">
+          reset formatting
+        </button>
+        <button
+            @click="editor.chain().focus().undo().run()"
+            :disabled="!editor.can().chain().focus().undo().run()"
+        >
+          undo
+        </button>
+        <button
+            @click="editor.chain().focus().redo().run()"
+            :disabled="!editor.can().chain().focus().redo().run()"
+        >
+          redo
+        </button>
+      </div>
+      <TiptapEditorContent :editor="editor" />
     </div>
-    <div
-        @input="onInput"
-        v-html="modelValue"
-        contenteditable="true"
-        class="wysiwyg-output outline-none border px-2 rounded-sm max-h-24 overflow-y-auto font-[minecraft]"
-    />
   </div>
 </template>
 
 <style scoped>
 @reference "~/assets/css/main.css";
 
-.button {
+button {
   @apply border border-gray-300 px-2 rounded-sm;
 }
-.button:hover {
+button:hover {
   @apply border-green-300;
 }
 </style>
 
 <script setup lang="ts">
-defineProps<{
+import { Color } from '@tiptap/extension-color'
+import { TextStyle } from '@tiptap/extension-text-style'
+
+const props = defineProps<{
   modelValue: string
 }>();
+
+const editor = useEditor({
+  content: "<p>I'm running Tiptap with Vue.js. 🎉</p>",
+  extensions: [TiptapStarterKit, TextStyle, Color],
+});
+
+onBeforeUnmount(() => {
+  unref(editor).destroy();
+});
+
+
+const nick = ref<string>(props.modelValue)
 
 const color = ref('#00C16A')
 const inputColor = ref(color.value)

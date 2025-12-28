@@ -1,6 +1,6 @@
 <template>
   <div class="px-5 flex flex-col gap-3">
-    <iframe src="https://ko-fi.com/streamalerts/goaloverlay/sa_ed47c804-d1a7-4e42-ba00-1edff9d3e40d" height="57" class="-mb-1" />
+<!--    <iframe src="https://ko-fi.com/streamalerts/goaloverlay/sa_ed47c804-d1a7-4e42-ba00-1edff9d3e40d" height="57" class="-mb-1" />-->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       <div class="flex flex-col gap-5 w-full">
         <AliveServerRow name="ATM10: To the Sky" version="2.0.2" image-path="/img/atm10tts.png" hostname="atm10tts.ihatemy.live" mapUrl='https://maps.ihatemy.live/atm10tts'/>

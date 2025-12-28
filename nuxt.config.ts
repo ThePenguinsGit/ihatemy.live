@@ -25,26 +25,26 @@ export default defineNuxtConfig({
 
   postcss: {
     plugins: {
-<<<<<<< HEAD
-      'tailwindcss/nesting': {},
-      tailwindcss: {},
-=======
->>>>>>> ceb3494 (ADD better editor)
       autoprefixer: {},
     },
   },
 
   modules: [
     '@nuxt/devtools',
-      '@nuxtjs/sitemap',
-      '@nuxt/content',
-      'dayjs-nuxt',
-      '@nuxtjs/robots',
-      '@pinia/nuxt',
-      'pinia-plugin-persistedstate/nuxt',
+    '@nuxtjs/sitemap',
+    '@nuxt/content',
+    'dayjs-nuxt',
+    '@nuxtjs/robots',
+    '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
     '@nuxt/fonts',
-    '@nuxt/ui'
+    '@nuxt/ui',
+    'nuxt-tiptap-editor'
   ],
+
+  tiptap: {
+    prefix: 'Tiptap', //prefix for Tiptap imports, composables not included
+  },
 
   vite: {
     server: {

@@ -24,4 +24,4 @@ logs
 !.env.dist
 !.env.example
 /.direnv/
-/build/config.gypi
+/build/

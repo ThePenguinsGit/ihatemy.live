@@ -31,7 +31,7 @@ const { data: nickData } = await useFetch<MiniMessageNickResponseInterface>('/ap
     uuid: props.uuid
   },
   cache: false,
-  watch: [props]
+  watch: [props.uuid]
 });
 
 const input = ref<string>(nickData.value?.miniMessage ?? '');
