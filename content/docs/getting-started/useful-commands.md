@@ -86,4 +86,9 @@ Also note [Performance](/docs/getting-started/performance) for more information!
 You wanna talk more privately? Do /party create (partyname) to create a party and /party invite (playername) to invite people!  
 To talk in partychat run /partchat and to return to normal chat run /(servername) (e.g. /atm10, /atm9) 
 ::
+::card
+## `/vote`
+Gives you a list of all voting links applicable to the server you are currently on!  
+See [Voting](/docs/getting-started/voting) for more information!
+::
 ::

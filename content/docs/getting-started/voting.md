@@ -33,6 +33,7 @@ Your current streak is also shown in your chat prefix (which may or may not be a
 
 ::card
 <h1 style="text-align: center">Voting Sites</h1>
+<sub style="text-align: center;display: inline-block;width: 100%;">You can also run <code>/vote</code> in-game to get a list</sub>
 ::
 
 ::row
