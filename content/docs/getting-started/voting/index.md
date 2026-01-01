@@ -28,7 +28,10 @@ as long as you have an active streak
 ## STREAK????????™
 When you vote for us on the voting sites below, you will gain access to the above features for 24 hours.  
 You can vote again on another voting site within 24 hours of the last vote to extend your streak by another 24 hours.  
-Your current streak is also shown in your chat prefix (which may or may not be added to a leaderboard eventually).
+Your current streak is also shown in your chat prefix (which may or may not be added to a leaderboard eventually).  
+<br>
+We also know you ***__LOVE__*** leaderboards, so we made one to show the top 10 currently active streaks as well!  
+Check it out at [Getting Started -> Voting -> Leaderboard](/docs/getting-started/voting/leaderboard)
 ::
 
 ::card

@@ -2,7 +2,7 @@
   <Card v-if="data" class="items-start">
     <div class="flex justify-between">
       <div>
-        <h1>Top 10</h1>
+        <h1>Top {{ data.data.length }}<span v-if="data.data.length < 10" title="For now">*</span></h1>
         <i>Of the last 30 days</i>
       </div>
       <div class="text-right">
@@ -36,7 +36,17 @@
       <tbody>
         <tr v-for="playTime in (data.data)" :key="playTime.uuid">
           <td class="w-14 py-2"><img :src="`https://mc-heads.net/avatar/${playTime.uuid}`" alt="Player Avatar" class="rounded-md w-10"></td>
-          <td><NuxtLink class="underline" :to="`?name=${playTime.displayName ?? playTime.name}`"><b>{{ (playTime.displayName ?? playTime.name) }}</b></NuxtLink></td>
+          <td v-if="playTime.displayName !== null">
+            <NuxtLink class="underline" :to="`?name=${playTime.displayName}`">
+              <b :title="playTime.name">{{ playTime.displayName }}</b>
+            </NuxtLink>
+            <i :title="playTime.name">*</i>
+          </td>
+          <td v-else>
+            <NuxtLink class="underline" :to="`?name=${playTime.name}`">
+              <b>{{ playTime.name }}</b>
+            </NuxtLink>
+          </td>
           <td class="text-right">{{ formatTime(playTime.playtime) }}</td>
         </tr>
       </tbody>

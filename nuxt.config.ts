@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   },
 
   dayjs: {
-    plugins: ['utc', 'timezone', 'duration'],
+    plugins: ['utc', 'timezone', 'duration', 'relativeTime', 'localizedFormat'],
   },
 
   app: {
@@ -35,7 +35,7 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
       ],
-      script: [{ hid: "stripe", src: "https://storage.ko-fi.com/cdn/scripts/overlay-widget.js", defer: true }],
+      script: [{ src: "https://storage.ko-fi.com/cdn/scripts/overlay-widget.js", defer: true }],
     }
   },
 
@@ -50,6 +50,7 @@ export default defineNuxtConfig({
     '/api/servers': { proxy: 'https://penguin-bot.ihatemy.live/servers' },
     '/api/all-servers': { proxy: 'https://penguin-bot.ihatemy.live/all-servers' },
     '/api/leaderboard': { proxy: 'https://penguin-bot.ihatemy.live/leaderboard' },
+    '/api/vote-leaderboard': { proxy: 'https://penguin-bot.ihatemy.live/vote-leaderboard' },
   },
 
   compatibilityDate: '2025-01-20'

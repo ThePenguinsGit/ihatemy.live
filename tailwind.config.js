@@ -13,7 +13,8 @@ module.exports = {
     extend: {
       colors: {
         'secondary': '#2B303A',
-        'secondaryLight': '#454E5E'
+        'secondaryLight': '#454E5E',
+        'gold': '#ffaa00',
       },
     },
   },
