@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   },
 
   dayjs: {
-    plugins: ['utc', 'timezone', 'duration', 'relativeTime'],
+    plugins: ['utc', 'timezone', 'duration', 'relativeTime', 'localizedFormat'],
   },
 
   app: {

@@ -25,8 +25,8 @@
           <td v-if="voteResult.displayName !== null"><b :title="voteResult.name">{{ voteResult.displayName }}</b><i :title="voteResult.name">*</i></td>
           <td v-else><b>{{ voteResult.name }}</b></td>
           <td class="text-right"><span class="text-gold">☆</span>{{ voteResult.votes }}</td>
-          <td class="text-right"><code>{{ formatTime(voteResult.started) }}</code></td>
-          <td class="text-right"><code>{{ formatTime(voteResult.expires) }}</code></td>
+          <td class="text-right"><code :title="formatTimeAbsolute(voteResult.started)">{{ formatTimeRelative(voteResult.started) }}</code></td>
+          <td class="text-right"><code :title="formatTimeAbsolute(voteResult.expires)">{{ formatTimeRelative(voteResult.expires) }}</code></td>
         </tr>
       </tbody>
     </table>
@@ -45,7 +45,8 @@ import type ServerResponse from "~/interfaces/ServerResponse";
 import Multiselect from '@vueform/multiselect'
 import type VoteLeaderboardRowInterface from "~/interfaces/VoteLeaderboardRowInterface";
 
-const formatTime = (time: number) => useDayjs().unix(time).fromNow()
+const formatTimeRelative = (time: number) => useDayjs().unix(time).fromNow()
+const formatTimeAbsolute = (time: number) => useDayjs().unix(time).format('LLLL')
 
 const { data, refresh } = await useFetch<PenguBotResponseInterface<VoteLeaderboardRowInterface[]>|null>('/api/vote-leaderboard')
 
