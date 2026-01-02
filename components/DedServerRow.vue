@@ -14,7 +14,7 @@
       <div class="self-center">
         <Badge class="bg-black text-white cursor-default" :title="reasonOfDeath">ded</Badge>
       </div>
-      <a v-if="downloadPath" class="bg-secondary drop-shadow-sm px-3 py-1 rounded text-xl text-white hover:bg-secondaryLight hover:drop-shadow-md transition-all" :href="downloadPath">Download Map <span v-if="sizeInGigaBytes ?? 0 !== 0">({{sizeInGigaBytes}} GB)</span></a>
+      <a v-if="downloadPath" class="bg-secondary drop-shadow-sm px-3 py-1 rounded text-xl text-white hover:text-white hover:bg-secondaryLight hover:drop-shadow-md transition-all" :href="downloadPath">Download Map <span v-if="sizeInGigaBytes ?? 0 !== 0">({{sizeInGigaBytes}} GB)</span></a>
       <span v-else class="bg-blue-300 drop-shadow-sm px-3 py-1 rounded text-xl text-white cursor-progress">Download coming soon&trade;</span>
     </div>
   </div>
@@ -24,16 +24,10 @@
 const props = defineProps<{
   name: string,
   downloadPath: null|string,
+  contentLengthOfDownload: null|number,
   imagePath: string,
   reasonOfDeath: string,
 }>()
 
-const sizeInGigaBytes = useState('sizeInGigaBytes' + props.name, () => 0)
-
-if (props.downloadPath !== null) {
-  fetch(props.downloadPath, {
-    method: 'HEAD',
-    headers: {'X-HTTP-Method-Override': 'HEAD'},
-  }).then(response => sizeInGigaBytes.value = Math.round(((Number.parseInt(response.headers.get('content-length') ?? '') / 1e+9) + Number.EPSILON) * 100) / 100);
-}
+const sizeInGigaBytes = Math.round(((props.contentLengthOfDownload ?? 0) / 1e+9 + Number.EPSILON) * 100) / 100
 </script>

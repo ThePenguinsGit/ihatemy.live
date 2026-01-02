@@ -9,6 +9,7 @@ export default defineNuxtConfig({
 
   postcss: {
     plugins: {
+      'tailwindcss/nesting': {},
       tailwindcss: {},
       autoprefixer: {},
     },
@@ -49,6 +50,7 @@ export default defineNuxtConfig({
     '/api/playtime': { proxy: 'https://penguin-bot.ihatemy.live/playtime' },
     '/api/servers': { proxy: 'https://penguin-bot.ihatemy.live/servers' },
     '/api/all-servers': { proxy: 'https://penguin-bot.ihatemy.live/all-servers' },
+    '/api/server-status': { proxy: 'https://penguin-bot.ihatemy.live/server-status' },
     '/api/leaderboard': { proxy: 'https://penguin-bot.ihatemy.live/leaderboard' },
     '/api/vote-leaderboard': { proxy: 'https://penguin-bot.ihatemy.live/vote-leaderboard' },
   },

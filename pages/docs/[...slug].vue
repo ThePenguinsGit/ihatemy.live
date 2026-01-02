@@ -23,7 +23,7 @@ useHead({
 </script>
 
 <template>
-  <div class="flex flex-col md:flex-row gap-4">
+  <div class="flex flex-col md:flex-row gap-4 content">
     <nav class="card w-full md:w-56 md:sticky top-4 block h-fit shrink-0">
       <h1 class="text-center">Docs</h1>
       <hr class="border-secondary mb-2"/>
@@ -48,50 +48,3 @@ useHead({
     </div>
   </div>
 </template>
-
-<style>
-.content p > a {
-  @apply underline text-secondary hover:text-secondaryLight;
-}
-
-img {
-  @apply rounded-md;
-}
-
-tbody {
-  @apply divide-y divide-solid;
-}
-tr {
-  @apply divide-x divide-dashed;
-}
-td, th {
-  @apply px-2;
-}
-
-h1 {
-  @apply text-3xl;
-}
-
-h2 {
-  @apply text-2xl;
-}
-
-h3 {
-  @apply text-xl;
-}
-
-code {
-  @apply bg-slate-200 px-1 rounded-sm;
-}
-
-ul {
-  @apply list-disc list-inside;
-}
-
-ol {
-  @apply list-decimal list-inside;
-}
-:not(h1, h2, h3) > a {
-  @apply underline hover:text-secondaryLight;
-}
-</style>

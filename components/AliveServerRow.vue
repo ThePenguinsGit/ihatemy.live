@@ -9,8 +9,8 @@
         />
       </div>
       <div>
-        <h2 class="text-[40px] md:text-[50px]">{{name}}</h2>
-        <div role="doc-subtitle" class="relative -mb-2 text-lg cursor-pointer hover:underline"><span title="Click to copy" @click="copyToClipboard">{{ hostname }}</span> (Version {{ version }})</div>
+        <h2 class="text-[40px] md:text-[50px] leading-none">{{name}}</h2>
+        <div class="relative text-lg cursor-pointer hover:underline"><span title="Click to copy" @click="copyToClipboard">{{ hostname }}</span> (Version {{ version }})</div>
       </div>
     </div>
     <div class="flex flex-row gap-2 place-content-between w-full lg:w-auto" v-if="serverStats !== null">
@@ -33,7 +33,7 @@ const props = defineProps<{
   mapUrl?: undefined|string,
   version: string,
 }>();
-const { data: serverStats, refresh } = useFetch<McStatsResultInterface>(`https://api.mcsrvstat.us/3/${props.hostname}`);
+const { data: serverStats, refresh } = useFetch<McStatsResultInterface>(`/api/server-status?hostname=${props.hostname}`);
 
 let interval: ReturnType<typeof setInterval>
 onNuxtReady(() => {
