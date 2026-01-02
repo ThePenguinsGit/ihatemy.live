@@ -11,7 +11,7 @@
   "devDependencies": {
     "@nuxt/devtools": "^2.0.0-beta.3",
     "@nuxtjs/robots": "^5.2.11",
-    "@nuxtjs/sitemap": "^7.2.6",
+    "@nuxtjs/sitemap": "^7.5.0",
     "@types/node": "^18.17.3",
     "autoprefixer": "^10.4.15",
     "dayjs-nuxt": "^2.1.11",
@@ -25,6 +25,7 @@
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
     "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
     "@nuxt/content": "^3.1.1",
+    "@nuxt/kit": "^4.2.2",
     "@vueform/multiselect": "^2.6.11"
   }
 }
