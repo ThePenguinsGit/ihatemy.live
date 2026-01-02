@@ -48,7 +48,7 @@ import type VoteLeaderboardRowInterface from "~/interfaces/VoteLeaderboardRowInt
 const formatTimeRelative = (time: number) => useDayjs().unix(time).fromNow()
 const formatTimeAbsolute = (time: number) => useDayjs().unix(time).format('LLLL')
 
-const { data, refresh } = await useFetch<PenguBotResponseInterface<VoteLeaderboardRowInterface[]>|null>('/api/vote-leaderboard')
+const { data, refresh } = await useApiFetch<PenguBotResponseInterface<VoteLeaderboardRowInterface[]>|null>('/vote-leaderboard')
 
 let interval: ReturnType<typeof setInterval>
 

@@ -15,13 +15,15 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxt/devtools', '@nuxtjs/sitemap', '@nuxt/content', 'dayjs-nuxt', '@nuxtjs/robots'],
-
-  vite: {
-    server: {
-      allowedHosts: ['e0ba-109-91-157-17.ngrok-free.app']
-    }
+  site: {
+    url: 'ihatemy.live'
   },
+  sitemap: {
+    discoverImages: false,
+    zeroRuntime: true
+  },
+
+  modules: ['@nuxt/devtools', '@nuxtjs/sitemap', '@nuxt/content', 'dayjs-nuxt', '@nuxtjs/robots', 'nitro-cloudflare-dev'],
 
   dayjs: {
     plugins: ['utc', 'timezone', 'duration', 'relativeTime', 'localizedFormat'],
@@ -42,17 +44,15 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
+      apiBaseUrl: 'https://penguin-bot.ihatemy.live',
       discordUrl: 'https://discord.gg/tM4urb5SPQ' 
     }
   },
+
   routeRules: {
     '/docs': { redirect: '/docs/getting-started' },
-    '/api/playtime': { proxy: 'https://penguin-bot.ihatemy.live/playtime' },
-    '/api/servers': { proxy: 'https://penguin-bot.ihatemy.live/servers' },
-    '/api/all-servers': { proxy: 'https://penguin-bot.ihatemy.live/all-servers' },
-    '/api/server-status': { proxy: 'https://penguin-bot.ihatemy.live/server-status' },
-    '/api/leaderboard': { proxy: 'https://penguin-bot.ihatemy.live/leaderboard' },
-    '/api/vote-leaderboard': { proxy: 'https://penguin-bot.ihatemy.live/vote-leaderboard' },
+    '/discord': { redirect: 'https://discord.com/invite/tM4urb5SPQ' },
+    '/api/docs': {prerender: true}
   },
 
   compatibilityDate: '2025-01-20'

@@ -33,7 +33,7 @@ const props = defineProps<{
   mapUrl?: undefined|string,
   version: string,
 }>();
-const { data: serverStats, refresh } = useFetch<McStatsResultInterface>(`/api/server-status?hostname=${props.hostname}`);
+const { data: serverStats, refresh } = useApiFetch<McStatsResultInterface>(`/server-status?hostname=${props.hostname}`);
 
 let interval: ReturnType<typeof setInterval>
 onNuxtReady(() => {

@@ -70,7 +70,7 @@ const reactiveQuery = computed(() => route.query.name);
 const username = ref<string>(useRoute().query.name as string ?? '');
 watch(reactiveQuery, () => username.value = reactiveQuery.value as string ?? '');
 
-const { data, error, refresh } = await useFetch<PenguBotResponseInterface<PlayTimeResultInterface>|null>('/api/playtime', {
+const { data, error, refresh } = await useApiFetch<PenguBotResponseInterface<PlayTimeResultInterface>|null>('/playtime', {
   immediate: true,
   query: {  name: username }
 })

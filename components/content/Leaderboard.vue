@@ -74,10 +74,10 @@ import Multiselect from '@vueform/multiselect'
 
 const selectedServers = ref<string>()
 
-const { data: servers } = useFetch<ServerResponse[]>('/api/servers')
+const { data: servers } = useApiFetch<ServerResponse[]>('/servers')
 const formatTime = (time: number) => useDayjs().duration(time, 'seconds').as('hours').toFixed(2) + ' h'
 
-const { data, refresh } = await useFetch<PenguBotResponseInterface<LeaderboardResultRowInterface[]>|null>('/api/leaderboard', {
+const { data, refresh } = await useApiFetch<PenguBotResponseInterface<LeaderboardResultRowInterface[]>|null>('/leaderboard', {
   query: {
     'servers[]': selectedServers
   }
