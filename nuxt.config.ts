@@ -7,6 +7,12 @@ export default defineNuxtConfig({
     inlineRouteRules: true,
   },
 
+  nitro: {
+    prerender: {
+      autoSubfolderIndex: false
+    }
+  },
+
   postcss: {
     plugins: {
       'tailwindcss/nesting': {},
