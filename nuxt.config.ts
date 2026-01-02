@@ -50,7 +50,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/docs': { redirect: '/docs/getting-started' },
+    '/docs': { redirect: {to: '/docs/getting-started', statusCode: 308} },
     '/discord': { redirect: 'https://discord.com/invite/tM4urb5SPQ' },
     '/api/docs': {prerender: true},
     '/api/all-servers': {redirect: 'https://penguin-bot.ihatemy.live/all-servers'}
