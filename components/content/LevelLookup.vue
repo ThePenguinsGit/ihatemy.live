@@ -47,6 +47,9 @@
             </tbody>
           </table>
         </div>
+        <div v-else-if="!error">
+          <Spinner class="w-full flex my-10 justify-center items-center" />
+        </div>
         <div v-if="error && error.statusCode === 404 && username.length > 0">
           <div class="text-center">
             <p>I have never seen that user in my LIFE</p>
@@ -70,7 +73,7 @@ const reactiveQuery = computed(() => route.query.name);
 const username = ref<string>(useRoute().query.name as string ?? '');
 watch(reactiveQuery, () => username.value = reactiveQuery.value as string ?? '');
 
-const { data, error, refresh } = await useApiFetch<PenguBotResponseInterface<PlayTimeResultInterface>|null>('/playtime', {
+const { data, error, refresh, status } = await useApiFetch<PenguBotResponseInterface<PlayTimeResultInterface>|null>('/playtime', {
   immediate: true,
   query: {  name: username }
 })

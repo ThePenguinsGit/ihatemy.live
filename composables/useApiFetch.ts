@@ -7,5 +7,5 @@ export const useApiFetch: typeof useFetch = (request, opts?) => {
         opts = { baseURL: config.public.apiBaseUrl }
     }
 
-    return useFetch(config.public.apiBaseUrl + request, opts)
+    return useFetch(config.public.apiBaseUrl + request, {...opts, baseURL: config.public.apiBaseUrl, server: false})
 }

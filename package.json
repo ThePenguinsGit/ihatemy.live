@@ -28,6 +28,7 @@
     "@nuxt/content": "^3.10.0",
     "@nuxt/kit": "^4.2.2",
     "@vueform/multiselect": "^2.6.11",
-    "nitro-cloudflare-dev": "^0.2.2"
+    "nitro-cloudflare-dev": "^0.2.2",
+    "rand-seed": "^3.0.0"
   }
 }
