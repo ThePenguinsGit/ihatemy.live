@@ -30,33 +30,10 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-$bg-width: -264px;
-$bg-height: 141px;
-
-@-webkit-keyframes bg-scrolling {
-  0% { background-position: $bg-width $bg-height; }
-}
-@-moz-keyframes    bg-scrolling {
-  0% { background-position: $bg-width $bg-height; }
-}
-@-o-keyframes      bg-scrolling {
-  0% { background-position: $bg-width $bg-height; }
-}
-@keyframes         bg-scrolling {
-  0% { background-position: $bg-width $bg-height; }
-}
 
 /* Main styles */
 body {
   background: url('/img/background.png') repeat fixed;
-  -webkit-animation: bg-scrolling 5s infinite;
-  -moz-animation:    bg-scrolling 5s infinite;
-  -o-animation:      bg-scrolling 5s infinite;
-  animation:         bg-scrolling 5s infinite;
-  -webkit-animation-timing-function: linear;
-  -moz-animation-timing-function:    linear;
-  -o-animation-timing-function:      linear;
-  animation-timing-function:         linear;
 }
 
 .wrapper {
