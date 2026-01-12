@@ -1,15 +1,15 @@
 ---
-title: 'ATM10'
-pageTitle: 'All the Mods 10'
-position: 3.0
+title: 'ATM10TTS'
+pageTitle: 'All the Mods 10: To the Sky'
+position: 3.1
 ---
 ::row
 
 ::card
 |     |                             |
 |-----|-----------------------------|
-| IP  |    atm10.ihatemy.live       |
-| Version  |   `5.4`        |
+| IP  |    atm10tts.ihatemy.live       |
+| Version  |   `1.8`        |
 ::
 
 ::card
@@ -19,34 +19,31 @@ To force-load chunks in your base (while any party member is online), go to the 
 ::
 
 ::card
-## The Farmworld
-Since we don't reset the Overworld we have a Farmworld which gets reset (and regenerated when the worldgen of the pack changes)  
-You can access it by running `/warp farmworld`
+## Skyblock specific Stuffs
+You can run `/skyblock gui` to create and manage your skyblock island through the main GUI.  
+There's also 
+- `/skyblock create` - Create a new skyblock island
+- `/skyblock home` - Teleport to your islands spawn
+- `/skyblock join` - Accept an invitation or request to join another island
+- `/skyblock leave` - Leave your current island
+- `/skyblock visit` - Visit another island  
+(if you prefer to use commands instead) 
 ::
+
 ::row
 ::card
 ## Worldborders
-Most(!) dimensions have a world border of 20k! (-10000, 10000 to 10000,-10000)  
+Most(!) dimensions have a world border of none! (-∞, ∞ to ∞,-∞)  
 There are exceptions:
-### 25k:
-- The End
-### 10k:
-- The Other Side
-- The Bumblezone
-- The Twilight Forest
-- The Undergarden
-- The Aether
+none  
+<br>
+have fun being a pretend EU citizen
 ::
 ::card
 ## Dimension Resets
 The following dimensions will reset every Monday at 13:00 CEST:
-- Twilight Forest
-- The Other Side
-- The Starlight
-- The Other
 - The Nether
 - The End
-- The Farmworld
 ::
 ::
 ::card
@@ -60,10 +57,8 @@ Also do keep in mind, that these world borders can always be expanded if we need
 - Mekanism: Dimensional Stabilizer, Anchor Upgrade
 - Pneumaticcraft: Chunkloader Upgrade
 - Industrial Foregoing: Infinity Nuke
-- Modular Machinery Reborn: Chunkloader
 - Steve's Carts: Chunk Loader Module
 - Create: Schematicannon
-- Modular Force Field Systems: (most of it) (crash) :(
 - Justdirethings: Portalgun
 - Justdirethings: Portalgun_v2
 - Securitycraft: Briefcase
@@ -72,5 +67,4 @@ Also do keep in mind, that these world borders can always be expanded if we need
 - Railcraft: World Spike Minecart
 - Oritech: Nuke
 - Oritech: Low Yield Nuke
-- Advancedperipherals: Chunk Controller
 ::

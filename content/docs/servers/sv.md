@@ -1,7 +1,7 @@
 ---
 title: 'SV'
 pageTitle: 'Society: Sunlit Valley'
-position: '13'
+position: 3.6
 ---
 ::row
 
