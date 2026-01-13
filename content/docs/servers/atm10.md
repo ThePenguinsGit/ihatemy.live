@@ -73,5 +73,5 @@ Also do keep in mind, that these world borders can always be expanded if we need
 - Oritech: Nuke
 - Oritech: Low Yield Nuke
 - Advancedperipherals: Chunk Controller
-- Building Gadgets 2: Template Nanager
+- Building Gadgets 2: Template Manager
 ::

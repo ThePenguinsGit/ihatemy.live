@@ -57,5 +57,5 @@ Also do keep in mind, that these world borders can always be expanded if we need
 - Industrial Foregoing: Infinity Nuke
 - Create: Schematicannon
 - Quarry Plus: Chunk Destroyer
-- Building Gadgets 2: Template Nanager
+- Building Gadgets 2: Template Manager
 ::
