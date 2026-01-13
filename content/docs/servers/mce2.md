@@ -65,6 +65,7 @@ Also do keep in mind, that these world borders can always be expanded if we need
 - Pneumaticcraft: Chunkloader Upgrade
 - Alexscaves: Nuclear Bomb
 - Nuke Bay: Nuke Bay
+- Building Gadgets 2: Template Nanager
 
 
 ::

@@ -67,4 +67,5 @@ Also do keep in mind, that these world borders can always be expanded if we need
 - Railcraft: World Spike Minecart
 - Oritech: Nuke
 - Oritech: Low Yield Nuke
+- Building Gadgets 2: Template Nanager
 ::
