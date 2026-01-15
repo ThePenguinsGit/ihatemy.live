@@ -13,7 +13,7 @@
         <div class="relative text-lg cursor-pointer hover:underline"><span title="Click to copy" @click="copyToClipboard">{{ hostname }}</span> (Version {{ version }})</div>
       </div>
     </div>
-    <div class="flex flex-row gap-2 place-content-between w-full lg:w-auto" v-if="serverStats !== null">
+    <div class="flex flex-row gap-2 place-content-between w-full lg:w-auto" v-if="serverStats !== undefined">
       <div class="self-center">
         <Badge v-if="serverStats.online && serverStats.players.max !== null" class="bg-green-600 text-white" title="barely">alive</Badge>
         <Badge v-else class="bg-red-600 text-white">(currently) ded</Badge>
