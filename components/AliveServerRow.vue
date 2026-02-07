@@ -16,12 +16,12 @@
     <div class="flex flex-col gap-2 w-full lg:w-auto" v-if="serverStats !== undefined">
       <div class="flex flex-row gap-2 place-content-between">
         <div class="self-center">
-          <Badge v-if="serverStats.online && serverStats.players.max !== null" class="bg-green-600 text-white" title="barely">alive</Badge>
+          <Badge v-if="serverStats?.online && serverStats.players.max !== null" class="bg-green-600 text-white" title="barely">alive</Badge>
           <Badge v-else class="bg-red-600 text-white">(currently) ded</Badge>
         </div>
-        <h2 v-if="serverStats.online && serverStats.players.max !== null" class="text-2xl">{{ serverStats.players.online }} / {{ serverStats.players.max }} Players</h2>
+        <h2 v-if="serverStats?.online && serverStats.players.max !== null" class="text-2xl">{{ serverStats.players.online }} / {{ serverStats.players.max }} Players</h2>
       </div>
-      <a :href="mapUrl" target="_blank" class="block"><button v-if="mapUrl !== undefined && serverStats.online" class="w-full bg-secondary text-white px-2 py-1 rounded-md">Live Map</button></a>
+      <a :href="mapUrl" target="_blank" class="block"><button v-if="mapUrl !== undefined && serverStats?.online" class="w-full bg-secondary text-white px-2 py-1 rounded-md">Live Map</button></a>
     </div>
   </div>
 </template>
@@ -36,7 +36,7 @@ const props = defineProps<{
   mapUrl?: undefined|string,
   version: string,
 }>();
-const { data: serverStats, refresh } = useApiFetch<McStatsResultInterface>(`/server-status?hostname=${props.hostname}`);
+const { data: serverStats, refresh } = useApiFetch<McStatsResultInterface|null>(`/server-status?hostname=${props.hostname}`);
 
 let interval: ReturnType<typeof setInterval>
 onNuxtReady(() => {
