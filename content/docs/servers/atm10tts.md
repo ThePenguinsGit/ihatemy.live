@@ -9,7 +9,7 @@ position: 3.1
 |     |                             |
 |-----|-----------------------------|
 | IP  |    atm10tts.ihatemy.live       |
-| Version  |   `1.8`        |
+| Version  |   `1.9.1`        |
 ::
 
 ::card
