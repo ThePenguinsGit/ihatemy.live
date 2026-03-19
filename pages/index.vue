@@ -14,7 +14,7 @@
         <AliveServerRow name="Society: Sunlit Valley" version="4.0.4" image-path="/img/sv.png" hostname="sv.ihatemy.live" mapUrl='https://maps.ihatemy.live/sv'/>
         <AliveServerRow name="Prominence 2" version="3.9.21" image-path="/img/p2he.png" hostname="p2he.ihatemy.live" mapUrl='https://maps.ihatemy.live/p2he'/>
         <AliveServerRow name="ATM10: To the Sky" version="2.0.0" image-path="/img/atm10tts.png" hostname="atm10tts.ihatemy.live" mapUrl='https://maps.ihatemy.live/atm10tts'/>
-        <AliveServerRow name="All The Mods 10" version="6.0" image-path="/img/atm10.png" hostname="atm10.ihatemy.live" mapUrl='https://maps.ihatemy.live/atm10'/>
+        <AliveServerRow name="All The Mods 10" version="6.1" image-path="/img/atm10.png" hostname="atm10.ihatemy.live" mapUrl='https://maps.ihatemy.live/atm10'/>
         <AliveServerRow name="All The Mods 9" version="1.1.1" image-path="/img/atm9.png" hostname="atm9.ihatemy.live" mapUrl='https://maps.ihatemy.live/atm9'/>
         <DedServerRow name=" 🦀" reason-of-death="died of dead" image-path="/img/crab.png" download-path="https://map-storage.ihatemy.live/maps/crab.zip" :content-length-of-download="6248410954" />
         <DedServerRow name="MC Eternal (2)" reason-of-death="shitted and cummed" image-path="/img/mce2.png" download-path="https://map-storage.ihatemy.live/maps/mce2.zip" :content-length-of-download="32743256695" />
