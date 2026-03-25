@@ -1,6 +1,6 @@
 <template>
   <div class="card flex flex-col md:flex-row place-content-between">
-    <div class="flex flex-row place-content-between w-full md:w-auto">
+    <div class="flex flex-row place-content-between w-full md:w-auto md:mr-2">
       <div class="self-center">
         <img
             :src="imagePath"
@@ -8,7 +8,7 @@
             :alt="name"
         />
       </div>
-      <h2 class="text-3xl lg:text-3xl xl:text-[50px]">{{name}}</h2>
+      <h2 class="text-3xl lg:text-3xl xl:text-[50px] mt-1">{{name}}</h2>
     </div>
     <div class="flex flex-row gap-2  place-content-between w-full md:w-auto">
       <div class="self-center">

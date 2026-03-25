@@ -44,7 +44,6 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
       ],
-      script: [{ src: "https://storage.ko-fi.com/cdn/scripts/overlay-widget.js", defer: true }],
     }
   },
 
