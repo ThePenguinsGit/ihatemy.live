@@ -15,7 +15,7 @@ legal@ihatemy.live
 https://ihatemy.live
 
 ## VAT-ID
-VAT-ID number per § 27a UStG: to be assigned
+VAT-ID number per § 27a UStG: DE326934606
 
 ## EU Dispute Resolution
 The European Commission provides a platform for online dispute resolution (ODR): https://ec.europa.eu/consumers/odr/.  
