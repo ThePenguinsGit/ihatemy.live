@@ -36,7 +36,7 @@ _(Commands don't have cooldown unless specified) (Teams can force-load up to **5
 | Level 700 |                                             | 5          | 50                 | 150         | 
 | Level 800 |                                             | 5          | 50                 | 150         | 
 | Level 900 |                                             | 5          | 50                 | 150         | 
-| Level 1000| Bragging rights                             | 5          | 50                 | 150         |
+| Level 1000| Bragging rights, access to ✨pengu moments✨                            | 5          | 50                 | 150         |
 ::
 ::card
 ## Chat Formatting
