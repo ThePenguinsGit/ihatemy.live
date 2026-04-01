@@ -9,7 +9,7 @@ position: 3.0
 |     |                             |
 |-----|-----------------------------|
 | IP  |    atm10.ihatemy.live       |
-| Version  |   `6.1`        |
+| Version  |   `6.2.1`        |
 ::
 
 ::card
