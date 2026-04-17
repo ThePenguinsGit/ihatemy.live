@@ -9,7 +9,7 @@ position: 3.6
 |     |                             |
 |-----|-----------------------------|
 | IP  |    sv.ihatemy.live       |
-| Version  |   `4.0.4`        |
+| Version  |   `4.0.5`        |
 ::
 
 ::card
