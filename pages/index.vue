@@ -13,8 +13,8 @@
         <AliveServerRow name="All The Mods 10" version="6.6" image-path="/img/atm10.png" hostname="atm10.ihatemy.live" mapUrl='https://maps.ihatemy.live/atm10'/>
         <AliveServerRow name="GregTech: New Horizons" version="2.8.4" image-path="/img/gtnh.png" hostname="gtnh.ihatemy.live" mapUrl='https://maps.ihatemy.live/gtnh'/>
         <AliveServerRow name="MC Eternal 2" version="1.2.0.3" image-path="/img/mce2-2.png" hostname="mce2.ihatemy.live" mapUrl='https://maps.ihatemy.live/mce2'/>
-        <AliveServerRow name="Prominence 2" version="3.9.26" image-path="/img/p2he.png" hostname="p2he.ihatemy.live" mapUrl='https://maps.ihatemy.live/p2he'/>
-        <AliveServerRow name="Society: Sunlit Valley" version="4.0.5" image-path="/img/sv.png" hostname="sv.ihatemy.live" mapUrl='https://maps.ihatemy.live/sv'/>
+        <AliveServerRow name="Prominence 2" version="3.9.27" image-path="/img/p2he.png" hostname="p2he.ihatemy.live" mapUrl='https://maps.ihatemy.live/p2he'/>
+        <AliveServerRow name="Society: Sunlit Valley" version="4.0.7" image-path="/img/sv.png" hostname="sv.ihatemy.live" mapUrl='https://maps.ihatemy.live/sv'/>
       </div>
     </div>
   </div>
