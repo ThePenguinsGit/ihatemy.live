@@ -40,13 +40,13 @@
         <tr v-for="playTime in (data.data)" :key="playTime.uuid">
           <td class="w-14 py-2"><img :src="`https://mc-heads.net/avatar/${playTime.uuid}`" alt="Player Avatar" class="rounded-md w-10"></td>
           <td v-if="playTime.displayName !== null">
-            <NuxtLink class="underline" :to="`?name=${playTime.displayName}`">
+            <NuxtLink class="underline" :to="`?name=${playTime.displayName}`" rel=”nofollow”>
               <b :title="playTime.name">{{ playTime.displayName }}</b>
             </NuxtLink>
             <i :title="playTime.name">*</i>
           </td>
           <td v-else>
-            <NuxtLink class="underline" :to="`?name=${playTime.name}`">
+            <NuxtLink class="underline" :to="`?name=${playTime.name}`" rel=”nofollow”>
               <b>{{ playTime.name }}</b>
             </NuxtLink>
           </td>

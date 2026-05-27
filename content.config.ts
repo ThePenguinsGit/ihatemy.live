@@ -1,5 +1,6 @@
 import { defineContentConfig, defineCollection, z } from '@nuxt/content'
 import {defineSitemapSchema} from "@nuxtjs/sitemap/content";
+import { defineRobotsSchema } from '@nuxtjs/robots/content'
 
 export default defineContentConfig({
   collections: {
@@ -12,6 +13,7 @@ export default defineContentConfig({
         position : z.number().optional(),
         pageTitle: z.string().optional(),
         sitemap: defineSitemapSchema(),
+        robots: defineRobotsSchema(),
       }),
     }),
     legal: defineCollection({

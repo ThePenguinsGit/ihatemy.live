@@ -22,9 +22,12 @@
 
 <script setup lang="ts">
 useHead({
-  title: `ihatemy.live`,
+  title: `The Penguin Network`,
   meta: [
-    { name: 'description', content: 'The Penguin Network - for all your modded Minecraft Server needs! See what current or past servers we had and find one that suits you needs!' },
+    {
+      name: 'description',
+      content: 'Welcome to The Penguin Network - A friendly modded Minecraft community perfect for new and experienced players! Join our active servers including ATM10: To the Sky, All The Mods 10, GregTech: New Horizons, MC Eternal 2, Prominence 2, and Society: Sunlit Valley. Everyone is welcome!'
+    },
   ],
 })
 </script>

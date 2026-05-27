@@ -14,11 +14,13 @@ const { data: page } = await useAsyncData(route.path, () => {
 })
 
 useHead({
-  title: `${page.value?.title ?? '404'} - ihatemy.live`,
+  title: `${page.value?.title ?? '404'} - The Penguin Network`,
   meta: [
     { name: 'description', content: page.value?.description }
   ],
 })
+
+useSeoMeta(page.value?.seo || {})
 
 </script>
 

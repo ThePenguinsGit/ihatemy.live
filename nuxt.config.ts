@@ -7,6 +7,11 @@ export default defineNuxtConfig({
     inlineRouteRules: true,
   },
 
+  site: {
+    url: 'https://ihatemy.live',
+    name: 'The Penguin Network'
+  },
+
   nitro: {
     prerender: {
       autoSubfolderIndex: false
@@ -21,15 +26,12 @@ export default defineNuxtConfig({
     },
   },
 
-  site: {
-    url: 'ihatemy.live'
-  },
   sitemap: {
     discoverImages: false,
     zeroRuntime: true
   },
 
-  modules: ['@nuxt/devtools', '@nuxtjs/sitemap', '@nuxt/content', 'dayjs-nuxt', '@nuxtjs/robots', 'nitro-cloudflare-dev'],
+  modules: ['@nuxt/devtools', '@nuxtjs/sitemap', '@nuxtjs/robots', '@nuxt/content', 'dayjs-nuxt', 'nitro-cloudflare-dev'],
 
   dayjs: {
     plugins: ['utc', 'timezone', 'duration', 'relativeTime', 'localizedFormat'],
@@ -37,7 +39,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'ihatemy.live',
+      title: 'The Penguin Network',
       meta: [
         { name: 'description', content: 'the BEST minecraft Network there is' },
       ],
