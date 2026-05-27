@@ -21,7 +21,14 @@
         </div>
         <h2 v-if="serverStats?.online && serverStats.players.max !== null" class="text-2xl">{{ serverStats.players.online }} / {{ serverStats.players.max }} Players</h2>
       </div>
-      <a :href="mapUrl" target="_blank" class="block"><button v-if="mapUrl !== undefined && serverStats?.online" class="w-full bg-secondary text-white px-2 py-1 rounded-md">Live Map</button></a>
+      <a v-if="!mapUnavailableReason && mapUrl && serverStats?.online" :href="mapUrl" target="_blank" class="block">
+        <button class="w-full bg-secondary text-white px-2 py-1 rounded-md">Live Map</button>
+      </a>
+      <div v-else class="relative">
+        <button class="w-full bg-secondaryLight text-white px-2 py-1 rounded-md cursor-not-allowed"
+                :title="mapUnavailableReason" disabled>Live Map
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -34,6 +41,7 @@ const props = defineProps<{
   hostname: string,
   imagePath: string,
   mapUrl?: undefined|string,
+  mapUnavailableReason?: undefined|string,
   version: string,
 }>();
 const { data: serverStats, refresh } = useApiFetch<McStatsResultInterface|null>(`/server-status?hostname=${props.hostname}`);
