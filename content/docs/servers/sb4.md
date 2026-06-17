@@ -9,7 +9,7 @@ position: 3.5
 |     |                             |
 |-----|-----------------------------|
 | IP  |    sb4.ihatemy.live       |
-| Version  |   `1.14.0`        |
+| Version  |   `1.15.3`        |
 ::
 
 ::card

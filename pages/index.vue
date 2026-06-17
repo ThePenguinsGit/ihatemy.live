@@ -14,7 +14,7 @@
         <AliveServerRow name="GregTech: New Horizons" version="2.8.4" image-path="/img/gtnh.png" hostname="gtnh.ihatemy.live" mapUrl='https://maps.ihatemy.live/gtnh'/>
         <AliveServerRow name="MC Eternal 2" version="1.2.1.4" image-path="/img/mce2-2.png" hostname="mce2.ihatemy.live" mapUrl='https://maps.ihatemy.live/mce2'/>
         <AliveServerRow name="Prominence 2" version="3.9.27" image-path="/img/p2he.png" hostname="p2he.ihatemy.live" mapUrl='https://maps.ihatemy.live/p2he'/>
-        <AliveServerRow name="StoneBlock 4" version="1.14.0" image-path="/img/sb4.png" hostname="sb4.ihatemy.live" mapUnavailableReason="It's underground, duh"/>
+        <AliveServerRow name="StoneBlock 4" version="1.15.3" image-path="/img/sb4.png" hostname="sb4.ihatemy.live" mapUnavailableReason="It's underground, duh"/>
         <AliveServerRow name="Society: Sunlit Valley" version="4.0.8" image-path="/img/sv.png" hostname="sv.ihatemy.live" mapUrl='https://maps.ihatemy.live/sv'/>
       </div>
     </div>
