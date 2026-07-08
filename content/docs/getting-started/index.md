@@ -2,11 +2,8 @@
 title: 'Getting Started'
 position: 0
 ---
-
-::card
 ## Welcome to our Network!
 Here you can find everything you need to know about our Network and how to get started.
-::
 
 ::row
 

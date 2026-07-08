@@ -1,15 +1,15 @@
 <template>
   <div>
     <div :style="`margin-left: ${level * 20}px;`">
-      <NuxtLink 
+      <NuxtLink
         v-if="navigationItem.page !== false "
-        class="text-2xl hover:underline hover:bg-green-100 rounded-sm active:bg-green-100 w-full block" 
-        exactActiveClass="bg-green-100"
+        class="text-xl px-1 w-full block transition-colors hover:bg-[var(--nav-hover)] hover:text-iceDeep"
+        exact-active-class="bg-[var(--nav-active)] text-iceDeep font-bold"
         :to="navigationItem.path"
       >
         {{ navigationItem.title }}
       </NuxtLink>
-      <span v-else class="w-full block text-2xl">
+      <span v-else class="w-full block text-xl">
         {{ navigationItem.title }}
       </span>
     </div>

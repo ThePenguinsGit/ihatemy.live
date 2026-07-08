@@ -1,24 +1,112 @@
 @import 'tailwindcss';
-@import '@nuxt/ui';
 
 @theme {
   --font-custom: Minecraft;
+  --font-pixel: Minecraft, ui-monospace, monospace;
 
-  --color-secondary: #2b303a;
+  /* ── Brand palette ────────────────────────────────────────────
+   * The single source of truth for color. Swap these eleven values
+   * to re-theme the entire site — every component and the semantic
+   * tokens below derive from here and never hardcode a hex. */
+  --color-ink: #14181f;         /* darkest chrome / borders */
+  --color-secondary: #2b303a;   /* header, footer, dark surfaces */
   --color-secondaryLight: #454e5e;
+  --color-ice: #5ec2e6;         /* arctic accent */
+  --color-iceDeep: #2a91b8;     /* ice for text on light surfaces */
+  --color-beak: #f6a623;        /* penguin beak — primary CTA */
+  --color-beakDark: #d4860c;
+  --color-snow: #eef4f8;        /* light panel surface */
+  --color-alive: #16a34a;       /* server online */
+  --color-aliveDark: #15803d;
+  --color-ded: #dc2626;         /* server offline / RIP */
 
   --background-image-nick1: url('/img/nick/background1.png');
 }
 
-.dark {
-    /*--ui-text-dimmed: var();*/
-    /*--ui-text-muted: var(--ui-color-neutral-400);*/
-    /*--ui-text-toned: var(--ui-color-neutral-300);*/
-    --ui-text: var(--color-black);
-    /*--ui-text-highlighted: var(--color-white);*/
-    /*--ui-text-inverted: var(--ui-color-neutral-900);*/
+/* ── Semantic UI tokens ─────────────────────────────────────────
+ * Everything below references the palette above via var()/color-mix,
+ * never a raw hex. Components use these, so re-theming only touches
+ * @theme. */
+:root {
+  --panel-surface: var(--color-snow);
+  --panel-surface-dark: var(--color-secondary);
+  --panel-border: var(--color-ink);
+  --panel-highlight: color-mix(in srgb, white 70%, transparent);
+  --panel-highlight-dark: color-mix(in srgb, white 12%, transparent);
+  --panel-shadow: color-mix(in srgb, var(--color-ink) 18%, transparent);
+  --panel-shadow-dark: color-mix(in srgb, black 45%, transparent);
+  --panel-drop: color-mix(in srgb, var(--color-ink) 35%, transparent);
+
+  --btn-face: var(--color-secondary);
+  --btn-face-primary: var(--color-beak);
+  --btn-face-primary-hover: var(--color-beakDark);
+
+  --focus-ring: var(--color-ice);
+  --nav-hover: color-mix(in srgb, var(--color-ice) 22%, transparent);
+  --nav-active: color-mix(in srgb, var(--color-ice) 34%, transparent);
+  --divider: color-mix(in srgb, var(--color-ink) 10%, transparent);
 }
 
+/* ── Signature: Minecraft-GUI beveled panel ─────────────────────── */
+.panel {
+  @apply relative;
+  background: var(--panel-surface);
+  border: 4px solid var(--panel-border);
+  border-radius: 0;
+  box-shadow:
+    inset 3px 3px 0 var(--panel-highlight),
+    inset -3px -3px 0 var(--panel-shadow),
+    0 4px 0 var(--panel-drop);
+}
+
+.panel-dark {
+  @apply relative text-white;
+  background: var(--panel-surface-dark);
+  border: 4px solid var(--panel-border);
+  border-radius: 0;
+  box-shadow:
+    inset 3px 3px 0 var(--panel-highlight-dark),
+    inset -3px -3px 0 var(--panel-shadow-dark),
+    0 4px 0 var(--panel-drop);
+}
+
+/* Small pixel-font uppercase section label */
+.eyebrow {
+  @apply font-[minecraft] uppercase tracking-widest text-sm;
+  color: var(--color-iceDeep);
+}
+
+.panel-dark .eyebrow {
+  color: var(--color-ice);
+}
+
+/* Chunky pixel button */
+.pixel-btn {
+  @apply inline-flex items-center justify-center gap-2 font-[minecraft] uppercase tracking-wide px-5 py-2 text-white transition-transform cursor-pointer;
+  background: var(--btn-face);
+  border: 3px solid var(--panel-border);
+  border-radius: 0;
+  box-shadow: 0 4px 0 var(--panel-drop);
+}
+.pixel-btn:hover { @apply -translate-y-0.5; }
+.pixel-btn:active { @apply translate-y-0.5; box-shadow: 0 1px 0 var(--panel-drop); }
+.pixel-btn:focus-visible { @apply outline-2 outline-offset-2; outline-color: var(--focus-ring); }
+
+.pixel-btn--primary { background: var(--btn-face-primary); color: var(--color-ink); }
+.pixel-btn--primary:hover { background: var(--btn-face-primary-hover); }
+
+/* Blinking live-status pixel dot */
+.live-dot {
+  @apply inline-block w-2.5 h-2.5 align-middle;
+  background: var(--color-alive);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-alive) 35%, transparent);
+}
+@keyframes live-pulse { 0%, 60% { opacity: 1; } 80%, 100% { opacity: 0.35; } }
+.live-dot { animation: live-pulse 1.4s steps(2, end) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .live-dot { animation: none; }
+}
 
 div:has(> .image) {
     @apply w-14;
@@ -28,8 +116,17 @@ div:has(> .image) {
     @apply max-h-[50px] max-w-[50px] block mx-auto;
 }
 
+/* Lighter tier of the panel family — bordered, hard drop, no inset
+   bevel. Used by docs/archive/content cards (see the Card component). */
 .card {
-    @apply bg-white rounded-md drop-shadow-md items-center px-3 py-2;
+    @apply items-center px-3 py-2 overflow-x-auto;
+    background: var(--panel-surface);
+    border: 3px solid var(--panel-border);
+    border-radius: 0;
+    box-shadow: 0 4px 0 var(--panel-drop);
+}
+.card > table {
+    @apply w-full;
 }
 h1 {
     @apply text-3xl;
@@ -43,39 +140,75 @@ h3 {
     @apply text-xl;
 }
 
+/* ── Rendered markdown (docs + legal) ───────────────────────────
+ * The single source of truth for prose styling. Both content pages
+ * add the `.content` class to <ContentRenderer>; keep all element
+ * rules scoped here so nothing leaks to the rest of the app. */
 .content {
-    .content p > a {
-        @apply underline text-secondary hover:text-secondaryLight;
+    @apply leading-relaxed;
+
+    /* Body headings: pixel font, ice accent, so plain markdown reads
+       like the rest of the site without needing a ::card wrapper. */
+    h1, h2, h3, h4 {
+        @apply font-[minecraft] uppercase;
+        color: var(--panel-border);
+    }
+    h2 {
+        @apply pb-1;
+        border-bottom: 3px solid var(--color-ice);
+    }
+    h3 {
+        color: var(--color-iceDeep);
     }
 
-    img {
-        @apply rounded-md;
+    a {
+        @apply underline underline-offset-2;
+        color: var(--color-iceDeep);
     }
+    a:hover { color: var(--color-ice); }
 
-    tbody {
-        @apply divide-y divide-solid;
-    }
-    tr {
-        @apply divide-x divide-dashed;
-    }
-    td, th {
-        @apply px-2;
-    }
-
-
-
+    /* Inline code → beveled Minecraft key/label chip */
     code {
-        @apply bg-slate-200 px-1 rounded-sm;
+        @apply px-1.5 py-0.5 text-sm font-mono;
+        background: var(--panel-surface);
+        border: 2px solid var(--panel-border);
+        border-radius: 0;
+    }
+    pre {
+        @apply p-3 overflow-x-auto text-sm text-white;
+        background: var(--panel-surface-dark);
+        border: 3px solid var(--panel-border);
+        border-radius: 0;
+        box-shadow: 0 4px 0 var(--panel-drop);
+    }
+    pre code {
+        @apply p-0 bg-transparent border-0 text-white;
     }
 
-    ul {
-        @apply list-disc list-inside;
+    ul { @apply list-disc list-inside; }
+    ol { @apply list-decimal list-inside; }
+
+    /* Framed images (leave the tiny .image icons unbordered) */
+    img:not(.image) {
+        @apply block max-w-full;
+        border: 3px solid var(--panel-border);
+        border-radius: 0;
     }
 
-    ol {
-        @apply list-decimal list-inside;
+    /* Tables inherit the panel look; ProseTable wraps them in a scroll box */
+    table {
+        @apply min-w-full border-collapse;
+        border: 3px solid var(--panel-border);
     }
-    :not(h1, h2, h3) > a {
-        @apply underline hover:text-secondaryLight;
+    th, td {
+        @apply px-2 py-1;
+        border: 1px solid var(--divider);
+    }
+    thead th {
+        @apply text-white font-[minecraft] uppercase text-sm;
+        background: var(--panel-surface-dark);
+    }
+    tbody tr:nth-child(even) {
+        background: color-mix(in srgb, var(--color-ink) 4%, transparent);
     }
 }

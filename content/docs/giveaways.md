@@ -3,7 +3,6 @@ title: 'Giveaways'
 pageTitle: 'Giveaway Guidelines'
 position: 99
 ---
-::card
 ## Here's some guidelines about our giveaways and conditions to join
 - The giveaway is hosted by us (Penguin Network)
 - Giveaway prizes, ending times and requirements can be found in the original message.
@@ -14,4 +13,3 @@ position: 99
 - Once/If you win, we will send you the prize via Discord.  
 - If you win multiple giveaways simultaneously you get to pick one of the prizes and we'll reroll the others.
 For more info about we process your data, check our [Privacy Policy](/legal/privacy) page
-::

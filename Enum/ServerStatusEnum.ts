@@ -1,0 +1,7 @@
+export enum ServerStatusEnum {
+  HIDDEN = "HIDDEN",
+  PRE_RELEASE = "PRE_RELEASE",
+  RELEASED = "RELEASED",
+  MAINTENANCE = "MAINTENANCE",
+  KILLED = "KILLED",
+}

@@ -1,59 +1,58 @@
 ---
-title: 'Voting'
+title: Voting
 position: 1
+sitemap:
+  loc: /docs/getting-started/voting
 ---
 
-::card
 ## what??? Whyyyyy?!?!
+
 Voting helps us grow and reach more players! More players means a more lively community, more fun events, and more people to play with!
-<font style="font-size:8px;color: lightgray;">and more blood sacrifices</font>  
+[and more blood sacrifices]{style="font-size:8px;color: lightgray;"}
 
-::
-
-::card
 ## What's in it for me?
+
 Voting will give you access to
+
 - `/enderchest`
 - `/open anvil`
 - `/open smithing`
 - `/open crafting`
 - `/open stonecutter`
-- [`/hat`](https://www.youtube.com/shorts/dkAsLyHtPtI)
+- `/hat`
 - Chat colors
-- More blood sacrifices! ( ͡° ͜ʖ ͡°)  
-as long as you have an active streak
-::
+- More blood sacrifices! ( ͡° ͜ʖ ͡°) :br
+  as long as you have an active streak
 
-::card
 ## STREAK????????™
-When you vote for us on the voting sites below, you will gain access to the above features for 24 hours.  
-You can vote again on another voting site within 24 hours of the last vote to extend your streak by another 24 hours.  
-Your current streak is also shown in your chat prefix (which may or may not be added to a leaderboard eventually).  
-<br>
-We also know you ***__LOVE__*** leaderboards, so we made one to show the top 10 currently active streaks as well!  
-Check it out at [Getting Started -> Voting -> Leaderboard](/docs/getting-started/voting/leaderboard)
-::
 
-::card
-<h1 style="text-align: center">Voting Sites</h1>
-<sub style="text-align: center;display: inline-block;width: 100%;">You can also run <code>/vote</code> in-game to get a list</sub>
-::
+When you vote for us on the voting sites below, you will gain access to the above features for 24 hours. \*\*\*\*r
+You can vote again on another voting site within 24 hours of the last vote to extend your streak by another 24 hours. \*\*\*\*r
+Your current streak is also shown in your chat prefix (which may or may not be added to a leaderboard eventually).
+
+We also know you *****LOVE***** leaderboards, so we made one to show the top 10 currently active streaks as well! :br
+Check it out at [Getting Started -> Voting -> Leaderboard](/docs/getting-started/voting/leaderboard)
+
+## Voting Sites
+
+You can also run `/vote` in-game to get a list
 
 ::row
+  :::card
+  ## Modded Minecraft Servers
 
-::card
-## Modded Minecraft Servers
-https://moddedminecraftservers.com/profile/ozthem9.64452  
-Pick your favourite modpack from the list to vote for
-::
+  <https://moddedminecraftservers.com/profile/ozthem9.64452>--- Unknown node: hardBreak ---Pick your favourite modpack from the list to vote for
+  :::
 
-::card
-## Feed the Beast Servers
-https://ftbservers.com/server/8rlDI3oX/the-penguin-network 
-::
+  :::card
+  ## Feed the Beast Servers
 
-::card
-## Minecraft MP
-https://minecraft-mp.com/server-s352322
+  <https://ftbservers.com/server/8rlDI3oX/the-penguin-network>
+  :::
 
+  :::card
+  ## Minecraft MP
+
+  <https://minecraft-mp.com/server-s352322>
+  :::
 ::

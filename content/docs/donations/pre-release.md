@@ -18,11 +18,10 @@ To be eligible to get whitelisted you'll need to either
 Afterward you can DM/Ping/message/threaten the Owners to whitelist you
 ::
 ::
-::card
+
 ## Why do we do this?
 - To provide earlier access to our new servers for our most devoted players while we still figure things out for the general public  
 - You can give us quicker feedback if you think we can improve certain aspects  
 - To make sure the server is up to our """**_quality_**™""" and """"""**_standards_**™""""""
 - [special reason no. 12](https://www.youtube.com/watch?v=fJ0McZsUPh0){:target="_blank"} ;)
 - Servers do actually cost a lot :(
-::

@@ -1,8 +1,6 @@
-::card
-# <p class="text-center">Imprint</p>
-::
-
-::card
+---
+title: 'Imprint'
+---
 ## Disclosures per § 5 TMG
 Linus Tebbe  
 **PenguinNetwork by Linus Tebbe**  
@@ -23,4 +21,3 @@ You can find our email address above in the imprint.
 
 ## Consumer Dispute Resolution/Universal Arbitration Board
 We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board.
-::

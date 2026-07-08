@@ -1,12 +1,17 @@
 <template>
-  <Card class="flex flex-col gap-5 justify-between p-0!">
+  <Card variant="panel" class="flex flex-col h-full font-[minecraft]">
+    <div class="flex items-center justify-between gap-2 pb-2 mb-2 border-b-2 border-ink/10">
+      <h2 class=" uppercase text-xl">Your nickname</h2>
+    </div>
+
     <div class="w-full flex flex-col gap-2 grow">
-      <div class="text-wrap text-xl overflow-hidden break-all w-full p-2 bg-bottom text-white grow flex flex-col justify-end font-[minecraft]" :class="`bg-nick1`" v-html="data" ></div>
-      <div class="relative px-2 py-2">
-<!--        <textarea v-model="input" class="w-full resize-none border border-black" rows="4"/>-->
-        <MiniMessageEditor v-model="input" class="w-full mb-2" @input="inputChanged" />
-        <button @click="saveNick" class="bg-blue-500 text-white px-4 py-2 rounded">Save</button>
-        <div v-if="!useUserStore().isLoggedIn" class="flex h-full bg-opacity-50 absolute bg-black top-0 place-items-center left-0 right-0 ">
+      <div class="relative">
+        <NickEditor v-model="input" class="w-full mb-2" />
+        <PixelButton primary @click="saveNick">Save nick</PixelButton>
+        <div
+          v-if="!loggedIn"
+          class="flex h-full bg-opacity-50 absolute bg-black top-0 place-items-center left-0 right-0"
+        >
           <Login class="block mx-auto" />
         </div>
       </div>
@@ -15,18 +20,16 @@
 </template>
 
 <script setup lang="ts">
-import {useUserStore} from "~/stores/userStore";
 import type MiniMessageNickResponseInterface from "~/interfaces/MiniMessageNickResponseInterface";
-import appConfig from "~/app.config";
+import {donationTiers} from "~/data/donationTiers";
 
 const props = defineProps<{
   uuid: Ref<string>,
 }>();
 
+const { loggedIn } = useUserSession();
+
 const { data: nickData } = await useFetch<MiniMessageNickResponseInterface>('/api/nick', {
-  headers: {
-    Authorization: useUserStore().token
-  },
   query: {
     uuid: props.uuid
   },
@@ -34,78 +37,52 @@ const { data: nickData } = await useFetch<MiniMessageNickResponseInterface>('/ap
   watch: [props.uuid]
 });
 
+// `input` is the MiniMessage string (serialized by NickEditor) — the value we save.
 const input = ref<string>(nickData.value?.miniMessage ?? '');
-
-const inputChanged = (input) => console.log(input);
 
 watch(nickData, (newValue, oldValue) => {
   if (newValue?.uuid === oldValue?.uuid || (newValue ?? null) === null) {
     return
   }
-  input.value = newValue.miniMessage
+  input.value = newValue?.miniMessage ?? ''
 });
 
+
+// Scramble animation for the server preview's <obfuscated> spans (class "obfuscated").
+// The editor uses its own ".nick-obf" class so its source text is never scrambled.
 let interval: ReturnType<typeof setInterval>
-
 onNuxtReady(() => {
-  interval = setInterval(
-      obfuscateAll,
-      10
-  )
+  interval = setInterval(obfuscateAll, 10)
 })
-
 onBeforeUnmount(() => {
   window.clearInterval(interval)
 })
 
 const obfuscateAll = () => {
-  for (let element of document.getElementsByClassName("obfuscated")) {
+  for (const element of document.getElementsByClassName("obfuscated")) {
     obfuscate(element)
   }
 }
 
-const obfuscateText = (input: string): string => {
+const obfuscateText = (value: string): string => {
   const allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-
-  return input.split('').map((input) => input === ' ' ? input : allowedChars.charAt(Math.floor(Math.random() * allowedChars.length))).join('')
+  return value.split('').map((c) => c === ' ' ? c : allowedChars.charAt(Math.floor(Math.random() * allowedChars.length))).join('')
 }
 
-const obfuscate = (input: Node) => {
-  if (input.nodeType === Node.ELEMENT_NODE && input.classList.contains('hover')) return
-  const childNodes = input.childNodes
-  if (childNodes.length > 0) {
-    for(const child of childNodes) {
-      obfuscate(child)
-    }
+const obfuscate = (node: Node) => {
+  if (node.nodeType === Node.ELEMENT_NODE && (node as Element).classList.contains('hover')) return
+  for (const child of node.childNodes) {
+    obfuscate(child)
   }
-  if (input.nodeType == Node.TEXT_NODE) {
-    input.nodeValue = obfuscateText(input.nodeValue ?? '')
+  if (node.nodeType === Node.TEXT_NODE) {
+    node.nodeValue = obfuscateText(node.nodeValue ?? '')
   }
 }
-
-
-const { data } = await useFetch<string>('/api/mini-message/preview', {
-  headers: {
-    Authorization: useUserStore().token
-  },
-  query: {
-    uuid: props.uuid,
-    input: input
-  },
-  cache: false
-});
 
 const saveNick = async () => {
-  await useFetch('/api/user/nick/set', {
-    headers: {
-      Authorization: useUserStore().token
-    },
+  await $fetch('/api/user/nick/set', {
     method: 'post',
-    body: input
+    body: input.value
   })
 }
 </script>
-
-<style scoped>
-
-</style>

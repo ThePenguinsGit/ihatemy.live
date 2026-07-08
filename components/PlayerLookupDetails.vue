@@ -16,15 +16,17 @@ const displayName = computed(() => {
 })
 
 const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').humanize()
+
+const { loggedIn } = useUserSession()
 </script>
 
 <template>
   <div v-if="data" class="flex flex-row gap-2 h-full">
-    <div class="self-center"><img :src="`https://crafatar.com/renders/body/${data.data.uuid}?overlay`" alt="Player Avatar" class="px-5 py-2 w-48"></div>
+    <div class="self-center"><img :src="`https://api.mineatar.io/body/full/${data.data.uuid}?scale=10`" alt="Player Avatar" class="px-5 py-2 w-48"></div>
     <div class="border-l self-stretch" />
     <div class="grow">
       <div class="text-center">
-        <h1><span v-if="!useUserStore().isLoggedIn">(Not) </span>Your Minecraft Account</h1>
+        <h1><span v-if="!loggedIn">(Not) </span>Your Minecraft Account</h1>
         <i>Refreshed {{$dayjs(data.time).local().format('DD.MM.YYYY HH:mm')}}</i>
       </div>
       <table class="w-full">
@@ -32,10 +34,6 @@ const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').
         <tr>
           <th class="w-36 text-left">Username</th>
           <td>{{ displayName }}</td>
-        </tr>
-        <tr>
-          <th class="w-36 text-left">Donator Status</th>
-          <td><i v-if="donatorStatus === null" class="text-gray-400 underline">None</i><span v-else v-html="donatorStatus"></span> (<a title="Do it RIGHT NOW, or else 👁👄👁" href="https://ko-fi.com/penguinnetwork" target="_blank">Support us</a>) </td>
         </tr>
         <tr>
           <th class="w-36 text-left">Current Level</th>

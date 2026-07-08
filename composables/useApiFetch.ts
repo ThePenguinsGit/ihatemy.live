@@ -1,11 +1,6 @@
+// Thin useFetch wrapper for the PenguBot backend. Requests go through the local
+// /api proxy (server/routes/api/[...].ts), which injects the auth token from the
+// sealed session server-side — so callers never attach an Authorization header.
 export const useApiFetch: typeof useFetch = (request, opts?) => {
-    const config = useRuntimeConfig()
-
-    if (opts !== undefined) {
-        opts.baseURL = config.public.apiBaseUrl
-    } else {
-        opts = { baseURL: config.public.apiBaseUrl }
-    }
-
-    return useFetch(config.public.apiBaseUrl + request, {...opts, baseURL: config.public.apiBaseUrl, server: false})
+    return useFetch(request, { ...(opts ?? {}), baseURL: '/api', server: false })
 }

@@ -6,7 +6,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "node --experimental-strip-types --import ./tests/loader.mjs --test tests/*.test.ts"
   },
   "devDependencies": {
     "@nuxt/devtools": "^2.7.0",
@@ -34,13 +35,14 @@
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@nuxt/content": "^3.10.0",
     "@nuxt/kit": "^4.2.2",
-    "@nuxt/ui": "^4.9.0",
     "@tailwindcss/postcss": "^4.1.7",
     "@tailwindcss/vite": "^4.1.7",
     "@vueform/multiselect": "^2.6.11",
     "better-sqlite3": "^12.4.1",
     "jwt-decode": "^4.0.0",
     "nitro-cloudflare-dev": "^0.2.2",
+    "nuxt-auth-utils": "^0.5.29",
+    "nuxt-studio": "^1.7.0",
     "pinia-plugin-persistedstate": "^4.2.0",
     "rand-seed": "^3.0.0"
   }

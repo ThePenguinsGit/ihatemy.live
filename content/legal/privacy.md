@@ -1,8 +1,7 @@
-::card
-# <p class="text-center">Human Readable Privacy Policy</p>
-::
-
-::card
+---
+title: 'Privacy Policy'
+---
+## Human Readable Privacy Policy
 We only store (and keep) the data you can see/access  
 We only use it to provide our services to you and (try to) give you the best possible experience on our servers.  
 We <u>**never**</u> sell/share your data with anyone.
@@ -19,13 +18,9 @@ We <u>**never**</u> sell/share your data with anyone.
 - Cloudflare (May log data like your IP Address when visiting this website (see their [Privacy Policy](https://www.cloudflare.com/privacypolicy/)))
 - Discord (We synchronize all public chat messages from our GameServers to dedicated Discord Channels (see their [Privacy Policy](https://discord.com/privacy/)))
 - Ko-Fi (We process donations through Ko-Fi (see their [Privacy Policy](https://more.ko-fi.com/privacy)))
-::
 
-::card
-# <p class="text-center">General Notice and Mandatory Information</p>
-::
+# General Notice and Mandatory Information
 
-::card
 ## The responsible body for data processing  
 Linus Tebbe  
 **PenguinNetwork by Linus Tebbe**  
@@ -128,4 +123,3 @@ We use Ko-Fi to accept donations and assign the neccessary roles to the respecti
 You can check what data Ko-Fi shares with us [here](https://more.ko-fi.com/privacy#:~:text=Additional%20information%20regarding%20sharing%20information%20to%20Creator)  
 We use the to us provided data to provide you, in turn, with the benefits associated with your membership (Discord roles, in game roles, etc.) or comply with local regulations  
 You can find their data protection and retention policies at https://more.ko-fi.com/privacy  
-::
