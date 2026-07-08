@@ -95,6 +95,9 @@
 .pixel-btn--primary { background: var(--btn-face-primary); color: var(--color-ink); }
 .pixel-btn--primary:hover { background: var(--btn-face-primary-hover); }
 
+/* Destructive action (log out) — dark face that flushes red on hover. */
+.pixel-btn--danger:hover { background: var(--color-ded); color: white; }
+
 /* Blinking live-status pixel dot */
 .live-dot {
   @apply inline-block w-2.5 h-2.5 align-middle;

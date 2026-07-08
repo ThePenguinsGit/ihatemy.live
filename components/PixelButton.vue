@@ -8,7 +8,7 @@
     :type="isButton ? type : undefined"
     :disabled="isButton ? (disabled || undefined) : undefined"
     class="pixel-btn"
-    :class="{ 'pixel-btn--primary': primary }"
+    :class="{ 'pixel-btn--primary': primary, 'pixel-btn--danger': danger }"
   >
     <slot />
   </component>
@@ -23,6 +23,7 @@ const props = withDefaults(defineProps<{
   to?: string;
   href?: string;
   primary?: boolean;
+  danger?: boolean;
   disabled?: boolean;
   type?: 'button' | 'submit';
   target?: string;
