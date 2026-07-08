@@ -22,8 +22,9 @@ export default defineEventHandler(async (event) => {
   const path = getRouterParam(event, '_') ?? ''
   const target = `${config.public.apiBaseUrl}/${path}${getRequestURL(event).search}`
 
-  const { secure } = await getUserSession(event)
-  const headers = secure?.apiToken ? { Authorization: secure.apiToken } : undefined
+  const session = await getUserSession(event)
+  const apiToken = session.secure?.apiToken
+  const headers = apiToken ? { Authorization: apiToken } : undefined
 
   return proxyRequest(event, target, {
     headers,
@@ -32,20 +33,29 @@ export default defineEventHandler(async (event) => {
     async onResponse(event, response) {
       const rotated = response.headers.get('x-pengu-token')
       // Only act on a genuinely new token for an existing session.
-      if (!rotated || !secure?.apiToken || rotated === secure.apiToken) return
+      if (!rotated || !apiToken || rotated === apiToken) return
 
-      // Refresh the client-readable claims from the new payload. defu (inside
-      // setUserSession) merges these over the current session, so fields not in
-      // the JWT — provider, minecraftUuid, loggedInAt — are preserved.
-      let user: Partial<JwtPayload> | undefined
+      // The rotated token is a bearer credential — it must never reach the
+      // browser (the whole reason the JWT lives in the sealed, server-only
+      // session). proxyRequest copies every backend header onto our response, so
+      // strip it here and instead expose a non-sensitive flag telling the client
+      // the session changed; the client refreshes useUserSession() off that.
+      removeResponseHeader(event, 'x-pengu-token')
+      setResponseHeader(event, 'x-pengu-session-refreshed', '1')
+
+      // Refresh the client-readable claims from the new payload, keeping the
+      // fields that aren't in the JWT (provider, minecraftUuid). A live apiToken
+      // means we're logged in, so session.user is present.
+      let user = session.user!
       try {
         const { id, name, avatar, donatorGroup } = jwtDecode<JwtPayload>(rotated)
-        user = { id, name, avatar, donatorGroup }
+        user = { ...user, id, name, avatar, donatorGroup }
       } catch {
         // Undecodable token: still adopt it so auth stays valid; leave user as-is.
       }
 
-      await setUserSession(event, { ...(user ? { user } : {}), secure: { apiToken: rotated } })
+      // Spread the existing session so required fields (loggedInAt) are retained.
+      await setUserSession(event, { ...session, user, secure: { ...session.secure, apiToken: rotated } })
     },
   })
 })

@@ -4,12 +4,12 @@
 
 export type DonationTier =
   | 'contributor'
-  | 'server-preserver'
+  | 'server_preserver'
   | 'booster'
-  | 'stellar-sponsor'
-  | 'booty-benefactor'
-  | 'server-sorcerer'
-  | 'angel-investor'
+  | 'stellar_sponsor'
+  | 'booty_benefactor'
+  | 'server_sorcerer'
+  | 'angel_investor'
   | 'founder';
 
 export interface DonationTierMeta {
@@ -22,12 +22,12 @@ export interface DonationTierMeta {
 // Ordered lowest → highest.
 export const donationTiers: DonationTierMeta[] = [
   { id: 'contributor', name: 'Contributor', rank: 0 },
-  { id: 'server-preserver', name: 'Server Preserver', rank: 1, image: '/img/docs/tiers/preserver.png' },
+  { id: 'server_preserver', name: 'Server Preserver', rank: 1, image: '/img/docs/tiers/preserver.png' },
   { id: 'booster', name: 'Discord Booster', rank: 2 },
-  { id: 'stellar-sponsor', name: 'Stellar Sponsor', rank: 3, image: '/img/docs/tiers/sponsor.png' },
-  { id: 'booty-benefactor', name: 'Booty Benefactor', rank: 4, image: '/img/docs/tiers/booty.png' },
-  { id: 'server-sorcerer', name: 'Server Sorcerer', rank: 5, image: '/img/docs/tiers/sorcerer.png' },
-  { id: 'angel-investor', name: 'Angel Investor', rank: 6, image: '/img/docs/tiers/angel.png' },
+  { id: 'stellar_sponsor', name: 'Stellar Sponsor', rank: 3, image: '/img/docs/tiers/sponsor.png' },
+  { id: 'booty_benefactor', name: 'Booty Benefactor', rank: 4, image: '/img/docs/tiers/booty.png' },
+  { id: 'server_sorcerer', name: 'Server Sorcerer', rank: 5, image: '/img/docs/tiers/sorcerer.png' },
+  { id: 'angel_investor', name: 'Angel Investor', rank: 6, image: '/img/docs/tiers/angel.png' },
   { id: 'founder', name: 'Founder', rank: 7 },
 ];
 

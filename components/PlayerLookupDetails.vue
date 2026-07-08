@@ -7,17 +7,24 @@ const props = defineProps<{
   donatorStatus: string|null
 }>()
 
+const { loggedIn, user } = useUserSession()
+
+const nickname = computed(() => {
+  return loggedIn.value
+      ? user.value?.name
+      : props.data.data.displayName
+})
+
 const displayName = computed(() => {
   const internalData = props.data.data
   if (internalData === undefined) return undefined
-  if (internalData.displayName === null || internalData.displayName === internalData.userName) return internalData.userName
+  if (nickname.value === null || nickname.value === internalData.userName) return internalData.userName
 
-  return `${internalData.displayName} (${internalData.userName})`
+  return `${nickname.value} (${internalData.userName})`
 })
 
 const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').humanize()
 
-const { loggedIn } = useUserSession()
 </script>
 
 <template>

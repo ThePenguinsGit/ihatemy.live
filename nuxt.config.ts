@@ -20,7 +20,16 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       autoSubfolderIndex: false
-    }
+    },
+    // The server/nitro tsconfig doesn't pick up the root-level `types/` dir by
+    // default, so our `#auth-utils` module augmentation (types/auth.d.ts, which
+    // declares secure.apiToken etc.) is invisible to server code. Add it back —
+    // path is relative to the .nuxt build dir, like the other include entries.
+    typescript: {
+      tsConfig: {
+        include: ['../types/**/*'],
+      },
+    },
   },
 
   postcss: {
