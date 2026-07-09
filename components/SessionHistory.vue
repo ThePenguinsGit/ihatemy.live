@@ -25,8 +25,8 @@
         </thead>
         <tbody v-if="data && data.data.length">
           <tr v-for="session in data.data" :key="session.id">
-            <td><b class="capitalize">{{ session.serverName }}</b></td>
-            <td :title="formatAbsolute(session.start)">{{ formatRelative(session.start) }}</td>
+            <td><b>{{ useServer(session.serverName).value?.displayName ?? session.serverName }}</b></td>
+            <td class="font-mono" :title="formatAbsolute(session.start)">{{ formatRelative(session.start) }}</td>
             <td class="text-right whitespace-nowrap font-mono">
               <span class="text-alive" :title="`${session.advancementCount} advancements`">
                 <span aria-hidden="true">⛏</span> {{ session.advancementCount }}

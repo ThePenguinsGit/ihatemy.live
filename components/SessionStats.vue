@@ -61,11 +61,11 @@
         <template v-if="data.favouriteServer">
           <img
             :src="`/img/${data.favouriteServer.serverName}.png`"
-            :alt="data.favouriteServer.serverName"
+            :alt="favouriteServerDisplayName"
             class="w-10 h-10 shrink-0 object-cover"
           >
           <div class="min-w-0">
-            <div class="font-[minecraft] uppercase capitalize truncate">{{ data.favouriteServer.serverName }}</div>
+            <div class="font-[minecraft] uppercase capitalize truncate">{{ favouriteServerDisplayName }}</div>
             <div class="text-sm text-secondaryLight">{{ formatDuration(data.favouriteServer.playtime) }} this month</div>
           </div>
           <div class="ml-auto shrink-0 text-xs uppercase tracking-wider text-secondaryLight">favourite server</div>
@@ -104,6 +104,11 @@
 import type SessionStatsInterface from "~/interfaces/SessionStatsInterface";
 
 const { data } = await useFetch<SessionStatsInterface>('/api/user/sessions/stats', { server: false })
+
+const favouriteServerDisplayName = computed(() =>
+    useServer(data.value?.favouriteServer?.serverName ?? '').value?.displayName
+    ?? data.value?.favouriteServer?.serverName
+)
 
 // 1 in-game Minecraft day = 20 real-world minutes.
 const mcDays = computed(() => Math.floor((data.value?.totalPlaytime ?? 0) / 1200))
