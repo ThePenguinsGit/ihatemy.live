@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-  <img :src="`https://mc-heads.net/avatar/${uuid}`" :alt="alt" />
+  <img :src="`https://crafthead.net/avatar/${uuid}`" :alt="alt" />
 </template>
 
 <style scoped>

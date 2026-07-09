@@ -35,13 +35,12 @@
 
       <div class="grid grid-cols-1 gap-4 items-stretch">
         <NickSetting :uuid="minecraftUuid" />
-        <Card variant="panel" class="p-4">
-          <PlayerLookupDetails
-            v-if="data"
-            :data="data"
-            :donator-status="data.renderedDonatorPrefix"
-          />
-          <div v-else class="flex flex-col gap-2 justify-center h-full text-center">
+        <PlayerProfileCard
+          v-if="data"
+          :data="data"
+        />
+        <Card v-else variant="panel" class="p-4">
+          <div class="flex flex-col gap-2 justify-center h-full text-center">
             <h2 class="font-[minecraft] uppercase">No stats yet</h2>
             <p>Link your Minecraft account to your Discord to see playtime and levels.</p>
             <p>
@@ -56,8 +55,11 @@
 
     <!-- ── Session history ──────────────────────────────────── -->
     <section v-if="isLoggedIn">
-      <SectionHeading title="Your sessions" eyebrow="every time you played" />
-      <SessionHistory />
+      <SectionHeading title="Your play" eyebrow="the grind so far" />
+      <div class="flex flex-col gap-4">
+        <SessionStats />
+        <SessionHistory />
+      </div>
     </section>
 
     <!-- ── Leaderboard ──────────────────────────────────────── -->

@@ -8,7 +8,6 @@ export default interface PlayTimeResultInterface {
     playTimes: PlaytimeRowInterface[],
     currentLevel: number,
     playTimeSum: number,
+    timeForCurrentLevel: number,
     timeToNextLevel: number,
-    // Populated by PenguBot later; until then useAccountSummary supplies a mock.
-    donationTier?: DonationTier | null,
 }
