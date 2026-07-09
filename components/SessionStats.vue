@@ -78,7 +78,7 @@
       <!-- Signature pair: advancements vs deaths -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <Card class="flex items-center gap-3 border-l-4! border-l-alive!">
-          <span class="text-2xl leading-none" aria-hidden="true">⛏</span>
+          <PixelIcon name="advancement" class="text-2xl text-alive shrink-0" />
           <div>
             <div class="font-[minecraft] text-xl leading-none">{{ data.advancements.total.toLocaleString() }}</div>
             <div class="text-xs uppercase tracking-wider text-secondaryLight">
@@ -87,7 +87,7 @@
           </div>
         </Card>
         <Card class="flex items-center gap-3 border-l-4! border-l-ded!">
-          <span class="text-2xl leading-none" aria-hidden="true">☠</span>
+          <PixelIcon name="death" class="text-2xl text-ded shrink-0" />
           <div>
             <div class="font-[minecraft] text-xl leading-none">{{ data.deaths.total.toLocaleString() }}</div>
             <div class="text-xs uppercase tracking-wider text-secondaryLight">

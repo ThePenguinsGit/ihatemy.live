@@ -29,10 +29,10 @@
             <td class="font-mono" :title="formatAbsolute(session.start)">{{ formatRelative(session.start) }}</td>
             <td class="text-right whitespace-nowrap font-mono">
               <span class="text-alive" :title="`${session.advancementCount} advancements`">
-                <span aria-hidden="true">⛏</span> {{ session.advancementCount }}
+                <PixelIcon name="advancement" /> {{ session.advancementCount }}
               </span>
               <span class="text-ded ml-2" :title="`${session.deathCount} deaths`">
-                <span aria-hidden="true">☠</span> {{ session.deathCount }}
+                <PixelIcon name="death" /> {{ session.deathCount }}
               </span>
             </td>
             <td class="text-right font-mono">
