@@ -19,6 +19,7 @@
   --color-alive: #16a34a;       /* server online */
   --color-aliveDark: #15803d;
   --color-ded: #dc2626;         /* server offline / RIP */
+  --color-gold: #ffaa00;    /* vote-streak star */
 
   --background-image-nick1: url('/img/nick/background1.png');
 }
@@ -131,6 +132,23 @@ div:has(> .image) {
 .card > table {
     @apply w-full;
 }
+
+.pixel-table {
+    @apply min-w-full border-collapse;
+    border: 3px solid var(--panel-border);
+
+    th, td {
+        @apply px-2 py-1;
+        border: 1px solid var(--divider);
+    }
+    thead th {
+        @apply text-white font-[minecraft] uppercase text-sm;
+        background: var(--panel-surface-dark);
+    }
+    tbody tr:nth-child(even) {
+        background: color-mix(in srgb, var(--color-ink) 4%, transparent);
+    }
+}
 h1 {
     @apply text-3xl;
 }
@@ -198,20 +216,4 @@ h3 {
         border-radius: 0;
     }
 
-    /* Tables inherit the panel look; ProseTable wraps them in a scroll box */
-    table {
-        @apply min-w-full border-collapse;
-        border: 3px solid var(--panel-border);
-    }
-    th, td {
-        @apply px-2 py-1;
-        border: 1px solid var(--divider);
-    }
-    thead th {
-        @apply text-white font-[minecraft] uppercase text-sm;
-        background: var(--panel-surface-dark);
-    }
-    tbody tr:nth-child(even) {
-        background: color-mix(in srgb, var(--color-ink) 4%, transparent);
-    }
 }

@@ -36,7 +36,7 @@ const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').
         <h1><span v-if="!loggedIn">(Not) </span>Your Minecraft Account</h1>
         <i>Refreshed {{$dayjs(data.time).local().format('DD.MM.YYYY HH:mm')}}</i>
       </div>
-      <table class="w-full">
+      <table class="pixel-table">
         <tbody>
         <tr>
           <th class="w-36 text-left">Username</th>
@@ -57,7 +57,7 @@ const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').
         </tbody>
       </table>
       <hr class="my-2">
-      <table class="w-full divide-y">
+      <table class="pixel-table">
         <thead>
         <tr>
           <th>Server</th>

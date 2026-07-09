@@ -23,7 +23,7 @@ const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').
     <div class="flex flex-row gap-2 items-center place-content-around w-full">
       <McHead :uuid="data.data.uuid" :alt="displayName" class="rounded-md w-24 h-24" />
       <div>
-        <table>
+        <table class="pixel-table">
           <tbody>
           <tr>
             <th>Username</th>
@@ -45,7 +45,7 @@ const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').
         </table>
       </div>
     </div>
-    <table class="w-full divide-y ">
+    <table class="pixel-table">
       <thead>
       <tr>
         <th>Server</th>

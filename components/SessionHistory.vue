@@ -13,54 +13,56 @@
       </div>
     </div>
 
-    <table class="w-full divide-y">
-      <thead>
-        <tr class="text-left">
-          <th>Server</th>
-          <th class="w-40">Started</th>
-          <th class="w-28 text-right"></th>
-          <th class="w-28 text-right">Duration</th>
-        </tr>
-      </thead>
-      <tbody v-if="data && data.data.length">
-        <tr v-for="session in data.data" :key="session.id">
-          <td class="py-2"><b class="capitalize">{{ session.serverName }}</b></td>
-          <td :title="formatAbsolute(session.start)">{{ formatRelative(session.start) }}</td>
-          <td class="text-right whitespace-nowrap font-mono">
-            <span class="text-alive" :title="`${session.advancementCount} advancements`">
-              <span aria-hidden="true">⛏</span> {{ session.advancementCount }}
-            </span>
-            <span class="text-ded ml-2" :title="`${session.deathCount} deaths`">
-              <span aria-hidden="true">☠</span> {{ session.deathCount }}
-            </span>
-          </td>
-          <td class="text-right font-mono">
-            <span
-              v-if="session.end === null"
-              class="inline-flex items-center gap-1.5 font-[minecraft] text-sm uppercase text-alive"
-            >
-              <span class="live-dot" />active
-            </span>
-            <template v-else>{{ formatDuration(session.start, session.end) }}</template>
-          </td>
-        </tr>
-      </tbody>
-      <tbody v-else-if="data">
-        <tr>
-          <td colspan="4" class="py-6 text-center">
-            No sessions yet — hop on a server and come back!
-          </td>
-        </tr>
-      </tbody>
-      <tbody v-else>
-        <tr v-for="i in 6" :key="i">
-          <td class="py-2"><Loading width="7em">&nbsp;</Loading></td>
-          <td><Loading width="6em">&nbsp;</Loading></td>
-          <td class="text-right"><Loading width="5em">&nbsp;</Loading></td>
-          <td class="text-right"><Loading width="4em">&nbsp;</Loading></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="w-full overflow-x-auto">
+      <table class="pixel-table">
+        <thead>
+          <tr class="text-left">
+            <th>Server</th>
+            <th class="w-40">Started</th>
+            <th class="w-28 text-right"></th>
+            <th class="w-28 text-right">Duration</th>
+          </tr>
+        </thead>
+        <tbody v-if="data && data.data.length">
+          <tr v-for="session in data.data" :key="session.id">
+            <td><b class="capitalize">{{ session.serverName }}</b></td>
+            <td :title="formatAbsolute(session.start)">{{ formatRelative(session.start) }}</td>
+            <td class="text-right whitespace-nowrap font-mono">
+              <span class="text-alive" :title="`${session.advancementCount} advancements`">
+                <span aria-hidden="true">⛏</span> {{ session.advancementCount }}
+              </span>
+              <span class="text-ded ml-2" :title="`${session.deathCount} deaths`">
+                <span aria-hidden="true">☠</span> {{ session.deathCount }}
+              </span>
+            </td>
+            <td class="text-right font-mono">
+              <span
+                v-if="session.end === null"
+                class="inline-flex items-center gap-1.5 font-[minecraft] text-sm uppercase text-alive"
+              >
+                <span class="live-dot" />active
+              </span>
+              <template v-else>{{ formatDuration(session.start, session.end) }}</template>
+            </td>
+          </tr>
+        </tbody>
+        <tbody v-else-if="data">
+          <tr>
+            <td colspan="4" class="py-6! text-center">
+              No sessions yet — hop on a server and come back!
+            </td>
+          </tr>
+        </tbody>
+        <tbody v-else>
+          <tr v-for="i in 6" :key="i">
+            <td><Loading width="7em">&nbsp;</Loading></td>
+            <td><Loading width="6em">&nbsp;</Loading></td>
+            <td class="text-right"><Loading width="5em">&nbsp;</Loading></td>
+            <td class="text-right"><Loading width="4em">&nbsp;</Loading></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </Card>
 </template>
 
