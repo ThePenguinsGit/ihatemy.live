@@ -15,9 +15,8 @@
 <style lang="scss">
 @reference "~/assets/css/main.css";
 
-/* Main styles */
-body {
-  background: url('/img/background.png') repeat fixed;
+html {
+  background: var(--color-secondary) url('/img/background.png') repeat;
 }
 
 .wrapper {
