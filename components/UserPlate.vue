@@ -1,12 +1,12 @@
 <template>
   <div class="flex items-center gap-2.5">
     <!-- Beveled pixel "avatar": the user's initial, matching the GUI panels. -->
-    <img
+    <McHead
         v-if="user?.minecraftUuid"
-        :src="`https://mc-heads.net/avatar/${user.minecraftUuid}?size=36`"
+        :uuid="user.minecraftUuid"
         :alt="user.name"
-      aria-hidden="true"
-      class="grid place-items-center w-9 h-9 shrink-0 border-2 border-ink bg-secondaryLight font-[minecraft] text-ice text-lg leading-none"
+        aria-hidden="true"
+        class="grid place-items-center w-9 h-9 shrink-0 border-2 border-ink bg-secondaryLight font-[minecraft] text-ice text-lg leading-none"
      />
     <span class="leading-tight min-w-0">
       <span class="block truncate text-ice text-base normal-case tracking-normal">{{ user.name }}</span>

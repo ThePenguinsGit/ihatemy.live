@@ -21,7 +21,7 @@
       </thead>
       <tbody>
         <tr v-for="voteResult in (data.data)" :key="voteResult.uuid">
-          <td class="w-14 py-2"><img :src="`https://mc-heads.net/avatar/${voteResult.uuid}`" alt="Player Avatar" class="rounded-md w-10"></td>
+          <td class="w-14 py-2"><McHead :uuid="voteResult.uuid" alt="Player Avatar" class="rounded-md w-10" /></td>
           <td v-if="voteResult.displayName !== null"><b :title="voteResult.name">{{ voteResult.displayName }}</b><i :title="voteResult.name">*</i></td>
           <td v-else><b>{{ voteResult.name }}</b></td>
           <td class="text-right"><span class="text-gold">☆</span>{{ voteResult.votes }}</td>

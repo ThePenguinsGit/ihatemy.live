@@ -4,11 +4,7 @@ position: 6
 ---
 
 ::row
+:leaderboard
 
-::leaderboard
-::
-
-::levelLookup
-::
-
+:level-lookup
 ::
