@@ -20,7 +20,7 @@ While Ko-Fi is still the preferred way for supporting us, you can also get some 
 This also includes the free Boosts that come with any Discord Nitro subscription.  
 You'll be receiving all benefits from `Stellar Sponsor` and a special `Booster` Prefix.   
 This also includes access to all pre-release servers while you're an active booster!  
-As with all other donation tiers, you will also keep the `Contributer` role forever afterward.  
+As with all other donation tiers, you will also keep the `Contributor` role forever afterward.  
 ::
 ::card
 
