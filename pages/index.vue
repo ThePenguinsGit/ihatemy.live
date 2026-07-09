@@ -54,6 +54,12 @@
       </div>
     </section>
 
+    <!-- ── Session history ──────────────────────────────────── -->
+    <section v-if="isLoggedIn">
+      <SectionHeading title="Your sessions" eyebrow="every time you played" />
+      <SessionHistory />
+    </section>
+
     <!-- ── Leaderboard ──────────────────────────────────────── -->
     <section>
       <SectionHeading title="Top players" eyebrow="last 30 days" />

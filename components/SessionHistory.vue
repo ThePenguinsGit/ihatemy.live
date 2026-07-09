@@ -1,0 +1,67 @@
+<template>
+  <Card variant="panel" class="items-start">
+    <div class="flex justify-between w-full items-baseline gap-2">
+      <div>
+        <h1 class="font-[minecraft] uppercase">Your sessions</h1>
+        <i v-if="data">{{ data.total }} logged · newest first</i>
+        <i v-else>Loading…</i>
+      </div>
+      <div v-if="data && data.totalPages > 1" class="flex items-center gap-2 shrink-0">
+        <PixelButton class="!py-1 text-sm" :disabled="page <= 1" @click="page--">←</PixelButton>
+        <span class="font-[minecraft] text-sm whitespace-nowrap">{{ data.page }} / {{ data.totalPages }}</span>
+        <PixelButton class="!py-1 text-sm" :disabled="page >= data.totalPages" @click="page++">→</PixelButton>
+      </div>
+    </div>
+
+    <table class="w-full divide-y">
+      <thead>
+        <tr>
+          <th>Server</th>
+          <th class="w-40">Started</th>
+          <th class="w-28 text-right">Duration</th>
+        </tr>
+      </thead>
+      <tbody v-if="data && data.data.length">
+        <tr v-for="session in data.data" :key="session.id">
+          <td class="py-2"><b class="capitalize">{{ session.serverName }}</b></td>
+          <td :title="formatAbsolute(session.start)">{{ formatRelative(session.start) }}</td>
+          <td class="text-right font-mono">{{ formatDuration(session.start, session.end) }}</td>
+        </tr>
+      </tbody>
+      <tbody v-else-if="data">
+        <tr>
+          <td colspan="3" class="py-6 text-center">
+            No sessions yet — hop on a server and come back!
+          </td>
+        </tr>
+      </tbody>
+      <tbody v-else>
+        <tr v-for="i in 6" :key="i">
+          <td class="py-2"><Loading width="7em">&nbsp;</Loading></td>
+          <td><Loading width="6em">&nbsp;</Loading></td>
+          <td class="text-right"><Loading width="4em">&nbsp;</Loading></td>
+        </tr>
+      </tbody>
+    </table>
+  </Card>
+</template>
+
+<script lang="ts" setup>
+import type PaginatedResponseInterface from "~/interfaces/PaginatedResponseInterface";
+import type SessionInterface from "~/interfaces/SessionInterface";
+
+const page = ref(1)
+
+const { data } = await useFetch<PaginatedResponseInterface<SessionInterface>>('/api/user/sessions', {
+  query: { page },
+})
+
+const formatRelative = (unix: number) => useDayjs().unix(unix).fromNow()
+const formatAbsolute = (unix: number) => useDayjs().unix(unix).format('LLLL')
+const formatDuration = (start: number, end: number) => {
+  const totalMinutes = Math.max(0, Math.round((end - start) / 60))
+  const hours = Math.floor(totalMinutes / 60)
+  const minutes = totalMinutes % 60
+  return hours > 0 ? `${hours}h ${minutes}m` : `${minutes}m`
+}
+</script>
