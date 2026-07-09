@@ -2,17 +2,13 @@ import type McStatsResultInterface from '~/interfaces/McStatsResultInterface';
 
 type StatusMap = Record<string, McStatsResultInterface | null>;
 
-// Fetches live status for every hostname and shares it with the hero
-// aggregate and the individual server cards (single source of truth).
-//
-// The initial load runs through useAsyncData, so it executes on the server
-// during SSR and is serialized into the payload — the page ships with
-// statuses already filled in (no empty flash, no refetch on hydration).
-// The interval refresh then keeps them current on the client.
-export const useServerStatuses = (hostnames: string[], refreshMs = 10000) => {
+export const useServerStatuses = (refreshMs = 10000) => {
   const config = useRuntimeConfig();
+  const serverStore = useServerStore();
 
   const fetchAll = async (): Promise<StatusMap> => {
+    await serverStore.ready();
+    const hostnames = serverStore.servers?.map((s) => s.shortName) ?? [];
     const entries = await Promise.all(
       hostnames.map(async (hostname) => {
         try {

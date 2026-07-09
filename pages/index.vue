@@ -74,7 +74,6 @@
 import type PenguBotResponseInterface from '~/interfaces/PenguBotResponseInterface';
 import type PlayTimeResultInterface from '~/interfaces/PlayTimeResultInterface';
 import appConfig from '~/app.config';
-import type ServerStatusInterface from "~/interfaces/ServerStatusInterface";
 
 useHead({
   title: `The Penguin Network`,
@@ -88,10 +87,10 @@ useHead({
 
 const { loggedIn: isLoggedIn } = useUserSession()
 
-const {data: servers} = await useFetch<ServerStatusInterface[]>('/api/all-alive-servers');
+const { servers } = storeToRefs(useServerStore());
 
 // Live server statuses, fetched once and shared by the hero + cards.
-const { statuses, onlinePlayers, serversUp } = useServerStatuses(servers.value?.map((s) => s.shortName ?? '') ?? [])
+const { statuses, onlinePlayers, serversUp } = useServerStatuses()
 const randomElement = (array: string[]) => {
   return array[Math.floor(Math.random() * array.length)]
 }
