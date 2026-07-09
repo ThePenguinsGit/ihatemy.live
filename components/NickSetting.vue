@@ -1,7 +1,7 @@
 <template>
   <Card variant="panel" class="flex flex-col h-full font-[minecraft]">
     <div class="flex items-center justify-between gap-2 pb-2 mb-2 border-b-2 border-ink/10">
-      <h2 class=" uppercase text-xl">Your nickname</h2>
+      <h2 class=" uppercase text-xl">Customize your nickname</h2>
     </div>
 
     <div class="w-full flex flex-col gap-2 grow">

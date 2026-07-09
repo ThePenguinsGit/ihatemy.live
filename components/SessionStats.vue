@@ -29,11 +29,6 @@
       </div>
     </template>
 
-    <div v-else-if="data.sessionCount === 0" class="flex flex-col gap-2 items-center text-center py-6">
-      <h3 class="font-[minecraft] uppercase text-xl">No sessions yet</h3>
-      <p>Your stats start filling up the moment you log in — hop on a server.</p>
-    </div>
-
     <template v-else>
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         <Card variant="dark" class="flex flex-col items-center text-center justify-center gap-1">
@@ -71,7 +66,7 @@
           <div class="ml-auto shrink-0 text-xs uppercase tracking-wider text-secondaryLight">favourite server</div>
         </template>
         <template v-else>
-          <div class="text-secondaryLight">No favourite yet</div>
+          <div class="text-secondaryLight">No favourite yet, go on, have a bum</div>
         </template>
       </Card>
 
@@ -80,7 +75,7 @@
         <Card class="flex items-center gap-3 border-l-4! border-l-alive!">
           <PixelIcon name="advancement" class="text-2xl text-alive shrink-0" />
           <div>
-            <div class="font-[minecraft] text-xl leading-none">{{ data.advancements.total.toLocaleString() }}</div>
+            <div class="font-[minecraft] text-xl leading-none">{{ data.sessionCount > 0 ? data.advancements.total.toLocaleString() : '—' }}</div>
             <div class="text-xs uppercase tracking-wider text-secondaryLight">
               {{ formatAvg(data.advancements.averagePerSession) }} / session · advancements
             </div>
@@ -89,7 +84,7 @@
         <Card class="flex items-center gap-3 border-l-4! border-l-ded!">
           <PixelIcon name="death" class="text-2xl text-ded shrink-0" />
           <div>
-            <div class="font-[minecraft] text-xl leading-none">{{ data.deaths.total.toLocaleString() }}</div>
+            <div class="font-[minecraft] text-xl leading-none">{{ data.sessionCount > 0 ? data.deaths.total.toLocaleString() : '—' }}</div>
             <div class="text-xs uppercase tracking-wider text-secondaryLight">
               {{ formatAvg(data.deaths.averagePerSession) }} / session · deaths
             </div>

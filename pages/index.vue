@@ -7,7 +7,6 @@
       :total-servers="servers?.length"
     />
 
-    <!-- ── Servers ──────────────────────────────────────────── -->
     <section>
       <SectionHeading title="Servers" eyebrow="The graveyard →" to="/graveyard" />
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -20,7 +19,6 @@
       </div>
     </section>
 
-    <!-- ── Your account / customize ─────────────────────────── -->
     <section>
       <SectionHeading
         :title="isLoggedIn ? 'Your account' : 'Make it yours'"
@@ -34,7 +32,6 @@
       </SectionHeading>
 
       <div class="grid grid-cols-1 gap-4 items-stretch">
-        <NickSetting :uuid="minecraftUuid" />
         <PlayerProfileCard
           v-if="data"
           :data="data"
@@ -50,12 +47,13 @@
             </p>
           </div>
         </Card>
+        <NickSetting :uuid="minecraftUuid" />
       </div>
     </section>
 
     <!-- ── Session history ──────────────────────────────────── -->
     <section v-if="isLoggedIn">
-      <SectionHeading title="Your play" eyebrow="the grind so far" />
+      <SectionHeading title="Your play" eyebrow="one sacrifice at a time" />
       <div class="flex flex-col gap-4">
         <SessionStats />
         <SessionHistory />

@@ -5,19 +5,15 @@
       <McHead
           :uuid="data.data.uuid"
         :alt="displayName"
-        class="w-32 sm:w-36"
+        class="w-24 sm:w-36"
       />
     </div>
 
     <div class="border-l self-stretch hidden sm:block border-ink/10" />
 
     <div class="grow flex flex-col gap-3 min-w-0">
-      <div class="text-center sm:text-left">
-        <h1 class="font-[minecraft] uppercase text-lg leading-tight"><span v-if="!loggedIn">(Not) </span>Your Minecraft Account</h1>
-      </div>
-
       <div class="flex flex-wrap items-center gap-2 justify-between w-full">
-        <span class="font-[minecraft] block text-lg truncate">{{ displayName }}</span>
+        <h1 class="font-[minecraft] block truncate">{{ displayName }}</h1>
       </div>
 
       <div>

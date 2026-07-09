@@ -3,7 +3,7 @@
     <div class="flex justify-between w-full items-baseline gap-2">
       <div>
         <h1 class="font-[minecraft] uppercase">Your sessions</h1>
-        <i v-if="data">{{ data.total }} logged · newest first</i>
+        <i v-if="data">{{ data.total }} logged · <span v-if="data.total > 0">newest</span><span v-else>nothing</span> first</i>
         <i v-else>Loading…</i>
       </div>
       <div v-if="data && data.totalPages > 1" class="flex items-center gap-2 shrink-0">
@@ -49,7 +49,7 @@
         <tbody v-else-if="data">
           <tr>
             <td colspan="4" class="py-6! text-center">
-              No sessions yet — hop on a server and come back!
+              No sessions yet — how dare you!
             </td>
           </tr>
         </tbody>
