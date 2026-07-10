@@ -23,6 +23,14 @@ useSeoMeta({
   ...(page.value?.seo || {}),
 })
 
+if (page.value) {
+  defineOgImage('PenguinCard', {
+    eyebrow: route.path.split('/').filter(Boolean).slice(0, -1).join(' / ') || 'docs',
+    title: page.value.title,
+    description: page.value.description ?? '',
+  })
+}
+
 // Flatten the nav tree once for paging + breadcrumb title lookups.
 const flat = computed(() => flattenNavigation(navigation.value))
 const titleByPath = computed(() =>

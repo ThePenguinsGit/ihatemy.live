@@ -27,6 +27,8 @@ useHead({
   link: [{ rel: 'canonical', href: canonical }],
   meta: [{ property: 'og:url', content: canonical }],
 })
+
+defineOgImage('PenguinCard')
 </script>
 
 <style lang="scss">

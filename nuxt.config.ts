@@ -39,8 +39,21 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@pinia/nuxt',
     '@nuxt/fonts',
-    'nuxt-llms'
+    'nuxt-llms',
+    'nuxt-og-image'
   ],
+
+  // Per-route OG images rendered with satori (WASM — works on the Cloudflare
+  // worker, no chromium). The template is components/OgImage/PenguinCard.satori.vue;
+  // pages opt in via defineOgImage(), with a site-wide default in app.vue.
+  // Fonts come from @nuxt/fonts (>= 0.13 required): og-image only sees
+  // families rendered into nuxt-fonts-global.css, so Minecraft (resolved by
+  // the local provider from public/font/minecraft.otf) must be `global`.
+  fonts: {
+    families: [
+      { name: 'Minecraft', provider: 'local', global: true, weights: [400] },
+    ],
+  },
 
   // Serves /llms.txt (+ /llms-full.txt) so AI assistants (ChatGPT, Claude,
   // Perplexity, …) can discover and cite the docs. @nuxt/content detects this
@@ -145,7 +158,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'The PenguinNetwork is a friendly modded Minecraft community with servers for All the Mods 10, GregTech: New Horizons, MC Eternal 2, and more. New and experienced players welcome.' },
         { property: 'og:site_name', content: 'The PenguinNetwork' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:image', content: 'https://ihatemy.live/logo_big.png' },
+        // og:image is injected per route by nuxt-og-image.
         { name: 'twitter:card', content: 'summary_large_image' },
       ],
       link: [

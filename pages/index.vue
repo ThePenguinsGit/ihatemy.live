@@ -129,6 +129,12 @@ useSeoMeta({
   ogDescription: description,
 })
 
+defineOgImage('PenguinCard', {
+  eyebrow: 'Modded Minecraft network',
+  title: 'The Penguin Network',
+  description: 'Free, public servers for ATM10, GregTech: New Horizons, MC Eternal 2, and more. Join quickly for free PenguTokens',
+})
+
 // Structured data so search engines and AI assistants can identify the site
 // and the community behind it.
 useHead({
