@@ -173,9 +173,9 @@ div:has(> .image) {
     @apply outline-2 outline-offset-2;
     outline-color: var(--focus-ring);
 }
-/*h1, h2, h3, h4 {*/
-/*    @apply font-[minecraft] uppercase;*/
-/*}*/
+h1, h2, h3, h4 {
+    @apply font-[minecraft] uppercase;
+}
 h1 {
     @apply text-3xl;
 }
