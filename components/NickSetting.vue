@@ -4,9 +4,22 @@
       <h2 class=" uppercase text-xl">Customize your nickname</h2>
     </div>
 
-    <div class="w-full flex flex-col gap-2 grow">
+    <div v-if="hasDiscord" class="w-full flex flex-col gap-2 grow">
       <NickEditor v-model="input" class="w-full mb-2" />
       <PixelButton primary @click="saveNick">Save nick</PixelButton>
+    </div>
+    <!-- Nicknames are stored against the Discord account, so without one there's nothing to edit. -->
+    <div v-else class="w-full flex flex-col gap-3 grow font-sans normal-case">
+      <p>
+        Nicknames are tied to your Discord account, and yours isn't connected yet.
+        Log in with Discord — or link your accounts — and you can design your nick right here.
+      </p>
+      <LoginDiscordButton sublabel="Brings your nickname and supporter tier along" class="max-w-md" />
+      <p class="text-sm">
+        <NuxtLink class="underline text-iceDeep" to="/docs/getting-started/linking">
+          Prefer linking in-game? Here's how →
+        </NuxtLink>
+      </p>
     </div>
   </Card>
 </template>
@@ -17,6 +30,9 @@ import type MiniMessageNickResponseInterface from "~/interfaces/MiniMessageNickR
 const props = defineProps<{
   uuid: string,
 }>();
+
+const { user } = useUserSession();
+const hasDiscord = computed(() => !!user.value?.discordSnowflake);
 
 const { data: nickData } = await useFetch<MiniMessageNickResponseInterface>('/api/nick', {
   query: {
