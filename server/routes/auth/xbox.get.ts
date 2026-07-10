@@ -27,11 +27,11 @@ export default defineOAuthMicrosoftEventHandler({
   onError(event, error) {
     // Errors from the resolve route surface as error.data = { error: <code> }.
     const code = (error.data as { error?: string } | undefined)?.error
+    console.error('Xbox OAuth error:', error)
     if (code === 'NOT_OWNED') return sendRedirect(event, '/login?error=minecraft_unowned')
     if (code === 'NO_XBOX_ACCOUNT' || code === 'XSTS_DENIED' || code === 'RESOLVE_FAILED') {
       return sendRedirect(event, '/login?error=minecraft')
     }
-    console.error('Xbox OAuth error:', error)
     return sendRedirect(event, '/login?error=xbox')
   },
 })
