@@ -5,7 +5,21 @@
       <img :src="`/img/${shortName}.png`" :alt="displayName" class="w-12 h-12 shrink-0 object-cover" />
       <div class="min-w-0">
         <h2 class="text-2xl leading-none truncate">{{ displayName }}</h2>
-        <div class="text-sm text-secondaryLight">Version {{ version }}</div>
+        <div class="text-sm text-secondaryLight">
+          Version {{ version }}<template v-if="packLink">
+            ·
+            <a
+              :href="packLink"
+              target="_blank"
+              rel="noopener"
+              class="underline hover:text-iceDeep"
+              title="Get the modpack"
+            >Pack ↗</a>
+          </template><template v-if="releasedSince">
+            ·
+            <span :title="`Released ${$dayjs(releasedSince).local().format('DD.MM.YYYY')}`">{{ $dayjs(releasedSince).fromNow(true) }} old</span>
+          </template>
+        </div>
       </div>
       <div class="ml-auto shrink-0">
         <span
@@ -16,6 +30,15 @@
         </span>
         <span v-else class="font-[minecraft] text-sm uppercase text-ded">ded</span>
       </div>
+    </div>
+
+    <!-- Tags -->
+    <div v-if="tags.length" class="flex flex-wrap gap-1.5 px-3 pt-2">
+      <span
+        v-for="tag in tags"
+        :key="tag"
+        class="font-[minecraft] text-[10px] uppercase tracking-wider px-1.5 py-0.5 border-2 border-ink/15 text-secondaryLight"
+      >{{ tag }}</span>
     </div>
 
     <!-- Body: IP + players -->
@@ -63,6 +86,9 @@ const props = defineProps<{
   status: ServerStatusEnum;
   version: string;
   mapUnavailableReason: string|null;
+  tags: string[];
+  packLink: string|null;
+  releasedSince: string|null;
   stats?: McStatsResultInterface | null;
 }>();
 

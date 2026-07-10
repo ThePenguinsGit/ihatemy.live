@@ -6,4 +6,7 @@ export default interface ServerStatusInterface {
   status: ServerStatusEnum;
   version: string;
   mapUnavailableReason: string|null;
+  tags: string[];
+  packLink: string|null;
+  releasedSince: string|null;
 }
