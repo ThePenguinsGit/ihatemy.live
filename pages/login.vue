@@ -1,14 +1,13 @@
 <template>
-  <div class="max-w-md mx-auto w-full flex flex-col gap-6 py-8">
-    <SectionHeading title="Sign in" />
-
+  <div class="max-w-lg mx-auto w-full flex flex-col py-8">
+    <SectionHeading title="Sign in" eyebrow="give us your information"/>
     <Card variant="panel" class="flex flex-col gap-4">
-      <p class="text-sm">Choose how you'd like to sign in to The Penguin Network.</p>
-
       <LoginDiscordButton />
-
       <LoginXboxButton />
-
+      <p class="flex items-center justify-center gap-2 text-sm text-secondaryLight">
+        <PixelIcon name="chain" class="text-iceDeep text-xl shrink-0" />
+        You'll get a chance to link both later
+      </p>
       <p v-if="errorMessage" class="text-ded text-sm" role="alert">{{ errorMessage }}</p>
     </Card>
   </div>
