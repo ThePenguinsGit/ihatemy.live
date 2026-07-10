@@ -40,7 +40,6 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
     '@nuxt/fonts',
-    'nuxt-tiptap-editor',
     'nuxt-llms'
   ],
 
