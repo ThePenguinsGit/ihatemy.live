@@ -83,7 +83,7 @@ useHead({
   ],
 })
 
-const { loggedIn: isLoggedIn } = useUserSession()
+const { loggedIn: isLoggedIn, user } = useUserSession()
 
 const { servers } = storeToRefs(useServerStore());
 
@@ -96,13 +96,11 @@ const randomElement = (array: string[]) => {
 const {data: publicUuids } = await useFetch<string[]>('/api/public-uuids');
 const randomUuid =  ref<string>(randomElement(publicUuids.value ?? []) ?? '')
 
-const {data: uuid} = await useFetch<string>('/api/user/uuid', {
-  cache: false
-});
+
 
 const minecraftUuid = computed(() => {
-  return isLoggedIn.value
-    ? uuid
+  return user.value?.minecraftUuid
+    ? user.value.minecraftUuid
     : randomUuid
 })
 
