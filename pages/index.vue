@@ -57,6 +57,7 @@
       <SectionHeading title="Your play" eyebrow="one sacrifice at a time" />
       <div class="flex flex-col gap-4">
         <SessionStats />
+        <Achievements />
         <SessionHistory />
       </div>
     </section>

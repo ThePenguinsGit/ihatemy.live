@@ -1,0 +1,16 @@
+export default interface AchievementWithProgressInterface {
+    id: string,
+    key: string,
+    name: string,
+    description: string,
+    conditionType: string,
+    target: number,
+    params: string | null,
+    rewardAmount: number,
+    unit: string,
+    trackedBy: string,
+    current: number,
+    completed: boolean,
+    completedAt: number | null,
+    tokenName: string,
+}
