@@ -12,6 +12,7 @@ declare module '#auth-utils' {
     avatar: string
     donatorGroup: string | null
     provider: 'discord' | 'xbox'
+    discordSnowflake?: string | null
     // Set once a Minecraft account is linked (always via Xbox login).
     minecraftUuid?: string | null
   }

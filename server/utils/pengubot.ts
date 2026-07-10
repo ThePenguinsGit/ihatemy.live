@@ -13,6 +13,7 @@ interface PenguAuthResponse {
     name: string
     avatar: string
     donatorGroup: string | null
+    discordSnowflake?: string | null
     minecraftUuid?: string | null
   }
 }
@@ -32,13 +33,14 @@ interface OAuthTokens {
 export async function exchangeDiscordProfile(
   profile: DiscordProfile,
   tokens: OAuthTokens,
-): Promise<AuthResult> {
+): Promise<AuthResult & { discordSnowflake: string }> {
   const res = await penguFetch<PenguAuthResponse>('/internal/auth/discord', {
     provider: 'discord',
     profile,
     tokens,
   })
-  return toAuthResult(res, 'discord')
+  const result = toAuthResult(res, 'discord')
+  return { ...result, discordSnowflake: result.user.discordSnowflake ?? profile.id }
 }
 
 export async function exchangeXboxProfile(
@@ -61,6 +63,7 @@ function toAuthResult(res: PenguAuthResponse, provider: 'discord' | 'xbox'): Aut
       avatar: res.user.avatar,
       donatorGroup: res.user.donatorGroup ?? null,
       provider,
+      discordSnowflake: res.user.discordSnowflake ?? null,
       minecraftUuid: res.user.minecraftUuid ?? null,
     },
   }
