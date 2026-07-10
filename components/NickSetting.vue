@@ -5,8 +5,14 @@
     </div>
 
     <div v-if="hasDiscord" class="w-full flex flex-col gap-2 grow">
-      <NickEditor v-model="input" class="w-full mb-2" />
-      <PixelButton primary @click="saveNick">Save nick</PixelButton>
+      <NickEditor v-model="input" :defaultUsername="defaultUsername" class="w-full mb-2" />
+      <PixelButton
+        primary
+        :disabled="isEmpty"
+        :title="isEmpty ? 'Type a nick first' : undefined"
+        :class="{ 'opacity-50 cursor-not-allowed': isEmpty }"
+        @click="saveNick"
+      >Save nick</PixelButton>
     </div>
     <!-- Nicknames are stored against the Discord account, so without one there's nothing to edit. -->
     <div v-else class="w-full flex flex-col gap-3 grow font-sans normal-case">
@@ -29,6 +35,7 @@ import type MiniMessageNickResponseInterface from "~/interfaces/MiniMessageNickR
 
 const props = defineProps<{
   uuid: string,
+  defaultUsername: string,
 }>();
 
 const { user } = useUserSession();
@@ -83,7 +90,10 @@ const obfuscate = (node: Node) => {
   }
 }
 
+const isEmpty = computed(() => input.value.trim().length === 0)
+
 const saveNick = async () => {
+  if (isEmpty.value) return
   await $fetch('/api/user/nick/set', {
     method: 'post',
     body: input.value

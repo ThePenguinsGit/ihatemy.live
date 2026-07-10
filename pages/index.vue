@@ -91,7 +91,7 @@
         <Card v-else variant="panel" class="flex items-center justify-center">
           <Loading width="100%" height="8rem" />
         </Card>
-        <NickSetting :uuid="minecraftUuid" />
+        <NickSetting :uuid="minecraftUuid" :default-username="data?.data.userName ?? ''" />
         <TokenHistory />
       </div>
     </section>

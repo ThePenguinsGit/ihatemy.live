@@ -55,6 +55,8 @@
       <span class="w-px h-6 bg-ink/20 mx-1" />
       <button type="button" class="tb" title="Clear formatting"
         @mousedown.prevent @click="onClear">✕</button>
+      <button type="button" class="tb" title="Reset to your username"
+        @mousedown.prevent @click="onReset">↺</button>
     </div>
 
     <div class="bg-nick1 flex flex-row bg-bottom text-2xl min-h-[2.5rem]">
@@ -98,6 +100,7 @@ import { unlocks, minTierFor, type DonationTier, type NickFeature } from '~/data
 
 const props = defineProps<{
   modelValue: string;
+  defaultUsername: string;
 }>();
 const emit = defineEmits<{ 'update:modelValue': [value: string] }>();
 
@@ -381,6 +384,14 @@ const onClear = () => {
   mutate((chars, start, end) => {
     for (let i = start; i < end; i++) chars[i] = { ch: chars[i].ch, style: {} };
   });
+};
+
+// Reset to the default nick: the plain username, no formatting or paint.
+const onReset = () => {
+  const runs: NickRun[] = user.value?.name ? [{ text: props.defaultUsername }] : [];
+  renderRuns(runs);
+  emitModel(runs);
+  updateActive();
 };
 
 // Typing: read the model back from the DOM, then re-render canonically so
