@@ -113,7 +113,7 @@ export default defineNuxtConfig({
     // NUXT_SESSION_PASSWORD (>=32 chars) is read by nuxt-auth-utils for the
     // sealed session cookie — no key needed here.
     public: {
-      apiBaseUrl: 'http://172.16.40.190:4242',
+      apiBaseUrl: 'https://penguin-bot.ihatemy.live',
       discordUrl: 'https://discord.gg/tM4urb5SPQ'
     }
   },
