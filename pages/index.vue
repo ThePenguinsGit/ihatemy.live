@@ -48,6 +48,7 @@
           </div>
         </Card>
         <NickSetting :uuid="minecraftUuid" />
+        <TokenHistory v-if="isLoggedIn" />
       </div>
     </section>
 

@@ -14,6 +14,7 @@
     <div class="grow flex flex-col gap-3 min-w-0">
       <div class="flex flex-wrap items-center gap-2 justify-between w-full">
         <h1 class="font-[minecraft] block truncate">{{ displayName }}</h1>
+        <h2 class="font-[minecraft] uppercase text-sm text-iceDeep">{{ data.tokens }} {{ data.tokenName }}</h2>
       </div>
 
       <div>
