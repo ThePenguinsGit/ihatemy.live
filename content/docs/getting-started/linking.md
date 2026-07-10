@@ -1,19 +1,17 @@
 ---
 title: 'Linking'
+description: 'How to link your Minecraft and Discord accounts on The Penguin Network with the /link command, and the perks you get for doing it.'
 pageTitle: 'Linking Minecraft <=> Discord'
 position: 0.1
 ---
 
-::card
 ## Why even bother?
 
 If you want to get the most out of our network, you should link your Minecraft and Discord account.  
 Some new integrations are still in the making, but right now you can already 
 - see your donator rank in Minecraft and get the respective benefits
 - see your level in Discord and get the bragging rights _(note that we did group the levels a bit to keep the sidebar cleaner)_
-::
 
-::card
 ## How to link
 1. Join our Discord server, if you haven't (should be obvious, ngl)
 2. Run `/link` in the Minecraft chat, this will give you a 6-digit code

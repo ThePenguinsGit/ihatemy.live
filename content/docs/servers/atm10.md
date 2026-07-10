@@ -1,5 +1,6 @@
 ---
 title: 'ATM10'
+description: 'All the Mods 10 server info for The Penguin Network - join at atm10.ihatemy.live. Chunkloading, farmworld, world borders, and banned items.'
 pageTitle: 'All the Mods 10'
 position: 3.0
 ---
@@ -9,20 +10,20 @@ position: 3.0
 |     |                             |
 |-----|-----------------------------|
 | IP  |    atm10.ihatemy.live       |
-| Version  |   `7.1`        |
+| Version  |   :server-version{short-name="atm10"}        |
 ::
 
 ::card
 ## Chunkloaders
 To force-load chunks in your base (while any party member is online), go to the chunk claim menu and shift-left-click (right-click to delete)
 ::
+
 ::
 
-::card
 ## The Farmworld
 Since we don't reset the Overworld we have a Farmworld which gets reset (and regenerated when the worldgen of the pack changes)  
 You can access it by running `/warp farmworld`
-::
+
 ::row
 ::card
 ## Worldborders
@@ -49,12 +50,11 @@ The following dimensions will reset every Monday at 13:00 CEST:
 - The Farmworld
 ::
 ::
-::card
+
 ## Notes
 Please do keep in mind that loot chests in the world are per-player, per-chest so everyone has their own unique loot!  
 Also do keep in mind, that these world borders can always be expanded if we need more space!
-::
-::card
+
 ## Banned Items
 - Applied Energistics 2: Spatial Anchor
 - Mekanism: Dimensional Stabilizer, Anchor Upgrade
@@ -74,4 +74,3 @@ Also do keep in mind, that these world borders can always be expanded if we need
 - Oritech: Low Yield Nuke
 - Advancedperipherals: Chunk Controller
 - Building Gadgets 2: Template Manager
-::

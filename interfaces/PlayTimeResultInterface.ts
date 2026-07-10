@@ -1,4 +1,5 @@
 import type PlaytimeRowInterface from "./PlaytimeRowInterface";
+import type { DonationTier } from "~/data/donationTiers";
 
 export default interface PlayTimeResultInterface {
     uuid: string,
@@ -7,5 +8,6 @@ export default interface PlayTimeResultInterface {
     playTimes: PlaytimeRowInterface[],
     currentLevel: number,
     playTimeSum: number,
+    timeForCurrentLevel: number,
     timeToNextLevel: number,
 }

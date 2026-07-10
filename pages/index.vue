@@ -1,34 +1,228 @@
 <template>
-  <div class="px-5 ">
-    <iframe src="https://ko-fi.com/streamalerts/goaloverlay/sa_ed47c804-d1a7-4e42-ba00-1edff9d3e40d" class="w-full" height="57" />
-    <div class="flex flex-col xl:flex-row gap-4 pt-4">
-      <iframe class="hidden xl:block" src="https://discordapp.com/widget?id=637719625274228743&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-      <div>
-        <a class="block xl:hidden w-fit" href="https://discord.gg/penguinnetwork">
-          <img class="text-white" src="https://discord.com/api/guilds/637719625274228743/widget.png?style=banner2" alt="Join our Discord (p.s. this image can't be shown because it was blocked by your browser)"/>
-        </a>
+  <div class="flex flex-col gap-8 max-w-7xl mx-auto w-full">
+    <HeroSection
+        v-if="servers"
+      :online-players="onlinePlayers"
+      :servers-up="serversUp"
+      :total-servers="servers?.length"
+    />
+
+    <section>
+      <SectionHeading title="Servers" eyebrow="The graveyard →" to="/graveyard" />
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <ServerCard
+          v-for="server in servers"
+          :key="server.shortName"
+          :server="server"
+          :stats="statuses[server.shortName]"
+        />
       </div>
-      <div class="flex flex-col gap-5 flex-grow">
-        <AliveServerRow name="ATM10: To the Sky" version="2.0.2" image-path="/img/atm10tts.png" hostname="atm10tts.ihatemy.live" mapUrl='https://maps.ihatemy.live/atm10tts'/>
-        <AliveServerRow name="All The Mods 10" version="7.1" image-path="/img/atm10.png" hostname="atm10.ihatemy.live" mapUrl='https://maps.ihatemy.live/atm10'/>
-        <AliveServerRow name="GregTech: New Horizons" version="2.8.4" image-path="/img/gtnh.png" hostname="gtnh.ihatemy.live" mapUrl='https://maps.ihatemy.live/gtnh'/>
-        <AliveServerRow name="MC Eternal 2" version="1.2.2.0" image-path="/img/mce2-2.png" hostname="mce2.ihatemy.live" mapUrl='https://maps.ihatemy.live/mce2'/>
-        <AliveServerRow name="Prominence 2" version="3.9.27" image-path="/img/p2he.png" hostname="p2he.ihatemy.live" mapUrl='https://maps.ihatemy.live/p2he'/>
-        <AliveServerRow name="StoneBlock 4" version="1.15.3" image-path="/img/sb4.png" hostname="sb4.ihatemy.live" mapUnavailableReason="It's underground, duh"/>
-        <AliveServerRow name="Society: Sunlit Valley" version="4.0.8" image-path="/img/sv.png" hostname="sv.ihatemy.live" mapUrl='https://maps.ihatemy.live/sv'/>
+    </section>
+
+    <!-- ── Logged-out pitch: what an account gets you ──────────── -->
+    <section v-if="!isLoggedIn">
+      <SectionHeading title="Make it yours">
+        <template #eyebrow>
+          <span class="eyebrow !text-ice" title="some sacrifice might be required">no sacrifice required<sup>*</sup></span>
+        </template>
+      </SectionHeading>
+      <Card variant="dark" class="flex flex-col gap-5">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div class="max-w-2xl">
+            <h3 class="font-[minecraft] text-xl md:text-2xl leading-none">This could be your account</h3>
+            <p class="text-white/80 leading-snug mt-1">
+              Log in and find out what we know.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <PixelButton to="/login" primary class="!py-1.5">Log in</PixelButton>
+            <PixelButton to="/docs/getting-started/linking" class="!py-1.5">How linking works</PixelButton>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+          <div v-for="perk in loginPerks" :key="perk.title" class="flex items-start gap-3">
+            <PixelIcon :name="perk.icon" class="text-ice text-3xl shrink-0" />
+            <div>
+              <h4 class="font-[minecraft] uppercase text-sm">{{ perk.title }}</h4>
+              <p class="text-sm text-white/80 leading-snug">{{ perk.body }}</p>
+            </div>
+          </div>
+        </div>
+      </Card>
+    </section>
+
+    <!-- ── Logged in, but no Minecraft account linked yet ───────── -->
+    <section v-if="isLoggedIn && !isLinked">
+      <SectionHeading title="Just one more step">
+        <template #eyebrow>
+          <span class="eyebrow !text-ice" title="some sacrifice might be required">the servers can't see you <span class="obf">yet</span></span>
+        </template>
+      </SectionHeading>
+      <Card variant="dark" class="flex flex-col gap-4">
+        <div class="max-w-2xl">
+          <h3 class="font-[minecraft] text-xl md:text-2xl leading-none">Which cultist are you?</h3>
+          <p class="text-white/80 leading-snug mt-1">
+            You're logged in, but we can't connect your chat crimes to your war crimes yet.<br>
+            Login with Xbox so we'll know and can show you the goods.
+          </p>
+        </div>
+        <LoginXboxButton sublabel="Links your Minecraft account automatically" />
+        <p class="text-sm text-white/60">
+          Prefer linking in-game?
+          <NuxtLink class="underline text-ice" to="/docs/getting-started/linking">Here's how →</NuxtLink>
+        </p>
+      </Card>
+    </section>
+
+    <!-- ── Account based data (logged in + linked only) ─────────── -->
+    <section v-if="isLinked">
+      <SectionHeading title="Your account">
+        <template #eyebrow>
+          <SubscriptionTier />
+        </template>
+      </SectionHeading>
+
+      <div class="grid grid-cols-1 gap-4 items-stretch">
+        <PlayerProfileCard
+          v-if="data"
+          :data="data"
+        />
+        <Card v-else variant="panel" class="flex items-center justify-center">
+          <Loading width="100%" height="8rem" />
+        </Card>
+        <NickSetting :uuid="minecraftUuid" :default-username="data?.data.userName ?? ''" />
+        <TokenHistory />
       </div>
-    </div>
+    </section>
+
+    <!-- ── Session based data ──────────────────────────────────── -->
+    <section v-if="isLinked">
+      <SectionHeading title="Your play" eyebrow="one sacrifice at a time" />
+      <div class="flex flex-col gap-4">
+        <SessionStats />
+        <Achievements />
+        <SessionHistory />
+      </div>
+    </section>
+
+    <!-- ── Leaderboard ──────────────────────────────────────── -->
+    <section>
+      <SectionHeading title="Top players" eyebrow="last 30 days" />
+      <Leaderboard :hide-link="true" />
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
+import type PenguBotResponseInterface from '~/interfaces/PenguBotResponseInterface';
+import type PlayTimeResultInterface from '~/interfaces/PlayTimeResultInterface';
+import appConfig from '~/app.config';
+
+const description = 'Welcome to The Penguin Network - A friendly modded Minecraft community perfect for new and experienced players! Join our active servers including ATM10: To the Sky, All The Mods 10, GregTech: New Horizons, MC Eternal 2, Prominence 2, and Society: Sunlit Valley. Everyone is welcome!'
+
+useSeoMeta({
+  title: 'The Penguin Network',
+  description,
+  ogTitle: 'The Penguin Network — Modded Minecraft Servers',
+  ogDescription: description,
+})
+
+// Structured data so search engines and AI assistants can identify the site
+// and the community behind it.
 useHead({
-  title: `The Penguin Network`,
-  meta: [
+  script: [
     {
-      name: 'description',
-      content: 'Welcome to The Penguin Network - A friendly modded Minecraft community perfect for new and experienced players! Join our active servers including ATM10: To the Sky, All The Mods 10, GregTech: New Horizons, MC Eternal 2, Prominence 2, and Society: Sunlit Valley. Everyone is welcome!'
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Organization',
+            '@id': 'https://ihatemy.live/#organization',
+            name: 'The Penguin Network',
+            url: 'https://ihatemy.live',
+            logo: 'https://ihatemy.live/logo_big.png',
+            description: 'A friendly modded Minecraft community running multiple public servers.',
+            sameAs: ['https://discord.gg/tM4urb5SPQ'],
+          },
+          {
+            '@type': 'WebSite',
+            '@id': 'https://ihatemy.live/#website',
+            name: 'The Penguin Network',
+            url: 'https://ihatemy.live',
+            publisher: { '@id': 'https://ihatemy.live/#organization' },
+            about: {
+              '@type': 'VideoGame',
+              name: 'Minecraft',
+            },
+          },
+        ],
+      }),
     },
   ],
 })
+
+const { loggedIn: isLoggedIn, user } = useUserSession()
+
+const { servers } = storeToRefs(useServerStore());
+
+// Live server statuses, fetched once and shared by the hero + cards.
+const { statuses, onlinePlayers, serversUp } = useServerStatuses()
+
+// What a login unlocks — shown to logged-out visitors instead of the account section.
+const loginPerks = [
+  {
+    icon: 'nametag',
+    title: 'Your nick, your colors, you know, the colors',
+    body: 'Design a nickname with colors and gradients in the live editor and save it straight to the servers.',
+  },
+  {
+    icon: 'chart',
+    title: 'Levels & playtime',
+    body: 'See your level, total playtime, and token balance. Mostly up to date™.',
+  },
+  {
+    icon: 'advancement',
+    title: 'Sessions & achievements',
+    body: 'Look back on every session and collect achievements for your finest sacrifices.',
+  },
+  {
+    icon: 'chain',
+    title: 'Link accounts right here',
+    body: 'Connect Discord and Minecraft on this site. Log in with both to get linked, easy as going into the Player-Explosion-Chamber®.',
+  },
+]
+
+const minecraftUuid = computed(() => user.value?.minecraftUuid ?? '')
+const isLinked = computed(() => isLoggedIn.value && !!minecraftUuid.value)
+
+// Only fetched for users with a linked Minecraft account; the manual watch
+// below (not the query) drives fetching, so logged-out visitors never hit it.
+const { data, refresh } = await useFetch<PenguBotResponseInterface<PlayTimeResultInterface>|null>('/api/player-profile', {
+  query: { uuid: minecraftUuid },
+  immediate: false,
+  watch: false,
+})
+
+watch(minecraftUuid, (uuid) => {
+  if (uuid) refresh()
+  else data.value = null
+}, { immediate: true })
+
+let interval: ReturnType<typeof setInterval>
+
+onNuxtReady(() => {
+  interval = setInterval(
+      () => {
+        if (minecraftUuid.value) refresh()
+      },
+      appConfig.secondsToRefreshLookup * 1000
+  )
+})
+
+onBeforeUnmount(() => {
+  window.clearInterval(interval)
+})
+
 </script>

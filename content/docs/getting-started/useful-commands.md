@@ -1,12 +1,11 @@
 ---
 title: 'Commands'
+description: 'Useful Discord and Minecraft commands on The Penguin Network: /warp farmworld, /playtime, /leaderboard, /level, /link, and more.'
 pageTitle: 'Useful Commands'
 position: 0.2
 ---
 
-::card
-<h1 style="text-align: center">Discord</h1>
-::
+## Discord
 
 ::row
 
@@ -50,9 +49,7 @@ Also check out the [Linking](/docs/getting-started/linking) page for more inform
 
 ::
 
-::card
-<h1 style="text-align: center">Minecraft</h1>
-::
+## Minecraft
 
 ::row
 

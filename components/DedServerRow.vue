@@ -1,23 +1,20 @@
 <template>
-  <div class="card flex flex-col md:flex-row place-content-between">
-    <div class="flex flex-row place-content-between w-full md:w-auto md:mr-2">
-      <div class="self-center">
-        <img
-            :src="imagePath"
-            class="image"
-            :alt="name"
-        />
+  <Card class="flex flex-col md:flex-row items-center gap-3 md:justify-between">
+    <div class="flex items-center gap-3 w-full md:w-auto">
+      <img :src="imagePath" class="w-12 h-12 object-cover grayscale opacity-75 shrink-0" :alt="name"/>
+      <div class="min-w-0">
+        <h2 class="text-2xl md:text-3xl leading-none">{{ name }}</h2>
+        <div class="text-sm text-secondaryLight italic truncate">“{{ reasonOfDeath }}”</div>
       </div>
-      <h2 class="text-3xl lg:text-3xl xl:text-[50px] mt-1">{{name}}</h2>
     </div>
-    <div class="flex flex-row gap-2  place-content-between w-full md:w-auto">
-      <div class="self-center">
-        <Badge class="bg-black text-white cursor-default" :title="reasonOfDeath">ded</Badge>
-      </div>
-      <a v-if="downloadPath" class="bg-secondary drop-shadow-sm px-3 py-1 rounded text-xl text-white hover:text-white hover:bg-secondaryLight hover:drop-shadow-md transition-all" :href="downloadPath">Download Map <span v-if="sizeInGigaBytes ?? 0 !== 0">({{sizeInGigaBytes}} GB)</span></a>
-      <span v-else class="bg-blue-300 drop-shadow-sm px-3 py-1 rounded text-xl text-white cursor-progress">Download coming soon&trade;</span>
+    <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end shrink-0">
+      <span class="font-[minecraft] uppercase text-sm text-ded" title="rest in pieces">† ded</span>
+      <PixelButton v-if="downloadPath" :href="downloadPath" class="text-sm">
+        Download Map <span v-if="(sizeInGigaBytes ?? 0) !== 0" class="normal-case opacity-80">({{ sizeInGigaBytes }} GB)</span>
+      </PixelButton>
+      <PixelButton v-else disabled class="text-sm opacity-50 cursor-progress">Download soon&trade;</PixelButton>
     </div>
-  </div>
+  </Card>
 </template>
 
 <script setup lang="ts">

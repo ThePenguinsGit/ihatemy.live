@@ -1,17 +1,15 @@
 ---
 title: 'Rules'
+description: 'The rules of The Penguin Network Minecraft servers and Discord: respect, no griefing, no TPS abuse, and how we handle exploits.'
 position: 1
 pageTitle: 'Server Rules'
 ---
 
-
-::card
 **We have a list of rules to keep a civil network, since we're all here to have a good time. Failure to follow the rules will likely result in vague administrative action**
-::
-::card
+
 ## TL:DR
 Don't be a dick. Don't be a dick to each other, or to the server. Follow Discords rules, and don't be that guy. Think of us as, Rules As Intended DMs
-::
+
 ::row
 ::card
 ## Rule 1: No -ists / -ics
@@ -54,9 +52,8 @@ Duping, abusing exploits (to an extent), cheating. Obviously, if you ruin the MP
 (A donor tried to argue that using a "super clever coded rewrite" of a slur wasn't against the rules as written. We didn't agree, and they lost that argument.)
 ::
 ::
-::card
+
 ## Regarding Exploits
 Some exploits are obviously not as problematic as others. For example: the GTNH iApiary Empowering Bee would be fine, but an exploit that generates something out of nothing would absolutely not be.  
 Examples: mekanism water-log creative cell, schematicannon mystical soil, etc.  
 If you aren’t sure, better to ask. Within reason, you won’t get in trouble if you ask and find out it’s too far. (Think, creative use of game mechanics)
-::

@@ -1,37 +1,44 @@
 <template>
-  <div id="background" class="w-full h-screen max-h-screen">
-    <div class="w-full bg-secondary shadow-md py-4 px-2 flex flex-row h-24 top-0 z-10 place-content-between">
-      <NuxtLink to="/"><img src="/img/logo.png" class="max-h-[70px]"  alt="Penguins Network"/></NuxtLink>
-      <div class="mr-4 flex flex-col md:flex-row gap-5">
-        <NuxtLink class="text-3xl block text-white leading-[2] hover:underline" to="/archive">Archive</NuxtLink>
-        <NuxtLink class="text-3xl block text-white leading-[2] hover:underline" to="/docs/getting-started">Docs</NuxtLink>
+    <div id="background" class="w-full h-screen max-h-screen">
+      <SiteHeader />
+      <div class="wrapper flex flex-col justify-between">
+        <NuxtPage class="px-4 pt-4 pb-16 md:pb-4 " />
+        <footer class="w-full bg-secondary border-t-4 border-ink py-1 text-center text-white text-sm font-[minecraft] uppercase tracking-wide shrink-0">
+          <NuxtLink to="/legal/imprint" class="no-underline hover:text-ice">Imprint</NuxtLink>
+          <span class="text-white/40 mx-2">·</span>
+          <NuxtLink to="/legal/privacy" class="no-underline hover:text-ice">Privacy Policy</NuxtLink>
+        </footer>
       </div>
     </div>
-    <div class="wrapper flex flex-col justify-between">
-      <NuxtPage class="px-4 pt-4 pb-16 md:pb-4 " />
-      <div class="w-full bg-secondary h-6 text-center text-white text-md">
-        <div class="mx-auto">
-          <NuxtLink to="/legal/imprint" class="no-underline">Imprint</NuxtLink>
-          -
-          <NuxtLink to="/legal/privacy" class="no-underline">Privacy Policy</NuxtLink>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
+
 <script setup lang="ts">
+const route = useRoute()
+
+// Canonical/og:url track the route so every page self-identifies with its
+// canonical https://ihatemy.live URL (query strings and hashes excluded).
+const canonical = computed(() => `https://ihatemy.live${route.path}`)
+
+useHead({
+  titleTemplate: (title) =>
+    title && title !== 'The PenguinNetwork'
+      ? `${title} · The PenguinNetwork`
+      : 'The PenguinNetwork',
+  link: [{ rel: 'canonical', href: canonical }],
+  meta: [{ property: 'og:url', content: canonical }],
+})
 </script>
 
 <style lang="scss">
+@reference "~/assets/css/main.css";
 
-/* Main styles */
-body {
-  background: url('/img/background.png') repeat fixed;
+html {
+  background: var(--color-secondary) url('/img/background.png') repeat;
 }
 
 .wrapper {
   @apply overflow-y-auto;
-  height: calc(100vh - 6rem);
+  height: calc(100vh - 5rem); /* header is h-20 (5rem) */
 }
 
 
