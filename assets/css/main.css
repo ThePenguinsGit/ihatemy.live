@@ -12,7 +12,7 @@
   --color-secondary: #2b303a;   /* header, footer, dark surfaces */
   --color-secondaryLight: #454e5e;
   --color-ice: #5ec2e6;         /* arctic accent */
-  --color-iceDeep: #2a91b8;     /* ice for text on light surfaces */
+  --color-iceDeep: #1c7290;     /* ice for text on light surfaces (AA on snow) */
   --color-beak: #f6a623;        /* penguin beak — primary CTA */
   --color-beakDark: #d4860c;
   --color-snow: #eef4f8;        /* light panel surface */
@@ -200,8 +200,9 @@ a:not(:where(header a, footer a, nav a, .pixel-btn, .provider-btn)) {
     @apply underline underline-offset-2;
     color: var(--color-iceDeep);
 }
+
 a:not(:where(header a, footer a, nav a, .pixel-btn, .provider-btn)):hover {
-    color: var(--color-ice);
+    color: color-mix(in srgb, var(--color-iceDeep) 70%, var(--color-ink));
 }
 
 /* Inline code → beveled Minecraft key/label chip */

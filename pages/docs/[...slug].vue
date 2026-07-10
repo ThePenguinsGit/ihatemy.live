@@ -91,7 +91,7 @@ const toc = computed(() => page.value?.body?.toc?.links ?? [])
         <Card variant="panel" class="md:p-6 flex flex-col gap-2">
           <h1 class="font-[minecraft] uppercase text-2xl">Page Not Found</h1>
           <p>Oops! The content you're looking for doesn't exist.</p>
-          <NuxtLink class="underline text-iceDeep hover:text-ice" to="/docs">Go back to the docs</NuxtLink>
+          <NuxtLink class="underline" to="/docs">Go back to the docs</NuxtLink>
         </Card>
       </template>
     </div>
