@@ -50,13 +50,9 @@ const props = defineProps<{
   data: PenguBotResponseInterface<PlayTimeResultInterface>,
 }>()
 
-const { loggedIn, user } = useUserSession()
+const { user } = useUserSession()
 
-const nickname = computed(() => {
-  return loggedIn.value
-      ? user.value?.name
-      : props.data.data.displayName
-})
+const nickname = computed(() => user.value?.name ?? null)
 
 const displayName = computed(() => {
   const internalData = props.data.data

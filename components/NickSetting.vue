@@ -5,36 +5,24 @@
     </div>
 
     <div class="w-full flex flex-col gap-2 grow">
-      <div class="relative">
-        <NickEditor v-model="input" class="w-full mb-2" />
-        <PixelButton primary @click="saveNick">Save nick</PixelButton>
-        <div
-          v-if="!loggedIn"
-          class="flex h-full bg-opacity-50 absolute bg-black top-0 place-items-center left-0 right-0"
-        >
-          <Login class="block mx-auto" />
-        </div>
-      </div>
+      <NickEditor v-model="input" class="w-full mb-2" />
+      <PixelButton primary @click="saveNick">Save nick</PixelButton>
     </div>
   </Card>
 </template>
 
 <script setup lang="ts">
 import type MiniMessageNickResponseInterface from "~/interfaces/MiniMessageNickResponseInterface";
-import {donationTiers} from "~/data/donationTiers";
 
 const props = defineProps<{
-  uuid: Ref<string>,
+  uuid: string,
 }>();
-
-const { loggedIn } = useUserSession();
 
 const { data: nickData } = await useFetch<MiniMessageNickResponseInterface>('/api/nick', {
   query: {
-    uuid: props.uuid
+    uuid: computed(() => props.uuid)
   },
   cache: false,
-  watch: [props.uuid]
 });
 
 // `input` is the MiniMessage string (serialized by NickEditor) — the value we save.

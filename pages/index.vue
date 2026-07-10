@@ -19,15 +19,44 @@
       </div>
     </section>
 
-    <section>
-      <SectionHeading
-        :title="isLoggedIn ? 'Your account' : 'Make it yours'"
-        :eyebrow="isLoggedIn ? undefined : 'log in to save your nick'"
-        :to="isLoggedIn ? undefined : '/auth/discord'"
-        target="_blank"
-      >
+    <!-- ── Logged-out pitch: what an account gets you ──────────── -->
+    <section v-if="!isLoggedIn">
+      <SectionHeading title="Make it yours">
         <template #eyebrow>
-          <SubscriptionTier v-if="isLoggedIn" />
+          <span class="eyebrow !text-ice" title="some sacrifice might be required">no sacrifice required<sup>*</sup></span>
+        </template>
+      </SectionHeading>
+      <Card variant="dark" class="flex flex-col gap-5">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div class="max-w-2xl">
+            <h3 class="font-[minecraft] text-xl md:text-2xl leading-none">This could be your account</h3>
+            <p class="text-white/80 leading-snug mt-1">
+              Log in and find out what we know.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <PixelButton to="/login" primary class="!py-1.5">Log in</PixelButton>
+            <PixelButton to="/docs/getting-started/linking" class="!py-1.5">How linking works</PixelButton>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+          <div v-for="perk in loginPerks" :key="perk.title" class="flex items-start gap-3">
+            <PixelIcon :name="perk.icon" class="text-ice text-3xl shrink-0" />
+            <div>
+              <h4 class="font-[minecraft] uppercase text-sm">{{ perk.title }}</h4>
+              <p class="text-sm text-white/80 leading-snug">{{ perk.body }}</p>
+            </div>
+          </div>
+        </div>
+      </Card>
+    </section>
+
+    <!-- ── Account based data (logged in only) ─────────────────── -->
+    <section v-if="isLoggedIn">
+      <SectionHeading title="Your account">
+        <template #eyebrow>
+          <SubscriptionTier />
         </template>
       </SectionHeading>
 
@@ -39,20 +68,23 @@
         <Card v-else variant="panel" class="p-4">
           <div class="flex flex-col gap-2 justify-center h-full text-center">
             <h2 class="font-[minecraft] uppercase">No stats yet</h2>
-            <p>Link your Minecraft account to your Discord to see playtime and levels.</p>
+            <p>Link your Minecraft account to see playtime, levels, and your nick.</p>
             <p>
+              <PixelButton href="/auth/xbox" target="_self" primary>Link with Xbox</PixelButton>
+            </p>
+            <p class="text-sm">
               <NuxtLink class="underline text-iceDeep" to="/docs/getting-started/linking">
-                Here's how to link them →
+                Prefer linking in-game? Here's how →
               </NuxtLink>
             </p>
           </div>
         </Card>
-        <NickSetting :uuid="minecraftUuid" />
-        <TokenHistory v-if="isLoggedIn" />
+        <NickSetting v-if="minecraftUuid" :uuid="minecraftUuid" />
+        <TokenHistory />
       </div>
     </section>
 
-    <!-- ── Session history ──────────────────────────────────── -->
+    <!-- ── Session based data ──────────────────────────────────── -->
     <section v-if="isLoggedIn">
       <SectionHeading title="Your play" eyebrow="one sacrifice at a time" />
       <div class="flex flex-col gap-4">
@@ -91,33 +123,52 @@ const { servers } = storeToRefs(useServerStore());
 
 // Live server statuses, fetched once and shared by the hero + cards.
 const { statuses, onlinePlayers, serversUp } = useServerStatuses()
-const randomElement = (array: string[]) => {
-  return array[Math.floor(Math.random() * array.length)]
-}
 
-const {data: publicUuids } = await useFetch<string[]>('/api/public-uuids');
-const randomUuid =  ref<string>(randomElement(publicUuids.value ?? []) ?? '')
+// What a login unlocks — shown to logged-out visitors instead of the account section.
+const loginPerks = [
+  {
+    icon: 'nametag',
+    title: 'Your nick, your colors',
+    body: 'Design a nickname with colors and gradients in the live editor and save it straight to the servers.',
+  },
+  {
+    icon: 'chart',
+    title: 'Levels & playtime',
+    body: 'See your level, total playtime, and token balance — always up to date.',
+  },
+  {
+    icon: 'advancement',
+    title: 'Sessions & achievements',
+    body: 'Look back on every session and collect achievements for your finest sacrifices.',
+  },
+  {
+    icon: 'chain',
+    title: 'Link accounts right here',
+    body: 'Connect Discord and Minecraft on this site — log in with Xbox and your Minecraft account links itself. No codes needed.',
+  },
+]
 
+const minecraftUuid = computed(() => user.value?.minecraftUuid ?? '')
 
-
-const minecraftUuid = computed(() => {
-  return user.value?.minecraftUuid
-    ? user.value.minecraftUuid
-    : randomUuid
+// Only fetched for users with a linked Minecraft account; the manual watch
+// below (not the query) drives fetching, so logged-out visitors never hit it.
+const { data, refresh } = await useFetch<PenguBotResponseInterface<PlayTimeResultInterface>|null>('/api/player-profile', {
+  query: { uuid: minecraftUuid },
+  immediate: false,
+  watch: false,
 })
 
-const { data, error, refresh } = await useFetch<PenguBotResponseInterface<PlayTimeResultInterface>|null>('/api/player-profile', {
-  immediate: true,
-  query: {  uuid: minecraftUuid.value },
-})
+watch(minecraftUuid, (uuid) => {
+  if (uuid) refresh()
+  else data.value = null
+}, { immediate: true })
 
 let interval: ReturnType<typeof setInterval>
 
 onNuxtReady(() => {
   interval = setInterval(
       () => {
-        randomUuid.value = randomElement(publicUuids.value ?? []) ?? ''
-        refresh()
+        if (minecraftUuid.value) refresh()
       },
       appConfig.secondsToRefreshLookup * 1000
   )
