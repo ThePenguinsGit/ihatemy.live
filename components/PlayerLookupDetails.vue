@@ -30,11 +30,11 @@ const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').
 <template>
   <div v-if="data" class="flex flex-row gap-2 h-full">
     <div class="self-center"><img :src="`https://api.mineatar.io/body/full/${data.data.uuid}?scale=10`" alt="Player Avatar" class="px-5 py-2 w-48"></div>
-    <div class="border-l self-stretch" />
+    <div class="border-l self-stretch border-ink/10" />
     <div class="grow">
       <div class="text-center">
-        <h1><span v-if="!loggedIn">(Not) </span>Your Minecraft Account</h1>
-        <i>Refreshed {{$dayjs(data.time).local().format('DD.MM.YYYY HH:mm')}}</i>
+        <h1 class="font-[minecraft] uppercase"><span v-if="!loggedIn">(Not) </span>Your Minecraft Account</h1>
+        <span class="text-sm text-secondaryLight">Refreshed {{$dayjs(data.time).local().format('DD.MM.YYYY HH:mm')}}</span>
       </div>
       <table class="pixel-table">
         <tbody>
@@ -56,7 +56,7 @@ const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').
         </tr>
         </tbody>
       </table>
-      <hr class="my-2">
+      <hr class="my-2 border-ink/15">
       <table class="pixel-table">
         <thead>
         <tr>

@@ -19,9 +19,9 @@ const formatTime = (time: number) => '~' + useDayjs().duration(time, 'seconds').
 
 <template>
   <div v-if="data" class="flex flex-col gap-2 items-center">
-    <i>Refreshed {{$dayjs(data.time).local().format('DD.MM.YYYY HH:mm')}}</i>
+    <span class="text-sm text-secondaryLight">Refreshed {{$dayjs(data.time).local().format('DD.MM.YYYY HH:mm')}}</span>
     <div class="flex flex-row gap-2 items-center place-content-around w-full">
-      <McHead :uuid="data.data.uuid" :alt="displayName" class="rounded-md w-24 h-24" />
+      <McHead :uuid="data.data.uuid" :alt="displayName" class="w-24 h-24" />
       <div>
         <table class="pixel-table">
           <tbody>

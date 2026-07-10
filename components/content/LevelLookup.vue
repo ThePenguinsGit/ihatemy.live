@@ -3,8 +3,8 @@
     <Card class="w-full ">
       <div>
         <h2>Check your progress</h2>
-        <input type="text" autocomplete="off" class="w-full px-2 my-1 bg-gray-300 rounded-sm placeholder:text-gray-700 placeholder:italic border-black border border-solid" :spellcheck="false" v-model="username" placeholder="Username">
-        <hr class="pb-2 mt-1" v-if="username.length > 0">
+        <input type="text" autocomplete="off" class="pixel-input w-full my-2" :spellcheck="false" v-model="username" placeholder="Username">
+        <hr class="pb-2 " v-if="username.length > 0">
         <LevelLookupDetails v-if="data " :data="data" />
         <div v-if="error && error.statusCode === 404 && username.length > 0">
           <div class="text-center">
