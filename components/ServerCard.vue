@@ -2,28 +2,31 @@
   <Card variant="panel" class="flex flex-col p-0!">
     <!-- Header: pack art + name -->
     <div class="flex items-center gap-3 px-3 py-3 border-b-4 border-ink/10">
-      <img :src="`/img/${shortName}.png`" :alt="displayName" class="w-12 h-12 shrink-0 object-cover" />
+      <img :src="`/img/${server.shortName}.png`" :alt="server.displayName" class="w-12 h-12 shrink-0 object-cover" />
       <div class="min-w-0">
-        <h2 class="text-2xl leading-none truncate">{{ displayName }}</h2>
+        <a v-if="server.packLink" :href="server.packLink" target="_blank">
+          <h2 class="text-2xl leading-none truncate">{{ server.displayName }}</h2>
+        </a>
+        <h2 v-else class="text-2xl leading-none truncate">{{ server.displayName }}</h2>
         <div class="text-sm text-secondaryLight">
-          Version {{ version }}<template v-if="packLink">
+          Version {{ server.version }}<template v-if="server.packLink">
             ·
             <a
-              :href="packLink"
+              :href="server.packLink"
               target="_blank"
               rel="noopener"
               class="underline hover:text-iceDeep"
               title="Get the modpack"
             >Pack ↗</a>
-          </template><template v-if="releasedSince">
+          </template><template v-if="server.releasedSince">
             ·
-            <span :title="`Released ${$dayjs(releasedSince).local().format('DD.MM.YYYY')}`">{{ $dayjs(releasedSince).fromNow(true) }} old</span>
+            <span :title="`Released ${$dayjs(server.releasedSince).local().format('DD.MM.YYYY')}`">{{ $dayjs(server.releasedSince).fromNow(true) }} old</span>
           </template>
         </div>
       </div>
       <div class="ml-auto shrink-0">
         <span
-          v-if="online"
+          v-if="server.online"
           class="inline-flex items-center gap-1.5 font-[minecraft] text-sm uppercase text-alive"
         >
           <span class="live-dot" />alive
@@ -33,9 +36,9 @@
     </div>
 
     <!-- Tags -->
-    <div v-if="tags.length" class="flex flex-wrap gap-1.5 px-3 pt-2">
+    <div v-if="server.tags.length" class="flex flex-wrap gap-1.5 px-3 pt-2">
       <span
-        v-for="tag in tags"
+        v-for="tag in server.tags"
         :key="tag"
         class="font-[minecraft] text-[10px] uppercase tracking-wider px-1.5 py-0.5 border-2 border-ink/15 text-secondaryLight"
       >{{ tag }}</span>
@@ -63,36 +66,29 @@
 
     <!-- Footer: live map -->
     <PixelButton
-      v-if="online && !mapUnavailableReason"
-      :href="`https://maps.ihatemy.live/${props.shortName}/`"
+      v-if="online && !server.mapUnavailableReason"
+      :href="`https://maps.ihatemy.live/${server.shortName}/`"
       class="w-full text-sm"
     >Live Map</PixelButton>
     <PixelButton
       v-else
       disabled
-      :title="mapUnavailableReason ?? 'No map available'"
+      :title="server.mapUnavailableReason ?? 'No map available'"
       class="w-full text-sm opacity-50 cursor-not-allowed"
-    >{{ mapUnavailableReason ? 'No Map' : 'Live Map' }}</PixelButton>
+    >{{ server.mapUnavailableReason ? 'No Map' : 'Live Map' }}</PixelButton>
   </Card>
 </template>
 
 <script setup lang="ts">
 import type McStatsResultInterface from '~/interfaces/McStatsResultInterface';
-import {ServerStatusEnum} from "~/Enum/ServerStatusEnum";
+import type ServerStatusInterface from "~/interfaces/ServerStatusInterface";
 
 const props = defineProps<{
-  shortName: string;
-  displayName: string;
-  status: ServerStatusEnum;
-  version: string;
-  mapUnavailableReason: string|null;
-  tags: string[];
-  packLink: string|null;
-  releasedSince: string|null;
+  server: ServerStatusInterface
   stats?: McStatsResultInterface | null;
 }>();
 
-const hostname = `${props.shortName}.ihatemy.live`
+const hostname = `${props.server.shortName}.ihatemy.live`
 
 const online = computed(() => props.stats?.online === true && props.stats.players.max !== null);
 

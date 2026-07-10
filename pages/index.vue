@@ -13,7 +13,7 @@
         <ServerCard
           v-for="server in servers"
           :key="server.shortName"
-          v-bind="server"
+          :server="server"
           :stats="statuses[server.shortName]"
         />
       </div>
