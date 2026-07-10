@@ -7,11 +7,11 @@ defineProps<{
 </script>
 
 <template>
-  <div class="inline-block" :style="{width, height}">&nbsp;</div>
+  <div class="loading inline-block" :style="{width, height}">&nbsp;</div>
 </template>
 
 <style scoped>
-div {
+.loading {
   background:
     repeating-conic-gradient(
       color-mix(in srgb, var(--color-ink) 18%, transparent) 0% 25%,
@@ -26,6 +26,6 @@ div {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  div { animation: none; }
+  .loading { animation: none; }
 }
 </style>
