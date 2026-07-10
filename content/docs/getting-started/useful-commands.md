@@ -1,5 +1,6 @@
 ---
 title: 'Commands'
+description: 'Useful Discord and Minecraft commands on The Penguin Network: /warp farmworld, /playtime, /leaderboard, /level, /link, and more.'
 pageTitle: 'Useful Commands'
 position: 0.2
 ---

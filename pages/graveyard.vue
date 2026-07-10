@@ -15,4 +15,8 @@
   </div>
 </template>
 <script setup lang="ts">
+useSeoMeta({
+  title: 'The Graveyard',
+  description: 'Retired Penguin Network Minecraft servers — download the final world maps of All The Mods 9, MC Eternal, SkyFactory 4, Enigmatica 2: Expert, and more.',
+})
 </script>

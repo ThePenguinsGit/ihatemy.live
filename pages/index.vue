@@ -61,10 +61,10 @@
       </SectionHeading>
       <Card variant="dark" class="flex flex-col gap-4">
         <div class="max-w-2xl">
-          <h3 class="font-[minecraft] text-xl md:text-2xl leading-none">Which penguin are you?</h3>
+          <h3 class="font-[minecraft] text-xl md:text-2xl leading-none">Which cultist are you?</h3>
           <p class="text-white/80 leading-snug mt-1">
-            You're logged in, but we don't know your Minecraft account yet — so there's no playtime,
-            level, or nick to show. Log in with Xbox once and your Minecraft account links itself.
+            You're logged in, but we can't connect your chat crimes to your war crimes yet.<br>
+            Login with Xbox so we'll know and can show you the goods.
           </p>
         </div>
         <LoginXboxButton sublabel="Links your Minecraft account automatically" />
@@ -119,12 +119,46 @@ import type PenguBotResponseInterface from '~/interfaces/PenguBotResponseInterfa
 import type PlayTimeResultInterface from '~/interfaces/PlayTimeResultInterface';
 import appConfig from '~/app.config';
 
+const description = 'Welcome to The Penguin Network - A friendly modded Minecraft community perfect for new and experienced players! Join our active servers including ATM10: To the Sky, All The Mods 10, GregTech: New Horizons, MC Eternal 2, Prominence 2, and Society: Sunlit Valley. Everyone is welcome!'
+
+useSeoMeta({
+  title: 'The Penguin Network',
+  description,
+  ogTitle: 'The Penguin Network — Modded Minecraft Servers',
+  ogDescription: description,
+})
+
+// Structured data so search engines and AI assistants can identify the site
+// and the community behind it.
 useHead({
-  title: `The Penguin Network`,
-  meta: [
+  script: [
     {
-      name: 'description',
-      content: 'Welcome to The Penguin Network - A friendly modded Minecraft community perfect for new and experienced players! Join our active servers including ATM10: To the Sky, All The Mods 10, GregTech: New Horizons, MC Eternal 2, Prominence 2, and Society: Sunlit Valley. Everyone is welcome!'
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Organization',
+            '@id': 'https://ihatemy.live/#organization',
+            name: 'The Penguin Network',
+            url: 'https://ihatemy.live',
+            logo: 'https://ihatemy.live/logo_big.png',
+            description: 'A friendly modded Minecraft community running multiple public servers.',
+            sameAs: ['https://discord.gg/tM4urb5SPQ'],
+          },
+          {
+            '@type': 'WebSite',
+            '@id': 'https://ihatemy.live/#website',
+            name: 'The Penguin Network',
+            url: 'https://ihatemy.live',
+            publisher: { '@id': 'https://ihatemy.live/#organization' },
+            about: {
+              '@type': 'VideoGame',
+              name: 'Minecraft',
+            },
+          },
+        ],
+      }),
     },
   ],
 })
@@ -140,13 +174,13 @@ const { statuses, onlinePlayers, serversUp } = useServerStatuses()
 const loginPerks = [
   {
     icon: 'nametag',
-    title: 'Your nick, your colors',
+    title: 'Your nick, your colors, you know, the colors',
     body: 'Design a nickname with colors and gradients in the live editor and save it straight to the servers.',
   },
   {
     icon: 'chart',
     title: 'Levels & playtime',
-    body: 'See your level, total playtime, and token balance — always up to date.',
+    body: 'See your level, total playtime, and token balance. Mostly up to date™.',
   },
   {
     icon: 'advancement',
@@ -156,7 +190,7 @@ const loginPerks = [
   {
     icon: 'chain',
     title: 'Link accounts right here',
-    body: 'Connect Discord and Minecraft on this site — log in with Xbox and your Minecraft account links itself. No codes needed.',
+    body: 'Connect Discord and Minecraft on this site. Log in with both to get linked, easy as going into the Player-Explosion-Chamber®.',
   },
 ]
 

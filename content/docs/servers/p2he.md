@@ -1,5 +1,6 @@
 ---
 title: 'P2HE'
+description: 'Prominence 2 server info for The Penguin Network - join at p2he.ihatemy.live. Server specifics, tips, and banned items.'
 pageTitle: 'Prominence 2'
 position: 3.4 
 ---

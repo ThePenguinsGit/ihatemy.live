@@ -1,5 +1,6 @@
 ---
 title: 'SB4'
+description: 'StoneBlock 4 server info for The Penguin Network - join at sb4.ihatemy.live. Server specifics, tips, and banned items.'
 pageTitle: 'StoneBlock 4'
 position: 3.5
 ---

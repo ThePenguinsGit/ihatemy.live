@@ -17,14 +17,13 @@
     <!-- Nicknames are stored against the Discord account, so without one there's nothing to edit. -->
     <div v-else class="w-full flex flex-col gap-3 grow font-sans normal-case">
       <p>
-        Nicknames are tied to your Discord account, and yours isn't connected yet.
-        Log in with Discord — or link your accounts — and you can design your nick right here.
+        We need to know your Discord accound to let you change your nickname.<br>
+        Link it now or else
       </p>
       <LoginDiscordButton sublabel="Brings your nickname and supporter tier along" class="max-w-md" />
-      <p class="text-sm">
-        <NuxtLink class="underline text-iceDeep" to="/docs/getting-started/linking">
-          Prefer linking in-game? Here's how →
-        </NuxtLink>
+      <p class="text-sm ">
+        Prefer linking in-game?
+        <NuxtLink class="underline text-ice" to="/docs/getting-started/linking">Here's how →</NuxtLink>
       </p>
     </div>
   </Card>

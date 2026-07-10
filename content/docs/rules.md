@@ -1,5 +1,6 @@
 ---
 title: 'Rules'
+description: 'The rules of The Penguin Network Minecraft servers and Discord: respect, no griefing, no TPS abuse, and how we handle exploits.'
 position: 1
 pageTitle: 'Server Rules'
 ---

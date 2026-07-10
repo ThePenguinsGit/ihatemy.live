@@ -12,6 +12,23 @@
     </div>
 </template>
 
+<script setup lang="ts">
+const route = useRoute()
+
+// Canonical/og:url track the route so every page self-identifies with its
+// canonical https://ihatemy.live URL (query strings and hashes excluded).
+const canonical = computed(() => `https://ihatemy.live${route.path}`)
+
+useHead({
+  titleTemplate: (title) =>
+    title && title !== 'The PenguinNetwork'
+      ? `${title} · The PenguinNetwork`
+      : 'The PenguinNetwork',
+  link: [{ rel: 'canonical', href: canonical }],
+  meta: [{ property: 'og:url', content: canonical }],
+})
+</script>
+
 <style lang="scss">
 @reference "~/assets/css/main.css";
 

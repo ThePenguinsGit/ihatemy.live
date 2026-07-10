@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-useHead({ title: 'Sign in · The Penguin Network' });
+useHead({ title: 'Sign in' });
 
 const { loggedIn } = useUserSession();
 // Already signed in → nothing to do here.

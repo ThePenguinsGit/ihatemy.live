@@ -40,8 +40,22 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
     '@nuxt/fonts',
-    'nuxt-tiptap-editor'
+    'nuxt-tiptap-editor',
+    'nuxt-llms'
   ],
+
+  // Serves /llms.txt (+ /llms-full.txt) so AI assistants (ChatGPT, Claude,
+  // Perplexity, …) can discover and cite the docs. @nuxt/content detects this
+  // module and injects the docs collection automatically.
+  llms: {
+    domain: 'https://ihatemy.live',
+    title: 'The Penguin Network',
+    description: 'A friendly modded Minecraft community running servers for All the Mods 10, ATM10: To the Sky, GregTech: New Horizons, MC Eternal 2, Prominence 2, StoneBlock 4, and Society: Sunlit Valley.',
+    full: {
+      title: 'The Penguin Network — full documentation',
+      description: 'Complete documentation for The Penguin Network Minecraft servers: how to join, server IPs, rules, ranks and level perks, account linking, voting, and donations.',
+    },
+  },
 
   // Self-hosted Nuxt Studio — web-based editing of content/ for non-devs, no
   // local git needed. Editor mounts at /_studio (SSR server routes) and commits
@@ -82,9 +96,14 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      htmlAttrs: { lang: 'en' },
       title: 'The Penguin Network',
       meta: [
-        { name: 'description', content: 'the BEST minecraft Network there is' },
+        { name: 'description', content: 'The PenguinNetwork is a friendly modded Minecraft community with servers for All the Mods 10, GregTech: New Horizons, MC Eternal 2, and more. New and experienced players welcome.' },
+        { property: 'og:site_name', content: 'The PenguinNetwork' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:image', content: 'https://ihatemy.live/logo_big.png' },
+        { name: 'twitter:card', content: 'summary_large_image' },
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },

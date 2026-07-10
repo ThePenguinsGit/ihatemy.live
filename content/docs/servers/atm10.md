@@ -1,5 +1,6 @@
 ---
 title: 'ATM10'
+description: 'All the Mods 10 server info for The Penguin Network - join at atm10.ihatemy.live. Chunkloading, farmworld, world borders, and banned items.'
 pageTitle: 'All the Mods 10'
 position: 3.0
 ---

@@ -1,5 +1,6 @@
 ---
 title: 'ATM10TTS'
+description: 'All the Mods 10: To the Sky server info for The Penguin Network - join at atm10tts.ihatemy.live. Skyblock rules, tips, and banned items.'
 pageTitle: 'All the Mods 10: To the Sky'
 position: 3.1
 ---

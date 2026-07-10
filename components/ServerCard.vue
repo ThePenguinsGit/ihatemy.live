@@ -26,7 +26,7 @@
       </div>
       <div class="ml-auto shrink-0">
         <span
-          v-if="stats.online"
+          v-if="stats?.online"
           class="inline-flex items-center gap-1.5 font-[minecraft] text-sm uppercase text-alive"
         >
           <span class="live-dot" />alive

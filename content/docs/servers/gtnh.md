@@ -1,5 +1,6 @@
 ---
 title: 'GTNH'
+description: 'GregTech: New Horizons server info for The Penguin Network - join at gtnh.ihatemy.live. Server specifics, tips, and banned items.'
 pageTitle: 'GregTech: New Horizons'
 position: 3.2
 ---

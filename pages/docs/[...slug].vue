@@ -15,14 +15,13 @@ const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection('docs').path(route.path).first()
 })
 
-useHead({
-  title: `${page.value?.title ?? '404'} - The Penguin Network`,
-  meta: [
-    { name: 'description', content: page.value?.description }
-  ],
+useSeoMeta({
+  title: page.value?.pageTitle ?? page.value?.title ?? '404',
+  description: page.value?.description,
+  ogTitle: page.value?.pageTitle ?? page.value?.title ?? '404',
+  ogDescription: page.value?.description,
+  ...(page.value?.seo || {}),
 })
-
-useSeoMeta(page.value?.seo || {})
 
 // Flatten the nav tree once for paging + breadcrumb title lookups.
 const flat = computed(() => flattenNavigation(navigation.value))

@@ -1,5 +1,6 @@
 ---
 title: 'Performance'
+description: 'How to check server TPS with /spark and use Observable to find and fix lag caused by your base on our modded Minecraft servers.'
 position: 0.3
 ---
 

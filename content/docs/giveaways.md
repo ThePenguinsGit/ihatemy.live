@@ -1,5 +1,6 @@
 ---
 title: 'Giveaways'
+description: 'How giveaways work on The Penguin Network: entry requirements, playtime minimums, account linking, and how winners are drawn.'
 pageTitle: 'Giveaway Guidelines'
 position: 99
 ---

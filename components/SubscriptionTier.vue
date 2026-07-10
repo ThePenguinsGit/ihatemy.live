@@ -13,7 +13,7 @@
     v-else-if="!hasDiscord"
     href="/auth/discord"
     class="inline-flex items-center gap-2 border-2 border-dashed border-secondaryLight text-secondaryLight px-2 py-1 font-[minecraft] text-sm uppercase tracking-wide hover:border-ice hover:text-ice"
-    title="Supporter tiers come from Discord — log in with Discord or link your accounts to show yours"
+    title="Supporter tiers come from Discord, connect it to show up"
   >
     Log in with Discord to see your tier
   </a>
