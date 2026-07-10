@@ -33,15 +33,17 @@
         <tr v-for="playTime in (data.data)" :key="playTime.uuid">
           <td class="w-14"><McHead :uuid="playTime.uuid" alt="Player Avatar" class="w-10" /></td>
           <td v-if="playTime.displayName !== null">
-            <NuxtLink class="underline" :to="`?name=${playTime.displayName}`" rel=”nofollow”>
+            <NuxtLink v-if="!hideLink" class="underline" :to="`?name=${playTime.displayName}`" rel=”nofollow”>
               <b :title="playTime.name">{{ playTime.displayName }}</b>
             </NuxtLink>
+            <b v-else :title="playTime.name">{{ playTime.displayName }}</b>
             <i :title="playTime.name">*</i>
           </td>
           <td v-else>
-            <NuxtLink class="underline" :to="`?name=${playTime.name}`" rel=”nofollow”>
+            <NuxtLink v-if="!hideLink" class="underline" :to="`?name=${playTime.name}`" rel=”nofollow”>
               <b>{{ playTime.name }}</b>
             </NuxtLink>
+            <b v-else>{{ playTime.name }}</b>
           </td>
           <td class="text-right">{{ formatTime(playTime.playtime) }}</td>
         </tr>
@@ -129,6 +131,10 @@ import type PenguBotResponseInterface from "~/interfaces/PenguBotResponseInterfa
 import type ServerResponse from "~/interfaces/ServerResponse";
 import Multiselect from '@vueform/multiselect'
 import Rand from "rand-seed";
+
+defineProps<{
+  hideLink?: boolean
+}>()
 
 const selectedServers = ref<string>()
 

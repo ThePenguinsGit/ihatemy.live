@@ -109,7 +109,7 @@
     <!-- ── Leaderboard ──────────────────────────────────────── -->
     <section>
       <SectionHeading title="Top players" eyebrow="last 30 days" />
-      <Leaderboard />
+      <Leaderboard :hide-link="true" />
     </section>
   </div>
 </template>
