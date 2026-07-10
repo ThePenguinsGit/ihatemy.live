@@ -42,7 +42,7 @@
               />
             </div>
             <div class="text-xs text-secondaryLight mt-1 font-mono">
-              {{ achievement.current.toLocaleString() }} / {{ achievement.target.toLocaleString() }}
+              {{ achievement.displayCurrent }} / {{ achievement.displayTarget }}{{ achievement.displayUnit }}
             </div>
           </div>
         </Card>

@@ -12,5 +12,8 @@ export default interface AchievementWithProgressInterface {
     current: number,
     completed: boolean,
     completedAt: number | null,
+    displayCurrent: string,
+    displayTarget: string,
+    displayUnit: string,
     tokenName: string,
 }
