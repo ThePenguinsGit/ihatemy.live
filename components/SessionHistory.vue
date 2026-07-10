@@ -69,12 +69,20 @@
 <script lang="ts" setup>
 import type PaginatedResponseInterface from "~/interfaces/PaginatedResponseInterface";
 import type SessionInterface from "~/interfaces/SessionInterface";
+import appConfig from "~/app.config";
 
 const page = ref(1)
 
-const { data } = await useFetch<PaginatedResponseInterface<SessionInterface>>('/api/user/sessions', {
+const { data, refresh } = await useFetch<PaginatedResponseInterface<SessionInterface>>('/api/user/sessions', {
   query: { page },
 })
+
+let interval: ReturnType<typeof setInterval>;
+onNuxtReady(() => {
+  interval = setInterval(() => refresh(),
+      appConfig.secondsToRefreshLookup * 1000);
+});
+onBeforeUnmount(() => window.clearInterval(interval));
 
 const formatRelative = (unix: number) => useDayjs().unix(unix).fromNow()
 const formatAbsolute = (unix: number) => useDayjs().unix(unix).format('LLLL')

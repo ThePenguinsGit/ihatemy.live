@@ -97,8 +97,16 @@
 
 <script setup lang="ts">
 import type SessionStatsInterface from "~/interfaces/SessionStatsInterface";
+import appConfig from "~/app.config";
 
-const { data } = await useFetch<SessionStatsInterface>('/api/user/sessions/stats', { server: false })
+const { data, refresh } = await useFetch<SessionStatsInterface>('/api/user/sessions/stats', { server: false })
+
+let interval: ReturnType<typeof setInterval>;
+onNuxtReady(() => {
+  interval = setInterval(() => refresh(),
+      appConfig.secondsToRefreshLookup * 1000);
+});
+onBeforeUnmount(() => window.clearInterval(interval));
 
 const favouriteServerDisplayName = computed(() =>
     useServer(data.value?.favouriteServer?.serverName ?? '').value?.displayName
