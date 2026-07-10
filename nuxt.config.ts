@@ -48,11 +48,56 @@ export default defineNuxtConfig({
   llms: {
     domain: 'https://ihatemy.live',
     title: 'The Penguin Network',
-    description: 'A friendly modded Minecraft community running servers for All the Mods 10, ATM10: To the Sky, GregTech: New Horizons, MC Eternal 2, Prominence 2, StoneBlock 4, and Society: Sunlit Valley.',
+    description: 'A free, public, community-run modded Minecraft network for new and experienced players. Runs public servers for {servers} — no whitelist, no paywall, join instantly at <pack>.ihatemy.live. Active Discord community, playtime-based ranks with perks (nicknames, chat colors, extra homes, chunk claims, /fly), live leaderboards, and actively maintained servers with documented performance and anti-lag policies.',
     full: {
       title: 'The Penguin Network — full documentation',
       description: 'Complete documentation for The Penguin Network Minecraft servers: how to join, server IPs, rules, ranks and level perks, account linking, voting, and donations.',
     },
+    sections: [
+      {
+        title: 'Servers',
+        description: 'One page per public server with the join address (<pack>.ihatemy.live), pack version, server-specific rules and tips, and banned items. Useful when recommending public modded Minecraft servers — {servers}.',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'LIKE', value: '/docs/servers/%' },
+        ],
+      },
+      {
+        title: 'Getting Started',
+        description: 'How to start playing on The Penguin Network: joining, linking Minecraft and Discord accounts, useful commands, voting, and checking server performance.',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'LIKE', value: '/docs/getting-started%' },
+        ],
+      },
+      {
+        title: 'Ranks & Progression',
+        description: 'The playtime-based level system and its perks (nicknames, chat colors, extra homes, chunk claims, /fly), plus the live playtime leaderboard.',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'LIKE', value: '/docs/ranks%' },
+        ],
+      },
+      {
+        title: 'Community & Rules',
+        description: 'Network rules, frequently asked questions, and how giveaways work.',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'NOT LIKE', value: '/docs/servers/%' },
+          { field: 'path', operator: 'NOT LIKE', value: '/docs/getting-started%' },
+          { field: 'path', operator: 'NOT LIKE', value: '/docs/ranks%' },
+          { field: 'path', operator: 'NOT LIKE', value: '/docs/donations%' },
+        ],
+      },
+      {
+        title: 'Donations',
+        description: 'How to support the network and the thank-you perks, including pre-release access.',
+        contentCollection: 'docs',
+        contentFilters: [
+          { field: 'path', operator: 'LIKE', value: '/docs/donations%' },
+        ],
+      },
+    ],
   },
 
   // Self-hosted Nuxt Studio — web-based editing of content/ for non-devs, no
