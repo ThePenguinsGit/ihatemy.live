@@ -38,7 +38,6 @@ export default defineNuxtConfig({
     'dayjs-nuxt',
     '@nuxtjs/robots',
     '@pinia/nuxt',
-    'pinia-plugin-persistedstate/nuxt',
     '@nuxt/fonts',
     'nuxt-llms'
   ],
