@@ -71,9 +71,10 @@
     0 4px 0 var(--panel-drop);
 }
 
-/* Small pixel-font uppercase section label */
+/* Small pixel-font uppercase section label. no-underline so eyebrow links
+   keep their hover-only underline despite the global anchor styling. */
 .eyebrow {
-  @apply font-[minecraft] uppercase tracking-widest text-sm;
+  @apply font-[minecraft] uppercase tracking-widest text-sm no-underline;
   color: var(--color-iceDeep);
 }
 
@@ -145,10 +146,36 @@ div:has(> .image) {
         @apply text-white font-[minecraft] uppercase text-sm;
         background: var(--panel-surface-dark);
     }
+    /* Row-header cells (key/value tables like the player lookup) get the
+       same dark label treatment as column headers. */
+    tbody th {
+        @apply text-white font-[minecraft] uppercase text-sm text-left;
+        background: var(--panel-surface-dark);
+    }
     tbody tr:nth-child(even) {
         background: color-mix(in srgb, var(--color-ink) 4%, transparent);
     }
 }
+
+/* Pixel text input — snow face, ink border, pixel placeholder, hard
+   focus outline (same signal as .pixel-btn). */
+.pixel-input {
+    @apply px-2 py-1;
+    background: var(--panel-surface);
+    border: 3px solid var(--panel-border);
+    border-radius: 0;
+}
+.pixel-input::placeholder {
+    @apply font-[minecraft] uppercase tracking-wide not-italic;
+    color: var(--color-secondaryLight);
+}
+.pixel-input:focus-visible {
+    @apply outline-2 outline-offset-2;
+    outline-color: var(--focus-ring);
+}
+/*h1, h2, h3, h4 {*/
+/*    @apply font-[minecraft] uppercase;*/
+/*}*/
 h1 {
     @apply text-3xl;
 }
@@ -159,51 +186,58 @@ h2 {
 
 h3 {
     @apply text-xl;
+    color: var(--color-iceDeep);
+}
+
+/* Headings sitting on dark panels flip to white. */
+.panel-dark :is(h1, h2, h3, h4) {
+    color: white;
+}
+
+/* :where() zeroes the exclusions' specificity, so the whole selector
+   stays a bare `a` and any utility class still wins. */
+a:not(:where(header a, footer a, nav a, .pixel-btn, .provider-btn)) {
+    @apply underline underline-offset-2;
+    color: var(--color-iceDeep);
+}
+a:not(:where(header a, footer a, nav a, .pixel-btn, .provider-btn)):hover {
+    color: var(--color-ice);
+}
+
+/* Inline code → beveled Minecraft key/label chip */
+code {
+    @apply px-1.5 py-0.5 text-sm font-mono;
+    background: var(--panel-surface);
+    border: 2px solid var(--panel-border);
+    border-radius: 0;
+}
+pre {
+    @apply p-3 overflow-x-auto text-sm text-white;
+    background: var(--panel-surface-dark);
+    border: 3px solid var(--panel-border);
+    border-radius: 0;
+    box-shadow: 0 4px 0 var(--panel-drop);
+}
+pre code {
+    @apply p-0 bg-transparent border-0 text-white;
 }
 
 /* ── Rendered markdown (docs + legal) ───────────────────────────
- * The single source of truth for prose styling. Both content pages
- * add the `.content` class to <ContentRenderer>; keep all element
- * rules scoped here so nothing leaks to the rest of the app. */
+ * Both content pages add the `.content` class to <ContentRenderer>.
+ * Only what would misbehave app-wide stays scoped here: list markers
+ * (nav/menu lists must stay bare), framed images (avatars must not
+ * get borders), and the h2 section rule. */
 .content {
     @apply leading-relaxed;
 
-    /* Body headings: pixel font, ice accent, so plain markdown reads
-       like the rest of the site without needing a ::card wrapper. */
     h1, h2, h3, h4 {
         @apply font-[minecraft] uppercase;
         color: var(--panel-border);
     }
+
     h2 {
         @apply pb-1;
         border-bottom: 3px solid var(--color-ice);
-    }
-    h3 {
-        color: var(--color-iceDeep);
-    }
-
-    a {
-        @apply underline underline-offset-2;
-        color: var(--color-iceDeep);
-    }
-    a:hover { color: var(--color-ice); }
-
-    /* Inline code → beveled Minecraft key/label chip */
-    code {
-        @apply px-1.5 py-0.5 text-sm font-mono;
-        background: var(--panel-surface);
-        border: 2px solid var(--panel-border);
-        border-radius: 0;
-    }
-    pre {
-        @apply p-3 overflow-x-auto text-sm text-white;
-        background: var(--panel-surface-dark);
-        border: 3px solid var(--panel-border);
-        border-radius: 0;
-        box-shadow: 0 4px 0 var(--panel-drop);
-    }
-    pre code {
-        @apply p-0 bg-transparent border-0 text-white;
     }
 
     ul { @apply list-disc list-inside; }

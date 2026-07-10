@@ -1,5 +1,5 @@
 <template>
-  <Card as="aside" variant="panel" class="w-full xl:w-56 xl:sticky top-4 h-fit shrink-0">
+  <Card as="nav" aria-label="On this page" variant="panel" class="w-full xl:w-56 xl:sticky top-4 h-fit shrink-0">
     <div class="eyebrow mb-2">On this page</div>
     <ul class="flex flex-col gap-1">
       <li v-for="link in flatLinks" :key="link.id" :style="{ marginLeft: `${(link.depth - minDepth) * 12}px` }">
