@@ -61,7 +61,7 @@
 
     <div class="bg-nick1 flex flex-row bg-bottom text-2xl min-h-[2.5rem]">
         <div
-            class="text-wrap overflow-hidden break-all shrink text-white flex flex-col justify-center font-[minecraft] px-2"
+            class="text-wrap overflow-hidden break-all shrink text-white hidden sm:flex flex-col justify-center font-[minecraft] px-2  "
             v-html="prefix"
         />
         <!-- Editable WYSIWYG surface -->

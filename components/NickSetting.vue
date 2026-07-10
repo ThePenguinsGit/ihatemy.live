@@ -21,7 +21,7 @@
         Link it now or else
       </p>
       <LoginDiscordButton sublabel="Brings your nickname and supporter tier along" class="max-w-md" />
-      <p class="text-sm ">
+      <p class="text-sm">
         Prefer linking in-game?
         <NuxtLink class="underline text-ice" to="/docs/getting-started/linking">Here's how →</NuxtLink>
       </p>
