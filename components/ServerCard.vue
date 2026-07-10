@@ -3,35 +3,37 @@
     <!-- Header: pack art + name -->
     <div class="flex items-center gap-3 px-3 py-3 border-b-4 border-ink/10">
       <img :src="`/img/${server.shortName}.png`" :alt="server.displayName" class="w-12 h-12 shrink-0 object-cover" />
-      <div class="min-w-0">
+      <div class="flex flex-col grow">
         <a v-if="server.packLink" :href="server.packLink" target="_blank">
           <h2 class="text-2xl leading-none truncate">{{ server.displayName }}</h2>
         </a>
         <h2 v-else class="text-2xl leading-none truncate">{{ server.displayName }}</h2>
-        <div class="text-sm text-secondaryLight">
-          Version {{ server.version }}<template v-if="server.packLink">
-            ·
-            <a
-              :href="server.packLink"
-              target="_blank"
-              rel="noopener"
-              class="underline hover:text-iceDeep"
-              title="Get the modpack"
-            >Pack ↗</a>
-          </template><template v-if="server.releasedSince">
-            ·
-            <span :title="`Released ${$dayjs(server.releasedSince).local().format('DD.MM.YYYY')}`">{{ $dayjs(server.releasedSince).fromNow(true) }} old</span>
-          </template>
+        <div class="flex flex-row justify-between items-center gap-2">
+          <div class="text-sm text-secondaryLight">
+            Version {{ server.version }}<template v-if="server.packLink">
+              ·
+              <a
+                :href="server.packLink"
+                target="_blank"
+                rel="noopener"
+                class="underline hover:text-iceDeep"
+                title="Get the modpack"
+              >Pack ↗</a>
+            </template><template v-if="server.releasedSince">
+              ·
+              <span :title="`Released ${$dayjs(server.releasedSince).local().format('DD.MM.YYYY')}`">{{ $dayjs(server.releasedSince).fromNow(true) }} old</span>
+            </template>
+          </div>
+          <div class="ml-auto shrink-0">
+          <span
+              v-if="stats?.online"
+              class="inline-flex items-center gap-1.5 font-[minecraft] text-sm uppercase text-alive"
+          >
+            <span class="live-dot" />alive
+          </span>
+            <span v-else class="font-[minecraft] text-sm uppercase text-ded">ded</span>
+          </div>
         </div>
-      </div>
-      <div class="ml-auto shrink-0">
-        <span
-          v-if="stats?.online"
-          class="inline-flex items-center gap-1.5 font-[minecraft] text-sm uppercase text-alive"
-        >
-          <span class="live-dot" />alive
-        </span>
-        <span v-else class="font-[minecraft] text-sm uppercase text-ded">ded</span>
       </div>
     </div>
 
