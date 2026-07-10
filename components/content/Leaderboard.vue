@@ -38,7 +38,7 @@
       </thead>
       <tbody v-if="data">
         <tr v-for="playTime in (data.data)" :key="playTime.uuid">
-          <td class="w-14"><McHead :uuid="playTime.uuid" alt="Player Avatar" class="rounded-md w-10" /></td>
+          <td class="w-14"><McHead :uuid="playTime.uuid" alt="Player Avatar" class="w-10" /></td>
           <td v-if="playTime.displayName !== null">
             <NuxtLink class="underline" :to="`?name=${playTime.displayName}`" rel=”nofollow”>
               <b :title="playTime.name">{{ playTime.displayName }}</b>
