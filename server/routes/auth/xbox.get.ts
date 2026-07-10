@@ -16,21 +16,9 @@ export default defineOAuthMicrosoftEventHandler({
   async onSuccess(event, { user }) {
     const minecraft = user as { uuid: string, name: string }
 
-    // Already signed in → link mode: attach the Minecraft UUID to this account.
-    const existing = await getUserSession(event)
-    if (existing.user) {
-      const { minecraftUuid } = await linkMinecraftForUser(existing.secure?.apiToken ?? '', minecraft)
-      await setUserSession(event, {
-        ...existing,
-        user: { ...existing.user, minecraftUuid },
-      })
-      return sendRedirect(event, '/')
-    }
-
-    // Otherwise → full sign-in + auto-link.
-    const { apiToken, user: sessionUser } = await exchangeXboxProfile(minecraft)
+    const { apiToken, user: sessionUser, minecraftUuid } = await exchangeXboxProfile(event, minecraft)
     await setUserSession(event, {
-      user: sessionUser,
+      user: { ...sessionUser, minecraftUuid },
       secure: { apiToken },
       loggedInAt: Date.now(),
     })

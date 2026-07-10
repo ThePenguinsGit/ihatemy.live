@@ -1,3 +1,4 @@
+import type { H3Event } from 'h3'
 import type { User } from '#auth-utils'
 import type { MinecraftAccount } from './minecraft'
 
@@ -31,6 +32,7 @@ interface OAuthTokens {
 }
 
 export async function exchangeDiscordProfile(
+  event: H3Event,
   profile: DiscordProfile,
   tokens: OAuthTokens,
 ): Promise<AuthResult & { discordSnowflake: string }> {
@@ -38,18 +40,19 @@ export async function exchangeDiscordProfile(
     provider: 'discord',
     profile,
     tokens,
-  })
+  }, { event })
   const result = toAuthResult(res, 'discord')
   return { ...result, discordSnowflake: result.user.discordSnowflake ?? profile.id }
 }
 
 export async function exchangeXboxProfile(
+  event: H3Event,
   minecraft: MinecraftAccount,
 ): Promise<AuthResult & { minecraftUuid: string }> {
   const res = await penguFetch<PenguAuthResponse>('/internal/auth/xbox', {
     provider: 'xbox',
     minecraft,
-  })
+  }, { event })
   const result = toAuthResult(res, 'xbox')
   return { ...result, minecraftUuid: result.user.minecraftUuid ?? minecraft.uuid }
 }

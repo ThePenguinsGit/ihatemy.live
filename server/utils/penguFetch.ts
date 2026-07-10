@@ -1,3 +1,4 @@
+import type { H3Event } from 'h3'
 import { buildCanonicalString, hmacSha256Base64, sha256Hex } from './penguSignature'
 
 // Signed server-to-server request to the PenguBot backend.
@@ -13,6 +14,7 @@ import { buildCanonicalString, hmacSha256Base64, sha256Hex } from './penguSignat
 export interface PenguFetchOptions {
   /** HTTP method for the signed request. Defaults to POST. */
   method?: 'POST' | 'PUT' | 'PATCH' | 'DELETE'
+  event?: H3Event
 }
 
 /**
@@ -37,6 +39,8 @@ export async function penguFetch<T>(path: string, body: unknown, opts: PenguFetc
   const canonical = buildCanonicalString({ method, path, timestamp, nonce, bodyHash })
   const signature = await hmacSha256Base64(secret, canonical)
 
+  const apiToken = opts.event ? (await getUserSession(opts.event)).secure?.apiToken : undefined
+
   return await $fetch<T>(`${config.public.apiBaseUrl}${path}`, {
     method,
     body: raw,
@@ -46,6 +50,7 @@ export async function penguFetch<T>(path: string, body: unknown, opts: PenguFetc
       'x-pengu-timestamp': timestamp,
       'x-pengu-nonce': nonce,
       'x-pengu-signature': signature,
+      ...(apiToken ? { Authorization: apiToken } : {}),
     },
   })
 }

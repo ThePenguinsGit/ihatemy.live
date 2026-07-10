@@ -7,9 +7,9 @@ export default defineOAuthDiscordEventHandler({
     scope: ['identify'],
   },
   async onSuccess(event, { user, tokens }) {
-    const { apiToken, user: sessionUser } = await exchangeDiscordProfile(user, tokens)
+    const { apiToken, user: sessionUser, discordSnowflake } = await exchangeDiscordProfile(event, user, tokens)
     await setUserSession(event, {
-      user: sessionUser,
+      user: { ...sessionUser, discordSnowflake },
       secure: { apiToken },
       loggedInAt: Date.now(),
     })
