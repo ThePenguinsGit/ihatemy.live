@@ -9,12 +9,13 @@
 
     <section>
       <SectionHeading title="Servers" eyebrow="The graveyard →" to="/graveyard" />
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+      <div class="flex flex-wrap justify-center gap-4">
         <ServerCard
           v-for="server in servers"
           :key="server.shortName"
           :server="server"
           :stats="statuses[server.shortName]"
+          class="w-full md:w-[calc((100%-1rem)/2)] xl:w-[calc((100%-2rem)/3)]"
         />
       </div>
     </section>
