@@ -9,7 +9,7 @@
         <Multiselect
             v-if="data"
             v-model="selectedServers"
-            :options="servers ?? []"
+            :options="servers"
             label="name"
             value-prop="value"
             mode="single"
@@ -128,7 +128,6 @@
 import appConfig from "~/app.config";
 import type LeaderboardResultRowInterface from "~/interfaces/LeaderboardResultRowInterface";
 import type PenguBotResponseInterface from "~/interfaces/PenguBotResponseInterface";
-import type ServerResponse from "~/interfaces/ServerResponse";
 import Multiselect from '@vueform/multiselect'
 import Rand from "rand-seed";
 
@@ -138,7 +137,10 @@ defineProps<{
 
 const selectedServers = ref<string>()
 
-const { data: servers } = useApiFetch<ServerResponse[]>('/servers')
+const serverStore = useServerStore()
+const servers = computed(() =>
+  serverStore.servers?.map((s) => ({ name: s.displayName, value: s.shortName })) ?? []
+)
 const formatTime = (time: number) => useDayjs().duration(time, 'seconds').as('hours').toFixed(2) + ' h'
 
 const { data, refresh } = await useApiFetch<PenguBotResponseInterface<LeaderboardResultRowInterface[]>|null>('/leaderboard', {
