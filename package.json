@@ -35,6 +35,7 @@
     "@nuxt/content": "^3.10.0",
     "@nuxt/kit": "^4.2.2",
     "@resvg/resvg-js": "^2.6.2",
+    "@resvg/resvg-wasm": "^2.6.2",
     "@tailwindcss/postcss": "^4.1.7",
     "@tailwindcss/vite": "^4.1.7",
     "@takumi-rs/core": "^2.0.0-rc.16",
