@@ -172,7 +172,7 @@ useHead({
 
 const { loggedIn: isLoggedIn, user } = useUserSession()
 
-const { servers } = storeToRefs(useServerStore());
+const { aliveServers: servers } = storeToRefs(useServerStore());
 
 // Live server statuses, fetched once and shared by the hero + cards.
 const { statuses, onlinePlayers, serversUp } = useServerStatuses()

@@ -144,7 +144,9 @@ const allTime = ref(false)
 
 const serverStore = useServerStore()
 const servers = computed(() =>
-  serverStore.servers?.map((s) => ({ name: s.displayName, value: s.shortName })) ?? []
+   (allTime.value
+       ? serverStore.servers?.map((s) => ({ name: s.displayName, value: s.shortName }))
+       : serverStore.aliveServers?.map((s) => ({ name: s.displayName, value: s.shortName }))) ?? []
 )
 const formatTime = (time: number) => useDayjs().duration(time, 'seconds').as('hours').toFixed(2) + ' h'
 

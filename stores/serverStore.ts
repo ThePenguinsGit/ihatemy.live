@@ -1,13 +1,18 @@
+import { ServerStatusEnum } from '~/Enum/ServerStatusEnum';
 import type ServerStatusInterface from '~/interfaces/ServerStatusInterface';
 
 export const useServerStore = defineStore('servers', () => {
   const asyncData = useAsyncData<ServerStatusInterface[] | null>(
-    'all-alive-servers',
-    () => $fetch<ServerStatusInterface[]>('/api/all-alive-servers'),
+    'all-servers',
+    () => $fetch<ServerStatusInterface[]>('/api/all-servers'),
     { default: () => null },
   );
 
   const servers = asyncData.data;
+
+  const aliveServers = computed(
+    () => servers.value?.filter((s) => s.status !== ServerStatusEnum.KILLED) ?? null,
+  );
 
   const ready = async (): Promise<void> => {
     if (!servers.value) await asyncData;
@@ -18,5 +23,5 @@ export const useServerStore = defineStore('servers', () => {
   const byShortName = (shortName: string): ServerStatusInterface | undefined =>
     servers.value?.find((s) => s.shortName === shortName);
 
-  return { servers, ready, refresh, byShortName };
+  return { servers, aliveServers, ready, refresh, byShortName };
 });

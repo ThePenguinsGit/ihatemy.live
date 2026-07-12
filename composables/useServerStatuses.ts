@@ -8,7 +8,7 @@ export const useServerStatuses = (refreshMs = 10000) => {
 
   const fetchAll = async (): Promise<StatusMap> => {
     await serverStore.ready();
-    const hostnames = serverStore.servers?.map((s) => s.shortName) ?? [];
+    const hostnames = serverStore.aliveServers?.map((s) => s.shortName) ?? [];
     const entries = await Promise.all(
       hostnames.map(async (hostname) => {
         try {
