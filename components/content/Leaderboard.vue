@@ -3,7 +3,11 @@
     <div class="flex justify-between">
       <div>
         <h1>Top {{ data?.data.length ?? 10 }}<span v-if="(data?.data.length ?? 0) < 10" title="For now">*</span></h1>
-        <i>Of the last 30 days</i>
+        <div class="flex items-center gap-2">
+          <i :class="{ 'opacity-50': allTime }">Last 30 days</i>
+          <PixelSwitch v-model="allTime" label="Show all-time leaderboard" />
+          <i :class="{ 'opacity-50': !allTime }">All time</i>
+        </div>
       </div>
       <div class="text-right">
         <Multiselect
@@ -136,6 +140,7 @@ defineProps<{
 }>()
 
 const selectedServers = ref<string>()
+const allTime = ref(false)
 
 const serverStore = useServerStore()
 const servers = computed(() =>
@@ -145,7 +150,9 @@ const formatTime = (time: number) => useDayjs().duration(time, 'seconds').as('ho
 
 const { data, refresh } = await useApiFetch<PenguBotResponseInterface<LeaderboardResultRowInterface[]>|null>('/leaderboard', {
   query: {
-    'servers[]': selectedServers
+    'servers[]': selectedServers,
+    // Backend support for allTime is pending; omitted entirely in 30-day mode.
+    allTime: computed(() => allTime.value || undefined)
   }
 })
 
