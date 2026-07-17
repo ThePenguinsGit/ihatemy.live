@@ -20,7 +20,10 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       autoSubfolderIndex: false
-    }
+    },
+    serverAssets: [
+      { baseName: 'agent-skills', dir: '../public/.well-known/agent-skills' },
+    ],
   },
 
   postcss: {
@@ -146,6 +149,16 @@ export default defineNuxtConfig({
     zeroRuntime: true
   },
 
+  robots: {
+    groups: [
+      {
+        userAgent: ['*'],
+        disallow: [''],
+        contentSignal: 'search=yes, ai-input=yes, ai-train=no',
+      },
+    ],
+  },
+
   dayjs: {
     plugins: ['utc', 'timezone', 'duration', 'relativeTime', 'localizedFormat'],
   },
@@ -194,12 +207,22 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
+    // RFC 8288 Link headers so agents can discover the API catalog (RFC 9727),
+    // docs and llms.txt without parsing HTML.
+    '/': {
+      headers: {
+        Link: '</.well-known/api-catalog>; rel="api-catalog", </docs/getting-started>; rel="service-doc", </llms.txt>; rel="describedby"',
+      },
+    },
     '/discord': { redirect: 'https://discord.com/invite/tM4urb5SPQ' },
     '/docs': { redirect: '/docs/getting-started' },
     // All /api/** (except the local /api/docs handler) is served by the authed
     // catch-all proxy in server/routes/api/[...].ts, which injects the PenguBot
     // JWT from the sealed session. Keep only the docs prerender rule here.
     '/api/docs': { prerender: true },
+    // Rendered once at build time; the digests can't drift from the SKILL.md
+    // files because the route computes them from the same assets.
+    '/.well-known/agent-skills/index.json': { prerender: true },
   },
 
   compatibilityDate: '2025-01-20'

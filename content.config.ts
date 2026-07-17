@@ -14,11 +14,17 @@ export default defineContentConfig({
         pageTitle: z.string().optional(),
         sitemap: defineSitemapSchema(),
         robots: defineRobotsSchema(),
+        // Keeps the raw markdown in the collection so the markdown-for-agents
+        // middleware can serve it to Accept: text/markdown requests.
+        rawbody: z.string().optional(),
       }),
     }),
     legal: defineCollection({
       type: 'page',
       source: 'legal/**/*.md',
+      schema: z.object({
+        rawbody: z.string().optional(),
+      }),
     })
   }
 })
