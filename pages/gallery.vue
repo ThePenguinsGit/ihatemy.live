@@ -4,9 +4,14 @@
       <h1 class="font-[minecraft] text-3xl md:text-4xl uppercase text-white drop-shadow">The Gallery</h1>
       <NuxtLink to="/" class="eyebrow !text-ice hover:underline">← Back to base</NuxtLink>
     </div>
-    <p class="text-white/80 -mt-2 mb-2">
-      Screenshots and other "special" moments from our community on Discord. Post yours, sacrifice or get sacrificed.
-    </p>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 -mt-2 mb-2">
+      <p class="text-white/80">
+        Screenshots and other "special" moments from our community on Discord. Post yours, sacrifice or get sacrificed.
+      </p>
+      <PixelButton :href="galleryChannelUrl" primary class="!py-1.5 shrink-0 self-start sm:self-auto">
+        Open #gallery on Discord
+      </PixelButton>
+    </div>
 
     <GalleryGrid
       v-if="!data || data.data.length"
@@ -56,6 +61,10 @@ defineOgImage('PenguinCard', {
 
 const route = useRoute()
 const router = useRouter()
+
+// Direct link to the #gallery Discord channel; invite link until it's configured.
+const { public: { discordGalleryChannelUrl, discordUrl } } = useRuntimeConfig()
+const galleryChannelUrl = discordGalleryChannelUrl || discordUrl
 
 // Page number lives in ?page= so gallery pages are shareable and SSR-rendered.
 const parsePage = (value: unknown) => {

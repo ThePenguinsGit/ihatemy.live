@@ -202,7 +202,8 @@ export default defineNuxtConfig({
     // sealed session cookie — no key needed here.
     public: {
       apiBaseUrl: 'https://penguin-bot.ihatemy.live',
-      discordUrl: 'https://discord.gg/tM4urb5SPQ'
+      discordUrl: 'https://discord.gg/tM4urb5SPQ',
+      discordGalleryChannelUrl: 'https://discord.gg/Yskg94dckD'
     }
   },
 
