@@ -20,6 +20,12 @@
       </div>
     </section>
 
+    <!-- ── Community gallery: first page only, full wall on /gallery ── -->
+    <section v-if="showGallery">
+      <SectionHeading title="The Gallery" eyebrow="The full exhibition →" to="/gallery" />
+      <GalleryGrid :entries="gallery?.data ?? null" highlight-top />
+    </section>
+
     <!-- ── Logged-out pitch: what an account gets you ──────────── -->
     <section v-if="!isLoggedIn">
       <SectionHeading title="Make it yours">
@@ -115,6 +121,8 @@
 <script setup lang="ts">
 import type PenguBotResponseInterface from '~/interfaces/PenguBotResponseInterface';
 import type PlayTimeResultInterface from '~/interfaces/PlayTimeResultInterface';
+import type PaginatedResponseInterface from '~/interfaces/PaginatedResponseInterface';
+import type GalleryEntryInterface from '~/interfaces/GalleryEntryInterface';
 import appConfig from '~/app.config';
 
 const description = 'Welcome to The Penguin Network - A friendly modded Minecraft community perfect for new and experienced players! Join our active servers including ATM10: To the Sky, All The Mods 10, GregTech: New Horizons, MC Eternal 2, Prominence 2, and Society: Sunlit Valley. Everyone is welcome!'
@@ -173,6 +181,16 @@ const { aliveServers: servers } = storeToRefs(useServerStore());
 
 // Live server statuses, fetched once and shared by the hero + cards.
 const { statuses, onlinePlayers, serversUp } = useServerStatuses()
+
+// First page of the community gallery — the full, paginated wall lives on
+// /gallery. Six entries fill the 2- and 3-column grid evenly. The section
+// hides itself when the gallery is empty or the fetch failed.
+const { data: gallery, status: galleryStatus } = await useFetch<PaginatedResponseInterface<GalleryEntryInterface>>('/api/gallery', {
+  query: { perPage: 6 },
+})
+const showGallery = computed(() =>
+  galleryStatus.value !== 'error' && (!gallery.value || gallery.value.data.length > 0)
+)
 
 // What a login unlocks — shown to logged-out visitors instead of the account section.
 const loginPerks = [

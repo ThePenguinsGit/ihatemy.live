@@ -8,7 +8,7 @@
 
     <!-- Desktop nav (md+) -->
     <nav
-      class="hidden md:flex items-center gap-6 font-[minecraft] uppercase tracking-wide text-white text-2xl"
+      class="hidden lg:flex items-center gap-6 font-[minecraft] uppercase tracking-wide text-white text-2xl"
     >
       <template v-for="link in links" :key="link.label">
         <a
@@ -40,7 +40,7 @@
     <!-- Mobile toggle (< md). Wrapped so `md:hidden` controls visibility: the
          .pixel-btn rule sets its own display, which would defeat md:hidden on
          the button itself. -->
-    <div class="md:hidden">
+    <div class="lg:hidden">
       <button
         class="pixel-btn !p-0 w-11 h-11 text-2xl"
         :aria-expanded="open"
@@ -95,6 +95,7 @@ const { summary } = useAccountSummary();
 // Single source for the primary nav links, rendered inline on desktop and
 // stacked in the mobile menu. `href` → external (new tab); `to` → internal.
 const links: { label: string; to?: string; href?: string }[] = [
+  { label: 'Gallery', to: '/gallery' },
   { label: 'The Graveyard', to: '/graveyard' },
   { label: 'Docs', to: '/docs/getting-started' },
   { label: 'Discord', href: '/discord' },
