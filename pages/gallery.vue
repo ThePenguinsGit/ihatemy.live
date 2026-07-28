@@ -50,13 +50,13 @@ const PER_PAGE = 24
 
 useSeoMeta({
   title: 'The Gallery',
-  description: 'Special moments from The Penguin Network - posted and ranked by our community!',
+  description: 'Screenshots of builds, bases, and cursed moments from The Penguin Network\'s modded Minecraft servers. Posted in our Discord and ranked by community votes.',
 })
 
 defineOgImage('PenguinCard', {
   eyebrow: 'The PenguinNetwork',
   title: 'The Gallery',
-  description: 'Moments the Community posted and voted up.',
+  description: 'Screenshots of builds, bases, and cursed moments from The Penguin Network\'s modded Minecraft servers. Posted in our Discord and ranked by community votes.',
 })
 
 const route = useRoute()
