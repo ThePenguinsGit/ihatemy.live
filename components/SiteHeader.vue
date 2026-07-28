@@ -95,7 +95,7 @@ const { summary } = useAccountSummary();
 // Single source for the primary nav links, rendered inline on desktop and
 // stacked in the mobile menu. `href` → external (new tab); `to` → internal.
 const links: { label: string; to?: string; href?: string }[] = [
-  { label: 'Gallery', to: '/gallery' },
+  { label: 'The Gallery', to: '/gallery' },
   { label: 'The Graveyard', to: '/graveyard' },
   { label: 'Docs', to: '/docs/getting-started' },
   { label: 'Discord', href: '/discord' },
