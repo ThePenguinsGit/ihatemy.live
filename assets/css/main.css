@@ -252,3 +252,87 @@ pre code {
     }
 
 }
+
+/* ── Discord-rendered message HTML (gallery captions) ───────────
+ * Injected via v-html from the API's escape-complete `contentHtml`
+ * (see rendering-discord-markup.md). Always sits on a dark panel. */
+.discord-markup {
+    /* Scope message headers down from page-level sizes. */
+    :is(h1, h2, h3) {
+        color: inherit;
+        margin: 0.25em 0 0.1em;
+    }
+    h1 { font-size: 1.35em; }
+    h2 { font-size: 1.2em; }
+    h3 { font-size: 1.1em; }
+
+    ul { @apply list-disc list-inside; }
+    ol { @apply list-decimal list-inside; }
+
+    blockquote {
+        border-left: 4px solid color-mix(in srgb, white 25%, transparent);
+        margin: 0.25em 0;
+        padding-left: 0.75em;
+    }
+
+    /* Global pre chip is already dark; just make it fit a small caption. */
+    pre {
+        margin: 0.25em 0;
+        box-shadow: none;
+    }
+
+    /* Global iceDeep links are illegible on the dark panel. */
+    a { color: var(--color-ice); }
+    a:hover { color: color-mix(in srgb, var(--color-ice) 70%, white); }
+
+    .subtext {
+        font-size: 0.8125em;
+        color: color-mix(in srgb, white 55%, transparent);
+    }
+
+    .mention {
+        background: color-mix(in srgb, var(--color-ice) 20%, transparent);
+        color: var(--color-ice);
+        padding: 0 2px;
+        font-weight: 500;
+    }
+
+    .emote {
+        display: inline-block;
+        width: 1.375em;
+        height: 1.375em;
+        object-fit: contain;
+        vertical-align: bottom;
+    }
+
+    time.timestamp {
+        background: color-mix(in srgb, white 10%, transparent);
+        padding: 0 2px;
+    }
+
+    /* Spoilers start hidden: ink redaction bar. `color: transparent`
+       hides nested <strong>/<em> text too; emotes need visibility. */
+    .spoiler {
+        background: var(--color-ink);
+        color: transparent;
+        cursor: pointer;
+        user-select: none;
+    }
+    .spoiler:not(.revealed) .emote { visibility: hidden; }
+    .spoiler.revealed {
+        background: color-mix(in srgb, white 12%, transparent);
+        color: inherit;
+    }
+}
+
+/* Card variant: single-line ellipsis. line-clamp instead of
+   white-space: nowrap because the fragment contains <br> and block
+   elements; zeroed child margins keep the clamp cutting cleanly. */
+.discord-markup--clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+
+    :is(h1, h2, h3, blockquote, pre, ul, ol) { margin: 0; }
+}

@@ -78,11 +78,17 @@
             tabindex="-1"
           />
           <figcaption class="flex flex-col gap-1 max-w-2xl w-full mx-auto">
-            <p v-if="viewing.content" class="caption-box text-white/90 text-sm leading-snug m-0 px-3 py-1.5">{{ viewing.content }}</p>
+            <div
+              v-if="viewing.contentHtml"
+              ref="lightboxCaption"
+              class="caption-box discord-markup text-white/90 text-sm leading-snug px-3 py-1.5"
+              v-html="viewing.contentHtml"
+            />
+            <p v-else-if="viewing.content" class="caption-box text-white/90 text-sm leading-snug m-0 px-3 py-1.5">{{ viewing.content }}</p>
             <div class="placard flex items-center gap-2 px-2 py-1">
               <img :src="viewing.authorAvatarUrl" alt="" class="avatar w-10 h-10 object-cover shrink-0" />
               <span class="font-[minecraft] uppercase text-xl truncate">{{ viewing.authorUsername }}</span>
-              <span class="ml-auto shrink-0 font-[minecraft] text-xs text-beakDark whitespace-nowrap">★ {{ viewing.voteCount.toLocaleString() }}</span>
+              <span class="ml-auto shrink-0 font-[minecraft] text-xl text-beakDark whitespace-nowrap"><img src="/img/penguheart.png" alt="" class="vote-icon" /> {{ viewing.voteCount.toLocaleString() }}</span>
             </div>
             <div class="flex justify-between font-[minecraft] uppercase text-xs text-white/60">
               <span v-if="viewing.images.length > 1">Image {{ imageIndex + 1 }} / {{ viewing.images.length }}</span>
@@ -140,6 +146,11 @@ const restEntries = computed(() =>
 const viewing = ref<GalleryEntryInterface | null>(null)
 const imageIndex = ref(0)
 const lightboxImage = ref<HTMLImageElement>()
+const lightboxCaption = ref<HTMLElement>()
+useDiscordMarkup(lightboxCaption, {
+  spoilers: true,
+  source: () => viewing.value?.contentHtml,
+})
 
 const open = (entry: GalleryEntryInterface) => {
   viewing.value = entry
@@ -267,6 +278,14 @@ const formatDate = (unix: number) => useDayjs().unix(unix).format('LL')
 
 .avatar {
   border: 2px solid var(--panel-border);
+  image-rendering: pixelated;
+}
+
+.vote-icon {
+  display: inline-block;
+  height: 1em;
+  width: auto;
+  vertical-align: -0.125em;
   image-rendering: pixelated;
 }
 </style>

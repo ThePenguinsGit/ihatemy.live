@@ -33,7 +33,14 @@
       >+{{ entry.images.length - 1 }}</span>
     </div>
 
-    <p v-if="entry.content" class="caption text-sm text-white/80 leading-snug m-0" :title="entry.content">
+    <div
+      v-if="entry.contentHtml"
+      ref="caption"
+      class="discord-markup discord-markup--clamp text-sm text-white/80 leading-snug"
+      :title="entry.content"
+      v-html="entry.contentHtml"
+    />
+    <p v-else-if="entry.content" class="caption text-sm text-white/80 leading-snug m-0" :title="entry.content">
       {{ entry.content }}
     </p>
 
@@ -56,10 +63,10 @@
         {{ entry.authorUsername }}
       </span>
       <span
-        class="ml-auto shrink-0 font-[minecraft] text-xs whitespace-nowrap"
+        class="ml-auto shrink-0 font-[minecraft] text-sm whitespace-nowrap"
         :class="top ? 'votes-top px-1' : 'votes'"
         :title="`${entry.voteCount} ${entry.voteCount === 1 ? 'vote' : 'votes'}`"
-      >★ {{ entry.voteCount.toLocaleString() }}</span>
+      ><img src="/img/penguheart.png" alt="" class="vote-icon" /> {{ entry.voteCount.toLocaleString() }}</span>
     </div>
   </article>
 </template>
@@ -83,6 +90,10 @@ const loaded = ref(false)
 const avatarLoaded = ref(false)
 const shotImg = ref<HTMLImageElement>()
 const avatarImg = ref<HTMLImageElement>()
+const caption = ref<HTMLElement>()
+// No spoiler reveal on the card: the whole card opens the lightbox,
+// which is where spoilers get revealed.
+useDiscordMarkup(caption, { source: () => props.entry.contentHtml })
 
 // Cached/fast images can finish before hydration attaches the @load
 // listeners — pick their state up from `complete` on mount.
@@ -145,6 +156,14 @@ const postedAt = computed(() => `Posted ${useDayjs().unix(props.entry.createdAt)
 
 .avatar {
   border: 2px solid var(--panel-border);
+  image-rendering: pixelated;
+}
+
+.vote-icon {
+  display: inline-block;
+  height: 1em;
+  width: auto;
+  vertical-align: -0.125em;
   image-rendering: pixelated;
 }
 
