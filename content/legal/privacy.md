@@ -14,6 +14,9 @@ We <u>**never**</u> sell/share your data with anyone.
 #### If you link yourself
 - Your Discord Snowflake
 - Your Minecraft UUID  
+#### If you post in our gallery channel
+- Your Discord Snowflake, username and avatar
+- Your message and its attached images (shown publicly in the [Gallery](/gallery))
 ### Third Party Services
 - Cloudflare (May log data like your IP Address when visiting this website (see their [Privacy Policy](https://www.cloudflare.com/privacypolicy/)))
 - Discord (We synchronize all public chat messages from our GameServers to dedicated Discord Channels (see their [Privacy Policy](https://discord.com/privacy/)))
@@ -89,6 +92,16 @@ When you decide to link your Minecraft Account with your Discord Account as desc
 ### Giveaways
 When you decide to join a giveaway we store
 - Your unique identifier (Snowflake), assigned by Discord (to keep track of who joined)
+
+### Gallery
+When you post in our dedicated gallery channel on Discord we store and display publicly in the [Gallery](/gallery) on this website
+- Your unique identifier (Snowflake), assigned by Discord
+- Your Discord username and avatar
+- The text content of your message
+- The images attached to your message (we copy them to our own storage to keep them available)
+- The number of votes your post received
+
+If you want your post removed from the gallery, delete the original message in Discord or contact us, and we will remove it.
 
 ### Purpose and legal basis
 This data is technically necessary for our service(website/gameservers) to work and for our website to display correctly for everyone. (The legal basis for data processing is Art. 6 (1) (f) GDPR).  
