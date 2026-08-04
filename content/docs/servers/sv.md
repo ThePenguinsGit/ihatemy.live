@@ -12,7 +12,7 @@ sitemap:
   |         |                 |
   | ------- | --------------- |
   | IP      | sv.ihatemy.live |
-  | Version |                 |
+  | Version | :server-version{short-name="sv"} |
   :::
 
   :::card
