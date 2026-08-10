@@ -20,10 +20,6 @@ To force-load chunks in your base (while any party member is online), go to the 
 
 ::
 
-## Pre Release
-This server is currently in pre-release  
-Take a look at [Donations/Pre-Release](/docs/donations/pre-release) for more info about what this means and how to join!
-
 ## Banned Items
 - Create: Schematicannon
 - Advanced Peripherals: Chunk Controller
