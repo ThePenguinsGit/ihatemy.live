@@ -1,10 +1,16 @@
 ---
 title: 'Getting Started'
-description: 'Everything you need to know to start playing on The Penguin Network: linking accounts, ranks, banned items, and where to find help.'
+description: 'Everything you need to know to start playing on {siteName}: linking accounts, ranks, banned items, and where to find help.'
 position: 0
 ---
-## Welcome to our Network!
-Here you can find everything you need to know about our Network and how to get started.
+## How do I start playing?
+
+Just grab a modpack from the sidebar and connect to :server-host{code short-name="<pack>"}! :br
+Our public servers don't have a whitelist, so you can just hop on and play. :br
+(Brand-new packs might run as a [pre-release](/docs/donations/pre-release) first, those are the only whitelisted ones.) :br
+Your playtime starts counting from that very first join, no matter which server you end up on.
+
+Below you'll find everything else you need to know about our Network and how to get started!
 
 ::row
 

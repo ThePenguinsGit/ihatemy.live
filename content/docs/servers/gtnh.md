@@ -1,7 +1,10 @@
 ---
 title: 'GTNH'
-description: 'GregTech: New Horizons server info for The Penguin Network - join at gtnh.ihatemy.live. Server specifics, tips, and banned items.'
+description: 'GregTech: New Horizons server info for {siteName} - join at gtnh.{siteDomain}. Server specifics, tips, and banned items.'
 pageTitle: 'GregTech: New Horizons'
+# <title>/og:title only — nav label and H1 stay short.
+seo:
+  title: 'GregTech: New Horizons Server'
 position: 3.2
 ---
 ::row
@@ -9,7 +12,7 @@ position: 3.2
 ::card
 |     |                             |
 |-----|-----------------------------|
-| IP  |    gtnh.ihatemy.live       |
+| IP  |    :server-host{short-name="gtnh"}       |
 | Version  |   :server-version{short-name="gtnh"}        |
 ::
 

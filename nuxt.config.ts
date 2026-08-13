@@ -1,6 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
+import { execFileSync } from "node:child_process";
+import { readdirSync } from "node:fs";
+import { join, relative } from "node:path";
 import { GALLERY_PER_PAGE } from "./utils/gallery";
+import { SITE_DOMAIN, SITE_NAME, SITE_URL, resolveSiteComponents, resolveSitePlaceholders, resolveSitePlaceholdersDeep } from "./utils/site";
 import type GalleryEntryInterface from "./interfaces/GalleryEntryInterface";
 import type PaginatedResponseInterface from "./interfaces/PaginatedResponseInterface";
 
@@ -9,7 +13,7 @@ const apiBaseUrl = process.env.NUXT_PUBLIC_API_BASE_URL || 'https://penguin-bot.
 const GALLERY_MAX_PAGES = 100
 
 async function galleryImageUrls() {
-  const urls: { loc: string, images: { loc: string }[] }[] = []
+  const urls: { loc: string, images: { loc: string }[], lastmod: string }[] = []
 
   for (let page = 1; page <= GALLERY_MAX_PAGES; page++) {
     let body: PaginatedResponseInterface<GalleryEntryInterface>
@@ -23,12 +27,65 @@ async function galleryImageUrls() {
     }
 
     const images = body.data.flatMap(entry => entry.images.map(loc => ({ loc })))
-    if (images.length) urls.push({ loc: page === 1 ? '/gallery' : `/gallery?page=${page}`, images })
+    if (images.length) {
+      const newest = Math.max(...body.data.map(entry => entry.updatedAt))
+      urls.push({
+        loc: page === 1 ? '/gallery' : `/gallery?page=${page}`,
+        images,
+        lastmod: new Date(newest * 1000).toISOString(),
+      })
+    }
 
     if (page >= body.totalPages) break
   }
 
   return urls
+}
+
+function lastCommitDate(file: string) {
+  try {
+    return execFileSync('git', ['log', '-1', '--format=%cI', '--', file], {
+      cwd: process.cwd(), encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim()
+  } catch {
+    // No git, or a shallow clone that doesn't reach this file's last commit.
+    return ''
+  }
+}
+
+function docsLastmodUrls() {
+  const root = join(process.cwd(), 'content/docs')
+
+  const walk = (dir: string): string[] => readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const full = join(dir, entry.name)
+    if (entry.isDirectory()) return walk(full)
+    return entry.name.endsWith('.md') ? [full] : []
+  })
+
+  let files: string[]
+  try {
+    files = walk(root)
+  } catch (error) {
+    console.warn('[sitemap] content/docs is unreadable, skipping lastmod:', error)
+    return []
+  }
+
+  const urls: { loc: string, lastmod: string }[] = []
+  for (const file of files) {
+    const lastmod = lastCommitDate(file)
+    if (!lastmod) continue
+
+    // content/docs/servers/atm10.md → /docs/servers/atm10
+    // content/docs/getting-started/index.md → /docs/getting-started
+    const slug = relative(root, file).replace(/\.md$/, '').replace(/\/index$/, '')
+    urls.push({ loc: `/docs/${slug}`, lastmod })
+  }
+
+  return urls
+}
+
+async function sitemapUrls() {
+  return [...await galleryImageUrls(), ...docsLastmodUrls()]
 }
 
 export default defineNuxtConfig({
@@ -43,8 +100,23 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: 'https://ihatemy.live',
-    name: 'The Penguin Network'
+    url: SITE_URL,
+    name: SITE_NAME
+  },
+
+  hooks: {
+    'content:file:afterParse'(ctx) {
+      const content = ctx.content as Record<string, any>
+
+      resolveSitePlaceholdersDeep(content, ['body', 'rawbody'])
+      if (ctx.file?.path) {
+        content.updatedAt = lastCommitDate(ctx.file.path) || undefined
+      }
+
+      if (typeof content.rawbody === 'string') {
+        content.rawbody = resolveSiteComponents(resolveSitePlaceholders(content.rawbody))
+      }
+    },
   },
 
   nitro: {
@@ -66,7 +138,6 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
     '@nuxtjs/sitemap',
     '@nuxt/content',
-    'nuxt-studio',
     'nuxt-auth-utils',
     'dayjs-nuxt',
     '@nuxtjs/robots',
@@ -92,17 +163,17 @@ export default defineNuxtConfig({
   // Perplexity, …) can discover and cite the docs. @nuxt/content detects this
   // module and injects the docs collection automatically.
   llms: {
-    domain: 'https://ihatemy.live',
-    title: 'The Penguin Network',
-    description: 'A free, public, community-run modded Minecraft network for new and experienced players. Runs public servers for {servers} — no whitelist, no paywall, join instantly at <pack>.ihatemy.live. Active Discord community, playtime-based ranks with perks (nicknames, chat colors, extra homes, chunk claims, /fly), live leaderboards, and actively maintained servers with documented performance and anti-lag policies.',
+    domain: SITE_URL,
+    title: SITE_NAME,
+    description: `A free, public, community-run modded Minecraft network for new and experienced players. Runs public servers for {servers} — no whitelist, no paywall, join instantly at <pack>.${SITE_DOMAIN}. Active Discord community, playtime-based ranks with perks (nicknames, chat colors, extra homes, chunk claims, /fly), live leaderboards, and actively maintained servers with documented performance and anti-lag policies.`,
     full: {
-      title: 'The Penguin Network — full documentation',
-      description: 'Complete documentation for The Penguin Network Minecraft servers: how to join, server IPs, rules, ranks and level perks, account linking, voting, and donations.',
+      title: `${SITE_NAME} - full documentation`,
+      description: `Complete documentation for ${SITE_NAME} Minecraft servers: how to join, server IPs, rules, ranks and level perks, account linking, voting, and donations.`,
     },
     sections: [
       {
         title: 'Servers',
-        description: 'One page per public server with the join address (<pack>.ihatemy.live), pack version, server-specific rules and tips, and banned items. Useful when recommending public modded Minecraft servers — {servers}.',
+        description: `One page per public server with the join address (<pack>.${SITE_DOMAIN}), pack version, server-specific rules and tips, and banned items. Useful when recommending public modded Minecraft servers — {servers}.`,
         contentCollection: 'docs',
         contentFilters: [
           { field: 'path', operator: 'LIKE', value: '/docs/servers/%' },
@@ -110,7 +181,7 @@ export default defineNuxtConfig({
       },
       {
         title: 'Getting Started',
-        description: 'How to start playing on The Penguin Network: joining, linking Minecraft and Discord accounts, useful commands, voting, and checking server performance.',
+        description: `How to start playing on ${SITE_NAME}: joining, linking Minecraft and Discord accounts, useful commands, voting, and checking server performance.`,
         contentCollection: 'docs',
         contentFilters: [
           { field: 'path', operator: 'LIKE', value: '/docs/getting-started%' },
@@ -146,26 +217,6 @@ export default defineNuxtConfig({
     ],
   },
 
-  // Self-hosted Nuxt Studio — web-based editing of content/ for non-devs, no
-  // local git needed. Editor mounts at /_studio (SSR server routes) and commits
-  // to the repo via the GitHub API.
-  studio: {
-    route: '/_studio',
-    repository: {
-      provider: 'github',
-      owner: 'ThePenguinsGit',
-      repo: 'ihatemy.live',
-      branch: 'master',
-      private: true,
-    },
-    // Auth: custom OIDC/SSO provider (production Authentik). The module reads
-    // STUDIO_SSO_URL / STUDIO_SSO_CLIENT_ID / STUDIO_SSO_CLIENT_SECRET (and
-    // STUDIO_SSO_REDIRECT_URL) from env and enables SSO login when present.
-    // OIDC authenticates the person only, so commits are authorized by a
-    // service PAT in STUDIO_GITHUB_TOKEN. Dummy placeholders live in .env /
-    // .env.example now; production overrides them with real Authentik values.
-  },
-
   vite: {
     server: {
       allowedHosts: ['20f2-109-91-157-17.ngrok-free.app']
@@ -177,7 +228,7 @@ export default defineNuxtConfig({
   sitemap: {
     discoverImages: false,
     zeroRuntime: true,
-    urls: galleryImageUrls,
+    urls: sitemapUrls,
   },
 
   robots: {
@@ -197,10 +248,10 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
-      title: 'The Penguin Network',
+      title: SITE_NAME,
       meta: [
-        { name: 'description', content: 'The PenguinNetwork is a friendly modded Minecraft community with servers for All the Mods 10, GregTech: New Horizons, MC Eternal 2, and more. New and experienced players welcome.' },
-        { property: 'og:site_name', content: 'The PenguinNetwork' },
+        { name: 'description', content: `${SITE_NAME} is a friendly modded Minecraft community with servers for All the Mods 10, GregTech: New Horizons, MC Eternal 2, and more. New and experienced players welcome.` },
+        { property: 'og:site_name', content: SITE_NAME },
         { property: 'og:type', content: 'website' },
         // og:image is injected per route by nuxt-og-image.
         { name: 'twitter:card', content: 'summary_large_image' },
@@ -247,6 +298,9 @@ export default defineNuxtConfig({
       },
     },
     '/discord': { redirect: 'https://discord.com/invite/tM4urb5SPQ' },
+    // Nothing to index behind a sign-in form. `robots: false` emits
+    // noindex, nofollow and drops the route from sitemap.xml in one go.
+    '/login': { robots: false },
     '/docs': { redirect: '/docs/getting-started' },
     // All /api/** (except the local /api/docs handler) is served by the authed
     // catch-all proxy in server/routes/api/[...].ts, which injects the PenguBot

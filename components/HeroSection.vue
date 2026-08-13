@@ -3,7 +3,7 @@
     <div class="relative flex flex-row items-center gap-4 ">
       <div class="flex flex-col gap-2 max-w-3xl">
         <div>
-          <span class="eyebrow">The Penguin Network</span>
+          <span class="eyebrow">{{ SITE_NAME }}</span>
           <h1 class="font-[minecraft] text-2xl md:text-4xl leading-none">
             Pick a world. Get sacrificed.
           </h1>
@@ -37,6 +37,7 @@
 </template>
 
 <script setup lang="ts">
+import { SITE_NAME } from '~/utils/site';
 defineProps<{
   onlinePlayers: number;
   serversUp: number;

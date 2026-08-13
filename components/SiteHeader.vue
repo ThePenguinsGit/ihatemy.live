@@ -3,7 +3,7 @@
     class="relative w-full bg-secondary border-b-4 border-ink h-20 px-4 md:px-5 flex items-center justify-between z-20 shrink-0"
   >
     <NuxtLink to="/" class="shrink-0" @click="open = false">
-      <img src="/img/logo.png" class="max-h-[52px]" alt="The Penguin Network" />
+      <img src="/img/logo.png" class="max-h-[52px]" :alt="SITE_NAME" />
     </NuxtLink>
 
     <!-- Desktop nav (md+) -->
@@ -89,6 +89,7 @@
 </template>
 
 <script setup lang="ts">
+import { SITE_NAME } from '~/utils/site';
 const { loggedIn, user, clear } = useUserSession();
 const { summary } = useAccountSummary();
 

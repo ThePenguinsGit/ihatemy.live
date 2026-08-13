@@ -4,7 +4,7 @@ position: 4
 description: 'Find out how you can support us and what you can get as a thank you from us'
 ---
 If you want to help us fund our current and future Minecraft hosting endeavors, you can support us via <a href='https://ko-fi.com/penguinnetwork'  target="_blank">Ko-fi</a>.
-<img style="float: right;" src="/img/docs/prefixes.png">  
+<img style="float: right;" src="/img/docs/prefixes.png" alt="Donator prefixes as they appear in chat">  
 It helps us to keep the servers running and to expand our network.  
 As a reward you will receive
 - Early access to new modpack servers
@@ -32,9 +32,9 @@ As with all other donation tiers, you will also keep the `Contributor` role fore
 <div class="md:hidden">*Our first donators are remembered as the founders of our Network</div>
 
 <p class="flex flex-wrap justify-center justify-between gap-4 overflow-x-auto">
-<img style="width: 18%;" src="/img/docs/tiers/preserver.png">  
-<img style="width: 18%;" src="/img/docs/tiers/sponsor.png">  
-<img style="width: 18%;" src="/img/docs/tiers/booty.png">  
-<img style="width: 18%;" src="/img/docs/tiers/sorcerer.png">  
-<img style="width: 18%;" src="/img/docs/tiers/angel.png">  
+<img style="width: 18%;" src="/img/docs/tiers/preserver.png" alt="Server Preserver tier badge">  
+<img style="width: 18%;" src="/img/docs/tiers/sponsor.png" alt="Stellar Sponsor tier badge">  
+<img style="width: 18%;" src="/img/docs/tiers/booty.png" alt="Booty Benefactor tier badge">  
+<img style="width: 18%;" src="/img/docs/tiers/sorcerer.png" alt="Server Sorcerer tier badge">  
+<img style="width: 18%;" src="/img/docs/tiers/angel.png" alt="Angel Investor tier badge">  
 </p>

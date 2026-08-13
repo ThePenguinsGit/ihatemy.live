@@ -43,18 +43,23 @@
 </template>
 
 <script setup lang="ts">
+import { SITE_NAME, siteUrl } from '~/utils/site';
 import type PaginatedResponseInterface from '~/interfaces/PaginatedResponseInterface';
 import type GalleryEntryInterface from '~/interfaces/GalleryEntryInterface';
 
+const description = `Screenshots of builds, bases, and cursed moments from ${SITE_NAME}'s modded Minecraft servers. Posted in our Discord and ranked by community votes.`
+
 useSeoMeta({
   title: 'The Gallery',
-  description: 'Screenshots of builds, bases, and cursed moments from The Penguin Network\'s modded Minecraft servers. Posted in our Discord and ranked by community votes.',
+  description,
+  ogTitle: 'The Gallery',
+  ogDescription: description,
 })
 
 defineOgImage('PenguinCard', {
-  eyebrow: 'The PenguinNetwork',
+  eyebrow: SITE_NAME,
   title: 'The Gallery',
-  description: 'Screenshots of builds, bases, and cursed moments from The Penguin Network\'s modded Minecraft servers. Posted in our Discord and ranked by community votes.',
+  description,
 })
 
 const route = useRoute()
@@ -86,5 +91,30 @@ watch(() => route.query.page, (q) => {
 
 const { data } = await useFetch<PaginatedResponseInterface<GalleryEntryInterface>>('/api/gallery', {
   query: { page, perPage: GALLERY_PER_PAGE },
+})
+
+useHead({
+  script: computed(() => {
+    const entries = data.value?.data ?? []
+    if (!entries.length) return []
+
+    return [{
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ImageGallery',
+        name: 'The Gallery',
+        description,
+        isPartOf: { '@id': `${siteUrl()}/#website` },
+        associatedMedia: entries.flatMap(entry => entry.images.map(image => ({
+          '@type': 'ImageObject',
+          contentUrl: image,
+          caption: galleryAltText(entry),
+          creditText: entry.authorUsername,
+          uploadDate: new Date(entry.createdAt * 1000).toISOString(),
+        }))),
+      }),
+    }]
+  }),
 })
 </script>

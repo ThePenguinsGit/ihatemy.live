@@ -1,7 +1,9 @@
 ---
 title: 'MCE2'
-description: 'MC Eternal 2 server info for The Penguin Network - join at mce2.ihatemy.live. Server specifics, tips, and banned items.'
+description: 'MC Eternal 2 server info for {siteName} - join at mce2.{siteDomain}. Server specifics, tips, and banned items.'
 pageTitle: 'MC Eternal 2'
+seo:
+  title: 'MC Eternal 2 Server'
 position: 3.5
 ---
 ::row
@@ -9,7 +11,7 @@ position: 3.5
 ::card
 |     |                             |
 |-----|-----------------------------|
-| IP  |    mce2.ihatemy.live       |
+| IP  |    :server-host{short-name="mce2"}       |
 | Version  |   :server-version{short-name="mce2"}        |
 ::
 

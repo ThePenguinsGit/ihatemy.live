@@ -15,6 +15,7 @@
           :key="server.shortName"
           :server="server"
           :stats="statuses[server.shortName]"
+          :docs-path="docsPathFor(server.shortName)"
           class="w-full md:w-[calc((100%-1rem)/2)] xl:w-[calc((100%-2rem)/3)]"
         />
       </div>
@@ -124,19 +125,21 @@ import type PlayTimeResultInterface from '~/interfaces/PlayTimeResultInterface';
 import type PaginatedResponseInterface from '~/interfaces/PaginatedResponseInterface';
 import type GalleryEntryInterface from '~/interfaces/GalleryEntryInterface';
 import appConfig from '~/app.config';
+import { SITE_NAME, siteUrl } from '~/utils/site';
 
-const description = 'Welcome to The Penguin Network - A friendly modded Minecraft community perfect for new and experienced players! Join our active servers including ATM10: To the Sky, All The Mods 10, GregTech: New Horizons, MC Eternal 2, Prominence 2, and Society: Sunlit Valley. Everyone is welcome!'
+// Kept under ~160 chars so Google shows it whole rather than truncating mid-list.
+const description = 'A friendly modded Minecraft community for new and experienced players. Free public servers for ATM10, GregTech: New Horizons, MC Eternal 2, and more.'
 
 useSeoMeta({
-  title: 'The Penguin Network',
+  title: 'Modded Minecraft Servers',
   description,
-  ogTitle: 'The Penguin Network — Modded Minecraft Servers',
+  ogTitle: `${SITE_NAME}: Modded Minecraft Servers`,
   ogDescription: description,
 })
 
 defineOgImage('PenguinCard', {
   eyebrow: 'Modded Minecraft network',
-  title: 'The Penguin Network',
+  title: SITE_NAME,
   description: 'Free, public servers for ATM10, GregTech: New Horizons, MC Eternal 2, and more. Join quickly for free PenguTokens',
 })
 
@@ -151,19 +154,25 @@ useHead({
         '@graph': [
           {
             '@type': 'Organization',
-            '@id': 'https://ihatemy.live/#organization',
-            name: 'The Penguin Network',
-            url: 'https://ihatemy.live',
-            logo: 'https://ihatemy.live/logo_big.png',
+            '@id': siteUrl('/#organization'),
+            name: SITE_NAME,
+            url: siteUrl(),
+            logo: siteUrl('/logo_big.png'),
             description: 'A friendly modded Minecraft community running multiple public servers.',
-            sameAs: ['https://discord.gg/tM4urb5SPQ'],
+            // Profiles that belong to the network itself — each one is another
+            // edge for search and AI engines resolving us as a single entity.
+            sameAs: [
+              'https://discord.gg/tM4urb5SPQ',
+              'https://ko-fi.com/penguinnetwork',
+              'https://www.instagram.com/thepenguins_mc'
+            ],
           },
           {
             '@type': 'WebSite',
-            '@id': 'https://ihatemy.live/#website',
-            name: 'The Penguin Network',
-            url: 'https://ihatemy.live',
-            publisher: { '@id': 'https://ihatemy.live/#organization' },
+            '@id': siteUrl('/#website'),
+            name: SITE_NAME,
+            url: siteUrl(),
+            publisher: { '@id': siteUrl('/#organization') },
             about: {
               '@type': 'VideoGame',
               name: 'Minecraft',
@@ -174,6 +183,21 @@ useHead({
     },
   ],
 })
+
+// Which packs have a /docs/servers/<shortName> page, so the cards only link to
+// pages that exist (a server can go live before its docs are written).
+const { data: serverDocPaths } = await useAsyncData('server-doc-paths', async () => {
+  const pages = await queryCollection('docs')
+    .where('path', 'LIKE', '/docs/servers/%')
+    .select('path')
+    .all()
+  return pages.map(p => p.path)
+}, { default: () => [] as string[] })
+
+const docsPathFor = (shortName: string) => {
+  const path = `/docs/servers/${shortName}`
+  return serverDocPaths.value?.includes(path) ? path : undefined
+}
 
 const { loggedIn: isLoggedIn, user } = useUserSession()
 

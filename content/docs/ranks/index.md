@@ -1,13 +1,19 @@
 ---
 title: 'Ranks'
-description: 'The Penguin Network level system: network-wide, playtime-based ranks with perks like /nickname, chat colors, extra homes, chunk claims, and /fly.'
+description: '{siteName} level system: network-wide, playtime-based ranks with perks like /nickname, chat colors, extra homes, chunk claims, and /fly.'
 position: 5
 ---
 We have a **custom**, **network wide**, **time based level up system**! The second you join any of our servers for the first time it starts counting. Watching. Motionless. Soullless. The gears in this machine were only made for tracking **you**, yes specifically **you**. **Don't stare back**.
 
 If you wanna know more about your own stats, check the [Leaderboard](/docs/ranks/leaderboard), or our [Commands](/docs/getting-started/useful-commands) page!
 
-## Level Up Bonuses!
+## What do I unlock at each level?
+
+Quite a lot! You get `/nickname` at level 5, `/enderchest` at 20, chat colors at 30,
+`/fly` at 300 and `/god` at 500, and your home points and chunk limits keep going up
+along the way. :br
+It's all playtime based, so time on any of our servers counts towards the same total.
+
 Please note that these perks are subject to change, and we're always open to suggestions!  
 _(Commands don't have cooldown unless specified) (Teams can force-load up to **50 chunks** max and claim up to **300 chunks** max)_
 <br>

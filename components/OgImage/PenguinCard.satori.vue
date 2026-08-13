@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { SITE_DOMAIN, SITE_NAME } from '~/utils/site';
 // Social-share card (1200×600, the module's default canvas) rendered by nuxt-og-image through satori.
 // Satori only understands a flexbox subset with inline styles: every element
 // with children needs explicit display:flex, no CSS files, no box-shadow —
@@ -8,9 +9,9 @@ const props = withDefaults(defineProps<{
   description?: string
   eyebrow?: string
 }>(), {
-  title: 'The Penguin Network',
+  title: SITE_NAME,
   description: 'A friendly modded Minecraft community. Free, public servers — no whitelist, no paywall.',
-  eyebrow: 'ihatemy.live',
+  eyebrow: SITE_DOMAIN,
 })
 
 // Palette from assets/css/main.css @theme — satori can't read it, keep in sync.
@@ -58,9 +59,9 @@ const shortDescription = computed(() =>
       </div>
 
       <div :style="{ display: 'flex', alignItems: 'center' }">
-        <img src="/logo_big.png" :style="{ width: '56px', height: '56px' }" />
+        <img src="/logo_big.png" :style="{ width: '56px', height: '56px' }"  alt="Logo"/>
         <div :style="{ display: 'flex', fontFamily: 'Minecraft', fontSize: '32px', color: beak, marginLeft: '20px' }">
-          ihatemy.live
+          {{ SITE_DOMAIN }}
         </div>
       </div>
     </div>

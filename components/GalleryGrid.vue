@@ -73,7 +73,7 @@
           <img
             ref="lightboxImage"
             :src="viewing.images[imageIndex]"
-            :alt="viewing.content || `Screenshot by ${viewing.authorUsername}`"
+            :alt="galleryAltText(viewing)"
             class="lightbox-img mx-auto max-w-full max-h-[80vh] object-contain"
             tabindex="-1"
           />

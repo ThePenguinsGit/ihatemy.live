@@ -1,9 +1,17 @@
 ---
 title: Voting
+description: Vote for {siteName} on the modded Minecraft server lists to unlock /enderchest, portable workstations and chat colors, and keep your streak alive.
+faq: false
 position: 1
 sitemap:
   loc: /docs/getting-started/voting
 ---
+
+## What do I get for voting?
+
+You get `/enderchest`, the portable workstations, `/hat` and chat colors for 24 hours,
+and we get more players finding us! Vote again on another site before those 24 hours
+are up and your streak keeps going. All the voting sites are listed further down.
 
 ## what??? Whyyyyy?!?!
 
@@ -39,20 +47,15 @@ You can also run `/vote` in-game to get a list
 
 ::row
   :::card
-  ## Modded Minecraft Servers
-
-  <https://moddedminecraftservers.com/profile/ozthem9.64452>--- Unknown node: hardBreak ---Pick your favourite modpack from the list to vote for
+  ## [Modded Minecraft Servers](https://moddedminecraftservers.com/profile/ozthem9.64452)
+  Pick your favourite modpack from the list to vote for
   :::
 
   :::card
-  ## Feed the Beast Servers
-
-  <https://ftbservers.com/server/8rlDI3oX/the-penguin-network>
+  ## [Feed the Beast Servers](https://ftbservers.com/server/8rlDI3oX/the-penguin-network)
   :::
 
   :::card
-  ## Minecraft MP
-
-  <https://minecraft-mp.com/server-s352322>
+  ## [Minecraft MP](https://minecraft-mp.com/server-s352322)
   :::
 ::

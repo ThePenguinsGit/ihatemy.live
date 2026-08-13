@@ -1,4 +1,5 @@
 import { servers } from '../../data/servers'
+import { SITE_NAME, siteUrl } from '../../utils/site'
 
 // Markdown for Agents: requests carrying Accept: text/markdown get a markdown
 // rendition instead of HTML. Content pages return their raw markdown (kept in
@@ -11,7 +12,7 @@ function homepageMarkdown(discordUrl: string): string {
     (s) => `| ${s.name} | ${s.version} | \`${s.hostname}\` | ${s.mapUrl ?? '—'} |`,
   )
   return [
-    '# The Penguin Network',
+    `# ${SITE_NAME}`,
     '',
     'A free, public, community-run modded Minecraft network for new and experienced',
     'players. No whitelist, no paywall — join instantly with the addresses below.',
@@ -24,10 +25,10 @@ function homepageMarkdown(discordUrl: string): string {
     '',
     '## Links',
     '',
-    '- Documentation: https://ihatemy.live/docs/getting-started',
+    `- Documentation: ${siteUrl('/docs/getting-started')}`,
     `- Discord: ${discordUrl}`,
-    '- LLM-friendly overview: https://ihatemy.live/llms.txt (full docs: https://ihatemy.live/llms-full.txt)',
-    '- API catalog: https://ihatemy.live/.well-known/api-catalog',
+    `- LLM-friendly overview: ${siteUrl('/llms.txt')} (full docs: ${siteUrl('/llms-full.txt')})`,
+    `- API catalog: ${siteUrl('/.well-known/api-catalog')}`,
     '',
   ].join('\n')
 }

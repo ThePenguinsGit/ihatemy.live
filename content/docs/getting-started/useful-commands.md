@@ -1,19 +1,17 @@
 ---
 title: 'Commands'
-description: 'Useful Discord and Minecraft commands on The Penguin Network: /warp farmworld, /playtime, /leaderboard, /level, /link, and more.'
+description: 'Useful Discord and Minecraft commands on {siteName}: /warp farmworld, /playtime, /leaderboard, /level, /link, and more.'
 pageTitle: 'Useful Commands'
 position: 0.2
+itemlist:
+  name: 'Useful Minecraft and Discord commands'
+  # Skips the "Discord" / "Minecraft" section headings, keeps the commands.
+  startsWith: '/'
 ---
 
 ## Discord
 
 ::row
-
-::card
-## `/warp farmworld`
-You're searching for a structure or a boss? Do it in the Farmworld!  
-We try to keep it up to date with the pack as it changes. It also resets weekly, so if something's already looted, you just have to wait a bit  
-::
 
 ::card
 ## `/playtime`
@@ -52,6 +50,18 @@ Also check out the [Linking](/docs/getting-started/linking) page for more inform
 ## Minecraft
 
 ::row
+
+::card
+## `/warp farmworld`
+You're searching for a structure or a boss? Do it in the Farmworld!  
+We try to keep it up to date with the pack as it changes. It also resets weekly, so if something's already looted, you just have to wait a bit  
+::
+
+::card
+## `/warp public`
+The free for all area, where everyone on the server can build!  
+Players set up shops there, leave spare items for whoever needs them, and work on builds together. Have a look around, you'll probably find something useful c:
+::
 
 ::card
 ## `/link`

@@ -1,7 +1,9 @@
 ---
 title: 'P2HE'
-description: 'Prominence 2 server info for The Penguin Network - join at p2he.ihatemy.live. Server specifics, tips, and banned items.'
+description: 'Prominence 2 server info for {siteName} - join at p2he.{siteDomain}. Server specifics, tips, and banned items.'
 pageTitle: 'Prominence 2'
+seo:
+  title: 'Prominence 2 Server'
 position: 3.4 
 ---
 ::row
@@ -9,7 +11,7 @@ position: 3.4
 ::card
 |     |                             |
 |-----|-----------------------------|
-| IP  |    p2he.ihatemy.live       |
+| IP  |    :server-host{short-name="p2he"}       |
 | Version  |   :server-version{short-name="p2he"}        |
 ::
 

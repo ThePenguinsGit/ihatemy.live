@@ -1,5 +1,6 @@
 import type McStatsResultInterface from '~/interfaces/McStatsResultInterface'
 import type ServerStatusInterface from '~/interfaces/ServerStatusInterface'
+import { SITE_DOMAIN, SITE_NAME } from '~/utils/site'
 
 // WebMCP (https://webmachinelearning.github.io/webmcp/): exposes the site's
 // read-only actions as tools to browser-integrated AI agents. The API only
@@ -21,7 +22,7 @@ export default defineNuxtPlugin(() => {
       {
         name: 'list-servers',
         description:
-          'List all Minecraft servers of The Penguin Network with display name, short name, pack version, status, and tags. Servers are joinable at <shortName>.ihatemy.live.',
+          `List all Minecraft servers of ${SITE_NAME} with display name, short name, pack version, status, and tags. Servers are joinable at <shortName>.${SITE_DOMAIN}.`,
         inputSchema: { type: 'object', properties: {} },
         async execute() {
           const servers = await $fetch<ServerStatusInterface[]>(
@@ -57,7 +58,7 @@ export default defineNuxtPlugin(() => {
       {
         name: 'list-docs',
         description:
-          'List all documentation pages of The Penguin Network (server guides, rules, ranks, FAQ) with their URLs. Fetch a page with Accept: text/markdown for a markdown version.',
+          `List all documentation pages of ${SITE_NAME} (server guides, rules, ranks, FAQ) with their URLs. Fetch a page with Accept: text/markdown for a markdown version.`,
         inputSchema: { type: 'object', properties: {} },
         async execute() {
           const docs = await $fetch('/api/docs')

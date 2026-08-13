@@ -1,7 +1,9 @@
 ---
 title: 'ATM10'
-description: 'All the Mods 10 server info for The Penguin Network - join at atm10.ihatemy.live. Chunkloading, farmworld, world borders, and banned items.'
+description: 'All the Mods 10 server info for {siteName} - join at atm10.{siteDomain}. Chunkloading, farmworld, world borders, and banned items.'
 pageTitle: 'All the Mods 10'
+seo:
+  title: 'All the Mods 10 Server'
 position: 3.0
 ---
 ::row
@@ -9,7 +11,7 @@ position: 3.0
 ::card
 |     |                             |
 |-----|-----------------------------|
-| IP  |    atm10.ihatemy.live       |
+| IP  |    :server-host{short-name="atm10"}       |
 | Version  |   :server-version{short-name="atm10"}        |
 ::
 
