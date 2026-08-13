@@ -10,7 +10,7 @@
     "test": "node --experimental-strip-types --import ./tests/loader.mjs --test tests/*.test.ts"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^2.7.0",
+    "@nuxt/devtools": "^3.4.1",
     "@nuxt/fonts": "^0.14.0",
     "@nuxtjs/robots": "^6.1.2",
     "@nuxtjs/sitemap": "^8.0.15",
@@ -45,8 +45,7 @@
     "nitro-cloudflare-dev": "^0.2.2",
     "nuxt-auth-utils": "^0.5.29",
     "nuxt-llms": "^0.2.0",
-    "nuxt-og-image": "^6.7.2",
-    "nuxt-studio": "^1.7.0",
+    "nuxt-og-image": "^6.7.8",
     "rand-seed": "^3.0.0",
     "satori": "^0.26.0"
   }

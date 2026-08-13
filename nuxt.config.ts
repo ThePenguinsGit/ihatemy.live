@@ -138,7 +138,6 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
     '@nuxtjs/sitemap',
     '@nuxt/content',
-    'nuxt-studio',
     'nuxt-auth-utils',
     'dayjs-nuxt',
     '@nuxtjs/robots',
