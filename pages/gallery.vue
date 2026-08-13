@@ -46,8 +46,6 @@
 import type PaginatedResponseInterface from '~/interfaces/PaginatedResponseInterface';
 import type GalleryEntryInterface from '~/interfaces/GalleryEntryInterface';
 
-const PER_PAGE = 24
-
 useSeoMeta({
   title: 'The Gallery',
   description: 'Screenshots of builds, bases, and cursed moments from The Penguin Network\'s modded Minecraft servers. Posted in our Discord and ranked by community votes.',
@@ -87,6 +85,6 @@ watch(() => route.query.page, (q) => {
 })
 
 const { data } = await useFetch<PaginatedResponseInterface<GalleryEntryInterface>>('/api/gallery', {
-  query: { page, perPage: PER_PAGE },
+  query: { page, perPage: GALLERY_PER_PAGE },
 })
 </script>

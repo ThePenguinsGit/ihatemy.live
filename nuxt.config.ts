@@ -1,5 +1,35 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
+import { GALLERY_PER_PAGE } from "./utils/gallery";
+import type GalleryEntryInterface from "./interfaces/GalleryEntryInterface";
+import type PaginatedResponseInterface from "./interfaces/PaginatedResponseInterface";
+
+const apiBaseUrl = process.env.NUXT_PUBLIC_API_BASE_URL || 'https://penguin-bot.ihatemy.live'
+
+const GALLERY_MAX_PAGES = 100
+
+async function galleryImageUrls() {
+  const urls: { loc: string, images: { loc: string }[] }[] = []
+
+  for (let page = 1; page <= GALLERY_MAX_PAGES; page++) {
+    let body: PaginatedResponseInterface<GalleryEntryInterface>
+    try {
+      const response = await fetch(`${apiBaseUrl}/gallery?page=${page}&perPage=${GALLERY_PER_PAGE}`)
+      if (!response.ok) throw new Error(`HTTP ${response.status}`)
+      body = await response.json()
+    } catch (error) {
+      console.warn(`[sitemap] gallery page ${page} could not be fetched, skipping its images:`, error)
+      break
+    }
+
+    const images = body.data.flatMap(entry => entry.images.map(loc => ({ loc })))
+    if (images.length) urls.push({ loc: page === 1 ? '/gallery' : `/gallery?page=${page}`, images })
+
+    if (page >= body.totalPages) break
+  }
+
+  return urls
+}
 
 export default defineNuxtConfig({
   css: [
@@ -146,7 +176,8 @@ export default defineNuxtConfig({
   },
   sitemap: {
     discoverImages: false,
-    zeroRuntime: true
+    zeroRuntime: true,
+    urls: galleryImageUrls,
   },
 
   robots: {
@@ -201,7 +232,7 @@ export default defineNuxtConfig({
     // NUXT_SESSION_PASSWORD (>=32 chars) is read by nuxt-auth-utils for the
     // sealed session cookie — no key needed here.
     public: {
-      apiBaseUrl: 'https://penguin-bot.ihatemy.live',
+      apiBaseUrl,
       discordUrl: 'https://discord.gg/tM4urb5SPQ',
       discordGalleryChannelUrl: 'https://discord.gg/Yskg94dckD'
     }
