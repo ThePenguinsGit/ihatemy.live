@@ -17,15 +17,19 @@ Our public servers are free for everyone and nothing is pay to win, we just run 
 
   Hi! We're **dukcc** and **Oz**.
 
-  It started in 2019, when dukcc put up a community server so Oz and his viewers
-  had somewhere to play while he was streaming. That was supposed to be the whole
-  thing.
-
+  It started in 2019, when I (dukcc) put up a community server, so I (Oz) and my (Oz's) viewers
+  had somewhere to play while I (Oz) was streaming. :br
+  That was supposed to be the whole thing. :br
+  :br
   People kept playing though, so we kept it running, maintaining it little by
   little for years.
 
   Then in 2025 we started going a tad overboard: we bought our own hardware, moved into a
-  colocation, and incorporated the network (for funny tax reasons).
+  colocation, and incorporated the network (for funny tax reasons). :br
+  :br
+  Over the years we've _collected_ a lot of <span title="willing subjects :)">""friends™*""</span> that we like to call <span title="staff">staff</span>
+
+
   :::
 
   :::card
