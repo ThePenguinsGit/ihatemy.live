@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { siteUrl } from '~/utils/site';
 import { flattenNavigation } from '~/utils/docsNav';
 import type { Crumb } from '~/utils/docsNav';
 
@@ -77,7 +78,7 @@ const jsonLd = computed(() => {
       '@type': 'ListItem',
       position: i + 1,
       name: crumb.label,
-      ...(crumb.to ? { item: `https://ihatemy.live${crumb.to}` } : {}),
+      ...(crumb.to ? { item: siteUrl(crumb.to) } : {}),
     })),
   }]
 

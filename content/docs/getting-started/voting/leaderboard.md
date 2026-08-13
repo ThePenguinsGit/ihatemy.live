@@ -1,6 +1,6 @@
 ---
 title: Leaderboard
-description: Live vote leaderboard for The Penguin Network. See who's voting most across the modded Minecraft server lists.
+description: Live vote leaderboard for {siteName}. See who's voting most across the modded Minecraft server lists.
 faq: false
 position: 6
 sitemap:

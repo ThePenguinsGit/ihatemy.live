@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started'
-description: 'Everything you need to know to start playing on The Penguin Network: linking accounts, ranks, banned items, and where to find help.'
+description: 'Everything you need to know to start playing on {siteName}: linking accounts, ranks, banned items, and where to find help.'
 position: 0
 ---
 ## Welcome to our Network!

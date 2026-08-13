@@ -13,19 +13,20 @@
 </template>
 
 <script setup lang="ts">
+import { SITE_NAME, siteUrl } from '~/utils/site';
 const route = useRoute()
 
 const canonical = computed(() => {
   const page = Number.parseInt(String(route.query.page), 10)
   const suffix = Number.isInteger(page) && page > 1 ? `?page=${page}` : ''
-  return `https://ihatemy.live${route.path}${suffix}`
+  return siteUrl(`${route.path}${suffix}`)
 })
 
 useHead({
   titleTemplate: (title) =>
-    title && title !== 'The Penguin Network'
-      ? `${title} · The Penguin Network`
-      : 'The Penguin Network',
+    title && title !== SITE_NAME
+      ? `${title} · ${SITE_NAME}`
+      : SITE_NAME,
   link: [{ rel: 'canonical', href: canonical }],
   meta: [{ property: 'og:url', content: canonical }],
 })

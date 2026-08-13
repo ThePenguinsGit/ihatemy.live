@@ -4,6 +4,7 @@ import { execFileSync } from "node:child_process";
 import { readdirSync } from "node:fs";
 import { join, relative } from "node:path";
 import { GALLERY_PER_PAGE } from "./utils/gallery";
+import { SITE_DOMAIN, SITE_NAME, SITE_URL, resolveSiteComponents, resolveSitePlaceholders } from "./utils/site";
 import type GalleryEntryInterface from "./interfaces/GalleryEntryInterface";
 import type PaginatedResponseInterface from "./interfaces/PaginatedResponseInterface";
 
@@ -12,7 +13,7 @@ const apiBaseUrl = process.env.NUXT_PUBLIC_API_BASE_URL || 'https://penguin-bot.
 const GALLERY_MAX_PAGES = 100
 
 async function galleryImageUrls() {
-  const urls: { loc: string, images: { loc: string }[] }[] = []
+  const urls: { loc: string, images: { loc: string }[], lastmod: string }[] = []
 
   for (let page = 1; page <= GALLERY_MAX_PAGES; page++) {
     let body: PaginatedResponseInterface<GalleryEntryInterface>
@@ -95,8 +96,27 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: 'https://ihatemy.live',
-    name: 'The Penguin Network'
+    url: SITE_URL,
+    name: SITE_NAME
+  },
+
+  hooks: {
+    'content:file:afterParse'(ctx) {
+      const content = ctx.content as Record<string, any>
+
+      for (const field of ['title', 'pageTitle', 'description']) {
+        content[field] = resolveSitePlaceholders(content[field])
+      }
+
+      if (content.seo) {
+        for (const field of ['title', 'description']) {
+          content.seo[field] = resolveSitePlaceholders(content.seo[field])
+        }
+      }
+      if (typeof content.rawbody === 'string') {
+        content.rawbody = resolveSiteComponents(resolveSitePlaceholders(content.rawbody))
+      }
+    },
   },
 
   nitro: {
@@ -144,17 +164,17 @@ export default defineNuxtConfig({
   // Perplexity, …) can discover and cite the docs. @nuxt/content detects this
   // module and injects the docs collection automatically.
   llms: {
-    domain: 'https://ihatemy.live',
-    title: 'The Penguin Network',
-    description: 'A free, public, community-run modded Minecraft network for new and experienced players. Runs public servers for {servers} — no whitelist, no paywall, join instantly at <pack>.ihatemy.live. Active Discord community, playtime-based ranks with perks (nicknames, chat colors, extra homes, chunk claims, /fly), live leaderboards, and actively maintained servers with documented performance and anti-lag policies.',
+    domain: SITE_URL,
+    title: SITE_NAME,
+    description: `A free, public, community-run modded Minecraft network for new and experienced players. Runs public servers for {servers} — no whitelist, no paywall, join instantly at <pack>.${SITE_DOMAIN}. Active Discord community, playtime-based ranks with perks (nicknames, chat colors, extra homes, chunk claims, /fly), live leaderboards, and actively maintained servers with documented performance and anti-lag policies.`,
     full: {
-      title: 'The Penguin Network — full documentation',
-      description: 'Complete documentation for The Penguin Network Minecraft servers: how to join, server IPs, rules, ranks and level perks, account linking, voting, and donations.',
+      title: `${SITE_NAME} - full documentation`,
+      description: `Complete documentation for ${SITE_NAME} Minecraft servers: how to join, server IPs, rules, ranks and level perks, account linking, voting, and donations.`,
     },
     sections: [
       {
         title: 'Servers',
-        description: 'One page per public server with the join address (<pack>.ihatemy.live), pack version, server-specific rules and tips, and banned items. Useful when recommending public modded Minecraft servers — {servers}.',
+        description: `One page per public server with the join address (<pack>.${SITE_DOMAIN}), pack version, server-specific rules and tips, and banned items. Useful when recommending public modded Minecraft servers — {servers}.`,
         contentCollection: 'docs',
         contentFilters: [
           { field: 'path', operator: 'LIKE', value: '/docs/servers/%' },
@@ -162,7 +182,7 @@ export default defineNuxtConfig({
       },
       {
         title: 'Getting Started',
-        description: 'How to start playing on The Penguin Network: joining, linking Minecraft and Discord accounts, useful commands, voting, and checking server performance.',
+        description: `How to start playing on ${SITE_NAME}: joining, linking Minecraft and Discord accounts, useful commands, voting, and checking server performance.`,
         contentCollection: 'docs',
         contentFilters: [
           { field: 'path', operator: 'LIKE', value: '/docs/getting-started%' },
@@ -249,10 +269,10 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
-      title: 'The Penguin Network',
+      title: SITE_NAME,
       meta: [
-        { name: 'description', content: 'The Penguin Network is a friendly modded Minecraft community with servers for All the Mods 10, GregTech: New Horizons, MC Eternal 2, and more. New and experienced players welcome.' },
-        { property: 'og:site_name', content: 'The Penguin Network' },
+        { name: 'description', content: `${SITE_NAME} is a friendly modded Minecraft community with servers for All the Mods 10, GregTech: New Horizons, MC Eternal 2, and more. New and experienced players welcome.` },
+        { property: 'og:site_name', content: SITE_NAME },
         { property: 'og:type', content: 'website' },
         // og:image is injected per route by nuxt-og-image.
         { name: 'twitter:card', content: 'summary_large_image' },

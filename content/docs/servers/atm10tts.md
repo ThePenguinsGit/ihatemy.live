@@ -1,12 +1,12 @@
 ---
 title: ATM10TTS
-description: "All the Mods 10: To the Sky server info for The Penguin Network - join at atm10tts.ihatemy.live. Skyblock rules, tips, and banned items."
+description: "All the Mods 10: To the Sky server info for {siteName} - join at atm10tts.{siteDomain}. Skyblock rules, tips, and banned items."
 faq: false
 pageTitle: "All the Mods 10: To the Sky"
 position: 3.1
 seo:
   title: "ATM10: To the Sky Server"
-  description: "All the Mods 10: To the Sky server info for The Penguin Network - join at atm10tts.ihatemy.live. Skyblock rules, tips, and banned items."
+  description: "All the Mods 10: To the Sky server info for {siteName} - join at atm10tts.{siteDomain}. Skyblock rules, tips, and banned items."
 sitemap:
   loc: /docs/servers/atm10tts
 ---
@@ -15,7 +15,7 @@ sitemap:
   :::card
   |         |                       |
   | ------- | --------------------- |
-  | IP      | atm10tts.ihatemy.live |
+  | IP      | :server-host{short-name="atm10tts"} |
   | Version |    :server-version{short-name="atm10tts"}                   |
   :::
 

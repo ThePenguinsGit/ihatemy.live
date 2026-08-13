@@ -1,6 +1,6 @@
 ---
 title: SV
-description: 'Society: Sunlit Valley server info for The Penguin Network - join at sv.ihatemy.live. Server specifics, tips, and banned items.'
+description: 'Society: Sunlit Valley server info for {siteName} - join at sv.{siteDomain}. Server specifics, tips, and banned items.'
 pageTitle: "Society: Sunlit Valley"
 seo:
   title: 'Society: Sunlit Valley Server'
@@ -13,7 +13,7 @@ sitemap:
   :::card
   |         |                 |
   | ------- | --------------- |
-  | IP      | sv.ihatemy.live |
+  | IP      | :server-host{short-name="sv"} |
   | Version | :server-version{short-name="sv"} |
   :::
 

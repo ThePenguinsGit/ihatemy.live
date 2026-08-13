@@ -125,20 +125,21 @@ import type PlayTimeResultInterface from '~/interfaces/PlayTimeResultInterface';
 import type PaginatedResponseInterface from '~/interfaces/PaginatedResponseInterface';
 import type GalleryEntryInterface from '~/interfaces/GalleryEntryInterface';
 import appConfig from '~/app.config';
+import { SITE_NAME, siteUrl } from '~/utils/site';
 
 // Kept under ~160 chars so Google shows it whole rather than truncating mid-list.
 const description = 'A friendly modded Minecraft community for new and experienced players. Free public servers for ATM10, GregTech: New Horizons, MC Eternal 2, and more.'
 
 useSeoMeta({
-  title: 'The Penguin Network',
+  title: SITE_NAME,
   description,
-  ogTitle: 'The Penguin Network — Modded Minecraft Servers',
+  ogTitle: `${SITE_NAME}: Modded Minecraft Servers`,
   ogDescription: description,
 })
 
 defineOgImage('PenguinCard', {
   eyebrow: 'Modded Minecraft network',
-  title: 'The Penguin Network',
+  title: SITE_NAME,
   description: 'Free, public servers for ATM10, GregTech: New Horizons, MC Eternal 2, and more. Join quickly for free PenguTokens',
 })
 
@@ -153,10 +154,10 @@ useHead({
         '@graph': [
           {
             '@type': 'Organization',
-            '@id': 'https://ihatemy.live/#organization',
-            name: 'The Penguin Network',
-            url: 'https://ihatemy.live',
-            logo: 'https://ihatemy.live/logo_big.png',
+            '@id': siteUrl('/#organization'),
+            name: SITE_NAME,
+            url: siteUrl(),
+            logo: siteUrl('/logo_big.png'),
             description: 'A friendly modded Minecraft community running multiple public servers.',
             // Profiles that belong to the network itself — each one is another
             // edge for search and AI engines resolving us as a single entity.
@@ -168,10 +169,10 @@ useHead({
           },
           {
             '@type': 'WebSite',
-            '@id': 'https://ihatemy.live/#website',
-            name: 'The Penguin Network',
-            url: 'https://ihatemy.live',
-            publisher: { '@id': 'https://ihatemy.live/#organization' },
+            '@id': siteUrl('/#website'),
+            name: SITE_NAME,
+            url: siteUrl(),
+            publisher: { '@id': siteUrl('/#organization') },
             about: {
               '@type': 'VideoGame',
               name: 'Minecraft',

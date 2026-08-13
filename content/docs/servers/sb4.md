@@ -1,12 +1,12 @@
 ---
 title: SB4
-description: StoneBlock 4 server info for The Penguin Network - join at sb4.ihatemy.live. Server specifics, tips, and banned items.
+description: StoneBlock 4 server info for {siteName} - join at sb4.{siteDomain}. Server specifics, tips, and banned items.
 faq: false
 pageTitle: StoneBlock 4
 position: 3.5
 seo:
   title: StoneBlock 4 Server
-  description: StoneBlock 4 server info for The Penguin Network - join at sb4.ihatemy.live. Server specifics, tips, and banned items.
+  description: StoneBlock 4 server info for {siteName} - join at sb4.{siteDomain}. Server specifics, tips, and banned items.
 sitemap:
   loc: /docs/servers/sb4
 ---
@@ -15,7 +15,7 @@ sitemap:
   :::card
   |         |                  |
   | ------- | ---------------- |
-  | IP      | sb4.ihatemy.live |
+  | IP      | :server-host{short-name="sb4"} |
   | Version |     :server-version{short-name="sb4"}             |
   :::
 

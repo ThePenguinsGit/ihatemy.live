@@ -1,6 +1,6 @@
 ---
 title: Voting
-description: Vote for The Penguin Network on the modded Minecraft server lists to unlock /enderchest, portable workstations and chat colors, and keep your streak alive.
+description: Vote for {siteName} on the modded Minecraft server lists to unlock /enderchest, portable workstations and chat colors, and keep your streak alive.
 faq: false
 position: 1
 sitemap:

@@ -1,6 +1,6 @@
 ---
 title: 'Linking'
-description: 'How to link your Minecraft and Discord accounts on The Penguin Network with the /link command, and the perks you get for doing it.'
+description: 'How to link your Minecraft and Discord accounts on {siteName} with the /link command, and the perks you get for doing it.'
 pageTitle: 'Linking Minecraft <=> Discord'
 position: 0.1
 howto:

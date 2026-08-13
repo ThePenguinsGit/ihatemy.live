@@ -13,7 +13,7 @@ sitemap:
   ## Which hosting service do you use?
 
   We host some of our modpacks on Hetzner, and run the others on hardware we own ourselves.
-  Which one a given server sits on doesn't change anything for you as a player — the join address stays `<pack>.ihatemy.live` either way.
+  Which one a given server sits on doesn't change anything for you as a player — the join address stays :server-host{short-name="<pack>" code} either way.
   :::
 
   :::card

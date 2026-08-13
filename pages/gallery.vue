@@ -43,10 +43,11 @@
 </template>
 
 <script setup lang="ts">
+import { SITE_NAME } from '~/utils/site';
 import type PaginatedResponseInterface from '~/interfaces/PaginatedResponseInterface';
 import type GalleryEntryInterface from '~/interfaces/GalleryEntryInterface';
 
-const description = 'Screenshots of builds, bases, and cursed moments from The Penguin Network\'s modded Minecraft servers. Posted in our Discord and ranked by community votes.'
+const description = `Screenshots of builds, bases, and cursed moments from ${SITE_NAME}'s modded Minecraft servers. Posted in our Discord and ranked by community votes.`
 
 useSeoMeta({
   title: 'The Gallery',
@@ -56,7 +57,7 @@ useSeoMeta({
 })
 
 defineOgImage('PenguinCard', {
-  eyebrow: 'The Penguin Network',
+  eyebrow: SITE_NAME,
   title: 'The Gallery',
   description,
 })

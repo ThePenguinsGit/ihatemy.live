@@ -72,7 +72,7 @@
     <!-- Footer: live map -->
     <PixelButton
       v-if="online && !server.mapUnavailableReason"
-      :href="`https://maps.ihatemy.live/${server.shortName}/`"
+      :href="`${subdomain('maps')}/${server.shortName}/`"
       class="w-full text-sm"
     >Live Map</PixelButton>
     <PixelButton
@@ -85,6 +85,7 @@
 </template>
 
 <script setup lang="ts">
+import { serverHostname, subdomain } from '~/utils/site';
 import type McStatsResultInterface from '~/interfaces/McStatsResultInterface';
 import type ServerStatusInterface from "~/interfaces/ServerStatusInterface";
 
@@ -94,7 +95,7 @@ const props = defineProps<{
   docsPath?: string;
 }>();
 
-const hostname = `${props.server.shortName}.ihatemy.live`
+const hostname = serverHostname(props.server.shortName)
 
 const online = computed(() => props.stats?.online === true && props.stats.players.max !== null);
 
