@@ -184,7 +184,7 @@ export default defineNuxtConfig({
     groups: [
       {
         userAgent: ['*'],
-        disallow: [''],
+        disallow: ['/docs/ranks/leaderboard?'],
         contentSignal: 'search=yes, ai-input=yes, ai-train=no',
       },
     ],
