@@ -12,8 +12,8 @@ sitemap:
   :::card
   ## Which hosting service do you use?
 
-  We host some of our modpacks on Hetzner, and run the others on hardware we own ourselves.
-  Which one a given server sits on doesn't change anything for you as a player — the join address stays :server-host{short-name="<pack>" code} either way.
+  None! We don't rent game servers from anyone.
+  Every modpack runs on servers we built ourselves, standing in a datacenter we rent space in. There's more about the hardware (and what's currently in it) on the [About](/docs/about) page.
   :::
 
   :::card
