@@ -217,26 +217,6 @@ export default defineNuxtConfig({
     ],
   },
 
-  // Self-hosted Nuxt Studio — web-based editing of content/ for non-devs, no
-  // local git needed. Editor mounts at /_studio (SSR server routes) and commits
-  // to the repo via the GitHub API.
-  studio: {
-    route: '/_studio',
-    repository: {
-      provider: 'github',
-      owner: 'ThePenguinsGit',
-      repo: 'ihatemy.live',
-      branch: 'master',
-      private: true,
-    },
-    // Auth: custom OIDC/SSO provider (production Authentik). The module reads
-    // STUDIO_SSO_URL / STUDIO_SSO_CLIENT_ID / STUDIO_SSO_CLIENT_SECRET (and
-    // STUDIO_SSO_REDIRECT_URL) from env and enables SSO login when present.
-    // OIDC authenticates the person only, so commits are authorized by a
-    // service PAT in STUDIO_GITHUB_TOKEN. Dummy placeholders live in .env /
-    // .env.example now; production overrides them with real Authentik values.
-  },
-
   vite: {
     server: {
       allowedHosts: ['20f2-109-91-157-17.ngrok-free.app']
