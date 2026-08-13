@@ -17,7 +17,7 @@
         <img
           ref="shotImg"
           :src="entry.images[0]"
-          :alt="entry.content || `Screenshot by ${entry.authorUsername}`"
+          :alt="galleryAltText(entry)"
           :title="postedAt"
           loading="lazy"
           class="w-full h-full object-cover"

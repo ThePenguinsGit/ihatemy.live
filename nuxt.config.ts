@@ -1,5 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
+import { execFileSync } from "node:child_process";
+import { readdirSync } from "node:fs";
+import { join, relative } from "node:path";
 import { GALLERY_PER_PAGE } from "./utils/gallery";
 import type GalleryEntryInterface from "./interfaces/GalleryEntryInterface";
 import type PaginatedResponseInterface from "./interfaces/PaginatedResponseInterface";
@@ -23,12 +26,61 @@ async function galleryImageUrls() {
     }
 
     const images = body.data.flatMap(entry => entry.images.map(loc => ({ loc })))
-    if (images.length) urls.push({ loc: page === 1 ? '/gallery' : `/gallery?page=${page}`, images })
+    if (images.length) {
+      const newest = Math.max(...body.data.map(entry => entry.updatedAt))
+      urls.push({
+        loc: page === 1 ? '/gallery' : `/gallery?page=${page}`,
+        images,
+        lastmod: new Date(newest * 1000).toISOString(),
+      })
+    }
 
     if (page >= body.totalPages) break
   }
 
   return urls
+}
+
+function docsLastmodUrls() {
+  const root = join(process.cwd(), 'content/docs')
+
+  const walk = (dir: string): string[] => readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const full = join(dir, entry.name)
+    if (entry.isDirectory()) return walk(full)
+    return entry.name.endsWith('.md') ? [full] : []
+  })
+
+  let files: string[]
+  try {
+    files = walk(root)
+  } catch (error) {
+    console.warn('[sitemap] content/docs is unreadable, skipping lastmod:', error)
+    return []
+  }
+
+  const urls: { loc: string, lastmod: string }[] = []
+  for (const file of files) {
+    let lastmod: string
+    try {
+      lastmod = execFileSync('git', ['log', '-1', '--format=%cI', '--', file], {
+        cwd: process.cwd(), encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'],
+      }).trim()
+    } catch {
+      continue
+    }
+    if (!lastmod) continue
+
+    // content/docs/servers/atm10.md → /docs/servers/atm10
+    // content/docs/getting-started/index.md → /docs/getting-started
+    const slug = relative(root, file).replace(/\.md$/, '').replace(/\/index$/, '')
+    urls.push({ loc: `/docs/${slug}`, lastmod })
+  }
+
+  return urls
+}
+
+async function sitemapUrls() {
+  return [...await galleryImageUrls(), ...docsLastmodUrls()]
 }
 
 export default defineNuxtConfig({
@@ -177,7 +229,7 @@ export default defineNuxtConfig({
   sitemap: {
     discoverImages: false,
     zeroRuntime: true,
-    urls: galleryImageUrls,
+    urls: sitemapUrls,
   },
 
   robots: {
@@ -199,8 +251,8 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'en' },
       title: 'The Penguin Network',
       meta: [
-        { name: 'description', content: 'The PenguinNetwork is a friendly modded Minecraft community with servers for All the Mods 10, GregTech: New Horizons, MC Eternal 2, and more. New and experienced players welcome.' },
-        { property: 'og:site_name', content: 'The PenguinNetwork' },
+        { name: 'description', content: 'The Penguin Network is a friendly modded Minecraft community with servers for All the Mods 10, GregTech: New Horizons, MC Eternal 2, and more. New and experienced players welcome.' },
+        { property: 'og:site_name', content: 'The Penguin Network' },
         { property: 'og:type', content: 'website' },
         // og:image is injected per route by nuxt-og-image.
         { name: 'twitter:card', content: 'summary_large_image' },
@@ -247,6 +299,9 @@ export default defineNuxtConfig({
       },
     },
     '/discord': { redirect: 'https://discord.com/invite/tM4urb5SPQ' },
+    // Nothing to index behind a sign-in form. `robots: false` emits
+    // noindex, nofollow and drops the route from sitemap.xml in one go.
+    '/login': { robots: false },
     '/docs': { redirect: '/docs/getting-started' },
     // All /api/** (except the local /api/docs handler) is served by the authed
     // catch-all proxy in server/routes/api/[...].ts, which injects the PenguBot

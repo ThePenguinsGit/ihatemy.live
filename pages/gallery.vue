@@ -46,15 +46,19 @@
 import type PaginatedResponseInterface from '~/interfaces/PaginatedResponseInterface';
 import type GalleryEntryInterface from '~/interfaces/GalleryEntryInterface';
 
+const description = 'Screenshots of builds, bases, and cursed moments from The Penguin Network\'s modded Minecraft servers. Posted in our Discord and ranked by community votes.'
+
 useSeoMeta({
   title: 'The Gallery',
-  description: 'Screenshots of builds, bases, and cursed moments from The Penguin Network\'s modded Minecraft servers. Posted in our Discord and ranked by community votes.',
+  description,
+  ogTitle: 'The Gallery',
+  ogDescription: description,
 })
 
 defineOgImage('PenguinCard', {
-  eyebrow: 'The PenguinNetwork',
+  eyebrow: 'The Penguin Network',
   title: 'The Gallery',
-  description: 'Screenshots of builds, bases, and cursed moments from The Penguin Network\'s modded Minecraft servers. Posted in our Discord and ranked by community votes.',
+  description,
 })
 
 const route = useRoute()

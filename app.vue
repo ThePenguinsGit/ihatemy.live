@@ -15,15 +15,17 @@
 <script setup lang="ts">
 const route = useRoute()
 
-// Canonical/og:url track the route so every page self-identifies with its
-// canonical https://ihatemy.live URL (query strings and hashes excluded).
-const canonical = computed(() => `https://ihatemy.live${route.path}`)
+const canonical = computed(() => {
+  const page = Number.parseInt(String(route.query.page), 10)
+  const suffix = Number.isInteger(page) && page > 1 ? `?page=${page}` : ''
+  return `https://ihatemy.live${route.path}${suffix}`
+})
 
 useHead({
   titleTemplate: (title) =>
-    title && title !== 'The PenguinNetwork'
-      ? `${title} · The PenguinNetwork`
-      : 'The PenguinNetwork',
+    title && title !== 'The Penguin Network'
+      ? `${title} · The Penguin Network`
+      : 'The Penguin Network',
   link: [{ rel: 'canonical', href: canonical }],
   meta: [{ property: 'og:url', content: canonical }],
 })

@@ -4,7 +4,10 @@
     <div class="flex items-center gap-3 px-3 py-3 border-b-4 border-ink/10">
       <img :src="`/img/${server.shortName}.png`" :alt="server.displayName" class="w-12 h-12 shrink-0 object-cover" />
       <div class="flex flex-col grow">
-        <a v-if="server.packLink" :href="server.packLink" target="_blank">
+        <NuxtLink v-if="docsPath" :to="docsPath" :title="`${server.displayName} server info`">
+          <h2 class="text-2xl leading-none truncate">{{ server.displayName }}</h2>
+        </NuxtLink>
+        <a v-else-if="server.packLink" :href="server.packLink" target="_blank">
           <h2 class="text-2xl leading-none truncate">{{ server.displayName }}</h2>
         </a>
         <h2 v-else class="text-2xl leading-none truncate">{{ server.displayName }}</h2>
@@ -88,6 +91,7 @@ import type ServerStatusInterface from "~/interfaces/ServerStatusInterface";
 const props = defineProps<{
   server: ServerStatusInterface
   stats?: McStatsResultInterface | null;
+  docsPath?: string;
 }>();
 
 const hostname = `${props.server.shortName}.ihatemy.live`

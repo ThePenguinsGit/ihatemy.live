@@ -2,7 +2,7 @@
   <Card class="items-start">
     <div class="flex justify-between">
       <div>
-        <h1>Top {{ data?.data.length ?? 10 }}<span v-if="(data?.data.length ?? 0) < 10" title="For now">*</span></h1>
+        <h2 class="text-3xl">Top {{ data?.data.length ?? 10 }}<span v-if="(data?.data.length ?? 0) < 10" title="For now">*</span></h2>
         <div class="flex items-center gap-2">
           <i :class="{ 'opacity-50': allTime }">Last 30 days</i>
           <PixelSwitch v-model="allTime" label="Show all-time leaderboard" />

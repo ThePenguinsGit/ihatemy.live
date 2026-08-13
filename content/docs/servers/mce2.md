@@ -2,6 +2,8 @@
 title: 'MCE2'
 description: 'MC Eternal 2 server info for The Penguin Network - join at mce2.ihatemy.live. Server specifics, tips, and banned items.'
 pageTitle: 'MC Eternal 2'
+seo:
+  title: 'MC Eternal 2 Server'
 position: 3.5
 ---
 ::row

@@ -2,6 +2,8 @@
 title: SV
 description: 'Society: Sunlit Valley server info for The Penguin Network - join at sv.ihatemy.live. Server specifics, tips, and banned items.'
 pageTitle: "Society: Sunlit Valley"
+seo:
+  title: 'Society: Sunlit Valley Server'
 position: 3.6
 sitemap:
   loc: /docs/servers/sv

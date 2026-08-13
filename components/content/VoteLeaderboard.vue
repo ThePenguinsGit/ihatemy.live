@@ -2,7 +2,7 @@
   <Card v-if="data" class="items-start">
     <div class="flex justify-between">
       <div>
-        <h1>Top {{ data.data.length }}<span v-if="data.data.length < 10" title="For now">*</span></h1>
+        <h2 class="text-3xl">Top {{ data.data.length }}<span v-if="data.data.length < 10" title="For now">*</span></h2>
         <i>with the highest Streak</i>
       </div>
       <div class="text-right flex items-end">

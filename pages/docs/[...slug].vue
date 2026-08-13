@@ -59,6 +59,54 @@ const crumbs = computed<Crumb[]>(() => {
   return items
 })
 
+// Structured data. BreadcrumbList mirrors the breadcrumb trail rendered below,
+// and pages with `faq: true` in frontmatter additionally publish their own
+// question/answer pairs as FAQPage — both are built from what the page already
+// shows, never from separate copy.
+const jsonLd = computed(() => {
+  if (!page.value) return null
+
+  // Only the final crumb may omit `item`, so unlinked intermediates — a section
+  // like "Servers" that has no page of its own — are left out of the trail
+  // rather than emitted as position-less entries.
+  const linkedCrumbs = crumbs.value.filter((crumb, i) => crumb.to || i === crumbs.value.length - 1)
+
+  const graph: Record<string, unknown>[] = [{
+    '@type': 'BreadcrumbList',
+    itemListElement: linkedCrumbs.map((crumb, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: crumb.label,
+      ...(crumb.to ? { item: `https://ihatemy.live${crumb.to}` } : {}),
+    })),
+  }]
+
+  const howTo = buildHowTo(page.value.howto, page.value.body, page.value.pageTitle ?? page.value.title)
+  if (howTo) graph.push(howTo)
+
+  if (page.value.faq) {
+    const pairs = extractFaqPairs(page.value.body)
+    if (pairs.length) {
+      graph.push({
+        '@type': 'FAQPage',
+        mainEntity: pairs.map(({ question, answer }) => ({
+          '@type': 'Question',
+          name: question,
+          acceptedAnswer: { '@type': 'Answer', text: answer },
+        })),
+      })
+    }
+  }
+
+  return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })
+})
+
+useHead({
+  script: computed(() => (jsonLd.value
+    ? [{ type: 'application/ld+json', innerHTML: jsonLd.value }]
+    : [])),
+})
+
 const currentIndex = computed(() => flat.value.findIndex((i) => i.path === route.path))
 const prev = computed(() =>
   currentIndex.value > 0 ? flat.value[currentIndex.value - 1] : null,
