@@ -8,8 +8,7 @@ sitemap:
   loc: /docs/about
 ---
 
-**:site-name is a free, public modded Minecraft network, run by two people since 2019.**
-Our public servers are free for everyone and nothing is pay to win, we just run the servers we wanted to play on.
+**:site-name is a free, public modded Minecraft network, run by passionate people ever since 2019.**
 
 ::row
   :::card
