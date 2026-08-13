@@ -13,9 +13,14 @@ howto:
     - 'If the TPS is low and your base chunk coordinates show up in the top 10, clean your base up.'
 ---
 
-## Performance Guide
+## How do I check if the server is lagging?
 
-<img style="float: right;" src="/img/docs/performance/tps-view.png">
+Just run `/spark tps` in chat! A TPS of 20 means the server is running fine, anything
+lower means something is dragging it down. If it's low you can use Observable
+(unlocked at Level 10) to see which blocks are costing the most, and then go clean up
+whatever shows up at the top.
+
+<img style="float: right;" src="/img/docs/performance/tps-view.png" alt="The output of /spark tps, showing the server's current TPS">
 
 To make sure our servers run well, every player needs to do their part too!  
 This page here will tell you how you can check if the server is lagging and what's causing it.  
@@ -30,7 +35,7 @@ As you can see, you just need to search for "Profiler" and it will show up! (Be 
 After pressing that keybind you'll see this screen:
 
 <div style="text-align: center;">
-<img style="display: inline-block;" src="/img/docs/performance/observable-gui.png">
+<img style="display: inline-block;" src="/img/docs/performance/observable-gui.png" alt="The Observable profiler window with the Profile TPS button">
 </div>
 
 ## Using Observable

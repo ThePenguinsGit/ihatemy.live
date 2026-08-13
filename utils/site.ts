@@ -33,6 +33,28 @@ export function resolveSiteComponents(markdown: string): string {
   )
 }
 
+/**
+ * Expand placeholders through a whole frontmatter object: nested config like
+ * `itemlist.name` or `howto.steps` is metadata too, and authors shouldn't have
+ * to remember which fields are wired up.
+ */
+export function resolveSitePlaceholdersDeep<T>(value: T, skipKeys: string[] = []): T {
+  if (typeof value === 'string') return resolveSitePlaceholders(value)
+
+  if (Array.isArray(value)) {
+    return value.map(item => resolveSitePlaceholdersDeep(item, skipKeys)) as T
+  }
+
+  if (value && typeof value === 'object') {
+    for (const [key, item] of Object.entries(value)) {
+      if (skipKeys.includes(key)) continue
+      (value as Record<string, unknown>)[key] = resolveSitePlaceholdersDeep(item, skipKeys)
+    }
+  }
+
+  return value
+}
+
 export function resolveSitePlaceholders<T>(value: T): T {
   if (typeof value !== 'string') return value
 

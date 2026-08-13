@@ -14,7 +14,12 @@ Some new integrations are still in the making, but right now you can already
 - see your donator rank in Minecraft and get the respective benefits
 - see your level in Discord and get the bragging rights _(note that we did group the levels a bit to keep the sidebar cleaner)_
 
-## How to link
+## How do I link my Minecraft and Discord account?
+
+Just run `/link` in the Minecraft chat to get a 6-digit code, then run `/link` with
+that code in our Discord! Takes about a minute and you only ever do it once. After
+that your level shows up in Discord and your donator rank shows up in Minecraft.
+
 1. Join our Discord server, if you haven't (should be obvious, ngl)
 2. Run `/link` in the Minecraft chat, this will give you a 6-digit code
 3. Run `/link` (with the 6-digit code) in any of our Discord channels _(don't worry, no one can see you sending the command)_

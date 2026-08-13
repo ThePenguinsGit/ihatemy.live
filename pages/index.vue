@@ -131,7 +131,7 @@ import { SITE_NAME, siteUrl } from '~/utils/site';
 const description = 'A friendly modded Minecraft community for new and experienced players. Free public servers for ATM10, GregTech: New Horizons, MC Eternal 2, and more.'
 
 useSeoMeta({
-  title: SITE_NAME,
+  title: 'Modded Minecraft Servers',
   description,
   ogTitle: `${SITE_NAME}: Modded Minecraft Servers`,
   ogDescription: description,

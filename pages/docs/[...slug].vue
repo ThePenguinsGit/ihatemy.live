@@ -85,6 +85,9 @@ const jsonLd = computed(() => {
   const howTo = buildHowTo(page.value.howto, page.value.body, page.value.pageTitle ?? page.value.title)
   if (howTo) graph.push(howTo)
 
+  const itemList = buildItemList(page.value.itemlist, page.value.body, page.value.pageTitle ?? page.value.title)
+  if (itemList) graph.push(itemList)
+
   if (page.value.faq) {
     const pairs = extractFaqPairs(page.value.body)
     if (pairs.length) {
@@ -133,6 +136,9 @@ const toc = computed(() => page.value?.body?.toc?.links ?? [])
             {{ page.pageTitle ?? page.title }}
           </h1>
           <p v-if="page.description" class="text-white/70">{{ page.description }}</p>
+          <p v-if="page.updatedAt" class="eyebrow !text-white/40">
+            Updated {{ $dayjs(page.updatedAt).local().format('DD.MM.YYYY') }}
+          </p>
         </header>
 
         <Card variant="panel" class="md:p-6">

@@ -19,22 +19,28 @@ sitemap:
   :::card
   ## Can you add mod X to the server?
 
-  We can't add mods to a running server, unfortunately.
-  If the mod isn't server-side only, **all players** will have to manually download that single mod too — so one addition locks out everyone who hasn't installed it yet. That's why the answer is no.
+  We can't add mods to a running server, sadly.
+  If the mod isn't server-side only, **all players** will have to manually download that single mod too, so a single addition locks out everyone who hasn't installed it yet :(
   :::
 
   :::card
   ## Can I join the staff team?
 
-  We're currently not looking for new staff members, but we might be in the future!
-  There's no application form to fill in — when we do open up, it gets announced in our Discord.
+  Yes, applications are open right now! Here's what we're looking for:
+
+  - an active part of the community, someone people already recognize
+  - at least [level 100](/docs/ranks)
+  - knows the [rules](/docs/rules) and actually sticks to them
+  - as deranged as we are
+
+  If that sounds like you, just fill out [our application form](https://forms.gle/UoVmjX7QWUd5xdjQ6) and we'll have a look at it!
   :::
 
   :::card
   ## Can you host modpack Y?
 
   Maybe! We take modpack requests from the community.
-  Go and post yours on our discord in the [#suggestions](https://discord.com/channels/637719625274228743/1151595305872146652) channel, and we'll take a look at what it would involve.
+  Just post yours on our discord in the [#suggestions](https://discord.com/channels/637719625274228743/1151595305872146652) channel and we'll have a look!
   :::
 
   :::card
@@ -53,13 +59,13 @@ sitemap:
   ## I am having issue X, please help!!
 
   Support happens in our Discord, in [#tech-support](https://discord.com/channels/637719625274228743/677466545135550475).
-  Take a look there first — maybe someone had the same problem recently as well. If not, feel free to ask, and you'll get the help you need!
+  Take a look there first, maybe someone had the same problem recently as well! If not, feel free to ask and you'll get the help you need.
   :::
 
   :::card
   ## Are there any plans to wipe the overworld?
 
-  Probably not. We only wipe maps if they are beyond repair — it isn't something we do on a schedule, and it isn't something we do quietly. :br
+  Probably not! We only wipe a map if it's beyond repair, and that's not something we'd ever do quietly. :br
   So keep your base tidy :br
   (check [Performance](/docs/getting-started/performance) (yes this is a threat))
   :::
@@ -75,8 +81,8 @@ sitemap:
   :::card
   ## What happens when a server gets shut down?
 
-  Nothing disappears without warning: we announce a shutdown well in advance, and afterwards the world stays downloadable. :br
-  We provide downloads of our old maps, so you can continue playing on your own (if you want to, of course)! Every retired server and its map lives on in [The Graveyard](/graveyard).
+  Nothing ever disappears without warning! We announce a shutdown well in advance, and the world stays downloadable afterwards. :br
+  We provide downloads of our old maps, so you can continue playing on your own (if you want to, of course)! Every retired server and its map is over in [The Graveyard](/graveyard).
   :::
 
   :::card

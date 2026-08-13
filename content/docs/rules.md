@@ -1,11 +1,14 @@
 ---
 title: Rules
-description: "The rules of The PenguinNetwork Minecraft servers and Discord: respect, no griefing, no TPS abuse, and how we handle exploits."
+description: "The rules of {siteName} Minecraft servers and Discord: respect, no griefing, no TPS abuse, and how we handle exploits."
 faq: false
 pageTitle: Server Rules
 position: 1
 sitemap:
   loc: /docs/rules
+itemlist:
+  name: '{siteName} server rules'
+  startsWith: 'Rule'
 ---
 
 **We have a list of rules to keep a civil network, since we're all here to have a good time. Failure to follow the rules will likely result in vague administrative action**

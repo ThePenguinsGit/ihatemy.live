@@ -14,9 +14,18 @@ export default defineContentConfig({
         pageTitle: z.string().optional(),
         sitemap: defineSitemapSchema(),
         robots: defineRobotsSchema(),
+        // Last commit date of the source file, filled in at parse time by the
+        // `content:file:afterParse` hook so pages can show when they were updated.
+        updatedAt: z.string().optional(),
         // Opt a page into FAQPage JSON-LD built from its own `## question` +
         // answer pairs (see utils/faqSchema.ts).
         faq: z.boolean().optional(),
+        // Opt a page into ItemList JSON-LD built from its `##` headings
+        // (see utils/itemListSchema.ts).
+        itemlist: z.object({
+          name: z.string().optional(),
+          startsWith: z.string().optional(),
+        }).optional(),
         // Opt a page into HowTo JSON-LD. Steps come from the page's first
         // numbered list unless `steps` spells them out (see utils/howToSchema.ts).
         howto: z.object({

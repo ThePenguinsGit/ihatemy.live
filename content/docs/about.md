@@ -8,6 +8,9 @@ sitemap:
   loc: /docs/about
 ---
 
+**:site-name is a free, public modded Minecraft network, run by two people since 2019.**
+Our public servers are free for everyone and nothing is pay to win, we just run the servers we wanted to play on.
+
 ::row
   :::card
   ## Who we are
@@ -54,8 +57,9 @@ sitemap:
 
   :br
 
-  Donating will get you bragging rights and some chat and nickname formatting, that's
-  it. The [donations](/docs/donations) page has the details.
+  Donating will get you bragging rights, some chat and nickname formatting and early
+  access to [pre-release](/docs/donations/pre-release) servers, that's it. The
+  [donations](/docs/donations) page has the details.
 
   Everything that actually does something in-game (chunk claims, extra homes,
   `/fly`, even `/god`!) is earned by playtime across the network. Check out the
@@ -82,7 +86,7 @@ sitemap:
 
   :br
 
-  The few servers that did get shut down over the years only went after a long time with nobody playing on them. :br
+  The few servers we did shut down over the years only went after a long time with nobody playing on them. :br
   And even those aren't gone: the maps stay downloadable in [The Graveyard](/graveyard). :br
   So if you come back months later, you can still grab your world and keep playing locally.
   :::

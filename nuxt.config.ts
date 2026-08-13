@@ -4,7 +4,7 @@ import { execFileSync } from "node:child_process";
 import { readdirSync } from "node:fs";
 import { join, relative } from "node:path";
 import { GALLERY_PER_PAGE } from "./utils/gallery";
-import { SITE_DOMAIN, SITE_NAME, SITE_URL, resolveSiteComponents, resolveSitePlaceholders } from "./utils/site";
+import { SITE_DOMAIN, SITE_NAME, SITE_URL, resolveSiteComponents, resolveSitePlaceholders, resolveSitePlaceholdersDeep } from "./utils/site";
 import type GalleryEntryInterface from "./interfaces/GalleryEntryInterface";
 import type PaginatedResponseInterface from "./interfaces/PaginatedResponseInterface";
 
@@ -42,6 +42,17 @@ async function galleryImageUrls() {
   return urls
 }
 
+function lastCommitDate(file: string) {
+  try {
+    return execFileSync('git', ['log', '-1', '--format=%cI', '--', file], {
+      cwd: process.cwd(), encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim()
+  } catch {
+    // No git, or a shallow clone that doesn't reach this file's last commit.
+    return ''
+  }
+}
+
 function docsLastmodUrls() {
   const root = join(process.cwd(), 'content/docs')
 
@@ -61,14 +72,7 @@ function docsLastmodUrls() {
 
   const urls: { loc: string, lastmod: string }[] = []
   for (const file of files) {
-    let lastmod: string
-    try {
-      lastmod = execFileSync('git', ['log', '-1', '--format=%cI', '--', file], {
-        cwd: process.cwd(), encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'],
-      }).trim()
-    } catch {
-      continue
-    }
+    const lastmod = lastCommitDate(file)
     if (!lastmod) continue
 
     // content/docs/servers/atm10.md → /docs/servers/atm10
@@ -104,15 +108,11 @@ export default defineNuxtConfig({
     'content:file:afterParse'(ctx) {
       const content = ctx.content as Record<string, any>
 
-      for (const field of ['title', 'pageTitle', 'description']) {
-        content[field] = resolveSitePlaceholders(content[field])
+      resolveSitePlaceholdersDeep(content, ['body', 'rawbody'])
+      if (ctx.file?.path) {
+        content.updatedAt = lastCommitDate(ctx.file.path) || undefined
       }
 
-      if (content.seo) {
-        for (const field of ['title', 'description']) {
-          content.seo[field] = resolveSitePlaceholders(content.seo[field])
-        }
-      }
       if (typeof content.rawbody === 'string') {
         content.rawbody = resolveSiteComponents(resolveSitePlaceholders(content.rawbody))
       }
