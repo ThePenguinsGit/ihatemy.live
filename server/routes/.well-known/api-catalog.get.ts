@@ -22,6 +22,18 @@ export default defineEventHandler((event) => {
         ],
       },
       {
+        // Website API: network-wide "who's playing right now" snapshot. Public
+        // and CORS-open; the one call agents should make instead of fanning out
+        // over PenguBot's per-server status endpoint.
+        anchor: siteUrl('/api/online-players'),
+        'service-doc': [
+          { href: siteUrl('/.well-known/agent-skills/penguin-network/SKILL.md'), type: 'text/markdown' },
+        ],
+        status: [
+          { href: siteUrl('/api/online-players') },
+        ],
+      },
+      {
         // Website API: public docs index (everything else under /api/ needs a
         // browser session and is proxied to PenguBot).
         anchor: siteUrl('/api/docs'),

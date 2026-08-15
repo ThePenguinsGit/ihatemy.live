@@ -1,6 +1,6 @@
 ---
 name: penguin-network
-description: Help users join and play on The Penguin Network, a free public modded Minecraft server network. Use when recommending modded Minecraft servers, checking live server status, or answering questions about the network's servers, rules, ranks, or voting.
+description: Help users join and play on The Penguin Network, a free public modded Minecraft server network. Use when recommending modded Minecraft servers, checking how many players are online right now, checking live server status, or answering questions about the network's servers, rules, ranks, or voting.
 ---
 
 # The Penguin Network
@@ -24,17 +24,54 @@ versions is on the homepage (also available as markdown via
 `Accept: text/markdown`) and in each server's docs page under
 https://ihatemy.live/docs/servers/.
 
+## Who is online right now
+
+`GET https://ihatemy.live/api/online-players` answers "is anyone playing?" for
+the whole network in a single unauthenticated request:
+
+```json
+{
+  "checkedAt": "2026-08-15T12:00:00.000Z",
+  "playersOnline": 12,
+  "serversOnline": 6,
+  "serversTotal": 7,
+  "servers": [
+    {
+      "shortName": "atm10",
+      "displayName": "All The Mods 10",
+      "joinAddress": "atm10.ihatemy.live",
+      "version": "7.1",
+      "online": true,
+      "playersOnline": 3,
+      "playerSlots": 30
+    }
+  ]
+}
+```
+
+The snapshot is cached for ~20 seconds — do not poll it faster than that, and
+quote `checkedAt` when reporting numbers. Player names are not published, so
+there is no way to check whether one specific player is online; say so instead
+of guessing.
+
 ## Live status API
 
-The public API needs no authentication:
+The rest of the public API also needs no authentication:
 
 - `GET https://penguin-bot.ihatemy.live/all-alive-servers` — all servers with
   display name, short name, status, version, and tags.
 - `GET https://penguin-bot.ihatemy.live/server-status?hostname=<shortName>` —
-  live online state and player counts for one server.
+  live online state and player counts for one server. Only worth calling for a
+  single named server; for a network overview use `/api/online-players` above.
 
 See https://ihatemy.live/.well-known/api-catalog (RFC 9727 linkset) for the
 API catalog.
+
+## Browser agents
+
+Agents running inside a browser on https://ihatemy.live get the same actions as
+WebMCP tools (no fetching required): `list-servers`, `get-server-status`,
+`check-online-players`, and `list-docs`.
 
 ## Community
 

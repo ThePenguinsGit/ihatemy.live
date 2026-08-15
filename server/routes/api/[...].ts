@@ -2,9 +2,9 @@ import { jwtDecode } from 'jwt-decode'
 import type { JwtPayload } from '~/interfaces/JwtPayload'
 
 // Authed catch-all proxy to the PenguBot backend. Everything under /api/**
-// (except the local /api/docs handler, which is a more specific static route
-// and wins over this wildcard) is forwarded to penguin-bot.ihatemy.live with
-// the same path + query.
+// (except the local /api/docs and /api/online-players handlers, which are more
+// specific static routes and win over this wildcard) is forwarded to
+// penguin-bot.ihatemy.live with the same path + query.
 //
 // The PenguBot JWT lives server-only in the sealed session (secure.apiToken);
 // we inject it here as the raw `Authorization` value the backend expects. This

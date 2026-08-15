@@ -35,7 +35,7 @@ export default defineNuxtPlugin(() => {
       {
         name: 'get-server-status',
         description:
-          'Get the live status (online/offline and player counts) of one Penguin Network Minecraft server.',
+          'Get the live status (online/offline and player counts) of one Penguin Network Minecraft server. For the whole network at once, use check-online-players instead.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -53,6 +53,16 @@ export default defineNuxtPlugin(() => {
             query: { hostname },
           })
           return asText(status)
+        },
+      },
+      {
+        name: 'check-online-players',
+        description:
+          `Check how many players are online right now on ${SITE_NAME}, across the whole network in one call: total players online, how many servers are up, and a per-server breakdown with player counts, slots, and join address. Use this to answer "is anyone playing?", "how busy is the network?" or "which server is most active?" instead of calling get-server-status for every server. Player names are not published, so this cannot tell whether one specific player is online.`,
+        inputSchema: { type: 'object', properties: {} },
+        async execute() {
+          const snapshot = await $fetch('/api/online-players')
+          return asText(snapshot)
         },
       },
       {

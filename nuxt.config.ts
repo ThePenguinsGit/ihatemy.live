@@ -165,7 +165,7 @@ export default defineNuxtConfig({
   llms: {
     domain: SITE_URL,
     title: SITE_NAME,
-    description: `A free, public, community-run modded Minecraft network for new and experienced players. Runs public servers for {servers} — no whitelist, no paywall, join instantly at <pack>.${SITE_DOMAIN}. Active Discord community, playtime-based ranks with perks (nicknames, chat colors, extra homes, chunk claims, /fly), live leaderboards, and actively maintained servers with documented performance and anti-lag policies.`,
+    description: `A free, public, community-run modded Minecraft network for new and experienced players. Runs public servers for {servers} — no whitelist, no paywall, join instantly at <pack>.${SITE_DOMAIN}. Active Discord community, playtime-based ranks with perks (nicknames, chat colors, extra homes, chunk claims, /fly), live leaderboards, and actively maintained servers with documented performance and anti-lag policies. Live player counts for the whole network (total online, servers up, per-server breakdown) are one unauthenticated request away at ${SITE_URL}/api/online-players.`,
     full: {
       title: `${SITE_NAME} - full documentation`,
       description: `Complete documentation for ${SITE_NAME} Minecraft servers: how to join, server IPs, rules, ranks and level perks, account linking, voting, and donations.`,
@@ -302,9 +302,10 @@ export default defineNuxtConfig({
     // noindex, nofollow and drops the route from sitemap.xml in one go.
     '/login': { robots: false },
     '/docs': { redirect: '/docs/getting-started' },
-    // All /api/** (except the local /api/docs handler) is served by the authed
-    // catch-all proxy in server/routes/api/[...].ts, which injects the PenguBot
-    // JWT from the sealed session. Keep only the docs prerender rule here.
+    // All /api/** (except the local /api/docs and /api/online-players handlers)
+    // is served by the authed catch-all proxy in server/routes/api/[...].ts,
+    // which injects the PenguBot JWT from the sealed session. Keep only the docs
+    // prerender rule here — online-players is live data and caches itself.
     '/api/docs': { prerender: true },
     // Rendered once at build time; the digests can't drift from the SKILL.md
     // files because the route computes them from the same assets.

@@ -27,6 +27,7 @@ function homepageMarkdown(discordUrl: string): string {
     '',
     `- Documentation: ${siteUrl('/docs/getting-started')}`,
     `- Discord: ${discordUrl}`,
+    `- Players online right now (JSON, network-wide): ${siteUrl('/api/online-players')}`,
     `- LLM-friendly overview: ${siteUrl('/llms.txt')} (full docs: ${siteUrl('/llms-full.txt')})`,
     `- API catalog: ${siteUrl('/.well-known/api-catalog')}`,
     '',
