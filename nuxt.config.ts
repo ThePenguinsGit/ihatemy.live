@@ -2,7 +2,7 @@
 import tailwindcss from "@tailwindcss/vite";
 import { execFileSync } from "node:child_process";
 import { readdirSync } from "node:fs";
-import { join, relative } from "node:path";
+import { join, relative, sep } from "node:path";
 import { GALLERY_PER_PAGE } from "./utils/gallery";
 import { SITE_DOMAIN, SITE_NAME, SITE_URL, resolveSiteComponents, resolveSitePlaceholders, resolveSitePlaceholdersDeep } from "./utils/site";
 import type GalleryEntryInterface from "./interfaces/GalleryEntryInterface";
@@ -42,13 +42,32 @@ async function galleryImageUrls() {
   return urls
 }
 
+// A shallow clone holds a single commit, so `git log -1 -- <file>` answers with
+// the tip commit for EVERY file: a uniform lastmod that changes on every deploy
+// and describes nothing. That is worse than no lastmod, so detect the shallow
+// case once and stay silent instead. scripts/unshallow.mjs (wired into the
+// build script) deepens the clone first, so this should only trip if that step
+// could not reach the remote.
+const isShallowClone = (() => {
+  try {
+    return execFileSync('git', ['rev-parse', '--is-shallow-repository'], {
+      cwd: process.cwd(), encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim() === 'true'
+  } catch {
+    // No git at all — lastCommitDate's own catch handles that.
+    return false
+  }
+})()
+
 function lastCommitDate(file: string) {
+  if (isShallowClone) return ''
+
   try {
     return execFileSync('git', ['log', '-1', '--format=%cI', '--', file], {
       cwd: process.cwd(), encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'],
     }).trim()
   } catch {
-    // No git, or a shallow clone that doesn't reach this file's last commit.
+    // No git, or a file with no commits yet.
     return ''
   }
 }
@@ -74,10 +93,7 @@ function docsLastmodUrls() {
   for (const file of files) {
     const lastmod = lastCommitDate(file)
     if (!lastmod) continue
-
-    // content/docs/servers/atm10.md → /docs/servers/atm10
-    // content/docs/getting-started/index.md → /docs/getting-started
-    const slug = relative(root, file).replace(/\.md$/, '').replace(/\/index$/, '')
+    const slug = relative(root, file).split(sep).join('/').replace(/\.md$/, '').replace(/\/index$/, '')
     urls.push({ loc: `/docs/${slug}`, lastmod })
   }
 

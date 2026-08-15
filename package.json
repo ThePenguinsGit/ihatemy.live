@@ -2,7 +2,8 @@
   "name": "nuxt-app",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
+    "build": "node scripts/unshallow.mjs && nuxt build && node scripts/indexnow.mjs --snapshot",
+    "indexnow:submit": "node scripts/indexnow.mjs --submit",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
