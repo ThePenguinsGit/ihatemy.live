@@ -25,3 +25,5 @@ logs
 !.env.example
 /.direnv/
 /build/
+
+.indexnow.json

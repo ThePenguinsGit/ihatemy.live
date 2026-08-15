@@ -39,7 +39,7 @@ npm run preview
 `npm run build` restores the git history first (Cloudflare clones at depth 1,
 which would otherwise give every docs page the same sitemap `lastmod`) and ends
 by diffing the freshly built sitemap against the one currently live, writing the
-changed URLs to `.output/indexnow.json`.
+changed URLs to `.indexnow.json` in the repo root
 
 Those URLs are then announced to IndexNow (Bing, Yandex, Seznam, Naver, Yep —
 not Google). Pages has no deploy command, so the submit runs at the end of the

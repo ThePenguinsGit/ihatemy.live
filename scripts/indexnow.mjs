@@ -6,8 +6,11 @@ const API_ENDPOINT = 'https://api.indexnow.org/indexnow'
 const MAX_URLS_PER_REQUEST = 10_000
 const PRODUCTION_BRANCH = 'master'
 
-const BUILT_SITEMAP = join('.output', 'public', 'sitemap.xml')
-const HANDOFF_FILE = join('.output', 'indexnow.json')
+const SITEMAP_CANDIDATES = [
+  join('.output', 'public', 'sitemap.xml'),
+  join('dist', 'sitemap.xml'),
+]
+const HANDOFF_FILE = '.indexnow.json'
 
 function parseSitemap(xml) {
   const entries = new Map()
@@ -21,9 +24,18 @@ function parseSitemap(xml) {
   return entries
 }
 
+async function readBuiltSitemap() {
+  for (const candidate of SITEMAP_CANDIDATES) {
+    const xml = await readFile(candidate, 'utf8').catch(() => null)
+    if (xml) return { xml, path: candidate }
+  }
+  throw new Error(`no built sitemap in ${SITEMAP_CANDIDATES.join(' or ')} — did the build run?`)
+}
+
 async function snapshot() {
-  const built = parseSitemap(await readFile(BUILT_SITEMAP, 'utf8'))
-  if (!built.size) throw new Error(`${BUILT_SITEMAP} contained no URLs`)
+  const { xml, path } = await readBuiltSitemap()
+  const built = parseSitemap(xml)
+  if (!built.size) throw new Error(`${path} contained no URLs`)
 
   const { host, origin } = new URL(built.keys().next().value)
 
