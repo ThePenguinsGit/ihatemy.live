@@ -9,4 +9,6 @@ export default interface ServerStatusInterface {
   tags: string[];
   packLink: string|null;
   releasedSince: string|null;
+  mapUrl: string|null;
+  mapOnline: boolean;
 }

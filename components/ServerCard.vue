@@ -71,21 +71,21 @@
 
     <!-- Footer: live map -->
     <PixelButton
-      v-if="online && !server.mapUnavailableReason"
-      :href="`${subdomain('maps')}/${server.shortName}/`"
+      v-if="server.mapUrl && server.mapOnline"
+      :href="server.mapUrl"
       class="w-full text-sm"
     >Live Map</PixelButton>
     <PixelButton
       v-else
       disabled
-      :title="server.mapUnavailableReason ?? 'No map available'"
+      :title="mapUnavailableTitle"
       class="w-full text-sm opacity-50 cursor-not-allowed"
-    >{{ server.mapUnavailableReason ? 'No Map' : 'Live Map' }}</PixelButton>
+    >{{ server.mapUrl && !server.mapUnavailableReason ? 'Map Offline' : 'No Map' }}</PixelButton>
   </Card>
 </template>
 
 <script setup lang="ts">
-import { serverHostname, subdomain } from '~/utils/site';
+import { serverHostname } from '~/utils/site';
 import type McStatsResultInterface from '~/interfaces/McStatsResultInterface';
 import type ServerStatusInterface from "~/interfaces/ServerStatusInterface";
 
@@ -98,6 +98,10 @@ const props = defineProps<{
 const hostname = serverHostname(props.server.shortName)
 
 const online = computed(() => props.stats?.online === true && props.stats.players.max !== null);
+
+const mapUnavailableTitle = computed(() =>
+  props.server.mapUnavailableReason ?? (props.server.mapUrl ? 'The map is offline right now' : 'No map available'),
+);
 
 const copied = ref(false);
 const copyHostname = async () => {
