@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="loading inline-block" :style="{width, height}">&nbsp;</div>
+  <span class="loading inline-block" :style="{width, height}">&nbsp;</span>
 </template>
 
 <style scoped>
