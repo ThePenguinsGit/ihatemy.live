@@ -112,26 +112,25 @@ sitemap:
 ::
 
 ## Behind the scenes
+:::card
+## The nodes
 
-::row
-  :::card
-  ## The nodes
+What we currently run:
 
-  What we currently run:
+| CPU           | RAM         | Storage                |
+| ------------- | ----------- | ---------------------- |
+| Ryzen 7 9700X | 256 GB DDR5 | 4 × 2 TB NVMe (RAID 5) |
+| Ryzen 9 5900X | 128 GB DDR4 | 2 × 2 TB NVMe (RAID 1) |
+| Ryzen 9 5900X | 64 GB DDR4 | 1 × 2 TB NVMe |
+| 2x Xeon Gold 6138 | 256 GB DDR4 | 8 x 480 GB (RAID 10) |
+:::
 
-  | CPU           | RAM         | Storage                |
-  | ------------- | ----------- | ---------------------- |
-  | Ryzen 7 9700X | 256 GB DDR5 | 4 × 2 TB NVMe (RAID 5) |
-  | Ryzen 7 5800X | 128 GB DDR4 | 3 × 2 TB NVMe (RAID 5) |
-  :::
+:::card
+## How it's funded
 
-  :::card
-  ## How it's funded
+Most of it comes from your [donations](/docs/donations) on Ko-fi, which keep the
+servers and the rack space paid for!
 
-  Most of it comes from your [donations](/docs/donations) on Ko-fi, which keep the
-  servers and the rack space paid for!
-
-  New hardware is (historically) usually bought upfront by dukcc out of his own pocket, and the
-  donations chip away at that over time.
-  :::
-::
+New hardware is (historically) usually bought upfront by dukcc out of his own pocket, and the
+donations chip away at that over time.
+:::
