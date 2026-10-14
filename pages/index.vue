@@ -28,7 +28,7 @@
     </section>
 
     <!-- ── Logged-out pitch: what an account gets you ──────────── -->
-    <section v-if="!isLoggedIn">
+    <section v-if="!isLoggedIn" id="make-it-yours" class="scroll-mt-4">
       <SectionHeading title="Make it yours">
         <template #eyebrow>
           <span class="eyebrow !text-ice" title="some sacrifice might be required">no sacrifice required<sup>*</sup></span>
@@ -61,7 +61,7 @@
     </section>
 
     <!-- ── Logged in, but no Minecraft account linked yet ───────── -->
-    <section v-if="isLoggedIn && !isLinked">
+    <section v-if="isLoggedIn && !isLinked" id="link-account" class="scroll-mt-4">
       <SectionHeading title="Just one more step">
         <template #eyebrow>
           <span class="eyebrow !text-ice" title="some sacrifice might be required">the servers can't see you <span class="obf">yet</span></span>
@@ -97,8 +97,12 @@
           :data="data"
         />
         <NickSetting :uuid="minecraftUuid" :default-username="data?.data.userName ?? ''" />
+        <CosmeticLoadout :player-name="playerName" />
         <TokenHistory />
       </div>
+      <ClientOnly>
+        <CosmeticsDialog :player-name="playerName" />
+      </ClientOnly>
     </section>
 
     <!-- ── Session based data ──────────────────────────────────── -->
@@ -106,7 +110,7 @@
       <SectionHeading title="Your play" eyebrow="one sacrifice at a time" />
       <div class="flex flex-col gap-4">
         <SessionStats />
-        <Achievements />
+        <Achievements id="achievements" class="scroll-mt-4" />
         <SessionHistory />
       </div>
     </section>
@@ -234,6 +238,11 @@ const loginPerks = [
     body: 'Look back on every session and collect achievements for your finest sacrifices.',
   },
   {
+    icon: 'badge',
+    title: 'Badges & join messages',
+    body: 'Spend your tokens on a badge next to your name and your own join and leave lines.',
+  },
+  {
     icon: 'chain',
     title: 'Link accounts right here',
     body: 'Connect Discord and Minecraft on this site. Log in with both to get linked, easy as going into the Player-Explosion-Chamber®.',
@@ -255,6 +264,20 @@ watch(minecraftUuid, (uuid) => {
   if (uuid) refresh()
   else data.value = null
 }, { immediate: true })
+
+// The name cosmetics previews put on the chat line.
+const playerName = computed(() => data.value?.data.userName ?? user.value?.name ?? 'You')
+
+// A ?cosmetics= link for someone who can't open the dialog yet: drop the param
+// and show them the card that gets them there instead.
+const { requested: cosmeticsRequested, close: closeCosmetics } = useCosmeticsDialog()
+onMounted(async () => {
+  if (!cosmeticsRequested.value || isLinked.value) return
+  await closeCosmetics()
+  document.getElementById(isLoggedIn.value ? 'link-account' : 'make-it-yours')?.scrollIntoView({
+    behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+  })
+})
 
 let interval: ReturnType<typeof setInterval>
 

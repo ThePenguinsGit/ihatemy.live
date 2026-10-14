@@ -46,6 +46,16 @@
   --nav-hover: color-mix(in srgb, var(--color-ice) 22%, transparent);
   --nav-active: color-mix(in srgb, var(--color-ice) 34%, transparent);
   --divider: color-mix(in srgb, var(--color-ink) 10%, transparent);
+
+  /* In-game GUI surfaces (cosmetics, friends, party) */
+  /* Near-solid: these also sit on light .panel surfaces, where the vanilla
+     translucent black turns to mud. */
+  --chat-bg: color-mix(in srgb, var(--color-ink) 92%, transparent);
+  --chat-shadow: color-mix(in srgb, black 75%, transparent);
+  --mc-yellow: #ffff55;  /* §e, vanilla join/leave lines */
+  --mc-gray: #aaaaaa;    /* §7 */
+  --slot-face: color-mix(in srgb, var(--color-ink) 35%, var(--color-secondaryLight));
+  --slot-face-active: color-mix(in srgb, white 22%, var(--slot-face));
 }
 
 /* ── Signature: Minecraft-GUI beveled panel ─────────────────────── */
@@ -336,3 +346,33 @@ pre code {
 
     :is(h1, h2, h3, blockquote, pre, ul, ol) { margin: 0; }
 }
+
+/* ── In-game GUI pieces ─────────────────────────────────────────
+ * Borrowed from the Minecraft client so these features read as the
+ * game: the chat box (cosmetics preview), inventory slots (shop) and
+ * the Tab player list (friends, party). */
+
+/* Translucent chat box. Rendered MiniMessage inside keeps its own colors;
+   only the vanilla drop shadow is added. */
+.chat-box {
+    @apply font-[minecraft] text-white px-3 py-2;
+    background: var(--chat-bg);
+    text-shadow: 2px 2px 0 var(--chat-shadow);
+    line-height: 1.5;
+}
+
+/* Inventory slot: sunken square, lit from the bottom-right like the GUI.
+   `.is-active` = shown in the preview, `.is-equipped` = in use (the ice
+   hotbar-selector frame). */
+.mc-slot {
+    @apply relative grid place-items-center aspect-square cursor-pointer select-none;
+    background: var(--slot-face);
+    box-shadow:
+        inset 3px 3px 0 var(--panel-shadow-dark),
+        inset -3px -3px 0 var(--panel-highlight-dark);
+}
+.mc-slot:hover,
+.mc-slot.is-active { background: var(--slot-face-active); }
+.mc-slot.is-equipped { outline: 3px solid var(--color-ice); outline-offset: -3px; }
+.mc-slot:focus-visible { @apply outline-2 outline-offset-2; outline-color: var(--focus-ring); }
+.mc-slot.is-equipped:focus-visible { outline-width: 3px; outline-offset: 2px; }
