@@ -105,6 +105,18 @@
       </ClientOnly>
     </section>
 
+    <!-- ── Friends + party (logged in + linked only) ─────────────── -->
+    <section v-if="isLinked" id="people" class="scroll-mt-4">
+      <SectionHeading title="Your people" eyebrow="misery loves company" />
+      <div class="flex flex-col gap-4">
+        <ClientOnly><SocialInviteStrip /></ClientOnly>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
+          <SocialFriendsTabList />
+          <SocialPartyPanel />
+        </div>
+      </div>
+    </section>
+
     <!-- ── Session based data ──────────────────────────────────── -->
     <section v-if="isLinked">
       <SectionHeading title="Your play" eyebrow="one sacrifice at a time" />

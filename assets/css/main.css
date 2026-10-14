@@ -376,3 +376,20 @@ pre code {
 .mc-slot.is-equipped { outline: 3px solid var(--color-ice); outline-offset: -3px; }
 .mc-slot:focus-visible { @apply outline-2 outline-offset-2; outline-color: var(--focus-ring); }
 .mc-slot.is-equipped:focus-visible { outline-width: 3px; outline-offset: 2px; }
+
+/* Tab player list: dense dark rows, name left, server right. */
+.tab-list {
+    @apply font-[minecraft] text-white;
+    background: var(--chat-bg);
+    text-shadow: 2px 2px 0 var(--chat-shadow);
+}
+.tab-list > li + li {
+    border-top: 1px solid color-mix(in srgb, white 6%, transparent);
+}
+
+/* Square status pixel (online/offline), the player-list cousin of .live-dot. */
+.status-pixel {
+    @apply inline-block w-2 h-2 shrink-0;
+    background: var(--color-secondaryLight);
+}
+.status-pixel.is-online { background: var(--color-alive); }

@@ -14,11 +14,19 @@
         Lvl {{ level }}
       </span>
     </span>
+    <!-- Friend requests + party invites waiting on an answer -->
+    <NuxtLink
+      v-if="pendingCount > 0"
+      to="/#people"
+      class="font-[minecraft] text-sm leading-none px-1.5 py-1 text-ink bg-beak hover:bg-beakDark border-2 border-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ice"
+      :aria-label="`${pendingCount} friend ${pendingCount === 1 ? 'request or party invite' : 'requests and party invites'} waiting`"
+    >{{ pendingCount > 9 ? '9+' : pendingCount }}</NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
 const { user } = useUserSession()
+const { pendingCount } = useSocial()
 // Themed identity chip used in the navbar (desktop cluster + mobile menu).
 defineProps<{
   level?: number | null;
