@@ -1,78 +1,32 @@
 ---
-title: 'ATM10'
-description: 'All the Mods 10 server info for {siteName} - join at atm10.{siteDomain}. Chunkloading, farmworld, world borders, and banned items.'
-pageTitle: 'All the Mods 10'
+title: 'FEAR'
+description: 'Fear Nightfall: Remains of Chaos server info for {siteName} - join at fear.{siteDomain}. Medium-core deaths and server specifics.'
+pageTitle: 'Fear Nightfall: Remains of Chaos'
 seo:
-  title: 'All the Mods 10 Server'
-position: 3.0
+  title: 'Fear Nightfall: Remains of Chaos Server'
+position: 3.12
 ---
-::row
-
-::card
-|     |                             |
-|-----|-----------------------------|
-| IP  |    :server-host{short-name="atm10"}       |
-| Version  |   :server-version{short-name="atm10"}        |
-::
-
-::card
-## Chunkloaders
-To force-load chunks in your base (while any party member is online), go to the chunk claim menu and shift-left-click (right-click to delete)
-::
-
-::
-
-## The Farmworld
-Since we don't reset the Overworld we have a Farmworld which gets reset (and regenerated when the worldgen of the pack changes)  
-You can access it by running `/warp farmworld`
 
 ::row
-::card
+  :::card
+  |         |                 |
+  | ------- | --------------- |
+  | IP      | :server-host{short-name="fear"} |
+  | Version | :server-version{short-name="fear"} |
+  :::
+
+::
+
+## Medium-core
+
+This server runs medium-core! Every time you die you lose max hearts :br
+It stops at three hearts though, you can't go lower than that. :br
+Oz is 80% sure you can eat golden apples to restore them though!
+
 ## Worldborders
-Most(!) dimensions have a world border of 20k! (-10000, 10000 to 10000,-10000)  
-There are exceptions:
-### 25k:
-- The End
-### 10k:
-- The Other Side
-- The Bumblezone
-- The Twilight Forest
-- The Undergarden
-- The Aether
-::
-::card
-## Dimension Resets
-The following dimensions will reset every Monday at 13:00 CEST:
-- Twilight Forest
-- The Other Side
-- The Starlight
-- The Other
-- The Nether
-- The End
-- The Farmworld
-::
-::
 
-## Notes
-Please do keep in mind that loot chests in the world are per-player, per-chest so everyone has their own unique loot!  
-Also do keep in mind, that these world borders can always be expanded if we need more space!
+All dimensions have a world border of 20k! (-10000, 10000 to 10000,-10000) :br
+These can always be expanded if we need more space!
 
-## Banned Items
-- Applied Energistics 2: Spatial Anchor
-- Mekanism: Dimensional Stabilizer, Anchor Upgrade
-- Pneumaticcraft: Chunkloader Upgrade
-- Industrial Foregoing: Infinity Nuke
-- Modular Machinery Reborn: Chunkloader
-- Steve's Carts: Chunk Loader Module
-- Create: Schematicannon
-- Modular Force Field Systems: (most of it) (crash) :(
-- Justdirethings: Portalgun
-- Justdirethings: Portalgun_v2
-- Securitycraft: Briefcase
-- Railcraft: Personal World Spike
-- Railcraft: World Spike
-- Railcraft: World Spike Minecart
-- Oritech: Nuke
-- Oritech: Low Yield Nuke
-- Advancedperipherals: Chunk Controller
-- Building Gadgets 2: Template Manager
+## Spoopy changes
+5 Seconds warmup for teleports
