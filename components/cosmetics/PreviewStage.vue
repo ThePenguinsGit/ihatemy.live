@@ -3,7 +3,8 @@
     <p :key="`join-${join?.id ?? 'vanilla'}-${replay ?? 0}`" :class="lineClass('JOIN_MESSAGE')">
       <span v-if="join?.contentHtml" v-html="join.contentHtml" />
       <span v-else-if="join">{{ stripMiniMessage(join.content) }}</span>
-      <span v-else class="text-[var(--mc-yellow)]"><PlayerName /> joined the game</span>
+      <span v-else-if="defaultLine === 0" class="text-[var(--mc-yellow)]"><PlayerName /> joined {{ server }}!</span>
+      <span v-else class="text-[var(--mc-yellow)]"><PlayerName /> has descended upon {{ server }}!<span class="text-[var(--mc-red)]">RUN</span></span>
     </p>
 
     <!-- Join sounds play as you join, so they sit right under the join line -->
@@ -36,7 +37,8 @@
     <p :key="`leave-${leave?.id ?? 'vanilla'}`" :class="lineClass('LEAVE_MESSAGE')">
       <span v-if="leave?.contentHtml" v-html="leave.contentHtml" />
       <span v-else-if="leave">{{ stripMiniMessage(leave.content) }}</span>
-      <span v-else class="text-[var(--mc-yellow)]"><PlayerName /> left the game</span>
+      <span v-else-if="defaultLine === 0" class="text-[var(--mc-yellow)]"><PlayerName /> left!</span>
+      <span v-else class="text-[var(--mc-yellow)]"><PlayerName /> has abandoned us!</span>
     </p>
   </div>
 </template>
@@ -47,10 +49,11 @@ import type { CosmeticType } from '~/interfaces/CosmeticItemInterface';
 import { stripMiniMessage } from '~/utils/plainText';
 import { nickSegmentStyle } from '~/utils/nickRender';
 import Loading from '~/components/Loading.vue';
+import { servers } from '~/data/servers';
 
 // A fake chat log showing cosmetics the way they look in game. `contentHtml`
 // already has the player's name in place of <pengu_displayname>, so only the
-// vanilla fallback lines and the chat line need the name: the player's nick
+// default join/leave lines and the chat line need the name: the player's nick
 // when they have one, else `playerName`.
 const props = defineProps<{
   badge?: CosmeticItemInterface,
@@ -82,16 +85,29 @@ const randomMessage = (current: string) => {
   return others[Math.floor(Math.random() * others.length)] ?? current;
 };
 
-// The server and the browser both render the first message, so hydration
-// matches; the random pick happens once mounted.
+// Without a join/leave cosmetic the network has two default lines each; they
+// take turns, and the join lines name a random server by its shortname.
+const shortNames = servers.map(s => s.hostname.split('.')[0]!);
+const randomServer = (current: string) => {
+  const others = shortNames.filter(n => n !== current);
+  return others[Math.floor(Math.random() * others.length)] ?? current;
+};
+
+// The server and the browser both render the first message, line and server,
+// so hydration matches; the random picks happen once mounted.
 const message = ref<string>(messages[0]!);
+const defaultLine = ref(0);
+const server = ref<string>(shortNames[0]!);
 
 let interval: ReturnType<typeof setInterval> | undefined;
 
 onMounted(() => {
   message.value = randomMessage(message.value);
+  server.value = randomServer(server.value);
   interval = setInterval(() => {
     message.value = randomMessage(message.value);
+    defaultLine.value = 1 - defaultLine.value;
+    server.value = randomServer(server.value);
   }, 10000);
 });
 
@@ -103,7 +119,7 @@ const lineClass = (type: CosmeticType) =>
 const { segments, settled } = usePlayerNick();
 
 // The name as it shows in game: the nick with its own colors and formatting,
-// else the plain name in the line's color (yellow on vanilla join/leave
+// else the plain name in the line's color (yellow on the default join/leave
 // lines). A placeholder until the nick has loaded, so it doesn't flicker.
 // Obfuscated parts get the `obfuscated` class NickSetting already scrambles.
 const PlayerName = () => {

@@ -52,7 +52,8 @@
      translucent black turns to mud. */
   --chat-bg: color-mix(in srgb, var(--color-ink) 92%, transparent);
   --chat-shadow: color-mix(in srgb, black 75%, transparent);
-  --mc-yellow: #ffff55;  /* §e, vanilla join/leave lines */
+  --mc-yellow: #ffff55;  /* §e, default join/leave lines */
+  --mc-red: #ff5555;     /* §c */
   --mc-gray: #aaaaaa;    /* §7 */
   --slot-face: color-mix(in srgb, var(--color-ink) 35%, var(--color-secondaryLight));
   --slot-face-active: color-mix(in srgb, white 22%, var(--slot-face));
