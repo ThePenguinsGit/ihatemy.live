@@ -97,5 +97,7 @@ const saveNick = async () => {
     method: 'post',
     body: input.value
   })
+  // The cosmetics previews show the nick too.
+  await refreshNuxtData(PLAYER_NICK_KEY)
 }
 </script>

@@ -97,6 +97,7 @@
 <script setup lang="ts">
 import type { NickRun, NickPaint } from '~/interfaces/NickRun';
 import { unlocks, minTierFor, type DonationTier, type NickFeature } from '~/data/donationTiers';
+import { MC_HEX, nickSegments, nickStyleKey, toNickChars } from '~/utils/nickRender';
 
 const props = defineProps<{
   modelValue: string;
@@ -128,19 +129,9 @@ const active = ref<Record<DecoKey, boolean> & { paint: NickPaint | undefined }>(
 const gradA = ref('#ff0000');
 const gradB = ref('#0000ff');
 
-// Vanilla Minecraft named colors → hex, for on-screen rendering only.
-const MC_HEX: Record<string, string> = {
-  black: '#000000', dark_blue: '#0000AA', dark_green: '#00AA00', dark_aqua: '#00AAAA',
-  dark_red: '#AA0000', dark_purple: '#AA00AA', gold: '#FFAA00', gray: '#AAAAAA',
-  grey: '#AAAAAA', dark_gray: '#555555', dark_grey: '#555555', blue: '#5555FF',
-  green: '#55FF55', aqua: '#55FFFF', red: '#FF5555', light_purple: '#FF55FF',
-  yellow: '#FFFF55', white: '#FFFFFF',
-};
 const swatches = Object.entries(MC_HEX)
   .filter(([n]) => !['grey', 'dark_grey'].includes(n))
   .map(([name, hex]) => ({ name, hex }));
-
-const cssColor = (v: string) => (v.startsWith('#') ? v : MC_HEX[v.toLowerCase()] ?? v);
 
 const featureLabels: Record<NickFeature, string> = {
   color: 'Nickname colors', format: 'Nickname formatting', gradient: 'Nickname gradients',
@@ -157,18 +148,8 @@ const gate = (feature: NickFeature): boolean => {
 };
 
 // ── model <-> chars ────────────────────────────────────────────────────────
-const styleKey = (s: Style) => JSON.stringify({
-  b: !!s.bold, i: !!s.italic, u: !!s.underlined, s: !!s.strikethrough,
-  o: !!s.obfuscated, p: s.paint ?? null,
-});
-
-const toChars = (runs: NickRun[]): Char[] => {
-  const chars: Char[] = [];
-  for (const { text, ...style } of runs) {
-    for (let i = 0; i < text.length; i++) chars.push({ ch: text[i], style });
-  }
-  return chars;
-};
+const styleKey = nickStyleKey;
+const toChars = toNickChars;
 const fromChars = (chars: Char[]): NickRun[] => {
   const runs: NickRun[] = [];
   let lastKey = '';
@@ -179,57 +160,6 @@ const fromChars = (chars: Char[]): NickRun[] => {
     else { runs.push({ ...c.style, text: c.ch }); lastKey = key; }
   }
   return runs;
-};
-
-// ── per-character colors for gradient/rainbow ──────────────────────────────
-// Minecraft colors each character a single solid color; we mirror that instead
-// of a smooth CSS gradient. Colors are computed across the whole contiguous
-// paint span, so bolding part of it doesn't restart or shift the colors.
-const RAINBOW_SPAN = 300; // degrees of hue swept across a rainbow run
-
-const hexToRgb = (hex: string): [number, number, number] => {
-  const m = /^#?([0-9a-f]{6})$/i.exec(hex);
-  if (!m) return [255, 255, 255];
-  const n = parseInt(m[1], 16);
-  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
-};
-const rgbCss = (r: number, g: number, b: number) => `rgb(${r | 0}, ${g | 0}, ${b | 0})`;
-
-const gradientAt = (stops: string[], t: number): string => {
-  if (stops.length === 1) return stops[0];
-  const seg = t * (stops.length - 1);
-  const idx = Math.min(Math.floor(seg), stops.length - 2);
-  const f = seg - idx;
-  const a = hexToRgb(stops[idx]);
-  const b = hexToRgb(stops[idx + 1]);
-  return rgbCss(a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f, a[2] + (b[2] - a[2]) * f);
-};
-
-const samePaint = (a?: NickPaint, b?: NickPaint) =>
-  JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
-
-// One solid color per character (undefined = inherit white).
-const computeCharColors = (chars: Char[]): (string | undefined)[] => {
-  const out = new Array<string | undefined>(chars.length);
-  let i = 0;
-  while (i < chars.length) {
-    const paint = chars[i].style.paint;
-    if (!paint) { out[i++] = undefined; continue; }
-    if (paint.type === 'color') { out[i++] = cssColor(paint.value); continue; }
-    // gradient / rainbow: color each char by its position within the whole span
-    let j = i;
-    while (j < chars.length && samePaint(chars[j].style.paint, paint)) j++;
-    const n = j - i;
-    const stops = paint.type === 'gradient' ? paint.colors.map(cssColor) : [];
-    for (let k = 0; k < n; k++) {
-      const t = n <= 1 ? 0 : k / (n - 1);
-      out[i + k] = paint.type === 'rainbow'
-        ? `hsl(${Math.round(t * RAINBOW_SPAN)}, 90%, 60%)`
-        : gradientAt(stops, t);
-    }
-    i = j;
-  }
-  return out;
 };
 
 // ── DOM rendering + readback ───────────────────────────────────────────────
@@ -251,20 +181,9 @@ const makeSpan = (text: string, style: Style, color: string | undefined): HTMLSp
 const renderRuns = (runs: NickRun[]) => {
   const el = editable.value;
   if (!el) return;
-  const chars = toChars(runs);
-  const colors = computeCharColors(chars);
-  // Group into segments first, so each span is built once with its *full* text.
-  // (makeSpan stores that text in data-real for the scrambler — appending to an
-  // existing span's textContent would leave data-real holding only the 1st char.)
-  const segs: { text: string; style: Style; color?: string }[] = [];
-  let sig: string | null = null;
-  for (let i = 0; i < chars.length; i++) {
-    const color = colors[i];
-    const key = `${styleKey(chars[i].style)}|${color ?? ''}`;
-    const last = segs[segs.length - 1];
-    if (last && key === sig) last.text += chars[i].ch;
-    else { segs.push({ text: chars[i].ch, style: chars[i].style, color }); sig = key; }
-  }
+  // Segments carry each span's *full* text, so makeSpan's data-real (used by
+  // the scrambler) holds the whole run rather than its first character.
+  const segs = nickSegments(runs);
   el.replaceChildren(...segs.map((s) => makeSpan(s.text, s.style, s.color)));
 };
 
