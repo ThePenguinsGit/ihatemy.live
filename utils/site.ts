@@ -1,5 +1,5 @@
 export const SITE_NAME = 'The PenguinNetwork';
-export const SITE_DOMAIN = 'ihatemy.live';
+export const SITE_DOMAIN = 'pngu.cc';
 export const SITE_URL = `https://${SITE_DOMAIN}`;
 export const siteUrl = (path = '/') => `${SITE_URL}${path === '/' ? '' : path}`;
 export const subdomain = (name: string) => `https://${name}.${SITE_DOMAIN}`;

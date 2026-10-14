@@ -5,28 +5,28 @@ description: Help users join and play on The Penguin Network, a free public modd
 
 # The Penguin Network
 
-The Penguin Network (https://ihatemy.live) is a free, public modded Minecraft network. No whitelist, no paywall — players can join instantly.
+The Penguin Network (https://pngu.cc) is a free, public modded Minecraft network. No whitelist, no paywall — players can join instantly.
 
 ## Answering questions
 
-Fetch https://ihatemy.live/llms.txt for a structured overview with links to
+Fetch https://pngu.cc/llms.txt for a structured overview with links to
 every docs page (servers, getting started, ranks, rules, donations), or
-https://ihatemy.live/llms-full.txt for the complete documentation in one file.
+https://pngu.cc/llms-full.txt for the complete documentation in one file.
 
-Docs pages also negotiate content: request any https://ihatemy.live/docs/...
+Docs pages also negotiate content: request any https://pngu.cc/docs/...
 URL with `Accept: text/markdown` to get raw markdown instead of HTML.
 
 ## Joining a server
 
-Each modpack has its own server at `<pack>.ihatemy.live` (for example
-`atm10.ihatemy.live` for All The Mods 10). The current roster with pack
+Each modpack has its own server at `<pack>.pngu.cc` (for example
+`atm10.pngu.cc` for All The Mods 10). The current roster with pack
 versions is on the homepage (also available as markdown via
 `Accept: text/markdown`) and in each server's docs page under
-https://ihatemy.live/docs/servers/.
+https://pngu.cc/docs/servers/.
 
 ## Who is online right now
 
-`GET https://ihatemy.live/api/online-players` answers "is anyone playing?" for
+`GET https://pngu.cc/api/online-players` answers "is anyone playing?" for
 the whole network in a single unauthenticated request:
 
 ```json
@@ -39,7 +39,7 @@ the whole network in a single unauthenticated request:
     {
       "shortName": "atm10",
       "displayName": "All The Mods 10",
-      "joinAddress": "atm10.ihatemy.live",
+      "joinAddress": "atm10.pngu.cc",
       "version": "7.1",
       "online": true,
       "playersOnline": 3,
@@ -64,16 +64,16 @@ The rest of the public API also needs no authentication:
   live online state and player counts for one server. Only worth calling for a
   single named server; for a network overview use `/api/online-players` above.
 
-See https://ihatemy.live/.well-known/api-catalog (RFC 9727 linkset) for the
+See https://pngu.cc/.well-known/api-catalog (RFC 9727 linkset) for the
 API catalog.
 
 ## Browser agents
 
-Agents running inside a browser on https://ihatemy.live get the same actions as
+Agents running inside a browser on https://pngu.cc get the same actions as
 WebMCP tools (no fetching required): `list-servers`, `get-server-status`,
 `check-online-players`, and `list-docs`.
 
 ## Community
 
-Discord: https://ihatemy.live/discord (redirects to the invite). Account
+Discord: https://pngu.cc/discord (redirects to the invite). Account
 linking, ranks, and voting are documented in the Getting Started docs.

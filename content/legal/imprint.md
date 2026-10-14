@@ -9,8 +9,8 @@ Boettgerstr. 7
 Germany  
 
 ## Contact
-legal@ihatemy.live  
-https://ihatemy.live
+legal@penguinnet.work  
+https://pngu.cc
 
 ## VAT-ID
 VAT-ID number per § 27a UStG: DE326934606
