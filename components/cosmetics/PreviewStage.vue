@@ -4,7 +4,7 @@
       <span v-if="join?.contentHtml" v-html="join.contentHtml" />
       <span v-else-if="join">{{ stripMiniMessage(join.content) }}</span>
       <span v-else-if="defaultLine === 0" class="text-[var(--mc-yellow)]"><PlayerName /> joined {{ server }}!</span>
-      <span v-else class="text-[var(--mc-yellow)]"><PlayerName /> has descended upon {{ server }}!<span class="text-[var(--mc-red)]">RUN</span></span>
+      <span v-else class="text-[var(--mc-yellow)]"><PlayerName /> has descended upon {{ server }}! <span class="text-[var(--mc-red)]">RUN</span></span>
     </p>
 
     <!-- Join sounds play as you join, so they sit right under the join line -->
@@ -87,7 +87,7 @@ const randomMessage = (current: string) => {
 
 // Without a join/leave cosmetic the network has two default lines each; they
 // take turns, and the join lines name a random server by its shortname.
-const shortNames = servers.map(s => s.hostname.split('.')[0]!);
+const shortNames = servers.map(s => s.hostname.split('.')[0]!.toUpperCase());
 const randomServer = (current: string) => {
   const others = shortNames.filter(n => n !== current);
   return others[Math.floor(Math.random() * others.length)] ?? current;
