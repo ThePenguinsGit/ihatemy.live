@@ -29,4 +29,4 @@ All dimensions have a world border of 20k! (-10000, 10000 to 10000,-10000) :br
 These can always be expanded if we need more space!
 
 ## Spoopy changes
-5 Seconds warmup for teleports
+5 Seconds warmup for teleports, so fuck around and find out :)

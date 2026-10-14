@@ -25,6 +25,16 @@ Claims on here work with [Flan](https://modrinth.com/mod/flan), not the chunk cl
 - **Stick:** right-click a block to see if (and by whom) it's claimed
 - `/flan menu` opens the menu for the claim you're standing in, that's where you let your friends build or open chests
 
+## CV Special cases 
+
+Unlike our other servers this pack doesn't have FTB Essentials, so some commands are a bit different :br
+You can set new homes with `/home set <name>` and teleport to them with `/home tp <name>` :br
+You can get to the Farmworld with `/warp tp farmworld` instead :br
+Sadly there's no `/jump` alternative yet™ :br
+Instead of `/god` there is `/invuln` ... if you ever get there :br
+
+There's no chunk loading, _yet_™ :br
+
 ## Worldborders
 
 All dimensions have a world border of 20k! (-10000, 10000 to 10000,-10000) :br
