@@ -122,7 +122,7 @@ What we currently run:
 | Ryzen 7 9700X | 256 GB DDR5 | 4 × 2 TB NVMe (RAID 5) |
 | Ryzen 9 5900X | 128 GB DDR4 | 2 × 2 TB NVMe (RAID 1) |
 | Ryzen 9 5900X | 64 GB DDR4 | 1 × 2 TB NVMe |
-| 2x Xeon Gold 6138 | 256 GB DDR4 | 8 x 480 GB (RAID 10) |
+| 2x Xeon Gold 6152 | 256 GB DDR4 | 8 x 480 GB (RAID 10) |
 :::
 
 :::card
